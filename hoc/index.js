@@ -1,0 +1,3 @@
+const hoc = () => {
+  return;
+}
