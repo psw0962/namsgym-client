@@ -2,6 +2,8 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import logo from 'public/png/logo.png';
+import ImageWrapper from './image-wrapper';
+import Font from './font';
 
 const BusinessInfo = () => {
   const router = useRouter();
@@ -9,8 +11,11 @@ const BusinessInfo = () => {
   return (
     <Frame>
       <LogoSection>
-        <Image src={logo} alt="logo" />
-        <CustomFont>남다른 몸 남다른 삶</CustomFont>
+        <CustomFont fontSize="3rem" fontWeight="500" margin="0 0 2rem 0"><span className='first'>남다른 몸</span> <span className='second'>남다른 삶</span></CustomFont>
+
+        <ImageWrapper>
+          <Image src={logo} alt="logo" />
+        </ImageWrapper>
       </LogoSection>
 
       <BusinessInfoSection>
@@ -62,12 +67,47 @@ const BusinessInfoSection = styled.section`
   flex-direction: column;
 `;
 
-const CustomFont = styled.p`
-  display: flex;
-  align-items: flex-start;
-  font-size: 4rem;
-  font-weight: 800;
-  margin-top: 6rem;
+const CustomFont = styled(Font)`
+  .first {
+    color: #FB4264;
+  text-shadow: 0 0 3vw #F40A35;
+
+    @keyframes first {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #272424, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+    color: #FED128;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+    color: #806914;
+  }
+}
+
+  animation: first 1s ease infinite;
+  -moz-animation: first 1s ease infinite;
+  -webkit-animation: first 1s ease infinite;
+  }
+
+  .second {
+    @keyframes flux {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+    color: #28D7FE;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+    color: #146C80;
+  }
+}
+
+    animation: flux 2s linear infinite;
+  -moz-animation: flux 2s linear infinite;
+  -webkit-animation: flux 2s linear infinite;
+  -o-animation: flux 2s linear infinite;
+  }
+  
 `;
 
 const Button = styled.div`
