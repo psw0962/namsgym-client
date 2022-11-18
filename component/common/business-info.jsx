@@ -30,7 +30,7 @@ const BusinessInfo = () => {
           주소 : 서울시 강남구 테헤란로8길 22, 202동 143호
         </p>
         <p>
-          전화번호 : 02-558-5733
+          전화번호 : 02-558-573333
         </p>
       </BusinessInfoSection>
     </Frame>
