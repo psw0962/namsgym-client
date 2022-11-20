@@ -15,43 +15,49 @@ const MyApp = ({ Component, pageProps }) => {
   const { scrollEventState } = useScrollEvent();
 
   return (
-  <>
-    <Head>
-      <meta name="viewport" content="width=device-width, viewport-fit=cover, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=1" />
-    </Head>
+    <>
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, viewport-fit=cover, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=1"
+        />
+      </Head>
 
-    <GlobalStyle />
+      <GlobalStyle />
 
-    <QueryClientProvider client={queryClient}>
-      <Hydrate state={pageProps.dehydratedState}>
-        <RecoilRoot>
+      <QueryClientProvider client={queryClient}>
+        <Hydrate state={pageProps.dehydratedState}>
+          <RecoilRoot>
+            <Frame>
+              <BusinessInfo />
 
-          <Frame>
-            <BusinessInfo />
-
-            <AppFrame>
-              <div className='app-wrapper'>
-                  <TopNavigation scrollEventState={!scrollEventState}>top nav</TopNavigation>
+              <AppFrame>
+                <div className="app-wrapper">
+                  <TopNavigation scrollEventState={!scrollEventState}>
+                    top nav
+                  </TopNavigation>
 
                   <Component {...pageProps} />
 
                   <BottomNavigation>bottom nav</BottomNavigation>
-              </div>
-            </AppFrame>
-          </Frame>
-        </RecoilRoot>
-      </Hydrate>
-      <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
-    </QueryClientProvider>
-  </>
+                </div>
+              </AppFrame>
+            </Frame>
+          </RecoilRoot>
+        </Hydrate>
+        <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
+      </QueryClientProvider>
+    </>
   );
-}
+};
 
-export default MyApp
+export default MyApp;
 
 const Frame = styled.div`
   display: flex;
   justify-content: center;
+
+  background-color: #000;
 `;
 
 const AppFrame = styled.div`
@@ -64,14 +70,16 @@ const AppFrame = styled.div`
   }
 
   .app-wrapper {
+    background-color: #000;
+
     width: 100%;
     height: 100%;
     max-width: 450px;
     min-height: 100vh;
     margin: 0 auto;
-    box-shadow: rgb(0 0 0 / 16%) 0px 0px 8px;
+    /* box-shadow: rgb(0 0 0 / 16%) 0px 0px 8px; */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
 
-      
     // top nav의 높이만큼
     padding-top: 48px;
 
@@ -79,7 +87,7 @@ const AppFrame = styled.div`
     padding-bottom: 65px;
 
     // isLoading
-    ${(props) => {
+    ${props => {
       if (props.isLoading) {
         return css`
           justify-content: center;
@@ -91,25 +99,25 @@ const AppFrame = styled.div`
 `;
 
 const TopNavigation = styled.div`
-  visibility: ${props => props.scrollEventState ? 'visible' : 'hidden'};
-  opacity: ${props => props.scrollEventState ? '1' : '0'};
+  visibility: ${props => (props.scrollEventState ? 'visible' : 'hidden')};
+  opacity: ${props => (props.scrollEventState ? '1' : '0')};
   transition: all 0.3s;
 
   position: fixed;
   top: 0;
-  border: 1px solid red;
   width: 100%;
   max-width: 450px;
   height: 48px;
-  background-color: #fff;
+  /* background-color: #fff; */
+  background-color: #000;
 `;
 
 const BottomNavigation = styled.div`
   position: fixed;
   bottom: 0;
-  border: 1px solid red;
   width: 100%;
   max-width: 450px;
   height: 65px;
-  background-color: #fff;
+  /* background-color: #fff; */
+  background-color: #000;
 `;

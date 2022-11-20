@@ -7,14 +7,14 @@ const CommonButton = styled.button`
   align-items: center;
   cursor: pointer;
   gap: ${({ theme }) => theme.spacing.spacing6};
-  border-radius: ${(props) => (props.size === 'xsmall' ? '50px' : '3px')};
+  border-radius: ${props => (props.size === 'xsmall' ? '50px' : '3px')};
 
   &:disabled {
     cursor: default;
   }
 
   // color
-  ${(props) => {
+  ${props => {
     switch (props.color) {
       case 'black':
         return css`
@@ -48,7 +48,7 @@ const CommonButton = styled.button`
   }}
 
   // size
-  ${(props) => {
+  ${props => {
     switch (props.size) {
       case 'large':
         return css`
@@ -74,8 +74,8 @@ const CommonButton = styled.button`
   }}
 `;
 
-const Button = (props) => {
+const Button = props => {
   return <CommonButton {...props}>{props.children}</CommonButton>;
 };
 
-export default Button
+export default Button;

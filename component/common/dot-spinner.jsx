@@ -1,10 +1,13 @@
-import styled from 'styled-components';
-
-
+import styled from "styled-components";
 
 const DotSpinner = ({ width, height, marginRight, dotColor }) => {
   return (
-    <Spinner width={width} height={height} marginRight={marginRight} dotColor={dotColor}>
+    <Spinner
+      width={width}
+      height={height}
+      marginRight={marginRight}
+      dotColor={dotColor}
+    >
       <div className="bounce1"></div>
       <div className="bounce2"></div>
       <div className="bounce3"></div>
@@ -14,13 +17,13 @@ const DotSpinner = ({ width, height, marginRight, dotColor }) => {
 
 export default DotSpinner;
 
-const Spinner = styled.div<Props>`
+const Spinner = styled.div`
   margin: 0 auto;
   text-align: center;
   div {
     width: ${({ width }) => `${width}px`};
     height: ${({ height }) => `${height}px`};
-    background-color: ${({ dotColor }) => (dotColor ? dotColor : '#fff')};
+    background-color: ${({ dotColor }) => (dotColor ? dotColor : "#fff")};
     &:not(&:last-child) {
       margin-right: ${({ marginRight }) => `${marginRight}px`};
     }

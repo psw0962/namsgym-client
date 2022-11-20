@@ -1,5 +1,5 @@
-import reset from 'styled-reset';
-import { createGlobalStyle } from 'styled-components';
+import reset from "styled-reset";
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -15,6 +15,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    background-color: #000;
+
     font-family: 'Noto Sans KR', sans-serif;
     box-sizing: border-box;
     overflow-x: hidden;
