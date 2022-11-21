@@ -7,12 +7,12 @@ import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { useRouter } from 'next/router';
 import BusinessInfo from 'component/common/business-info';
-import useScrollEvent from 'hooks/useScrollEvent';
+import TopNavigation from 'component/common/top-navigation';
+import BottomNavigation from 'component/common/bottom-navigation';
 
 const MyApp = ({ Component, pageProps }) => {
   const [queryClient] = React.useState(() => new QueryClient());
   const router = useRouter();
-  const { scrollEventState } = useScrollEvent();
 
   return (
     <>
@@ -33,13 +33,11 @@ const MyApp = ({ Component, pageProps }) => {
 
               <AppFrame>
                 <div className="app-wrapper">
-                  <TopNavigation scrollEventState={!scrollEventState}>
-                    top nav
-                  </TopNavigation>
+                  <TopNavigation />
 
                   <Component {...pageProps} />
 
-                  <BottomNavigation>bottom nav</BottomNavigation>
+                  <BottomNavigation />
                 </div>
               </AppFrame>
             </Frame>
@@ -56,8 +54,6 @@ export default MyApp;
 const Frame = styled.div`
   display: flex;
   justify-content: center;
-
-  background-color: #000;
 `;
 
 const AppFrame = styled.div`
@@ -70,18 +66,16 @@ const AppFrame = styled.div`
   }
 
   .app-wrapper {
-    background-color: #000;
-
     width: 100%;
     height: 100%;
     max-width: 450px;
     min-height: 100vh;
     margin: 0 auto;
-    /* box-shadow: rgb(0 0 0 / 16%) 0px 0px 8px; */
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+    box-shadow: rgb(0 0 0 / 16%) 0px 0px 8px;
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; */
 
     // top nav의 높이만큼
-    padding-top: 48px;
+    padding-top: 60px;
 
     // bottom nav 높이만큼
     padding-bottom: 65px;
@@ -96,28 +90,4 @@ const AppFrame = styled.div`
       }
     }}
   }
-`;
-
-const TopNavigation = styled.div`
-  visibility: ${props => (props.scrollEventState ? 'visible' : 'hidden')};
-  opacity: ${props => (props.scrollEventState ? '1' : '0')};
-  transition: all 0.3s;
-
-  position: fixed;
-  top: 0;
-  width: 100%;
-  max-width: 450px;
-  height: 48px;
-  /* background-color: #fff; */
-  background-color: #000;
-`;
-
-const BottomNavigation = styled.div`
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  max-width: 450px;
-  height: 65px;
-  /* background-color: #fff; */
-  background-color: #000;
 `;

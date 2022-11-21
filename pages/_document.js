@@ -76,6 +76,16 @@ export default class CustomDocument extends Document {
             name="twitter:image"
             content="https://www.ffeed.me/ffeed-thumbnail.jpeg"
           ></meta>
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              const theme = localStorage.getItem("theme");
+              if(!theme) document.documentElement.setAttribute("data-theme", "light");
+              if(theme) document.documentElement.setAttribute("data-theme", theme);
+            `,
+          }}
+        ></script>
         </Head>
 
         <body>

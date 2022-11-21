@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     font-size: 2.2vw;
+    transition: all 0.3s;
   }
 
   @media screen and (min-width: 450px) {
@@ -14,11 +15,19 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  body {
+  html[data-theme="dark"] {
     background-color: #000;
+    color: #fff;
+  }
 
-    font-family: 'Noto Sans KR', sans-serif;
+  html[data-theme="light"] {
+    background-color: #fff;
+    color: #000;
+  }
+
+  body {
     box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
     overflow-x: hidden;
 
     // android 환경 클릭 시 highlight 제거
@@ -26,15 +35,17 @@ const GlobalStyle = createGlobalStyle`
     -webkit-tap-highlight-color: rgba(0,0,0,0);
   }
 
+  nav {
+    box-sizing: border-box;
+  }
+
+  section {
+    box-sizing: border-box;
+  }
+
   a {
     color: inherit;
     text-decoration: none;
-  }
-
-  input, button {
-    background-color: transparent;
-    border: none;
-    outline: none;
   }
 
   input, textarea {
@@ -42,35 +53,6 @@ const GlobalStyle = createGlobalStyle`
     -webkit-user-select: auto;
     -ms-user-select: auto;
     user-select: auto;
-
-    width: 100%;
-    height: 100%;
-    font-weight: 500;
-    font-size: 1.6rem;
-    color: #000;
-    caret-color: #0004f3;
-
-    // textarea 크기 자동조절 막기
-    resize: none;
-
-    &::placeholder {
-      color: #1a1a1a;
-      opacity: 0.3;
-    }
-
-    // 자동완성 배경색 지우기
-    &:-webkit-autofill,
-    &:-webkit-autofill:hover,
-    &:-webkit-autofill:focus,
-    &:-webkit-autofill:active {
-      transition: background-color 5000s;
-    }
-
-    &[type="number"]::-webkit-outer-spin-button,
-    &[type="number"]::-webkit-inner-spin-button {
-     -webkit-appearance: none;
-     margin: 0;
-   }
   }
 `;
 

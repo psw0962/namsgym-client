@@ -13,6 +13,7 @@
     "date-fns": "^2.29.3",
     "eslint": "8.27.0",
     "next": "13.0.3",
+    "next-intercept-stdout": "^1.0.1",
     "query-string": "^7.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -21,7 +22,8 @@
     "react-slick": "^0.29.0",
     "recoil": "^0.7.6",
     "styled-components": "^5.3.6",
-    "styled-reset": "^4.4.2"
+    "styled-reset": "^4.4.2",
+    "use-local-storage": "^2.3.6"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^2.0.7",

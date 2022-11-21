@@ -1,32 +1,44 @@
+import React from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import logo from 'public/png/logo.png';
-import ImageWrapper from './image-wrapper';
-import Font from './font';
+import ImageWrapper from '@/component/common/image-wrapper';
+import Font from '@/component/common/font';
+import useThemeState from '@/hooks/useThemeState';
 
 const BusinessInfo = () => {
   const router = useRouter();
+  const { themeState } = useThemeState();
 
   return (
     <Frame>
       <LogoSection>
-        <CustomFont fontSize="3rem" fontWeight="500" margin="0 0 2rem 0">
+      {themeState === 'light' &&
+        <Font className="light-font" fontSize="3rem" fontWeight="700" margin="0 0 2rem 0">
+          <span>남다른 몸</span>{' '}
+          <span>남다른 삶</span>
+        </Font>}
+
+        {themeState === 'dark' && 
+        <NeonFont fontSize="3rem" fontWeight="500" margin="0 0 2rem 0">
           <span className="first">남다른 몸</span>{' '}
           <span className="second">남다른 삶</span>
-        </CustomFont>
+        </NeonFont>}
 
+        {themeState === 'light' && 
         <ImageWrapper>
-          {/* <Image src={logo} alt="logo" /> */}
-          <CustomFont
+          <Image src={logo} alt="logo" priority />
+        </ImageWrapper>}
+        
+        {themeState === 'dark' && <LogoFont
             color="#fff"
             fontSize="4rem"
             fontWeight="500"
             margin="0 0 2rem 0"
           >
             {`NAM'S GYM`}
-          </CustomFont>
-        </ImageWrapper>
+          </LogoFont>}
       </LogoSection>
 
       <BusinessInfoSection>
@@ -68,10 +80,7 @@ const BusinessInfoSection = styled.section`
   flex-direction: column;
 `;
 
-const CustomFont = styled(Font)`
-  font-family: 'Alfa Slab One', cursive;
-  white-space: nowrap;
-
+const NeonFont = styled(Font)`
   .first {
     color: #fb4264;
     text-shadow: 0 0 3vw #f40a35;
@@ -117,17 +126,7 @@ const CustomFont = styled(Font)`
   }
 `;
 
-const Button = styled.div`
-  width: 12rem;
-  height: 5rem;
-  padding: 1.8rem 3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 3rem 0 3rem 0;
-
-  cursor: pointer;
-  border-radius: 6px;
-  background-color: #fff;
+const LogoFont = styled(Font)`
+  font-family: 'Alfa Slab One', cursive;
   white-space: nowrap;
 `;
