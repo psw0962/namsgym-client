@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import GlobalStyle from 'styles/global-style';
 import Head from 'next/head';
@@ -11,7 +11,7 @@ import TopNavigation from 'component/common/top-navigation';
 import BottomNavigation from 'component/common/bottom-navigation';
 
 const MyApp = ({ Component, pageProps }) => {
-  const [queryClient] = React.useState(() => new QueryClient());
+  const [queryClient] = useState(() => new QueryClient());
   const router = useRouter();
 
   return (
