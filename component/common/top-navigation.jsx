@@ -5,7 +5,6 @@ import { useRecoilState } from 'recoil';
 import { themeStateAtom } from 'atoms';
 import ImageWrapper from '@/component/common/image-wrapper';
 import Font from '@/component/common/font';
-import logo from 'public/png/logo.png';
 import light from 'public/svg/light.svg';
 import dark from 'public/svg/dark.svg';
 
@@ -42,20 +41,24 @@ const TopNavigation = () => {
           {/* theme */}
           {themeState === 'light' &&
           <ImageWrapper className="theme" width={3.5} height={3.5} pointer={true} onClick={onClickTheme}>
-            <Image src={light} alt="light" priority />
+            <Image src={light} alt="light" priority={true} />
           </ImageWrapper>}
           
           {themeState === 'dark' &&
           <ImageWrapper className="theme" width={3.5} height={3.5} pointer={true} onClick={onClickTheme}>
-            <Image src={dark} alt="dark" priority />
+            <Image src={dark} alt="dark" priority={true} />
           </ImageWrapper>}
 
           {/* logo */}
           {themeState === 'light' &&
-          <ImageWrapper height={4.5} pointer={true}>
-            <Image src={logo} alt="logo" priority />
-          </ImageWrapper>
-          }
+          <LogoFont
+            color="#000"
+            fontSize="2rem"
+            fontWeight="500"
+            margin="0 0 2rem 0"
+          >
+           NAM'S <br /> GYM
+          </LogoFont>}
 
           {themeState === 'dark' && 
           <NeonFont fontSize="2rem" fontWeight="500">
@@ -141,4 +144,9 @@ const NeonFont = styled(Font)`
     -webkit-animation: second 2s linear infinite;
     -o-animation: second 2s linear infinite;
   }
+`;
+
+const LogoFont = styled(Font)`
+  font-family: 'Alfa Slab One', cursive;
+  text-align: center;
 `;

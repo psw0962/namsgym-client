@@ -6,7 +6,7 @@ const CommonButton = styled.button`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  gap: ${({ theme }) => theme.spacing.spacing6};
+  border: none;
   border-radius: ${props => (props.size === 'xsmall' ? '50px' : '3px')};
 
   &:disabled {
@@ -35,10 +35,10 @@ const CommonButton = styled.button`
             color: #d1d1d6;
           }
         `;
-      case 'blue':
+      case 'yellow':
         return css`
           color: #fff;
-          background-color: #0000f4;
+          background-color: #B49445;
           box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
           &:disabled {
             background-color: #d1d1d6;

@@ -22,6 +22,7 @@ export default class CustomDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap"
             rel="stylesheet"
           ></link>
+          
           <link
             href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap"
             rel="stylesheet"

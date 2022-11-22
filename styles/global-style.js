@@ -35,11 +35,7 @@ const GlobalStyle = createGlobalStyle`
     -webkit-tap-highlight-color: rgba(0,0,0,0);
   }
 
-  nav {
-    box-sizing: border-box;
-  }
-
-  section {
+  nav, section, main {
     box-sizing: border-box;
   }
 

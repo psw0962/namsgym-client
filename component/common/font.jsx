@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const CommonFont = styled.p`
-  color: ${props => (props.color ? props.color : '#000')};
+  color: ${props => (props.color ? props.color : '')};
   font-size: ${props => (props.fontSize ? props.fontSize : '1.6rem')};
   letter-spacing: ${props => (props.letterSpacing ? props.letterSpacing : 0)};
   line-height: ${props => (props.lineHeight ? props.lineHeight : '')};
