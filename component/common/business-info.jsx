@@ -14,40 +14,65 @@ const BusinessInfo = () => {
   return (
     <Frame>
       <LogoSection>
-      {themeState === 'light' &&
-        <Font fontSize="3rem" fontWeight="700" margin="0 0 2rem 0">
-          <span>남다른 몸</span>{' '}
-          <span>남다른 삶</span>
-        </Font>}
+        {themeState === 'light' && (
+          <Font fontSize="3rem" fontWeight="700" margin="0 0 2rem 0">
+            <span>남다른 몸</span> <span>남다른 삶</span>
+          </Font>
+        )}
 
-        {themeState === 'dark' && 
-        <NeonFont fontSize="3rem" fontWeight="500" margin="0 0 2rem 0">
-          <span className="first">남다른 몸</span>{' '}
-          <span className="second">남다른 삶</span>
-        </NeonFont>}
+        {themeState === 'dark' && (
+          <NeonFont fontSize="3rem" fontWeight="500" margin="0 0 2rem 0">
+            <span className="first">남다른 몸</span>{' '}
+            <span className="second">남다른 삶</span>
+          </NeonFont>
+        )}
 
-        {themeState === 'light' && 
-        <ImageWrapper>
-          <Image src={logo} alt="logo" priority={true} placeholder="blur" />
-        </ImageWrapper>}
-        
-        {themeState === 'dark' && <LogoFont
+        {themeState === 'light' && (
+          <ImageWrapper>
+            <Image src={logo} alt="logo" priority={true} placeholder="blur" />
+          </ImageWrapper>
+        )}
+
+        {themeState === 'dark' && (
+          <LogoFont
             color="#fff"
             fontSize="4rem"
             fontWeight="500"
             margin="0 0 2rem 0"
           >
             {`NAM'S GYM`}
-          </LogoFont>}
+          </LogoFont>
+        )}
       </LogoSection>
 
       <BusinessInfoSection>
-        <Font fontSize="1.2rem" fontWeight="700" margin="0 0 2rem 0">{`상호명 : 남스짐 컴퍼니`}</Font>
-        <Font fontSize="1.2rem" fontWeight="700" margin="0 0 2rem 0">사업자등록번호 : 000-00-00000</Font>
-        <Font fontSize="1.2rem" fontWeight="700" margin="0 0 2rem 0">대표자명 : 남건우</Font>
-        <Font fontSize="1.2rem" fontWeight="700" margin="0 0 2rem 0">주소 : 부천시 옥길동745-5 퀸즈파크 C동 617호</Font>
-        <Font fontSize="1.2rem" fontWeight="700" margin="0 0 2rem 0">전화번호 : 010-0000-0000 | 이메일 : admin@namsgym.com</Font>
-        <Font fontSize="1.2rem" fontWeight="700" margin="0 0 2rem 0" lineHeight="1.5">*본 페이지에 제공되는 모든 이미지는 남스짐의 고유한 재산 입니다.<br />무단으로 도용시 법적 처벌을 요구할 수 있습니다.</Font>
+        <Font
+          fontSize="1.2rem"
+          fontWeight="700"
+          margin="0 0 2rem 0"
+        >{`상호명 : 남스짐 컴퍼니`}</Font>
+        <Font fontSize="1.2rem" fontWeight="700" margin="0 0 2rem 0">
+          사업자등록번호 : 000-00-00000
+        </Font>
+        <Font fontSize="1.2rem" fontWeight="700" margin="0 0 2rem 0">
+          대표자명 : 남건우
+        </Font>
+        <Font fontSize="1.2rem" fontWeight="700" margin="0 0 2rem 0">
+          주소 : 부천시 옥길동745-5 퀸즈파크 C동 617호
+        </Font>
+        <Font fontSize="1.2rem" fontWeight="700" margin="0 0 2rem 0">
+          전화번호 : 010-0000-0000 | 이메일 : admin@namsgym.com
+        </Font>
+        <Font
+          fontSize="1.2rem"
+          fontWeight="700"
+          margin="0 0 2rem 0"
+          lineHeight="1.5"
+        >
+          *본 페이지에 제공되는 모든 이미지는 남스짐의 고유한 재산 입니다.
+          <br />
+          무단으로 도용시 법적 처벌을 요구할 수 있습니다.
+        </Font>
       </BusinessInfoSection>
     </Frame>
   );

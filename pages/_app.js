@@ -3,17 +3,24 @@ import styled from 'styled-components';
 import GlobalStyle from 'styles/global-style';
 import Head from 'next/head';
 import { RecoilRoot } from 'recoil';
+import { useRouter } from 'next/router';
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
-import { useRouter } from 'next/router';
 import BusinessInfo from 'component/common/business-info';
 import TopNavigation from 'component/common/top-navigation';
 import BottomNavigation from 'component/common/bottom-navigation';
 import AppWrapper from 'component/common/app-wrapper';
+import dynamic from 'next/dynamic';
+
+const Splash = dynamic(() => import('@/component/common/splash'), {
+  ssr: false,
+});
 
 const MyApp = ({ Component, pageProps }) => {
-  const [queryClient] = useState(() => new QueryClient());
   const router = useRouter();
+  const [queryClient] = useState(() => new QueryClient());
+
+  const [isSplash, setIsSplash] = useState(true);
 
   return (
     <>
@@ -29,19 +36,27 @@ const MyApp = ({ Component, pageProps }) => {
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
           <RecoilRoot>
-            <Frame>
-              <BusinessInfo />
+            <React.Fragment>
+              {isSplash ? (
+                <Splash setIsSplash={setIsSplash} />
+              ) : (
+                <Frame>
+                  <BusinessInfo />
 
-              <AppFrame>
-                <AppWrapper>
-                  <TopNavigation />
+                  <AppFrame>
+                    <AppWrapper>
+                      <TopNavigation />
 
-                  <Component {...pageProps} />
+                      <ComponentPaddingWrapper>
+                        <Component {...pageProps} />
+                      </ComponentPaddingWrapper>
 
-                  <BottomNavigation />
-                </AppWrapper>
-              </AppFrame>
-            </Frame>
+                      <BottomNavigation />
+                    </AppWrapper>
+                  </AppFrame>
+                </Frame>
+              )}
+            </React.Fragment>
           </RecoilRoot>
         </Hydrate>
         <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
@@ -65,4 +80,8 @@ const AppFrame = styled.div`
   @media screen and (max-width: 1200px) {
     margin-left: 0;
   }
+`;
+
+const ComponentPaddingWrapper = styled.main`
+  padding: 21px;
 `;

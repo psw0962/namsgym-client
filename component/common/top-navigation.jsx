@@ -13,65 +13,82 @@ const TopNavigation = () => {
   const [themeState, setThemeState] = useRecoilState(themeStateAtom);
 
   const onClickTheme = () => {
-    if(!window.localStorage.getItem('theme')) {
+    if (!window.localStorage.getItem('theme')) {
       window.localStorage.setItem('theme', 'light');
       document.documentElement.dataset.theme = 'light';
       setThemeState('light');
       return;
     }
 
-    if(window.localStorage.getItem('theme') === 'light') {
+    if (window.localStorage.getItem('theme') === 'light') {
       window.localStorage.setItem('theme', 'dark');
       document.documentElement.dataset.theme = 'dark';
       setThemeState('dark');
       return;
     }
 
-    if(window.localStorage.getItem('theme') === 'dark') {
+    if (window.localStorage.getItem('theme') === 'dark') {
       window.localStorage.setItem('theme', 'light');
       document.documentElement.dataset.theme = 'light';
       setThemeState('light');
       return;
     }
-  }
+  };
 
   return (
-    <Frame scrollEventState={!scrollEventState}>
+    <Frame scrollEventState={!scrollEventState} themeState={themeState}>
       <NavigationWrapper>
-          {/* theme */}
-          {themeState === 'light' &&
-          <ImageWrapper className="theme" width={3.5} height={3.5} pointer={true} onClick={onClickTheme}>
+        {/* theme */}
+        {themeState === 'light' && (
+          <ImageWrapper
+            className="theme"
+            width={3.5}
+            height={3.5}
+            pointer={true}
+            onClick={onClickTheme}
+          >
             <Image src={light} alt="light" priority={true} />
-          </ImageWrapper>}
-          
-          {themeState === 'dark' &&
-          <ImageWrapper className="theme" width={3.5} height={3.5} pointer={true} onClick={onClickTheme}>
-            <Image src={dark} alt="dark" priority={true} />
-          </ImageWrapper>}
+          </ImageWrapper>
+        )}
 
-          {/* logo */}
-          {themeState === 'light' &&
+        {themeState === 'dark' && (
+          <ImageWrapper
+            className="theme"
+            width={3.5}
+            height={3.5}
+            pointer={true}
+            onClick={onClickTheme}
+          >
+            <Image src={dark} alt="dark" priority={true} />
+          </ImageWrapper>
+        )}
+
+        {/* logo */}
+        {themeState === 'light' && (
           <LogoFont
             color="#000"
             fontSize="2rem"
             fontWeight="500"
             margin="0 0 2rem 0"
           >
-           NAM'S <br /> GYM
-          </LogoFont>}
+            {`NAM'S`} <br /> GYM
+          </LogoFont>
+        )}
 
-          {themeState === 'dark' && 
+        {themeState === 'dark' && (
           <NeonFont fontSize="2rem" fontWeight="500">
-            <span className="first">NAMS</span><br />
+            <span className="first">NAMS</span>
+            <br />
             <span className="second">GYM</span>
-          </NeonFont>}
+          </NeonFont>
+        )}
 
-          {/* blank */}
-          <div style={{width: '100%'}}></div>
-        </NavigationWrapper>
-      </Frame>
-  )
-}
+        {/* blank */}
+        <div style={{ width: '100%' }}></div>
+      </NavigationWrapper>
+    </Frame>
+  );
+};
 
 export default TopNavigation;
 
@@ -86,6 +103,8 @@ const Frame = styled.nav`
   max-width: 450px;
   height: 60px;
   padding: 1rem;
+  background-color: ${props => (props.themeState === 'dark' ? '#000' : '#fff')};
+  z-index: 10;
 `;
 
 const NavigationWrapper = styled.div`
