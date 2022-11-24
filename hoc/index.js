@@ -1,3 +1,3 @@
-const hoc = () => {
+export const hoc = () => {
   return;
 };

@@ -22,7 +22,7 @@ export default class CustomDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap"
             rel="stylesheet"
           ></link>
-          
+
           <link
             href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap"
             rel="stylesheet"
@@ -78,15 +78,15 @@ export default class CustomDocument extends Document {
             content="https://www.ffeed.me/ffeed-thumbnail.jpeg"
           ></meta>
 
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
               const theme = localStorage.getItem("theme");
               if(!theme) document.documentElement.setAttribute("data-theme", "light");
               if(theme) document.documentElement.setAttribute("data-theme", theme);
             `,
-          }}
-        ></script>
+            }}
+          ></script>
         </Head>
 
         <body>

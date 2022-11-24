@@ -1,3 +1,0 @@
-const hooks = () => {
-  return;
-}

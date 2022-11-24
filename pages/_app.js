@@ -11,6 +11,8 @@ import TopNavigation from 'component/common/top-navigation';
 import BottomNavigation from 'component/common/bottom-navigation';
 import AppWrapper from 'component/common/app-wrapper';
 import dynamic from 'next/dynamic';
+import SnsButton from '@/component/common/sns-button';
+import { snsLogoImages } from '@/constant/home';
 
 const Splash = dynamic(() => import('@/component/common/splash'), {
   ssr: false,
@@ -49,6 +51,19 @@ const MyApp = ({ Component, pageProps }) => {
 
                       <ComponentPaddingWrapper>
                         <Component {...pageProps} />
+
+                        <SnsFrame>
+                          {snsLogoImages.map(item => {
+                            return (
+                              <SnsButton
+                                key={item.id}
+                                src={item.src}
+                                url={item.url}
+                                alt={item.alt}
+                              />
+                            );
+                          })}
+                        </SnsFrame>
                       </ComponentPaddingWrapper>
 
                       <BottomNavigation />
@@ -84,4 +99,20 @@ const AppFrame = styled.div`
 
 const ComponentPaddingWrapper = styled.main`
   padding: 21px;
+`;
+
+const SnsFrame = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-left: 35rem;
+  position: fixed;
+  bottom: 90px;
+  left: ${props => (props.width ? props.width : '')};
+  z-index: 100;
+
+  img {
+    border-radius: 100%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
 `;

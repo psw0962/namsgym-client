@@ -34,7 +34,7 @@ const Slick = ({ data }) => {
               height={30}
               onClick={() => console.log(item.id)}
             >
-              <Font fontSize="10px">
+              <Font fontSize="12px" fontWeight={700}>
                 {!activeSlide2 ? 1 : activeSlide2.activeSlide2 + 1} /{' '}
                 {data?.length}
               </Font>

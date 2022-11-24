@@ -1,3 +1,3 @@
-const functions = () => {
+export const functions = () => {
   return;
 };

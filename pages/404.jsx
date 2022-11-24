@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import styled from 'styled-components';
 import Font from 'component/common/font';
 import Button from 'component/common/button';
