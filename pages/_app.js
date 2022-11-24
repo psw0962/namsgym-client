@@ -13,6 +13,8 @@ import AppWrapper from 'component/common/app-wrapper';
 import dynamic from 'next/dynamic';
 import SnsButton from '@/component/common/sns-button';
 import { snsLogoImages } from '@/constant/home';
+import GlobalSpinner from '@/component/common/global-spinner';
+import usePageLoading from '@/hooks/usePageLoading';
 
 const Splash = dynamic(() => import('@/component/common/splash'), {
   ssr: false,
@@ -20,8 +22,8 @@ const Splash = dynamic(() => import('@/component/common/splash'), {
 
 const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();
+  const loading = usePageLoading();
   const [queryClient] = useState(() => new QueryClient());
-
   const [isSplash, setIsSplash] = useState(true);
 
   return (
@@ -46,25 +48,29 @@ const MyApp = ({ Component, pageProps }) => {
                   <BusinessInfo />
 
                   <AppFrame>
-                    <AppWrapper>
+                    <AppWrapper isLoading={loading}>
                       <TopNavigation />
 
-                      <ComponentPaddingWrapper>
-                        <Component {...pageProps} />
+                      {loading ? (
+                        <GlobalSpinner color="#B49445" />
+                      ) : (
+                        <ComponentPaddingWrapper>
+                          <Component {...pageProps} />
 
-                        <SnsFrame>
-                          {snsLogoImages.map(item => {
-                            return (
-                              <SnsButton
-                                key={item.id}
-                                src={item.src}
-                                url={item.url}
-                                alt={item.alt}
-                              />
-                            );
-                          })}
-                        </SnsFrame>
-                      </ComponentPaddingWrapper>
+                          <SnsFrame>
+                            {snsLogoImages.map(item => {
+                              return (
+                                <SnsButton
+                                  key={item.id}
+                                  src={item.src}
+                                  url={item.url}
+                                  alt={item.alt}
+                                />
+                              );
+                            })}
+                          </SnsFrame>
+                        </ComponentPaddingWrapper>
+                      )}
 
                       <BottomNavigation />
                     </AppWrapper>

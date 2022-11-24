@@ -24,16 +24,6 @@ const Frame = styled.div`
   padding-top: 100px;
 
   // bottom nav 높이만큼
-  /* padding-bottom: 65px; */
   padding-bottom: 0px;
-
-  // isLoading
-  /* ${props => {
-    if (props.isLoading) {
-      return css`
-        justify-content: center;
-        align-items: center;
-      `;
-    }
-  }} */
+  /* padding-bottom: 65px; */
 `;
