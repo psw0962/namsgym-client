@@ -47,7 +47,7 @@ const Slick = ({ data }) => {
         {data?.map((item, index) => {
           return (
             <CustomImageWrapper
-              key={item.id}
+              key={item.id ? item.id : index}
               height={30}
               onClick={e => {
                 if (dragging) {

@@ -175,6 +175,6 @@ const EtcMenuWrapper = styled.div`
   }
 
   p {
-    color: ${props => (props.themeState === 'dark' ? '#acacac' : '#000')};
+    color: ${props => (props.themeState === 'dark' ? '#fff' : '#000')};
   }
 `;
