@@ -4,7 +4,13 @@ const ImageWrapper = props => {
   const { width, height, onClick, className, pointer, children } = props;
 
   return (
-    <Frame className={className} width={width} height={height} pointer={pointer} onClick={onClick}>
+    <Frame
+      className={className}
+      width={width}
+      height={height}
+      pointer={pointer}
+      onClick={onClick}
+    >
       {children}
     </Frame>
   );

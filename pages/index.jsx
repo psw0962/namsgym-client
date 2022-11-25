@@ -5,6 +5,7 @@ import Slick from '@/component/common/slick';
 import FadeIn from 'react-fade-in';
 import Font from '@/component/common/font';
 import { motion } from 'framer-motion';
+import useThemeState from '@/hooks/useThemeState';
 import {
   eventSlickImages,
   mainImages,
@@ -13,6 +14,8 @@ import {
 } from '@/constant/home';
 
 const Home = () => {
+  const { themeState } = useThemeState();
+
   return (
     <Frame>
       <Slick data={eventSlickImages}></Slick>
@@ -53,48 +56,23 @@ const Home = () => {
         </motion.div>
       ))}
 
-      <FooterFrame>
-        <Font
-          color="#000"
-          fontSize="1.2rem"
-          fontWeight="700"
-          margin="0 0 2rem 0"
-        >
+      <FooterFrame themeState={themeState}>
+        <Font fontSize="1.2rem" fontWeight="700" margin="0 0 2rem 0">
           {`상호명 : 남스짐 컴퍼니`}
         </Font>
-        <Font
-          color="#000"
-          fontSize="1.2rem"
-          fontWeight="700"
-          margin="0 0 2rem 0"
-        >
+        <Font fontSize="1.2rem" fontWeight="700" margin="0 0 2rem 0">
           사업자등록번호 : 000-00-00000
         </Font>
-        <Font
-          color="#000"
-          fontSize="1.2rem"
-          fontWeight="700"
-          margin="0 0 2rem 0"
-        >
+        <Font fontSize="1.2rem" fontWeight="700" margin="0 0 2rem 0">
           대표자명 : 남건우
         </Font>
-        <Font
-          color="#000"
-          fontSize="1.2rem"
-          fontWeight="700"
-          margin="0 0 2rem 0"
-        >
+        <Font fontSize="1.2rem" fontWeight="700" margin="0 0 2rem 0">
           주소 : 부천시 옥길동745-5 퀸즈파크 C동 617호
         </Font>
-        <Font
-          color="#000"
-          fontSize="1.2rem"
-          fontWeight="700"
-          margin="0 0 2rem 0"
-        >
+        <Font fontSize="1.2rem" fontWeight="700" margin="0 0 2rem 0">
           전화번호 : 010-0000-0000 | 이메일 : admin@namsgym.com
         </Font>
-        <Font color="#000" fontSize="1.2rem" fontWeight="700" lineHeight="1.5">
+        <Font fontSize="1.2rem" fontWeight="700" lineHeight="1.5">
           *본 페이지에 제공되는 모든 이미지는 남스짐의 고유한 재산 입니다.
           <br />
           무단으로 도용시 법적 처벌을 요구할 수 있습니다.
@@ -127,6 +105,7 @@ const CustomImageWrapper = styled(ImageWrapper)`
 const FooterFrame = styled.footer`
   padding: 1.5rem;
   margin-top: 200px;
-  background-color: #f5f5f5;
+  background-color: ${props =>
+    props.themeState === 'dark' ? '#1E1E1E' : '#f5f5f5'};
   border-radius: 20px;
 `;

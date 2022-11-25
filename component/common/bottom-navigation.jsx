@@ -3,18 +3,18 @@ import styled from 'styled-components';
 import Font from '@/component/common/font';
 import ImageWrapper from '@/component/common/image-wrapper';
 import useThemeState from '@/hooks/useThemeState';
-import { home, center, event, column } from '@/public/svg';
+import { home, center, event, menu, review } from '@/public/svg';
 import { useRouter } from 'next/router';
 
 const BottomNavigation = () => {
   const router = useRouter();
-  const pathName = router?.pathname;
+  const pathName = router?.pathname.split('/')[1];
   const { themeState } = useThemeState();
 
   return (
     <Frame themeState={themeState}>
       <MenuWrapper
-        active={pathName === '/'}
+        active={pathName === ''}
         themeState={themeState}
         onClick={() => router.push('/')}
       >
@@ -23,7 +23,7 @@ const BottomNavigation = () => {
         </ImageWrapper>
 
         <NavigationFont
-          active={pathName === '/'}
+          active={pathName === ''}
           themeState={themeState}
           fontSize="1.2rem"
           fontWeight="500"
@@ -33,7 +33,7 @@ const BottomNavigation = () => {
       </MenuWrapper>
 
       <MenuWrapper
-        active={pathName === '/center'}
+        active={pathName === 'center'}
         themeState={themeState}
         onClick={() => router.push('/center')}
       >
@@ -42,7 +42,7 @@ const BottomNavigation = () => {
         </ImageWrapper>
 
         <NavigationFont
-          active={pathName === '/center'}
+          active={pathName === 'center'}
           themeState={themeState}
           fontSize="1.2rem"
           fontWeight="500"
@@ -52,7 +52,7 @@ const BottomNavigation = () => {
       </MenuWrapper>
 
       <MenuWrapper
-        active={pathName === '/event'}
+        active={pathName === 'event'}
         themeState={themeState}
         onClick={() => router.push('/event')}
       >
@@ -61,7 +61,7 @@ const BottomNavigation = () => {
         </ImageWrapper>
 
         <NavigationFont
-          active={pathName === '/event'}
+          active={pathName === 'event'}
           themeState={themeState}
           fontSize="1.2rem"
           fontWeight="500"
@@ -71,23 +71,36 @@ const BottomNavigation = () => {
       </MenuWrapper>
 
       <MenuWrapper
-        active={pathName === '/column'}
+        active={pathName === 'review'}
         themeState={themeState}
-        onClick={() => router.push('/column')}
+        onClick={() => router.push('/review')}
       >
         <ImageWrapper width={3} height={3}>
-          <Image src={column} alt="column" priority={true} loading="eager" />
+          <Image src={review} alt="review" priority={true} loading="eager" />
         </ImageWrapper>
 
         <NavigationFont
-          active={pathName === '/column'}
+          active={pathName === 'review'}
           themeState={themeState}
           fontSize="1.2rem"
           fontWeight="500"
         >
-          칼럼
+          리뷰
         </NavigationFont>
       </MenuWrapper>
+
+      <EtcMenuWrapper
+        themeState={themeState}
+        onClick={() => console.log('menu')}
+      >
+        <ImageWrapper width={3} height={3}>
+          <Image src={menu} alt="menu" priority={true} loading="eager" />
+        </ImageWrapper>
+
+        <Font fontSize="1.2rem" fontWeight="500">
+          기타메뉴
+        </Font>
+      </EtcMenuWrapper>
     </Frame>
   );
 };
@@ -138,4 +151,30 @@ const NavigationFont = styled(Font)`
       : props.active && props.themeState === 'light'
       ? '#000'
       : '#acacac'};
+`;
+
+const EtcMenuWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+
+  border: ${props =>
+    props.themeState === 'dark' ? '1px solid #acacac' : '1px solid #000'};
+
+  img {
+    filter: ${props =>
+      props.themeState === 'dark'
+        ? 'brightness(0) invert(1)'
+        : props.themeState === 'light'
+        ? '#000'
+        : 'drop-shadow(16px 16px 20px red) invert(75%)'};
+  }
+
+  p {
+    color: ${props => (props.themeState === 'dark' ? '#acacac' : '#000')};
+  }
 `;

@@ -38,7 +38,7 @@ const CommonButton = styled.button`
       case 'yellow':
         return css`
           color: #fff;
-          background-color: #B49445;
+          background-color: #b49445;
           box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
           &:disabled {
             background-color: #d1d1d6;

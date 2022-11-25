@@ -11,10 +11,10 @@ import {
   main_step_3,
 } from '@/public/png/main';
 
-// 메인 캐러셀 이미지
+// 메인 슬릭 이미지
 export const eventSlickImages = [
   { id: 1, src: event_1, url: '/' },
-  { id: 2, src: logo },
+  { id: 2, src: event_1, url: '/' },
 ];
 
 // 메인 소개 이미지

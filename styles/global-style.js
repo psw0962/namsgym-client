@@ -28,7 +28,6 @@ const GlobalStyle = createGlobalStyle`
   body {
     box-sizing: border-box;
     font-family: 'Noto Sans KR', sans-serif;
-    overflow-x: hidden;
 
     // android 환경 클릭 시 highlight 제거
     outline: none;
@@ -41,7 +40,7 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     color: inherit;
-    text-decoration: none;
+    /* text-decoration: none; */
   }
 
   input, textarea {

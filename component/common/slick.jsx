@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
 import Slider from 'react-slick';
@@ -6,10 +6,21 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import ImageWrapper from './image-wrapper';
 import Font from '@/component/common/font';
+import { useRouter } from 'next/router';
 
 const Slick = ({ data }) => {
+  const router = useRouter();
   const [activeSlide, setActiveSlide] = useState(0);
   const [activeSlide2, setActiveSlide2] = useState(0);
+  const [dragging, setDragging] = useState(false);
+
+  const handleBeforeChange = useCallback(() => {
+    setDragging(true);
+  }, [setDragging]);
+
+  const handleAfterChange = useCallback(() => {
+    setDragging(false);
+  }, [setDragging]);
 
   const settings = {
     dots: false,
@@ -19,8 +30,15 @@ const Slick = ({ data }) => {
     slidesToScroll: 1,
     speed: 100,
     autoplay: true,
-    beforeChange: (current, next) => setActiveSlide({ activeSlide: next }),
-    afterChange: current => setActiveSlide2({ activeSlide2: current }),
+    draggable: true,
+    beforeChange: (current, next) => {
+      handleBeforeChange();
+      setActiveSlide({ activeSlide: next });
+    },
+    afterChange: current => {
+      handleAfterChange();
+      setActiveSlide2({ activeSlide2: current });
+    },
   };
 
   return (
@@ -29,10 +47,28 @@ const Slick = ({ data }) => {
         {data?.map((item, index) => {
           return (
             <CustomImageWrapper
-              className="slick-image-wrapper"
               key={item.id}
               height={30}
-              onClick={() => console.log(item.id)}
+              onClick={e => {
+                if (dragging) {
+                  e.stopPropagation();
+                  return;
+                }
+                console.log(item.id);
+                // router.push(`/`);
+              }}
+              onMouseMove={() => {
+                setDragging(true);
+              }}
+              onMouseDown={() => {
+                setDragging(false);
+              }}
+              onTouchMove={() => {
+                setDragging(true);
+              }}
+              onTouchStart={() => {
+                setDragging(false);
+              }}
             >
               <Font fontSize="12px" fontWeight={700}>
                 {!activeSlide2 ? 1 : activeSlide2.activeSlide2 + 1} /{' '}
@@ -40,7 +76,6 @@ const Slick = ({ data }) => {
               </Font>
 
               <Image
-                className="slick-image"
                 src={item.src}
                 alt={`slick${index}`}
                 priority={true}
@@ -59,7 +94,6 @@ export default Slick;
 
 const Frame = styled.div`
   border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `;
 
 const CustomImageWrapper = styled(ImageWrapper)`
