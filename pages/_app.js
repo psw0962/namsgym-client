@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import GlobalStyle from 'styles/global-style';
 import Head from 'next/head';
 import { RecoilRoot } from 'recoil';
-import { useRouter } from 'next/router';
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import BusinessInfo from 'component/common/business-info';
@@ -21,7 +20,6 @@ const Splash = dynamic(() => import('@/component/common/splash'), {
 });
 
 const MyApp = ({ Component, pageProps }) => {
-  const router = useRouter();
   const loading = usePageLoading();
   const [queryClient] = useState(() => new QueryClient());
   const [isSplash, setIsSplash] = useState(true);
