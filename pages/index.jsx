@@ -70,7 +70,7 @@ const Home = () => {
           주소 : 부천시 옥길동745-5 퀸즈파크 C동 617호
         </Font>
         <Font fontSize="1.2rem" fontWeight="700" margin="0 0 2rem 0">
-          전화번호 : 010-0000-0000 | 이메일 : admin@namsgym.com
+          전화번호 : 010-0000-1234 | 이메일 : admin@namsgym.com
         </Font>
         <Font fontSize="1.2rem" fontWeight="700" lineHeight="1.5">
           *본 페이지에 제공되는 모든 이미지는 남스짐의 고유한 재산 입니다.
