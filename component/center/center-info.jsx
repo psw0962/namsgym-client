@@ -37,7 +37,7 @@ const CenterInfo = ({ centerData }) => {
                   src={item}
                   alt={`center1_${index + 1}`}
                   priority={true}
-                  quality={100}
+                  quality={80}
                   placeholder="blur"
                   blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
                 />

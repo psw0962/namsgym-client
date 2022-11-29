@@ -162,12 +162,6 @@ const Frame = styled.nav`
   background-color: ${props => (props.themeState === 'dark' ? '#000' : '#fff')};
   z-index: 10;
   transition: all 0.2s;
-
-  @media screen and (max-width: 450px) {
-    /* padding: 2rem 2rem 4.5rem 2rem; */
-    padding: ${props =>
-      props.scrollEventState ? '2rem 2rem 4.5rem 2rem' : '2rem'};
-  }
 `;
 
 const MenuWrapper = styled.div`

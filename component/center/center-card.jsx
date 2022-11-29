@@ -5,6 +5,7 @@ import Font from '@/component/common/font';
 import { useRouter } from 'next/router';
 import useThemeState from '@/hooks/useThemeState';
 import Slick from 'react-slick';
+import ImageWrapper from '@/component/common/image-wrapper';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -67,16 +68,20 @@ const CenterCard = ({ id, thumbNail, centerName, address }) => {
         <CustomSlick {...settings}>
           {thumbNail?.map((item, index) => {
             return (
-              <Image
-                key={index}
-                src={item}
-                alt={`slick${index}`}
-                priority={true}
-                quality={100}
-                width={300}
-                height={200}
-                blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
-              />
+              <CustomImageWrapper
+                key={`centerCard${index}`}
+                width={30}
+                height={20}
+              >
+                <Image
+                  src={item}
+                  alt={`slick${index}`}
+                  priority={true}
+                  quality={80}
+                  placeholder="blur"
+                  blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+                />
+              </CustomImageWrapper>
             );
           })}
         </CustomSlick>
@@ -118,6 +123,10 @@ const Frame = styled.div`
 const CustomSlick = styled(Slick)`
   display: flex;
   justify-content: center;
+
+  .slick-list {
+    border-radius: 20px;
+  }
 `;
 
 const Test = styled.div`
@@ -125,4 +134,10 @@ const Test = styled.div`
   display: flex;
   gap: 1rem;
   flex-direction: column;
+`;
+
+const CustomImageWrapper = styled(ImageWrapper)`
+  img {
+    /* border-radius: 20px; */
+  }
 `;
