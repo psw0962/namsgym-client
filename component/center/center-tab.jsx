@@ -8,8 +8,6 @@ const CenterTab = ({ tabState, setTabState }) => {
 
   return (
     <Frame>
-      {/* <div>센터사진, 운영시간, 위치카카오맵, 연락처</div> */}
-
       <div className="menu-wrapper">
         <CustomFont
           active={tabState === '소개'}

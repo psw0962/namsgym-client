@@ -68,11 +68,7 @@ const CenterCard = ({ id, thumbNail, centerName, address }) => {
         <CustomSlick {...settings}>
           {thumbNail?.map((item, index) => {
             return (
-              <CustomImageWrapper
-                key={`centerCard${index}`}
-                width={30}
-                height={20}
-              >
+              <ImageWrapper key={`centerCard${index}`} width={30} height={20}>
                 <Image
                   src={item}
                   alt={`slick${index}`}
@@ -81,7 +77,7 @@ const CenterCard = ({ id, thumbNail, centerName, address }) => {
                   placeholder="blur"
                   blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
                 />
-              </CustomImageWrapper>
+              </ImageWrapper>
             );
           })}
         </CustomSlick>
@@ -125,7 +121,7 @@ const CustomSlick = styled(Slick)`
   justify-content: center;
 
   .slick-list {
-    border-radius: 20px;
+    border-radius: 10px;
   }
 `;
 
@@ -134,10 +130,4 @@ const Test = styled.div`
   display: flex;
   gap: 1rem;
   flex-direction: column;
-`;
-
-const CustomImageWrapper = styled(ImageWrapper)`
-  img {
-    /* border-radius: 20px; */
-  }
 `;

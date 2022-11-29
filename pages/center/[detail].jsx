@@ -5,6 +5,7 @@ import Font from '@/component/common/font';
 import makeCenterData from '@/function/makeCenterData';
 import CenterTab from '@/component/center/center-tab';
 import CenterInfo from '@/component/center/center-info';
+import CenterTrainers from '@/component/center/center-trainers';
 
 const CenterDetail = () => {
   const router = useRouter();
@@ -25,6 +26,7 @@ const CenterDetail = () => {
       <CenterTab tabState={tabState} setTabState={setTabState} />
 
       {tabState === '소개' && <CenterInfo centerData={centerData} />}
+      {tabState === '트레이너' && <CenterTrainers />}
     </Frame>
   );
 };

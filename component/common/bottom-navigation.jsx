@@ -44,7 +44,7 @@ const BottomNavigation = () => {
   return (
     <Frame themeState={themeState} scrollEventState={scrollEventState}>
       <Modal state={isMenuOpen} setState={setIsMenuOpen}>
-        <Font fontSize="1.6rem" fontWeight={700}>
+        <Font fontSize="1.6rem" fontWeight={700} color="#000">
           준비중 입니다.
         </Font>
       </Modal>
@@ -157,6 +157,7 @@ const EtcMenuWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 5px;
   padding: 0.5rem;
   border-radius: 10px;
   cursor: pointer;
