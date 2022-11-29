@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
-import Image from 'next/image';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import test from 'public/png/test.gif';
+import Font from '@/component/common/font';
 
 const Splash = ({ setIsSplash }) => {
   useEffect(() => {
@@ -26,14 +25,9 @@ const Splash = ({ setIsSplash }) => {
           transition={{ duration: 0.5 }}
         >
           <Frame>
-            <Image
-              src={test}
-              alt="logo"
-              priority={true}
-              quality={100}
-              width={300}
-              height={250}
-            />
+            <LogoFont color="#b49445" fontSize="5rem" fontWeight="500">
+              {`NAM'S`} <br /> GYM
+            </LogoFont>
           </Frame>
         </motion.div>
       )}
@@ -52,4 +46,9 @@ const Frame = styled.div`
   position: fixed;
   z-index: 100;
   background-color: #fff;
+`;
+
+const LogoFont = styled(Font)`
+  font-family: 'Alfa Slab One', cursive;
+  text-align: center;
 `;

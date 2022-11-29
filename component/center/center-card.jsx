@@ -7,7 +7,6 @@ import useThemeState from '@/hooks/useThemeState';
 import Slick from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import logo from 'public/png/logo.png';
 
 const CenterCard = ({ id, thumbNail, centerName, address }) => {
   const router = useRouter();
@@ -70,7 +69,7 @@ const CenterCard = ({ id, thumbNail, centerName, address }) => {
             return (
               <Image
                 key={index}
-                src={item || logo}
+                src={item}
                 alt={`slick${index}`}
                 priority={true}
                 quality={100}

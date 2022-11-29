@@ -80,7 +80,7 @@ const TopNavigation = () => {
         {/* logo */}
         {themeState === 'light' && (
           <LogoFont
-            color="#000"
+            color="#b49445"
             fontSize="2rem"
             fontWeight="500"
             margin="0 0 2rem 0"

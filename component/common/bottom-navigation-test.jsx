@@ -173,7 +173,6 @@ const Frame = styled.nav`
 const MenuWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 5px;
   cursor: pointer;
@@ -181,20 +180,21 @@ const MenuWrapper = styled.div`
 
   img {
     filter: ${props =>
-      props.themeState === 'dark' ? 'brightness(0) invert(1)' : '#000'};
+      props.active && props.themeState === 'dark'
+        ? 'brightness(0) invert(1)'
+        : props.active && props.themeState === 'light'
+        ? '#000'
+        : 'drop-shadow(16px 16px 20px red) invert(75%)'};
   }
-
-  border: ${props =>
-    props.active && props.themeState === 'dark'
-      ? '1px solid #fff'
-      : props.active && props.themeState === 'light'
-      ? '1px solid #000'
-      : ''};
-  border-radius: 10px;
 `;
 
 const NavigationFont = styled(Font)`
-  color: ${props => (props.themeState === 'dark' ? '#fff' : '#000')};
+  color: ${props =>
+    props.active && props.themeState === 'dark'
+      ? '#fff'
+      : props.active && props.themeState === 'light'
+      ? '#000'
+      : '#acacac'};
 `;
 
 const EtcMenuWrapper = styled.div`
@@ -205,6 +205,9 @@ const EtcMenuWrapper = styled.div`
   padding: 0.5rem;
   border-radius: 10px;
   cursor: pointer;
+
+  border: ${props =>
+    props.themeState === 'dark' ? '1px solid #acacac' : '1px solid #000'};
 
   img {
     filter: ${props =>
