@@ -74,9 +74,9 @@ const CenterCard = ({ id, thumbNail, centerName, address }) => {
                 alt={`slick${index}`}
                 priority={true}
                 quality={100}
-                loading="eager"
                 width={300}
                 height={200}
+                blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
               />
             );
           })}
@@ -110,11 +110,6 @@ const Frame = styled.div`
     props.themeState === 'dark' ? '#1E1E1E' : '#fff'};
   border-radius: 10px;
   cursor: pointer;
-
-  &:hover {
-    transform: translateY(-30px);
-    transition: all 0.2s;
-  }
 
   img {
     border-radius: 10px;

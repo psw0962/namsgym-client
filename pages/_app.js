@@ -29,7 +29,8 @@ const MyApp = ({ Component, pageProps }) => {
       <Head>
         <meta
           name="viewport"
-          content="width=device-width, viewport-fit=cover, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=1"
+          // content="width=device-width, viewport-fit=cover, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=1"
+          content="initial-scale=1.0, user-scalable=no, maximum-scale=1, width=device-width"
         />
       </Head>
 

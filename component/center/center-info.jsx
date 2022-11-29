@@ -6,6 +6,7 @@ import { useDraggable } from 'react-use-draggable-scroll';
 import KaKaoMap from '@/component/common/kakao-map';
 import Font from '@/component/common/font';
 import Button from '@/component/common/button';
+import logo from 'public/png/logo.png';
 
 const CenterInfo = ({ centerData }) => {
   const scrollRef = useRef();
@@ -33,7 +34,14 @@ const CenterInfo = ({ centerData }) => {
           {centerData?.centerImages?.map((item, index) => {
             return (
               <CustomImageWrapper key={index} width={30} height={40}>
-                <Image src={item} alt={`center1_${index + 1}`} />
+                <Image
+                  src={item}
+                  alt={`center1_${index + 1}`}
+                  priority={true}
+                  quality={100}
+                  placeholder="blur"
+                  blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+                />
               </CustomImageWrapper>
             );
           })}

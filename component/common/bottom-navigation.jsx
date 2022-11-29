@@ -5,6 +5,7 @@ import ImageWrapper from '@/component/common/image-wrapper';
 import useThemeState from '@/hooks/useThemeState';
 import { home, center, event, menu, review } from '@/public/svg';
 import { useRouter } from 'next/router';
+import logo from 'public/png/logo.png';
 
 const BottomNavigation = () => {
   const router = useRouter();
@@ -19,7 +20,14 @@ const BottomNavigation = () => {
         onClick={() => router.push('/')}
       >
         <ImageWrapper width={3} height={3}>
-          <Image src={home} alt="home" priority={true} loading="eager" />
+          <Image
+            src={home}
+            alt="home"
+            priority={true}
+            quality={100}
+            placeholder="blur"
+            blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+          />
         </ImageWrapper>
 
         <NavigationFont
@@ -38,7 +46,14 @@ const BottomNavigation = () => {
         onClick={() => router.push('/center')}
       >
         <ImageWrapper width={3} height={3}>
-          <Image src={center} alt="center" priority={true} loading="eager" />
+          <Image
+            src={center}
+            alt="center"
+            priority={true}
+            quality={100}
+            placeholder="blur"
+            blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+          />
         </ImageWrapper>
 
         <NavigationFont
@@ -57,7 +72,14 @@ const BottomNavigation = () => {
         onClick={() => router.push('/event')}
       >
         <ImageWrapper width={3} height={3}>
-          <Image src={event} alt="event" priority={true} loading="eager" />
+          <Image
+            src={event}
+            alt="event"
+            priority={true}
+            quality={100}
+            placeholder="blur"
+            blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+          />
         </ImageWrapper>
 
         <NavigationFont
@@ -76,7 +98,14 @@ const BottomNavigation = () => {
         onClick={() => router.push('/review')}
       >
         <ImageWrapper width={3} height={3}>
-          <Image src={review} alt="review" priority={true} loading="eager" />
+          <Image
+            src={review}
+            alt="review"
+            priority={true}
+            quality={100}
+            placeholder="blur"
+            blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+          />
         </ImageWrapper>
 
         <NavigationFont
@@ -94,7 +123,14 @@ const BottomNavigation = () => {
         onClick={() => console.log('menu')}
       >
         <ImageWrapper width={3} height={3}>
-          <Image src={menu} alt="menu" priority={true} loading="eager" />
+          <Image
+            src={menu}
+            alt="menu"
+            priority={true}
+            quality={100}
+            placeholder="blur"
+            blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+          />
         </ImageWrapper>
 
         <Font fontSize="1.2rem" fontWeight="500">
@@ -116,7 +152,7 @@ const Frame = styled.nav`
   bottom: 0;
   width: 100%;
   max-width: 450px;
-  height: 65px;
+  height: 80px;
   padding: 2rem;
   box-shadow: ${props =>
     props.themeState === 'dark'
@@ -124,6 +160,11 @@ const Frame = styled.nav`
       : 'rgb(0 0 0 / 7%) 0px -1px 1px, rgb(87 16 238 / 3%) 0px -6px 12px'};
   background-color: ${props => (props.themeState === 'dark' ? '#000' : '#fff')};
   z-index: 10;
+  transition: all 0.2s;
+
+  @media screen and (max-width: 450px) {
+    padding: 2rem 2rem 4.5rem 2rem;
+  }
 `;
 
 const MenuWrapper = styled.div`
@@ -135,7 +176,21 @@ const MenuWrapper = styled.div`
   padding: 1rem;
 
   img {
+    /* filter: ${props =>
+      props.active && props.themeState === 'dark'
+        ? 'brightness(0) invert(1)'
+        : props.active && props.themeState === 'light'
+        ? '#000'
+        : 'drop-shadow(16px 16px 20px red) invert(75%)'}; */
+
     filter: ${props =>
+      props.active && props.themeState === 'dark'
+        ? 'brightness(0) invert(1)'
+        : props.active && props.themeState === 'light'
+        ? '#000'
+        : 'drop-shadow(16px 16px 20px red) invert(75%)'};
+
+    -webkit-filter: ${props =>
       props.active && props.themeState === 'dark'
         ? 'brightness(0) invert(1)'
         : props.active && props.themeState === 'light'

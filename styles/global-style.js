@@ -6,7 +6,7 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     font-size: 2.2vw;
-    transition: all 0.3s;
+    transition: background-color 0.2s;
   }
 
   @media screen and (min-width: 450px) {

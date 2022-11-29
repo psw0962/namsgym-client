@@ -7,6 +7,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import ImageWrapper from './image-wrapper';
 import Font from '@/component/common/font';
 import { useRouter } from 'next/router';
+import logo from 'public/png/logo.png';
 
 const Slick = ({ data }) => {
   const router = useRouter();
@@ -80,7 +81,8 @@ const Slick = ({ data }) => {
                 alt={`slick${index}`}
                 priority={true}
                 quality={100}
-                loading="eager"
+                placeholder="blur"
+                blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
               />
             </CustomImageWrapper>
           );

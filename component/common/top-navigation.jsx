@@ -7,6 +7,7 @@ import ImageWrapper from '@/component/common/image-wrapper';
 import Font from '@/component/common/font';
 import light from 'public/svg/light.svg';
 import dark from 'public/svg/dark.svg';
+import logo from 'public/png/logo.png';
 
 const TopNavigation = () => {
   const { scrollEventState } = useScrollEvent();
@@ -47,7 +48,14 @@ const TopNavigation = () => {
             pointer={true}
             onClick={onClickTheme}
           >
-            <Image src={light} alt="light" priority={true} />
+            <Image
+              src={light}
+              alt="light"
+              priority={true}
+              quality={100}
+              placeholder="blur"
+              blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+            />
           </ImageWrapper>
         )}
 
@@ -59,7 +67,14 @@ const TopNavigation = () => {
             pointer={true}
             onClick={onClickTheme}
           >
-            <Image src={dark} alt="dark" priority={true} />
+            <Image
+              src={dark}
+              alt="dark"
+              priority={true}
+              quality={100}
+              placeholder="blur"
+              blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+            />
           </ImageWrapper>
         )}
 
@@ -95,7 +110,7 @@ export default TopNavigation;
 const Frame = styled.nav`
   visibility: ${props => (props.scrollEventState ? 'visible' : 'hidden')};
   opacity: ${props => (props.scrollEventState ? '1' : '0')};
-  transition: all 0.3s;
+  transition: all 0.2s;
 
   position: fixed;
   top: 0;

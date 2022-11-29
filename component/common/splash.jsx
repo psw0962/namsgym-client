@@ -3,6 +3,7 @@ import Image from 'next/image';
 import logo from 'public/png/logo.png';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import test from 'public/png/test.gif';
 
 const Splash = ({ setIsSplash }) => {
   useEffect(() => {
@@ -26,7 +27,14 @@ const Splash = ({ setIsSplash }) => {
           transition={{ duration: 0.5 }}
         >
           <Frame>
-            <Image src={logo} alt="logo" />
+            <Image
+              src={test}
+              alt="logo"
+              priority={true}
+              quality={100}
+              width={300}
+              height={250}
+            />
           </Frame>
         </motion.div>
       )}

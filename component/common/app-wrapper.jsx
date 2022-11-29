@@ -22,8 +22,4 @@ const Frame = styled.div`
 
   // top nav의 높이 + 40px
   padding-top: 100px;
-
-  // bottom nav 높이만큼
-  padding-bottom: 0px;
-  /* padding-bottom: 65px; */
 `;
