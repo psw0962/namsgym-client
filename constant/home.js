@@ -1,5 +1,4 @@
 import event_1 from 'public/png/event/event_1.jpeg';
-import logo from 'public/png/logo.png';
 import kakaotalk from 'public/png/kakaotalk.png';
 import naverblog from 'public/png/naverblog.png';
 import {

@@ -5,7 +5,6 @@ import ImageWrapper from '@/component/common/image-wrapper';
 import useThemeState from '@/hooks/useThemeState';
 import { home, center, event, menu, review } from '@/public/svg';
 import { useRouter } from 'next/router';
-import logo from 'public/png/logo.png';
 
 const BottomNavigation = () => {
   const router = useRouter();

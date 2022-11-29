@@ -7,7 +7,6 @@ import ImageWrapper from '@/component/common/image-wrapper';
 import Font from '@/component/common/font';
 import light from 'public/svg/light.svg';
 import dark from 'public/svg/dark.svg';
-import logo from 'public/png/logo.png';
 
 const TopNavigation = () => {
   const { scrollEventState } = useScrollEvent();

@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import Image from 'next/image';
-import logo from 'public/png/logo.png';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import test from 'public/png/test.gif';

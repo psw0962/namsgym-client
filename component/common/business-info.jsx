@@ -1,14 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import logo from 'public/png/logo.png';
 import ImageWrapper from '@/component/common/image-wrapper';
 import Font from '@/component/common/font';
 import useThemeState from '@/hooks/useThemeState';
 
 const BusinessInfo = () => {
-  const router = useRouter();
+  // const router = useRouter();
   const { themeState } = useThemeState();
 
   return (

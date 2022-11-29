@@ -6,11 +6,10 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import ImageWrapper from './image-wrapper';
 import Font from '@/component/common/font';
-import { useRouter } from 'next/router';
-import logo from 'public/png/logo.png';
+// import { useRouter } from 'next/router';
 
 const Slick = ({ data }) => {
-  const router = useRouter();
+  // const router = useRouter();
   const [activeSlide, setActiveSlide] = useState(0);
   const [activeSlide2, setActiveSlide2] = useState(0);
   const [dragging, setDragging] = useState(false);

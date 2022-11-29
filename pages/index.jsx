@@ -12,7 +12,6 @@ import {
   mainStepImages,
   cardVariants,
 } from '@/constant/home';
-import logo from 'public/png/logo.png';
 
 const Home = () => {
   const { themeState } = useThemeState();

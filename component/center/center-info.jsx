@@ -6,7 +6,6 @@ import { useDraggable } from 'react-use-draggable-scroll';
 import KaKaoMap from '@/component/common/kakao-map';
 import Font from '@/component/common/font';
 import Button from '@/component/common/button';
-import logo from 'public/png/logo.png';
 
 const CenterInfo = ({ centerData }) => {
   const scrollRef = useRef();
