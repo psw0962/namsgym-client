@@ -113,7 +113,7 @@ const SnsFrame = styled.div`
   position: fixed;
   bottom: 90px;
   left: ${props => (props.width ? props.width : '')};
-  z-index: 100;
+  z-index: 50;
 
   img {
     border-radius: 100%;

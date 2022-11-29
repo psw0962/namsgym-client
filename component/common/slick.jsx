@@ -8,7 +8,7 @@ import ImageWrapper from './image-wrapper';
 import Font from '@/component/common/font';
 // import { useRouter } from 'next/router';
 
-const Slick = ({ data }) => {
+const Slick = ({ data, height }) => {
   // const router = useRouter();
   const [activeSlide, setActiveSlide] = useState(0);
   const [activeSlide2, setActiveSlide2] = useState(0);
@@ -48,7 +48,7 @@ const Slick = ({ data }) => {
           return (
             <CustomImageWrapper
               key={item.id ? item.id : index}
-              height={30}
+              height={height}
               onClick={e => {
                 if (dragging) {
                   e.stopPropagation();

@@ -1,83 +1,113 @@
-import { useState, useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import Font from '@/component/common/font';
+import useOnClickOutside from 'hooks/useOnClickOutside';
+import Button from './button';
 
-const Modal = ({ children }) => {
-  const [closeState, setCloseState] = useState(true);
-  const modalRef = useRef();
-
-  const CloseHandler = () => {
-    if (closeState) {
-      setCloseState(false);
-    } else {
-      setCloseState(true);
-    }
-  };
-
-  const handleClickOutside = event => {
-    if (modalRef.current && modalRef.current.contains(event.target)) {
-      setCloseState(false);
-    }
-  };
+const Modal = ({ state, setState, children }) => {
+  const moodalOpenInRef = useRef();
+  const modalOpenExceptRef = useRef();
+  useOnClickOutside({
+    inRef: moodalOpenInRef,
+    exceptRef: modalOpenExceptRef,
+    handler: () => {
+      setState('');
+    },
+  });
 
   useEffect(() => {
-    document.addEventListener('click', handleClickOutside, false);
-    return () => {
-      document.removeEventListener('click', handleClickOutside, false);
-    };
-  }, []);
+    if (state) {
+      document.body.style.overflowY = 'hidden';
+    } else {
+      document.body.style.overflowY = 'unset';
+    }
+  }, [state]);
 
   return (
-    <Background
-      active={closeState}
-      ref={modalRef}
-      onBlur={() => setCloseState(true)}
-    >
-      <ModalCard>
-        <CustomFont fontSize="1.4rem">닫기</CustomFont>
+    <Frame className={state ? 'slideUp' : 'slideDown'}>
+      <DialogFrame
+        ref={moodalOpenInRef}
+        className={state ? 'slideUp' : 'slideDown'}
+      >
+        {/* <p
+          onClick={() => {
+            setState(false);
+          }}
+        >
+          닫기
+        </p> */}
+        <p>{children}</p>
 
-        <ChildrenFrame>{children}</ChildrenFrame>
-      </ModalCard>
-    </Background>
+        <Button
+          color="black"
+          size="large"
+          onClick={() => {
+            setState(false);
+          }}
+        >
+          돌아가기
+        </Button>
+      </DialogFrame>
+    </Frame>
   );
 };
 
 export default Modal;
 
-const Background = styled.div`
-  display: ${props => (props.active ? 'flex' : 'none')};
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 100;
-`;
-
-const ModalCard = styled.div`
-  position: absolute;
-  top: 30%;
-  right: 50%;
-  padding: 5rem;
-  width: 60vw;
-  height: 60vh;
-  border-radius: 20px;
-  transform: translateY(-30%) translateX(50%);
-  background-color: #fff;
-`;
-
-const ChildrenFrame = styled.div`
+const Frame = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 50rem;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 103;
+  transition: all 0.2s ease-in-out;
+
+  &.slideUp {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &.slideDown {
+    opacity: 0;
+  }
 `;
 
-const CustomFont = styled(Font)`
+const DialogFrame = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  visibility: hidden;
   position: absolute;
-  top: 7%;
-  right: 5%;
-  cursor: pointer;
+  bottom: -300px;
+  width: 100%;
+  max-width: 450px;
+  height: 20rem;
+  padding: 2rem 2rem;
+  border-radius: 18px 18px 0px 0px;
+  background-color: #fff;
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+  z-index: 103;
+
+  &.slideUp {
+    visibility: visible;
+    opacity: 1;
+    bottom: 0px;
+  }
+
+  &.slideDown {
+    opacity: 0;
+  }
+
+  margin-left: 25vw;
+  @media screen and (max-width: 1200px) {
+    margin-left: 0;
+  }
 `;

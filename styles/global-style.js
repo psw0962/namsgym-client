@@ -26,7 +26,6 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    box-sizing: border-box;
     font-family: 'Noto Sans KR', sans-serif;
 
     // android 환경 클릭 시 highlight 제거
@@ -34,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
     -webkit-tap-highlight-color: rgba(0,0,0,0);
   }
 
-  nav, section, main, footer {
+  nav, section, main, footer, div {
     box-sizing: border-box;
   }
 

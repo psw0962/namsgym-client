@@ -2,12 +2,18 @@ import styled from 'styled-components';
 import CenterCard from '@/component/center/center-card';
 import { centerCardData } from '@/constant/center/index';
 import Button from '@/component/common/button';
-import React from 'react';
+import React, { useState } from 'react';
 import KaKaoMap from '@/component/common/kakao-map';
 import Font from '@/component/common/font';
 import FadeIn from 'react-fade-in';
 
 const Center = () => {
+  const [centerDataLength, setCenterDataLength] = useState(5);
+
+  const onClickMoreButton = () => {
+    setCenterDataLength(prev => prev + 5);
+  };
+
   return (
     <React.Fragment>
       <Font fontSize="2rem" margin="0 0 2rem 0">
@@ -16,7 +22,7 @@ const Center = () => {
 
       <FadeIn>
         <CenterCardFrame>
-          {centerCardData.map(item => {
+          {centerCardData.slice(0, centerDataLength).map(item => {
             return (
               <CenterCard
                 key={item.id}
@@ -30,11 +36,13 @@ const Center = () => {
         </CenterCardFrame>
       </FadeIn>
 
-      <ButtonWrapper>
-        <Button size="large" color="yellow">
-          더보기
-        </Button>
-      </ButtonWrapper>
+      {centerCardData.length > centerDataLength && (
+        <ButtonWrapper onClick={() => onClickMoreButton()}>
+          <Button size="large" color="yellow">
+            더보기
+          </Button>
+        </ButtonWrapper>
+      )}
 
       <Font fontSize="2rem" margin="10rem 0 2rem 0">
         남스짐 전체 지점현황{' '}
@@ -47,24 +55,45 @@ const Center = () => {
 
       <KaKaoMap
         locationData={[
-          { content: '1호점 안산 신길점', latlng: '안산 신길동710-2' },
-          { content: '2호점 부천 범안점', latlng: '부천 범박동 155-2' },
-          { content: '3호점 구로 오류점', latlng: '구로 오류로70' },
-          { content: '4호점 구로 천왕점', latlng: '구로 천왕로 36' },
-          { content: '5호점 시흥 능곡점', latlng: '시흥시 능곡동 747' },
           {
-            content: '6호점 부천 옥길점',
-            latlng: '부천 옥길동 745-5 퀸즈파크 C동',
+            content: centerCardData[0].centerName,
+            latlng: centerCardData[0].address,
           },
-          { content: '7호점 안산 고잔점', latlng: '안산시 단원구 원고잔로 17' },
           {
-            content: '8호점 군포 산본점',
-            latlng: '군포시 산본동 고산로691 도율빌딩',
+            content: centerCardData[1].centerName,
+            latlng: centerCardData[1].address,
           },
-          { content: '9호점 시흥 은행점', latlng: '경기도 시흥시 대은로 80' },
           {
-            content: '10호점 시흥 월곶점',
-            latlng: '경기도 시흥시 월곶중앙로 49',
+            content: centerCardData[2].centerName,
+            latlng: centerCardData[2].address,
+          },
+          {
+            content: centerCardData[3].centerName,
+            latlng: centerCardData[3].address,
+          },
+          {
+            content: centerCardData[4].centerName,
+            latlng: centerCardData[4].address,
+          },
+          {
+            content: centerCardData[5].centerName,
+            latlng: centerCardData[5].address,
+          },
+          {
+            content: centerCardData[6].centerName,
+            latlng: centerCardData[6].address,
+          },
+          {
+            content: centerCardData[7].centerName,
+            latlng: centerCardData[7].address,
+          },
+          {
+            content: centerCardData[8].centerName,
+            latlng: centerCardData[8].address,
+          },
+          {
+            content: centerCardData[9].centerName,
+            latlng: centerCardData[9].address,
           },
         ]}
         margin="0"

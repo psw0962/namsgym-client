@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import ImageWrapper from './image-wrapper';
-import logo from 'public/png/logo.png';
 
 const SnsButton = ({ src, url, alt }) => {
   return (

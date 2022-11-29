@@ -6,122 +6,83 @@ import useThemeState from '@/hooks/useThemeState';
 import { home, center, event, menu, review } from '@/public/svg';
 import { useRouter } from 'next/router';
 import useScrollEvent from 'hooks/useScrollEvent';
+import Modal from './modal';
+import { useState } from 'react';
+
+const bottomNavigationData = [
+  { id: 1, menu: '홈', iconUrl: home, routerPush: '/', pathName: '' },
+  {
+    id: 2,
+    menu: '센터소개',
+    iconUrl: center,
+    routerPush: '/center',
+    pathName: 'center',
+  },
+  {
+    id: 3,
+    menu: '리뷰',
+    iconUrl: review,
+    routerPush: '/review',
+    pathName: 'review',
+  },
+  {
+    id: 4,
+    menu: '이벤트',
+    iconUrl: event,
+    routerPush: '/event',
+    pathName: 'event',
+  },
+];
 
 const BottomNavigation = () => {
   const router = useRouter();
   const pathName = router?.pathname.split('/')[1];
   const { themeState } = useThemeState();
   const { scrollEventState } = useScrollEvent();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <Frame themeState={themeState} scrollEventState={scrollEventState}>
-      <MenuWrapper
-        active={pathName === ''}
-        themeState={themeState}
-        onClick={() => router.push('/')}
-      >
-        <ImageWrapper width={3} height={3}>
-          <Image
-            src={home}
-            alt="home"
-            priority={true}
-            quality={100}
-            placeholder="blur"
-            blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
-          />
-        </ImageWrapper>
+      <Modal state={isMenuOpen} setState={setIsMenuOpen}>
+        <Font fontSize="1.6rem" fontWeight={700}>
+          준비중 입니다.
+        </Font>
+      </Modal>
 
-        <NavigationFont
-          active={pathName === ''}
-          themeState={themeState}
-          fontSize="1.2rem"
-          fontWeight="500"
-        >
-          홈
-        </NavigationFont>
-      </MenuWrapper>
+      {bottomNavigationData.map(item => {
+        return (
+          <MenuWrapper
+            key={item.id}
+            active={pathName === item.pathName}
+            themeState={themeState}
+            onClick={() => router.push(item.routerPush)}
+          >
+            <ImageWrapper width={3} height={3}>
+              <Image
+                src={item.iconUrl}
+                alt={item.menu}
+                priority={true}
+                quality={100}
+                placeholder="blur"
+                blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+              />
+            </ImageWrapper>
 
-      <MenuWrapper
-        active={pathName === 'center'}
-        themeState={themeState}
-        onClick={() => router.push('/center')}
-      >
-        <ImageWrapper width={3} height={3}>
-          <Image
-            src={center}
-            alt="center"
-            priority={true}
-            quality={100}
-            placeholder="blur"
-            blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
-          />
-        </ImageWrapper>
-
-        <NavigationFont
-          active={pathName === 'center'}
-          themeState={themeState}
-          fontSize="1.2rem"
-          fontWeight="500"
-        >
-          센터소개
-        </NavigationFont>
-      </MenuWrapper>
-
-      <MenuWrapper
-        active={pathName === 'event'}
-        themeState={themeState}
-        onClick={() => router.push('/event')}
-      >
-        <ImageWrapper width={3} height={3}>
-          <Image
-            src={event}
-            alt="event"
-            priority={true}
-            quality={100}
-            placeholder="blur"
-            blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
-          />
-        </ImageWrapper>
-
-        <NavigationFont
-          active={pathName === 'event'}
-          themeState={themeState}
-          fontSize="1.2rem"
-          fontWeight="500"
-        >
-          이벤트
-        </NavigationFont>
-      </MenuWrapper>
-
-      <MenuWrapper
-        active={pathName === 'review'}
-        themeState={themeState}
-        onClick={() => router.push('/review')}
-      >
-        <ImageWrapper width={3} height={3}>
-          <Image
-            src={review}
-            alt="review"
-            priority={true}
-            quality={100}
-            placeholder="blur"
-            blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
-          />
-        </ImageWrapper>
-
-        <NavigationFont
-          active={pathName === 'review'}
-          themeState={themeState}
-          fontSize="1.2rem"
-          fontWeight="500"
-        >
-          리뷰
-        </NavigationFont>
-      </MenuWrapper>
+            <NavigationFont
+              active={pathName === item.pathName}
+              themeState={themeState}
+              fontSize="1.2rem"
+              fontWeight="500"
+            >
+              {item.menu}
+            </NavigationFont>
+          </MenuWrapper>
+        );
+      })}
 
       <EtcMenuWrapper
         themeState={themeState}
-        onClick={() => console.log('menu')}
+        onClick={() => setIsMenuOpen(true)}
       >
         <ImageWrapper width={3} height={3}>
           <Image

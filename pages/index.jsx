@@ -18,7 +18,7 @@ const Home = () => {
 
   return (
     <Frame>
-      <Slick data={eventSlickImages}></Slick>
+      <Slick data={eventSlickImages} height={40}></Slick>
 
       <FadeIn>
         <div>
