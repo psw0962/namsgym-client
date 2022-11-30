@@ -6,10 +6,8 @@ import { useRouter } from 'next/router';
 import useThemeState from '@/hooks/useThemeState';
 import Slick from 'react-slick';
 import ImageWrapper from '@/component/common/image-wrapper';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 
-const CenterCard = ({ id, thumbNail, centerName, address }) => {
+const CenterCard = ({ data }) => {
   const router = useRouter();
   const { themeState } = useThemeState();
   const [dragging, setDragging] = useState(false);
@@ -49,7 +47,7 @@ const CenterCard = ({ id, thumbNail, centerName, address }) => {
           return;
         }
 
-        router.push(`/center/${id}`);
+        router.push(`/center/${data?.id}`);
       }}
       onMouseMove={() => {
         setDragging(true);
@@ -66,7 +64,7 @@ const CenterCard = ({ id, thumbNail, centerName, address }) => {
     >
       <div style={{ width: '17.5rem' }}>
         <CustomSlick {...settings}>
-          {thumbNail?.map((item, index) => {
+          {data?.thumbNail?.map((item, index) => {
             return (
               <ImageWrapper key={`centerCard${index}`} width={30} height={20}>
                 <Image
@@ -83,15 +81,15 @@ const CenterCard = ({ id, thumbNail, centerName, address }) => {
         </CustomSlick>
       </div>
 
-      <Test>
+      <CenterInfoWrapper>
         <Font fontSize="1.6rem" fontWeight={700}>
-          {centerName}
+          {data?.centerName}
         </Font>
 
         <Font fontSize="1.2rem" fontWeight={700}>
-          {address}
+          {data?.address}
         </Font>
-      </Test>
+      </CenterInfoWrapper>
     </Frame>
   );
 };
@@ -125,7 +123,7 @@ const CustomSlick = styled(Slick)`
   }
 `;
 
-const Test = styled.div`
+const CenterInfoWrapper = styled.div`
   width: 100%;
   display: flex;
   gap: 1rem;

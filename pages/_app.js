@@ -14,6 +14,8 @@ import SnsButton from '@/component/common/sns-button';
 import { snsLogoImages } from '@/constant/home';
 import GlobalSpinner from '@/component/common/global-spinner';
 import usePageLoading from '@/hooks/usePageLoading';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const Splash = dynamic(() => import('@/component/common/splash'), {
   ssr: false,

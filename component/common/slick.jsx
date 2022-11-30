@@ -2,8 +2,7 @@ import React, { useState, useCallback } from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
 import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+
 import ImageWrapper from './image-wrapper';
 import Font from '@/component/common/font';
 // import { useRouter } from 'next/router';

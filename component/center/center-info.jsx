@@ -32,7 +32,7 @@ const CenterInfo = ({ centerData }) => {
         <div className="carousel-wrapper">
           {centerData?.centerImages?.map((item, index) => {
             return (
-              <CustomImageWrapper key={index} width={30} height={40}>
+              <CustomImageWrapper key={index} width={40} height={40}>
                 <Image
                   src={item}
                   alt={`center1_${index + 1}`}
