@@ -23,15 +23,7 @@ const Center = () => {
       <FadeIn>
         <CenterCardFrame>
           {centerCardData.slice(0, centerDataLength).map(item => {
-            return (
-              <CenterCard
-                key={item.id}
-                id={item.id}
-                thumbNail={item.thumbNail}
-                centerName={item.centerName}
-                address={item.address}
-              />
-            );
+            return <CenterCard key={item.id} data={item} />;
           })}
         </CenterCardFrame>
       </FadeIn>

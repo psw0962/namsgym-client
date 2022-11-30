@@ -35,7 +35,7 @@ const Modal = ({ state, setState, children }) => {
         >
           닫기
         </p> */}
-        <p>{children}</p>
+        <div>{children}</div>
 
         <Button
           color="black"

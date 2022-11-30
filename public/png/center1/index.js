@@ -2,6 +2,7 @@ import center1_1 from './center1_1.jpg';
 import center1_2 from './center1_2.jpg';
 import center1_3 from './center1_3.jpg';
 import center1_4 from './center1_4.jpg';
+
 import trainer1_1_1 from '@/public/png/center1/trainers/trainer1/trainer1_1.jpg';
 import trainer1_2_1 from '@/public/png/center1/trainers/trainer2/trainer2_1.jpg';
 import trainer1_3_1 from '@/public/png/center1/trainers/trainer3/trainer3_1.jpg';
