@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
 import useThemeState from '@/hooks/useThemeState';
@@ -8,6 +8,7 @@ import Slick from 'react-slick';
 
 const TrainerCard = ({ data }) => {
   const { themeState } = useThemeState();
+  const [playScroll, setPlayScroll] = useState('play');
 
   const settings = {
     dots: false,
@@ -68,17 +69,32 @@ const TrainerCard = ({ data }) => {
         </CustomSlick>
       </div>
 
-      <CustomFont
-        themeState={themeState}
-        fontSize="12px"
-        fontWeight={700}
-        margin="3rem 0 0 0"
-      >
-        자격사항
-      </CustomFont>
+      <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-end' }}>
+        <CustomFont
+          themeState={themeState}
+          fontSize="12px"
+          fontWeight={700}
+          margin="3rem 0 0 0"
+        >
+          자격사항
+        </CustomFont>
+
+        <CustomButton
+          themeState={themeState}
+          onClick={() => {
+            if (playScroll === 'play') {
+              setPlayScroll('stop');
+            } else {
+              setPlayScroll('play');
+            }
+          }}
+        >
+          {playScroll === 'stop' ? 'play' : 'stop'}
+        </CustomButton>
+      </div>
 
       <CarouselFrame>
-        <div className="carousel-wrapper">
+        <CarouselWrapper active={playScroll}>
           {data?.tags?.map((item, index) => {
             return (
               <div className="tag" key={index}>
@@ -86,7 +102,7 @@ const TrainerCard = ({ data }) => {
               </div>
             );
           })}
-        </div>
+        </CarouselWrapper>
       </CarouselFrame>
     </Frame>
   );
@@ -103,7 +119,7 @@ const Frame = styled.div`
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: ${props =>
     props.themeState === 'dark' ? '#1E1E1E' : '#fff'};
-  border-radius: 10px;
+  border-radius: 5px;
 
   img {
     border-radius: 5px;
@@ -144,7 +160,7 @@ const CustomSlick = styled(Slick)`
   align-items: center;
 
   .slick-list {
-    border-radius: 10px;
+    border-radius: 5px;
   }
 `;
 
@@ -153,40 +169,50 @@ const CarouselFrame = styled.div`
   width: 18rem;
   margin-top: 1rem;
   overflow-x: auto;
+  overflow-x: hidden;
   overflow-y: hidden;
 
   ::-webkit-scrollbar {
     display: none;
   }
+`;
 
-  .carousel-wrapper {
-    display: flex;
-    gap: 0.5rem;
+const CarouselWrapper = styled.div`
+  display: flex;
+  gap: 0.5rem;
 
-    @keyframes text-scroll {
-      from {
-        transform: translateX(20%);
-        -moz-transform: translateX(20%);
-        -webkit-transform: translateX(20%);
-        -o-transform: translateX(20%);
-        -ms-transform: translateX(20%);
-      }
-      to {
-        transform: translateX(-100%);
-        -moz-transform: translateX(-100%);
-        -webkit-transform: translateX(-100%);
-        -o-transform: translateX(-100%);
-        -ms-transform: translateX(-100%);
-      }
+  @keyframes tag-scroll {
+    from {
+      transform: translateX(20%);
+      -moz-transform: translateX(20%);
+      -webkit-transform: translateX(20%);
+      -o-transform: translateX(20%);
+      -ms-transform: translateX(20%);
     }
-    animation: text-scroll 15s linear infinite;
+    to {
+      transform: translateX(-100%);
+      -moz-transform: translateX(-100%);
+      -webkit-transform: translateX(-100%);
+      -o-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+    }
+  }
 
-    &:hover {
+  animation: tag-scroll 15s linear infinite;
+
+  /* &:hover {
       -moz-animation-play-state: paused;
       -webkit-animation-play-state: paused;
       animation-play-state: paused;
-    }
-  }
+    } */
+
+  -moz-animation-play-state: ${props => {
+    props.active === 'stop' ? 'paused' : 'running';
+  }};
+  -webkit-animation-play-state: ${props =>
+    props.active === 'stop' ? 'paused' : 'running'};
+  animation-play-state: ${props =>
+    props.active === 'stop' ? 'paused' : 'running'};
 
   .tag {
     background-color: #b49445;
@@ -195,14 +221,23 @@ const CarouselFrame = styled.div`
     padding: 1rem;
     text-align: center;
     white-space: nowrap;
-    border-radius: 20px;
+    border-radius: 5px;
   }
 `;
 
 const CustomFont = styled(Font)`
+  text-align: center;
   width: 50px;
   padding-bottom: 5px;
 
   border-bottom: ${props =>
-    props.themeState === 'dark' ? '1px solid #fff' : '1px solid #000'}; ;
+    props.themeState === 'dark' ? '1px solid #fff' : '1px solid #000'};
+`;
+
+const CustomButton = styled.div`
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+  border: ${props =>
+    props.themeState === 'dark' ? '1px solid #fff' : '1px solid #000'};
 `;

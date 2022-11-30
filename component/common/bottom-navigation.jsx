@@ -145,7 +145,7 @@ const MenuWrapper = styled.div`
       : props.active && props.themeState === 'light'
       ? '1px solid #000'
       : ''};
-  border-radius: 10px;
+  border-radius: 5px;
 `;
 
 const NavigationFont = styled(Font)`
@@ -159,7 +159,7 @@ const EtcMenuWrapper = styled.div`
   align-items: center;
   gap: 5px;
   padding: 0.5rem;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
 
   img {

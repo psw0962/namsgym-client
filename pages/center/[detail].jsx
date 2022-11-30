@@ -11,7 +11,7 @@ const CenterDetail = () => {
   const router = useRouter();
   const pathName = router.query.detail;
   const [centerData, setCenterData] = useState({});
-  const [tabState, setTabState] = useState('트레이너');
+  const [tabState, setTabState] = useState('센터 소개');
 
   useEffect(() => {
     makeCenterData(pathName, setCenterData);
