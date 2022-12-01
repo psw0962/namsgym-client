@@ -6,13 +6,15 @@ export default class CustomDocument extends Document {
     return (
       <Html>
         <Head>
-          {/* 폰트 */}
+          {/* 폰트 기본 */}
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"
             href="https://fonts.gstatic.com"
             crossOrigin="true"
           />
+
+          {/* Noto sans */}
           <link
             href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap"
             rel="stylesheet"
@@ -23,8 +25,15 @@ export default class CustomDocument extends Document {
             rel="stylesheet"
           ></link>
 
+          {/* Alfa Slab One */}
           <link
             href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap"
+            rel="stylesheet"
+          ></link>
+
+          {/* Jua */}
+          <link
+            href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
             rel="stylesheet"
           ></link>
 
@@ -32,7 +41,7 @@ export default class CustomDocument extends Document {
           <meta name="author" content="namsgym" />
           <meta
             name="keywords"
-            content="namsgym, health, fitness, gym, PT, personal training, training, weight training, 헬스장, 헬스클럽, 피티샵, 피티전문"
+            content="namsgym, health, fitness, gym, PT, personal training, training, weight training, 헬스장, 헬스클럽, 피티샵, PT샵, 피티전문"
           />
           <meta
             name="description"
