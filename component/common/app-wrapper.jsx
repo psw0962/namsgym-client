@@ -20,8 +20,8 @@ const Frame = styled.div`
       ? 'rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px'
       : 'rgb(0 0 0 / 16%) 0px 0px 8px'};
 
-  // top nav의 높이 + 40px
-  padding-top: 100px;
+  // top nav의 높이 + 20px
+  padding-top: 80px;
 
   // bottom nav의 높이 + 20px
   padding-bottom: 100px;

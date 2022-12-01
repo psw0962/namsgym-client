@@ -33,6 +33,8 @@ const MyApp = ({ Component, pageProps }) => {
           name="viewport"
           content="initial-scale=1.0, user-scalable=no, maximum-scale=1, width=device-width"
         />
+
+        <title>남스짐 | 프리미엄 PT GYM</title>
       </Head>
 
       <GlobalStyle />

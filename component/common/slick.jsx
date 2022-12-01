@@ -93,7 +93,7 @@ const Slick = ({ data, height }) => {
 export default Slick;
 
 const Frame = styled.div`
-  border-radius: 20px;
+  border-radius: 5px;
 `;
 
 const CustomImageWrapper = styled(ImageWrapper)`
@@ -107,6 +107,6 @@ const CustomImageWrapper = styled(ImageWrapper)`
   }
 
   img {
-    border-radius: 20px;
+    border-radius: 5px;
   }
 `;

@@ -96,7 +96,7 @@ const BottomNavigation = () => {
         </ImageWrapper>
 
         <Font fontSize="1.2rem" fontWeight="500">
-          기타메뉴
+          메뉴
         </Font>
       </EtcMenuWrapper>
     </Frame>
@@ -126,6 +126,7 @@ const Frame = styled.nav`
 `;
 
 const MenuWrapper = styled.div`
+  width: 7rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -133,6 +134,7 @@ const MenuWrapper = styled.div`
   gap: 5px;
   cursor: pointer;
   padding: 1rem;
+  white-space: nowrap;
 
   img {
     filter: ${props =>
@@ -145,7 +147,7 @@ const MenuWrapper = styled.div`
       : props.active && props.themeState === 'light'
       ? '1px solid #000'
       : ''};
-  border-radius: 10px;
+  border-radius: 5px;
 `;
 
 const NavigationFont = styled(Font)`
@@ -159,7 +161,7 @@ const EtcMenuWrapper = styled.div`
   align-items: center;
   gap: 5px;
   padding: 0.5rem;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
 
   img {

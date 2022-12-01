@@ -132,5 +132,5 @@ export default KaKaoMap;
 const Maps = styled.div`
   height: ${props => (props.height ? props.height : '40rem')};
   margin: ${props => (props.margin ? props.margin : '2rem 0')};
-  border-radius: 10px;
+  border-radius: 5px;
 `;

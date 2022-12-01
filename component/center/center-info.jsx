@@ -130,6 +130,6 @@ const CustomAtag = styled.a`
 
 const CustomImageWrapper = styled(ImageWrapper)`
   img {
-    border-radius: 20px;
+    border-radius: 5px;
   }
 `;

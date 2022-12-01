@@ -106,11 +106,11 @@ const Frame = styled.div`
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: ${props =>
     props.themeState === 'dark' ? '#1E1E1E' : '#fff'};
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
 
   img {
-    border-radius: 10px;
+    border-radius: 5px;
   }
 `;
 
@@ -119,7 +119,7 @@ const CustomSlick = styled(Slick)`
   justify-content: center;
 
   .slick-list {
-    border-radius: 10px;
+    border-radius: 5px;
   }
 `;
 

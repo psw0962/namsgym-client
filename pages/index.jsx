@@ -103,7 +103,7 @@ export default Home;
 
 const Frame = styled.div`
   img {
-    border-radius: 20px;
+    border-radius: 5px;
   }
 
   .card {
@@ -114,7 +114,7 @@ const Frame = styled.div`
 `;
 
 const CustomImageWrapper = styled(ImageWrapper)`
-  border-radius: 20px;
+  border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin-bottom: 1rem;
 `;
@@ -124,5 +124,5 @@ const FooterFrame = styled.footer`
   margin-top: 200px;
   background-color: ${props =>
     props.themeState === 'dark' ? '#1E1E1E' : '#f5f5f5'};
-  border-radius: 20px;
+  border-radius: 5px;
 `;
