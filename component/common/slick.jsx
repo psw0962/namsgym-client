@@ -69,7 +69,7 @@ const Slick = ({ data, height }) => {
                 setDragging(false);
               }}
             >
-              <Font fontSize="12px" fontWeight={700}>
+              <Font fontSize="12px" fontWeight={500}>
                 {!activeSlide2 ? 1 : activeSlide2.activeSlide2 + 1} /{' '}
                 {data?.length}
               </Font>

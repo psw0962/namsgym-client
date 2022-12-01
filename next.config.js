@@ -14,5 +14,5 @@ module.exports = withInterceptStdout(
     // },
   },
 
-  (text) => (text.includes('Duplicate atom key') ? '' : text)
+  text => (text.includes('Duplicate atom key') ? '' : text),
 );

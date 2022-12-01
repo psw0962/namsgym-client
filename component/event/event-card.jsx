@@ -20,21 +20,21 @@ const EventCard = ({ data }) => {
         />
       </ImageWrapper>
 
-      <Font fontSize="2.4rem" fontWeight={700}>
+      <Font fontSize="2.4rem" fontWeight={500}>
         {data?.title}
       </Font>
 
-      <Font fontSize="1.6rem" fontWeight={700} color="#acacac">
+      <Font fontSize="1.6rem" fontWeight={500} color="#acacac">
         {data?.subTitle}
       </Font>
 
       <Wrapper>
-        <Font fontSize="1.6rem" fontWeight={700} color="#acacac">
+        <Font fontSize="1.6rem" fontWeight={500} color="#acacac">
           시작일 : {data?.createdAt}
         </Font>
 
         <div>
-          <Font fontSize="1.6rem" fontWeight={700} color="#acacac">
+          <Font fontSize="1.6rem" fontWeight={500} color="#acacac">
             종료일 : {data?.endDate}
           </Font>
 
@@ -84,7 +84,7 @@ const StatusTag = styled.div`
   text-align: center;
   border-radius: 5px;
   font-size: 1.4rem;
-  font-weight: 700;
+  font-weight: 500;
   color: #fff;
   background-color: ${props => (props.active ? '#b49445' : '#acacac')};
 `;

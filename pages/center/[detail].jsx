@@ -19,7 +19,7 @@ const CenterDetail = () => {
 
   return (
     <Frame>
-      <Font fontSize="2rem" fontWeight={700}>
+      <Font fontSize="2rem" fontWeight={500}>
         {centerData?.centerName}
       </Font>
 
