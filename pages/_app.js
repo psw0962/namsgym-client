@@ -14,6 +14,7 @@ import SnsButton from '@/component/common/sns-button';
 import { snsLogoImages } from '@/constant/home';
 import GlobalSpinner from '@/component/common/global-spinner';
 import usePageLoading from '@/hooks/usePageLoading';
+import { Analytics } from '@vercel/analytics/react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -58,6 +59,7 @@ const MyApp = ({ Component, pageProps }) => {
                       ) : (
                         <ComponentPaddingWrapper>
                           <Component {...pageProps} />
+                          <Analytics />
 
                           <SnsFrame>
                             {snsLogoImages.map(item => {
