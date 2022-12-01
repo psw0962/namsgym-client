@@ -82,11 +82,11 @@ const CenterCard = ({ data }) => {
       </div>
 
       <CenterInfoWrapper>
-        <Font fontSize="1.6rem" fontWeight={700}>
+        <Font fontSize="1.6rem" fontWeight={500}>
           {data?.centerName}
         </Font>
 
-        <Font fontSize="1.2rem" fontWeight={700}>
+        <Font fontSize="1.2rem" fontWeight={500}>
           {data?.address}
         </Font>
       </CenterInfoWrapper>

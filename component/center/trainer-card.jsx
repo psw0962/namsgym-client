@@ -31,14 +31,14 @@ const TrainerCard = ({ data }) => {
         </LogoFrame>
 
         <ProfileFontWrapper>
-          <Font fontSize="1.6rem" fontWeight={700}>
+          <Font fontSize="1.6rem" fontWeight={500}>
             {data?.name}
           </Font>
 
           <div style={{ width: '10rem' }}>
             <Font
               fontSize="1rem"
-              fontWeight={700}
+              fontWeight={500}
               color="#acacac"
               lineHeight="11px"
             >
@@ -79,7 +79,7 @@ const TrainerCard = ({ data }) => {
         <Font
           themeState={themeState}
           fontSize="12px"
-          fontWeight={700}
+          fontWeight={500}
           margin="2rem 0 0 0"
         >
           자격사항
@@ -223,7 +223,7 @@ const CarouselWrapper = styled.div`
   .tag {
     background-color: #b49445;
     color: #fff;
-    font-weight: 700;
+    font-weight: 500;
     padding: 1rem;
     text-align: center;
     white-space: nowrap;

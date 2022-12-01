@@ -44,7 +44,7 @@ const BottomNavigation = () => {
   return (
     <Frame themeState={themeState} scrollEventState={scrollEventState}>
       <Modal state={isMenuOpen} setState={setIsMenuOpen}>
-        <Font fontSize="1.6rem" fontWeight={700} color="#000">
+        <Font fontSize="1.6rem" fontWeight={500} color="#000">
           준비중 입니다.
         </Font>
       </Modal>
