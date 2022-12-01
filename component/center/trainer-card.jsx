@@ -69,15 +69,21 @@ const TrainerCard = ({ data }) => {
         </CustomSlick>
       </div>
 
-      <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-end' }}>
-        <CustomFont
+      <div
+        style={{
+          display: 'flex',
+          gap: '0.5rem',
+          alignItems: 'flex-end',
+        }}
+      >
+        <Font
           themeState={themeState}
           fontSize="12px"
           fontWeight={700}
-          margin="3rem 0 0 0"
+          margin="2rem 0 0 0"
         >
           자격사항
-        </CustomFont>
+        </Font>
 
         <CustomButton
           themeState={themeState}
@@ -225,17 +231,9 @@ const CarouselWrapper = styled.div`
   }
 `;
 
-const CustomFont = styled(Font)`
-  text-align: center;
-  width: 50px;
-  padding-bottom: 5px;
-
-  border-bottom: ${props =>
-    props.themeState === 'dark' ? '1px solid #fff' : '1px solid #000'};
-`;
-
 const CustomButton = styled.div`
-  padding: 0.5rem;
+  padding: 0.3rem;
+  transform: translateY(1.4px);
   cursor: pointer;
   border-radius: 5px;
   border: ${props =>

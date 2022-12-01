@@ -16,7 +16,7 @@ const Center = () => {
 
   return (
     <React.Fragment>
-      <Font fontSize="2rem" margin="0 0 2rem 0">
+      <Font fontSize="2rem" margin="0 0 6rem 0">
         센터소개
       </Font>
 
@@ -46,6 +46,7 @@ const Center = () => {
       </Font>
 
       <KaKaoMap
+        refreshData=""
         locationData={[
           {
             content: centerCardData[0].centerName,

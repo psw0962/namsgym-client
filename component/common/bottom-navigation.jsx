@@ -96,7 +96,7 @@ const BottomNavigation = () => {
         </ImageWrapper>
 
         <Font fontSize="1.2rem" fontWeight="500">
-          기타메뉴
+          메뉴
         </Font>
       </EtcMenuWrapper>
     </Frame>
@@ -126,6 +126,7 @@ const Frame = styled.nav`
 `;
 
 const MenuWrapper = styled.div`
+  width: 7rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -133,6 +134,7 @@ const MenuWrapper = styled.div`
   gap: 5px;
   cursor: pointer;
   padding: 1rem;
+  white-space: nowrap;
 
   img {
     filter: ${props =>
