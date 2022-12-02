@@ -89,6 +89,14 @@ const CenterCard = ({ data }) => {
         <Font fontSize="1.2rem" fontWeight={500}>
           {data?.address}
         </Font>
+
+        <Font fontSize="1.2rem" fontWeight={500}>
+          {data?.phone}
+        </Font>
+
+        <Font fontSize="1.2rem" fontWeight={500}>
+          *운영시간 : {data?.operatingTime}
+        </Font>
       </CenterInfoWrapper>
     </Frame>
   );

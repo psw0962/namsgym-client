@@ -10,13 +10,13 @@ const CenterTab = ({ tabState, setTabState }) => {
     <Frame>
       <div className="menu-wrapper">
         <CustomFont
-          active={tabState === '지점안내'}
+          active={tabState === '지점 안내'}
           themeState={themeState}
           fontSize="1.6rem"
           pointer={true}
           onClick={e => setTabState(e.target.textContent)}
         >
-          지점안내
+          지점 안내
         </CustomFont>
 
         <CustomFont

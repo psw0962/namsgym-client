@@ -225,7 +225,6 @@ const CarouselWrapper = styled.div`
     color: #fff;
     font-weight: 500;
     padding: 1rem;
-    text-align: center;
     white-space: nowrap;
     border-radius: 5px;
   }

@@ -81,7 +81,6 @@ const Wrapper = styled.div`
 
 const StatusTag = styled.div`
   padding: 0.5rem 1rem;
-  text-align: center;
   border-radius: 5px;
   font-size: 1.4rem;
   font-weight: 500;

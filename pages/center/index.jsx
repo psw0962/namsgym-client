@@ -17,7 +17,7 @@ const Center = () => {
   return (
     <React.Fragment>
       <Font fontSize="2rem" margin="0 0 6rem 0">
-        지점안내
+        지점 안내
       </Font>
 
       <FadeIn>

@@ -17,7 +17,7 @@ const CenterInfo = ({ centerData }) => {
   const inputRef = useRef('');
   const [startPoint, setStartPoint] = useState('');
 
-  const handleClick = () => {
+  const routeSearch = () => {
     setStartPoint(inputRef.current.value);
   };
 
@@ -59,8 +59,13 @@ const CenterInfo = ({ centerData }) => {
               type="text"
               ref={inputRef}
               placeholder="출발지를 입력해주세요."
+              onKeyUp={e => {
+                if (e.key === 'Enter') {
+                  routeSearch();
+                }
+              }}
             />
-            <Button color="yellow" onClick={handleClick}>
+            <Button color="yellow" onClick={routeSearch}>
               경로탐색
             </Button>
           </SearchWrapper>
