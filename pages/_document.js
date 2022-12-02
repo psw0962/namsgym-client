@@ -6,6 +6,8 @@ export default class CustomDocument extends Document {
     return (
       <Html>
         <Head>
+          <link rel="shortcut icon" href="/favicon/favicon.ico" />
+
           {/* 폰트 기본 */}
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link

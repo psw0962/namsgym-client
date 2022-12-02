@@ -7,6 +7,7 @@ import ImageWrapper from '@/component/common/image-wrapper';
 import Font from '@/component/common/font';
 import light from 'public/svg/light.svg';
 import dark from 'public/svg/dark.svg';
+import { useEffect } from 'react';
 
 const TopNavigation = () => {
   const { scrollEventState } = useScrollEvent();
@@ -34,6 +35,15 @@ const TopNavigation = () => {
       return;
     }
   };
+
+  useEffect(() => {
+    if (!window.localStorage.getItem('theme')) {
+      window.localStorage.setItem('theme', 'light');
+      document.documentElement.dataset.theme = 'light';
+      setThemeState('light');
+      return;
+    }
+  }, []);
 
   return (
     <Frame scrollEventState={!scrollEventState} themeState={themeState}>

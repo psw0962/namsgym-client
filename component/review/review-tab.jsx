@@ -10,6 +10,16 @@ const ReviewTab = ({ tabState, setTabState }) => {
     <Frame>
       <div className="menu-wrapper">
         <CustomFont
+          active={tabState === '전체'}
+          themeState={themeState}
+          fontSize="1.6rem"
+          pointer={true}
+          onClick={e => setTabState(e.target.textContent)}
+        >
+          전체
+        </CustomFont>
+
+        <CustomFont
           active={tabState === 'PT리뷰'}
           themeState={themeState}
           fontSize="1.6rem"
@@ -60,7 +70,6 @@ export default ReviewTab;
 const Frame = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 6rem;
 
   .menu-wrapper {
     display: flex;

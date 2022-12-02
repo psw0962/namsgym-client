@@ -18,7 +18,7 @@ const Home = () => {
 
   return (
     <Frame>
-      <Slick data={eventSlickImages} height={40}></Slick>
+      <CustomSlick data={eventSlickImages} height={40}></CustomSlick>
 
       <FadeIn>
         <div>
@@ -125,4 +125,10 @@ const FooterFrame = styled.footer`
   background-color: ${props =>
     props.themeState === 'dark' ? '#1E1E1E' : '#f5f5f5'};
   border-radius: 5px;
+`;
+
+const CustomSlick = styled(Slick)`
+  .slick-slider {
+    touch-action: 'auto';
+  }
 `;

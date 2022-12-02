@@ -13,7 +13,7 @@ const bottomNavigationData = [
   { id: 1, menu: '홈', iconUrl: home, routerPush: '/', pathName: '' },
   {
     id: 2,
-    menu: '지점안내',
+    menu: '지점 안내',
     iconUrl: center,
     routerPush: '/center',
     pathName: 'center',
