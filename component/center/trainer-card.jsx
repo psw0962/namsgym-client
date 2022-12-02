@@ -168,6 +168,10 @@ const CustomSlick = styled(Slick)`
   .slick-list {
     border-radius: 5px;
   }
+
+  .slick-slider {
+    touch-action: 'auto';
+  }
 `;
 
 const CarouselFrame = styled.div`

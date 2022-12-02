@@ -24,11 +24,11 @@ const ReviewCard = () => {
         </div>
 
         <Font fontSize="1.2rem" fontWeight={500}>
-          지점 : 2호점 부천 범안점 <span>확인하기</span>
+          지점 : 2호점 부천 범안점
         </Font>
 
         <Font fontSize="1.2rem" fontWeight={500}>
-          담당 트레이너 : 박상우 <span>확인하기</span>
+          담당 트레이너 : 박상우
         </Font>
       </Wrapper>
     </Frame>
@@ -47,6 +47,7 @@ const Frame = styled.div`
   background-color: ${props =>
     props.themeState === 'dark' ? '#1E1E1E' : '#fff'};
   border-radius: 5px;
+  cursor: pointer;
 
   img {
     border-radius: 5px;
@@ -58,6 +59,7 @@ const Wrapper = styled.div`
   display: flex;
   gap: 1rem;
   flex-direction: column;
+  margin-top: 1.5rem;
 
   div {
     display: flex;
