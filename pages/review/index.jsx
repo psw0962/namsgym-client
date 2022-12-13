@@ -20,7 +20,7 @@ const Review = () => {
         <input
           type="text"
           ref={inputRef}
-          placeholder="트레이너 또는 지점을 입력해주세요."
+          placeholder="트레이너 또는 지점명으로 검색"
           onKeyUp={e => {
             if (e.key === 'Enter') {
               return;
@@ -59,6 +59,7 @@ const SearchWrapper = styled.div`
 
   input {
     width: 20rem;
+
     ::placeholder {
       font-size: 1.3rem;
     }
