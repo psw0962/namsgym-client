@@ -7,6 +7,9 @@ export default class CustomDocument extends Document {
       <Html>
         <Head>
           <link rel="shortcut icon" href="/favicon/favicon.ico" />
+          <link rel="manifest" href="/manifest.json" />
+          <link rel="apple-touch-icon" href="/images/icons/logo.png"></link>
+          <meta name="theme-color" content="#b49445" />
 
           {/* 폰트 기본 */}
           <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -43,7 +46,7 @@ export default class CustomDocument extends Document {
           <meta name="author" content="namsgym" />
           <meta
             name="keywords"
-            content="namsgym, health, fitness, gym, PT, personal training, training, weight training, 헬스장, 헬스클럽, 피티샵, PT샵, 피티전문"
+            content="남스짐, namsgym, health, fitness, gym, pt, PT, personal training, training, weight training, 헬스장, 헬스클럽, 피티샵, PT샵, 피티전문"
           />
           <meta
             name="description"
