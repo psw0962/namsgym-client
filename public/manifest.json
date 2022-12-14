@@ -4,9 +4,9 @@
     "display": "standalone",
     "scope": "/",
     "start_url": "/",
-    "name": "namsgym",
-    "short_name": "namsgym",
-    "description": "namsgym",
+    "name": "Nam's Gym",
+    "short_name": "Nam's Gym",
+    "description": "Nam's Gym",
     "icons": [
         {
             "src": "/images/icons/icon-48x48.png",
