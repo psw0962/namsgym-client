@@ -7,11 +7,21 @@ import ImageWrapper from '@/component/common/image-wrapper';
 import Font from '@/component/common/font';
 import light from 'public/svg/light.svg';
 import dark from 'public/svg/dark.svg';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const TopNavigation = () => {
   const { scrollEventState } = useScrollEvent();
   const [themeState, setThemeState] = useRecoilState(themeStateAtom);
+
+  const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const resizeListener = () => {
+      setInnerWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', resizeListener);
+  });
+
+  console.log('innerWidth', innerWidth);
 
   const onClickTheme = () => {
     if (!window.localStorage.getItem('theme')) {
@@ -99,7 +109,18 @@ const TopNavigation = () => {
           </LogoFont>
         )}
 
-        {themeState === 'dark' && (
+        {themeState === 'dark' && innerWidth > 1200 && (
+          <LogoFont
+            color="#fff"
+            fontSize="2rem"
+            fontWeight="500"
+            margin="0 0 2rem 0"
+          >
+            {`NAM'S`} <br /> GYM
+          </LogoFont>
+        )}
+
+        {themeState === 'dark' && innerWidth < 1200 && (
           <NeonFont fontSize="2rem" fontWeight="500">
             <span className="first">NAMS</span>
             <br />

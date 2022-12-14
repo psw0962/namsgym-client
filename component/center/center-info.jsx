@@ -51,7 +51,7 @@ const CenterInfo = ({ centerData }) => {
         <React.Fragment>
           <Font fontSize="2rem" margin="3rem 0">
             위치 안내{' '}
-            <CustomSpan>{`*${centerData?.centerName}(${centerData?.address})`}</CustomSpan>
+            <CustomSpan>{`*${centerData?.centerName} (${centerData?.address})`}</CustomSpan>
           </Font>
 
           <SearchWrapper>
@@ -121,6 +121,13 @@ const SearchWrapper = styled.div`
   display: flex;
   gap: 1rem;
   margin-bottom: 1rem;
+
+  input {
+    padding: 0.5rem;
+    border: 1px solid #acacac;
+    border-radius: 5px;
+    outline: none;
+  }
 `;
 
 const CustomSpan = styled.span`

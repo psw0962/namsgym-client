@@ -59,9 +59,9 @@ const SearchWrapper = styled.div`
 
   input {
     width: 20rem;
-
-    ::placeholder {
-      font-size: 1.3rem;
-    }
+    padding: 0.5rem;
+    border: 1px solid #acacac;
+    border-radius: 5px;
+    outline: none;
   }
 `;
