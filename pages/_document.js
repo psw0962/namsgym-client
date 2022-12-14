@@ -7,6 +7,18 @@ export default class CustomDocument extends Document {
       <Html>
         <Head>
           <link rel="shortcut icon" href="/favicon/favicon.ico" />
+          <link
+            href="/favicons/favicon-16x16.png"
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+          />
+          <link
+            href="/favicons/favicon-32x32.png"
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+          />
           <link rel="manifest" href="/manifest.json" />
           <link rel="apple-touch-icon" href="/images/icons/logo.png"></link>
           <meta name="theme-color" content="#b49445" />
