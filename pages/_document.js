@@ -6,16 +6,33 @@ export default class CustomDocument extends Document {
     return (
       <Html>
         <Head>
-          <link rel="shortcut icon" href="/favicon/favicon.ico" />
+          <link rel="shortcut icon" href="/pwa/favicon.ico" />
           <link rel="manifest" href="/manifest.json" />
-          <meta name="theme-color" content="#b49445" />
 
+          <meta name="theme-color" content="#b49445" />
           <meta name="msapplication-TileColor" content="#ffffff"></meta>
           <meta
             name="msapplication-TileImage"
             content="/pwa/ms-icon-144x144.png"
           ></meta>
 
+          <link
+            rel="mask-icon"
+            href="/pwa/safari-pinned-tab.svg"
+            color="#5bbad5"
+          ></link>
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/pwa/favicon-32x32.png"
+          ></link>
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/pwa/favicon-16x16.png"
+          ></link>
           <link
             rel="apple-touch-icon"
             sizes="57x57"
