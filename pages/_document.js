@@ -24,6 +24,12 @@ export default class CustomDocument extends Document {
           <link
             rel="icon"
             type="image/png"
+            sizes="96x96"
+            href="/pwa/favicon-96x96.png"
+          ></link>
+          <link
+            rel="icon"
+            type="image/png"
             sizes="32x32"
             href="/pwa/favicon-32x32.png"
           ></link>
