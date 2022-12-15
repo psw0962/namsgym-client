@@ -54,19 +54,19 @@ const BusinessInfo = () => {
 
       <BusinessInfoSection>
         <Font fontSize="1.3rem" fontWeight="500" margin="0 0 2rem 0">
-          {`상호명 : 남스짐 컴퍼니`}
+          상호명 : 남스짐
         </Font>
         <Font fontSize="1.3rem" fontWeight="500" margin="0 0 2rem 0">
-          사업자등록번호 : 000-00-00000
+          사업자등록번호 : 746-36-00255
         </Font>
         <Font fontSize="1.3rem" fontWeight="500" margin="0 0 2rem 0">
           대표자명 : 남건우
         </Font>
         <Font fontSize="1.3rem" fontWeight="500" margin="0 0 2rem 0">
-          주소 : 부천시 옥길동745-5 퀸즈파크 C동 617호
+          주소 : 경기도 부천시 옥길로 124 617호
         </Font>
         <Font fontSize="1.3rem" fontWeight="500" margin="0 0 2rem 0">
-          전화번호 : 010-0000-0000 | 이메일 : admin@namsgym.com
+          전화번호 : 010-4756-3376 | 이메일 : namgh90@nate.com
         </Font>
         <Font
           fontSize="1.3rem"

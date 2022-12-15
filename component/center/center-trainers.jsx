@@ -5,7 +5,13 @@ const CenterTrainers = ({ centerData }) => {
   return (
     <Frame>
       {centerData?.trainers?.map(item => {
-        return <TrainerCard key={item?.id} data={item} />;
+        return (
+          <TrainerCard
+            key={item?.id}
+            data={item}
+            centerName={centerData?.centerName}
+          />
+        );
       })}
     </Frame>
   );

@@ -21,8 +21,6 @@ const TopNavigation = () => {
     window.addEventListener('resize', resizeListener);
   });
 
-  console.log('innerWidth', innerWidth);
-
   const onClickTheme = () => {
     if (!window.localStorage.getItem('theme')) {
       window.localStorage.setItem('theme', 'light');

@@ -2,33 +2,32 @@ import styled from 'styled-components';
 import useThemeState from '@/hooks/useThemeState';
 import Image from 'next/image';
 import ImageWrapper from '@/component/common/image-wrapper';
-import test from '@/public/png/review/before-after/test.jpeg';
 import Font from '@/component/common/font';
 
-const ReviewCard = () => {
+const ReviewCard = ({ data }) => {
   const { themeState } = useThemeState();
 
   return (
     <Frame themeState={themeState}>
       <ImageWrapper width={18} height={20}>
-        <Image src={test} alt="test" />
+        <Image src={data.images[0]} alt="review-image" />
       </ImageWrapper>
 
       <Wrapper>
         <div>
           <Font fontSize="1.6rem" fontWeight={500}>
-            박*우 회원님
+            {data.title}
           </Font>
 
-          <Tag>바디프로필</Tag>
+          <Tag>{data.tag}</Tag>
         </div>
 
         <Font fontSize="1.2rem" fontWeight={500}>
-          지점 : 2호점 부천 범안점
+          지점 : {data.center}
         </Font>
 
         <Font fontSize="1.2rem" fontWeight={500}>
-          담당 트레이너 : 박상우
+          담당 트레이너 : {data.trainer}
         </Font>
       </Wrapper>
     </Frame>
