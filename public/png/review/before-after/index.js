@@ -1,3 +1,3 @@
-import test from './test.png';
+import test from './test.jpeg';
 
 export { test };

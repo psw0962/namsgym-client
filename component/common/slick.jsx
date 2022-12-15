@@ -53,7 +53,6 @@ const Slick = ({ data, height }) => {
                   e.stopPropagation();
                   return;
                 }
-                console.log(item.id);
                 // router.push(`/`);
               }}
               onMouseMove={() => {

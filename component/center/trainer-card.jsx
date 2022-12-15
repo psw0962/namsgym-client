@@ -5,8 +5,9 @@ import useThemeState from '@/hooks/useThemeState';
 import ImageWrapper from '@/component/common/image-wrapper';
 import Font from '@/component/common/font';
 import Slick from 'react-slick';
+import Line from '@/component/common/line';
 
-const TrainerCard = ({ data }) => {
+const TrainerCard = ({ data, centerName }) => {
   const { themeState } = useThemeState();
   const [playScroll, setPlayScroll] = useState('play');
 
@@ -19,6 +20,27 @@ const TrainerCard = ({ data }) => {
     speed: 100,
     autoplay: true,
     draggable: true,
+  };
+
+  const onClickHandler = (type, name, info) => {
+    console.log(info);
+
+    switch (type) {
+      case 'detail':
+        console.log('naver');
+        break;
+
+      case 'naverReview':
+        console.log('naver');
+        break;
+
+      case 'review':
+        console.log(name);
+        break;
+
+      default:
+        return;
+    }
   };
 
   return (
@@ -42,7 +64,7 @@ const TrainerCard = ({ data }) => {
               color="#acacac"
               lineHeight="11px"
             >
-              {data?.description}
+              {centerName}
             </Font>
           </div>
         </ProfileFontWrapper>
@@ -110,6 +132,41 @@ const TrainerCard = ({ data }) => {
           })}
         </CarouselWrapper>
       </CarouselFrame>
+
+      <CustomLine themeState={themeState} />
+
+      <Font
+        themeState={themeState}
+        fontSize="1.4rem"
+        fontWeight={500}
+        margin="0 0 0 0"
+        pointer={true}
+      >
+        {`상세보기 >`}
+      </Font>
+
+      <Font
+        themeState={themeState}
+        fontSize="1.4rem"
+        fontWeight={500}
+        margin="2rem 0 0 0"
+        pointer={true}
+      >
+        {data?.name} {`네이버 후기 >`}
+      </Font>
+
+      <Font
+        themeState={themeState}
+        fontSize="1.4rem"
+        fontWeight={500}
+        margin="2rem 0 0 0"
+        pointer={true}
+        onClick={() => {
+          onClickHandler('review', data.name);
+        }}
+      >
+        {data?.name} {`후기 >`}
+      </Font>
     </Frame>
   );
 };
@@ -239,6 +296,11 @@ const CustomButton = styled.div`
   transform: translateY(1.4px);
   cursor: pointer;
   border-radius: 5px;
+  border: ${props =>
+    props.themeState === 'dark' ? '1px solid #fff' : '1px solid #000'};
+`;
+
+const CustomLine = styled(Line)`
   border: ${props =>
     props.themeState === 'dark' ? '1px solid #fff' : '1px solid #000'};
 `;

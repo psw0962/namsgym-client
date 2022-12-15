@@ -22,7 +22,6 @@ const center1 = {
     {
       id: 1,
       name: '김현정 트레이너',
-      description: '진심으로하는 트레이닝',
       tags: [
         '생활체육지도자 2급(보디빌딩)',
         'BLACK ROLL 자격증',
@@ -36,7 +35,6 @@ const center1 = {
     {
       id: 2,
       name: '손석환 트레이너',
-      description: '스스로 운동할 수 있게 만들어드립니다',
       tags: [
         '생활체육지도자 2급(보디빌딩)',
         '스포츠 마사지 교육 이수',
@@ -49,7 +47,6 @@ const center1 = {
     {
       id: 3,
       name: '김지훈 트레이너',
-      description: '통증을 완화시켜드려요',
       tags: [
         '생활체육지도자 2급(보디빌딩)',
         'FISAF KOREA PERSONAL TRAINING',
@@ -68,7 +65,6 @@ const center1 = {
     {
       id: 4,
       name: '황재민 트레이너',
-      description: '벌크업, 다이어트 전문 트레이너',
       tags: [
         '생활체육지도자 2급(보디빌딩)',
         '명지대학교 체육학부 졸업',
@@ -85,7 +81,6 @@ const center1 = {
     {
       id: 5,
       name: '박지희 트레이너',
-      description: '애플힙 전문 트레이너',
       tags: [
         '생활체육지도자 2급(보디빌딩)',
         '관동대학교 사회체육학과 졸업',
@@ -103,7 +98,6 @@ const center1 = {
     {
       id: 6,
       name: '황태현 트레이너',
-      description: '바디프로필 전문',
       tags: [
         '생활체육지도자 2급(보디빌딩)',
         'CES PERSONAL TRAINING',
@@ -118,7 +112,6 @@ const center1 = {
     {
       id: 7,
       name: '이재정 트레이너',
-      description: '선수 전문 트레이닝',
       tags: [
         '생활체육지도자 2급(보디빌딩)',
         'Functional Taping 자격증',
