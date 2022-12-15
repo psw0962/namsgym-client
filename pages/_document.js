@@ -98,6 +98,16 @@ export default class CustomDocument extends Document {
             `,
             }}
           ></script>
+
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              if('serviceWorker in navigator') {
+                navigator.serviceWorker.register('sw.js');
+              }
+            `,
+            }}
+          ></script>
         </Head>
 
         <body>
