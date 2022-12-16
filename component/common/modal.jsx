@@ -1,7 +1,9 @@
 import { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import useOnClickOutside from 'hooks/useOnClickOutside';
-import Button from './button';
+import Image from 'next/image';
+import ImageWrapper from '@/component/common/image-wrapper';
+import { close } from '@/public/svg/index';
 
 const Modal = ({ state, setState, children }) => {
   const moodalOpenInRef = useRef();
@@ -28,24 +30,23 @@ const Modal = ({ state, setState, children }) => {
         ref={moodalOpenInRef}
         className={state ? 'slideUp' : 'slideDown'}
       >
-        {/* <p
-          onClick={() => {
-            setState(false);
-          }}
+        <CloseSnsFrame
+          width={3}
+          height={3}
+          pointer={true}
+          onClick={() => setState(false)}
         >
-          닫기
-        </p> */}
-        <div>{children}</div>
+          <Image
+            src={close}
+            alt="close"
+            priority={true}
+            quality={100}
+            placeholder="blur"
+            blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+          />
+        </CloseSnsFrame>
 
-        <Button
-          color="black"
-          size="large"
-          onClick={() => {
-            setState(false);
-          }}
-        >
-          돌아가기
-        </Button>
+        <div>{children}</div>
       </DialogFrame>
     </Frame>
   );
@@ -88,7 +89,8 @@ const DialogFrame = styled.div`
   bottom: -300px;
   width: 100%;
   max-width: 450px;
-  height: 20rem;
+  max-height: 85rem;
+  min-height: 10rem;
   padding: 2rem 2rem;
   border-radius: 18px 18px 0px 0px;
   background-color: #fff;
@@ -110,4 +112,12 @@ const DialogFrame = styled.div`
   @media screen and (max-width: 1200px) {
     margin-left: 0;
   }
+`;
+
+const CloseSnsFrame = styled(ImageWrapper)`
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  background-color: #fff;
+  border-radius: 100%;
 `;

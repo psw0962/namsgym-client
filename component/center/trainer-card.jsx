@@ -6,10 +6,17 @@ import ImageWrapper from '@/component/common/image-wrapper';
 import Font from '@/component/common/font';
 import Slick from 'react-slick';
 import Line from '@/component/common/line';
+import { useRecoilState } from 'recoil';
+import { reviewSearchKeyWordStateAtom } from 'atoms';
+import { useRouter } from 'next/router';
 
 const TrainerCard = ({ data, centerName }) => {
+  const router = useRouter();
+  const pathName = router?.query?.detail;
   const { themeState } = useThemeState();
   const [playScroll, setPlayScroll] = useState('play');
+  const [reviewSearchKeyWordState, setReviewSearchKeyWordState] =
+    useRecoilState(reviewSearchKeyWordStateAtom);
 
   const settings = {
     dots: false,
@@ -22,25 +29,14 @@ const TrainerCard = ({ data, centerName }) => {
     draggable: true,
   };
 
-  const onClickHandler = (type, name, info) => {
-    console.log(info);
+  const goToDetail = name => {
+    const replaceName = name.slice(0, 3);
+    router.push(`/center/${pathName}/${replaceName}`);
+  };
 
-    switch (type) {
-      case 'detail':
-        console.log('naver');
-        break;
-
-      case 'naverReview':
-        console.log('naver');
-        break;
-
-      case 'review':
-        console.log(name);
-        break;
-
-      default:
-        return;
-    }
+  const goToReview = name => {
+    setReviewSearchKeyWordState(name);
+    router.push('/review');
   };
 
   return (
@@ -141,18 +137,9 @@ const TrainerCard = ({ data, centerName }) => {
         fontWeight={500}
         margin="0 0 0 0"
         pointer={true}
+        onClick={() => goToDetail(data?.name)}
       >
-        {`상세보기 >`}
-      </Font>
-
-      <Font
-        themeState={themeState}
-        fontSize="1.4rem"
-        fontWeight={500}
-        margin="2rem 0 0 0"
-        pointer={true}
-      >
-        {data?.name} {`네이버 후기 >`}
+        {`이력 상세 보기 >`}
       </Font>
 
       <Font
@@ -162,10 +149,10 @@ const TrainerCard = ({ data, centerName }) => {
         margin="2rem 0 0 0"
         pointer={true}
         onClick={() => {
-          onClickHandler('review', data.name);
+          goToReview(data.name);
         }}
       >
-        {data?.name} {`후기 >`}
+        {data?.name} {`리뷰 >`}
       </Font>
     </Frame>
   );

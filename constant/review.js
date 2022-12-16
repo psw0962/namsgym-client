@@ -17,7 +17,7 @@ export const reviewData = [
     searchKey: '남건우트레이너1호점안산신길점',
     images: [test],
     title: '김*진 회원님',
-    tag: 'PT후기',
+    tag: 'PT리뷰',
     center: '1호점 안산 신길점',
     trainer: '남건우 트레이너',
     clientReview: '',

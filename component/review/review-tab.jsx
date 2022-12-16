@@ -20,13 +20,13 @@ const ReviewTab = ({ tabState, setTabState }) => {
         </CustomFont>
 
         <CustomFont
-          active={tabState === 'PT후기'}
+          active={tabState === 'PT리뷰'}
           themeState={themeState}
           fontSize="1.6rem"
           pointer={true}
           onClick={e => setTabState(e.target.textContent)}
         >
-          PT후기
+          PT리뷰
         </CustomFont>
 
         <CustomFont

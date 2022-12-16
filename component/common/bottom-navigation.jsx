@@ -126,7 +126,7 @@ const Frame = styled.nav`
       ? 'rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px'
       : 'rgb(0 0 0 / 7%) 0px -1px 1px, rgb(87 16 238 / 3%) 0px -6px 12px'};
   background-color: ${props => (props.themeState === 'dark' ? '#000' : '#fff')};
-  z-index: 10;
+  z-index: 50;
   transition: all 0.2s;
 `;
 
