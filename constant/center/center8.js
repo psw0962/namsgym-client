@@ -10,7 +10,7 @@ import {
   trainer1_5_1,
   trainer1_6_1,
   trainer1_7_1,
-} from '@/public/png/center1/index';
+} from '@/public/png/center/center1/index';
 
 const center1 = {
   centerName: '8호점 군포 산본점',

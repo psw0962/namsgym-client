@@ -17,11 +17,6 @@ export default class CustomDocument extends Document {
           ></meta>
 
           <link
-            rel="mask-icon"
-            href="/pwa/safari-pinned-tab.svg"
-            color="#5bbad5"
-          ></link>
-          <link
             rel="icon"
             type="image/png"
             sizes="96x96"
@@ -89,24 +84,6 @@ export default class CustomDocument extends Document {
             type="image/png"
             sizes="192x192"
             href="/pwa/android-icon-192x192.png"
-          ></link>
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/pwa/favicon-32x32.png"
-          ></link>
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="96x96"
-            href="/pwa/favicon-96x96.png"
-          ></link>
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/pwa/favicon-16x16.png"
           ></link>
 
           {/* 폰트 기본 */}
