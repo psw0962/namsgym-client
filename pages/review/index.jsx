@@ -11,6 +11,7 @@ import { search } from '@/public/svg';
 import Image from 'next/image';
 import useDebounce from '@/hooks/useDebounce';
 import Button from '@/component/common/button';
+import useThemeState from '@/hooks/useThemeState';
 
 const Review = () => {
   const [tabState, setTabState] = useState('전체');
@@ -18,6 +19,7 @@ const Review = () => {
     useRecoilState(reviewSearchKeyWordStateAtom);
   const [reviews, setReviews] = useState(reviewData || []);
   const debouncedSearch = useDebounce(reviewSearchKeyWordState, 500);
+  const { themeState } = useThemeState();
 
   useEffect(() => {
     // 검색어X, 탭X
@@ -66,9 +68,18 @@ const Review = () => {
 
   return (
     <Frame>
-      <Font fontSize="2rem" margin="0 0 6rem 0">
+      <Font fontSize="2rem" margin="0 0 5rem 0">
         리뷰
       </Font>
+
+      <CustomAtag
+        themeState={themeState}
+        href="https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90?c=14117419.4846567,4504480.5158603,15,0,0,0,dh"
+        target="_blank"
+        rel="noreferrer"
+      >
+        {`많은 고객님들이 인증한 리얼한 네이버 리뷰 확인하기 >`}
+      </CustomAtag>
 
       <SearchWrapper>
         <input
@@ -120,7 +131,7 @@ const SearchWrapper = styled.div`
   position: relative;
   display: flex;
   gap: 1rem;
-  margin-bottom: 3rem;
+  margin: 3rem 0;
 
   input {
     width: 20rem;
@@ -148,4 +159,16 @@ const NoContent = styled.div`
   text-align: center;
   line-height: 25px;
   font-size: 1.6rem;
+`;
+
+const CustomAtag = styled.a`
+  font-size: 1.6rem;
+  margin-bottom: 4rem;
+  padding: 1rem;
+  border: ${props =>
+    props.themeState === 'dark' ? '1px solid #fff' : '1px solid #000'};
+  border-radius: 8px;
+  width: fit-content;
+  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 `;

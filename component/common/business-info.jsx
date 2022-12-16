@@ -68,6 +68,17 @@ const BusinessInfo = () => {
         <Font fontSize="1.3rem" fontWeight="500" margin="0 0 2rem 0">
           전화번호 : 010-4756-3376 | 이메일 : namgh90@nate.com
         </Font>
+
+        <CustomAtag
+          themeState={themeState}
+          href="https://rainy-reaper-d5b.notion.site/29ce947a1fed48f3a878f586f071ba6c"
+          target="_blank"
+          rel="noreferrer"
+          onClick={e => e.stopPropagation()}
+        >
+          {`인재채용 >`}
+        </CustomAtag>
+
         <Font
           fontSize="1.3rem"
           fontWeight="500"
@@ -160,4 +171,16 @@ const NeonFont = styled(Font)`
 const LogoFont = styled(Font)`
   font-family: 'Alfa Slab One', cursive;
   white-space: nowrap;
+`;
+
+const CustomAtag = styled.a`
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border: ${props =>
+    props.themeState === 'dark' ? '1px solid #fff' : '1px solid #000'};
+  border-radius: 8px;
+  width: fit-content;
+  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 `;

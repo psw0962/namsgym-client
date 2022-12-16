@@ -23,10 +23,11 @@ const CenterInfo = ({ centerData }) => {
 
   return (
     <React.Fragment>
-      <Font fontSize="2rem" margin="3rem 0">
+      <Font fontSize="2rem" margin="1rem 0 1rem 0">
         시설 안내{' '}
-        <CustomSpan>{`*운영시간 (${centerData?.operatingTime})`}</CustomSpan>
       </Font>
+
+      <CustomPre>{`*운영시간 ${centerData?.operatingTime}`}</CustomPre>
 
       <Frame ref={scrollRef} {...scrollWrapperEvents}>
         <div className="carousel-wrapper">
@@ -49,7 +50,7 @@ const CenterInfo = ({ centerData }) => {
 
       {Object.keys(centerData).length > 0 && (
         <React.Fragment>
-          <Font fontSize="2rem" margin="3rem 0">
+          <Font fontSize="2rem" margin="3rem 0 1rem 0">
             위치 안내{' '}
             <CustomSpan>{`*${centerData?.centerName} (${centerData?.address})`}</CustomSpan>
           </Font>
@@ -79,22 +80,6 @@ const CenterInfo = ({ centerData }) => {
           />
         </React.Fragment>
       )}
-
-      <Font fontSize="2rem" margin="3rem 0">
-        문의 <CustomSpan>*{centerData?.phone}</CustomSpan>
-      </Font>
-
-      <CustomAtag
-        href={centerData?.kakaoTalkUrl}
-        target="_blank"
-        rel="noreferrer"
-      >
-        {`카카오톡 문의 >`}
-      </CustomAtag>
-
-      <CustomAtag href={centerData?.blogUrl} target="_blank" rel="noreferrer">
-        {centerData?.centerName} {`블로그 >`}
-      </CustomAtag>
     </React.Fragment>
   );
 };
@@ -135,13 +120,14 @@ const CustomSpan = styled.span`
   margin-top: 1rem;
 `;
 
-const CustomAtag = styled.a`
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
-`;
-
 const CustomImageWrapper = styled(ImageWrapper)`
   img {
     border-radius: 5px;
   }
+`;
+
+const CustomPre = styled.pre`
+  font-size: 1.2rem;
+  line-height: 15px;
+  margin-bottom: 0.5rem;
 `;

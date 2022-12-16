@@ -44,9 +44,14 @@ const BottomNavigation = () => {
   return (
     <Frame themeState={themeState} scrollEventState={scrollEventState}>
       <Modal state={isMenuOpen} setState={setIsMenuOpen}>
-        <Font fontSize="1.6rem" fontWeight={500} color="#000">
-          준비중 입니다.
-        </Font>
+        <CustomAtag
+          href="https://rainy-reaper-d5b.notion.site/29ce947a1fed48f3a878f586f071ba6c"
+          target="_blank"
+          rel="noreferrer"
+          onClick={e => e.stopPropagation()}
+        >
+          {`인재채용 >`}
+        </CustomAtag>
       </Modal>
 
       {bottomNavigationData.map(item => {
@@ -176,4 +181,10 @@ const EtcMenuWrapper = styled.div`
   p {
     color: ${props => (props.themeState === 'dark' ? '#fff' : '#000')};
   }
+`;
+
+const CustomAtag = styled.a`
+  font-size: 1.6rem;
+  color: #000;
+  text-decoration: none;
 `;

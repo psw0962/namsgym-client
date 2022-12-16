@@ -15,9 +15,9 @@ export const centerCardData = [
     id: 1,
     thumbNail: center1.centerImages,
     centerName: center1.centerName,
-    address: center1.address,
     phone: center1.phone,
-    operatingTime: center1.operatingTime,
+    kakaoTalkUrl: center1.kakaoTalkUrl,
+    naverPlaceUrl: center1.naverPlaceUrl,
   },
   {
     id: 2,
