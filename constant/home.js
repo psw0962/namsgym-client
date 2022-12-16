@@ -1,6 +1,8 @@
 import event_1 from 'public/png/event/event_1.jpeg';
 import kakaotalk from 'public/png/kakaotalk.png';
 import naverblog from 'public/png/naverblog.png';
+import youtube from 'public/png/youtube.png';
+import instagram from 'public/png/instagram.png';
 import {
   main_1,
   main_2,
@@ -47,13 +49,25 @@ export const snsLogoImages = [
   {
     id: 1,
     src: kakaotalk,
-    url: 'https://pf.kakao.com/_xoSxjxoK',
+    url: 'https://linktr.ee/namsgym',
     alt: 'kakaotalk',
   },
   {
     id: 2,
     src: naverblog,
-    url: 'https://blog.naver.com/namsgym',
+    url: 'https://search.naver.com/search.naver?where=view&sm=tab_jum&query=%EB%82%A8%EC%8A%A4%EC%A7%90',
     alt: 'naverblog',
+  },
+  {
+    id: 3,
+    src: youtube,
+    url: 'https://www.youtube.com/@pt7066',
+    alt: 'youtube',
+  },
+  {
+    id: 4,
+    src: instagram,
+    url: 'https://www.instagram.com/namsgym_official_/',
+    alt: 'youtube',
   },
 ];

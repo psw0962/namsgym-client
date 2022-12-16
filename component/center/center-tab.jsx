@@ -12,7 +12,7 @@ const CenterTab = ({ tabState, setTabState }) => {
         <CustomFont
           active={tabState === '지점 안내'}
           themeState={themeState}
-          fontSize="1.6rem"
+          fontSize="2rem"
           pointer={true}
           onClick={e => setTabState(e.target.textContent)}
         >
@@ -22,7 +22,7 @@ const CenterTab = ({ tabState, setTabState }) => {
         <CustomFont
           active={tabState === '트레이너'}
           themeState={themeState}
-          fontSize="1.6rem"
+          fontSize="2rem"
           pointer={true}
           onClick={e => setTabState(e.target.textContent)}
         >

@@ -86,17 +86,34 @@ const CenterCard = ({ data }) => {
           {data?.centerName}
         </Font>
 
-        <Font fontSize="1.2rem" fontWeight={500}>
-          {data?.address}
-        </Font>
+        <PhoneAtag
+          href={`tel:${data?.phone}`}
+          onClick={e => e.stopPropagation()}
+        >
+          전화 문의 ({data?.phone})
+        </PhoneAtag>
 
-        <Font fontSize="1.2rem" fontWeight={500}>
-          {data?.phone}
-        </Font>
+        <Wrapper>
+          <CustomAtag
+            themeState={themeState}
+            href={data?.kakaoTalkUrl}
+            target="_blank"
+            rel="noreferrer"
+            onClick={e => e.stopPropagation()}
+          >
+            {`카카오톡 문의 >`}
+          </CustomAtag>
 
-        <Font fontSize="1.2rem" fontWeight={500}>
-          *운영시간 : {data?.operatingTime}
-        </Font>
+          <CustomAtag
+            themeState={themeState}
+            href={data?.naverPlaceUrl}
+            target="_blank"
+            rel="noreferrer"
+            onClick={e => e.stopPropagation()}
+          >
+            {`무료 PT체험권 신청 >`}
+          </CustomAtag>
+        </Wrapper>
       </CenterInfoWrapper>
     </Frame>
   );
@@ -140,4 +157,25 @@ const CenterInfoWrapper = styled.div`
   display: flex;
   gap: 1rem;
   flex-direction: column;
+`;
+
+const CustomAtag = styled.a`
+  font-size: 1.4rem;
+  padding: 1rem;
+  border: ${props =>
+    props.themeState === 'dark' ? '1px solid #fff' : '1px solid #000'};
+  border-radius: 8px;
+  width: fit-content;
+  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+`;
+
+const PhoneAtag = styled.a`
+  font-size: 1.4rem;
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 `;

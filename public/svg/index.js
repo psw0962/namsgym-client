@@ -8,5 +8,20 @@ import menu from './menu.svg';
 import review from './review.svg';
 import user from './user.svg';
 import search from './search.svg';
+import up from './up.svg';
+import close from './close.svg';
 
-export { center, column, dark, event, home, light, menu, review, user, search };
+export {
+  center,
+  column,
+  dark,
+  event,
+  home,
+  light,
+  menu,
+  review,
+  user,
+  search,
+  up,
+  close,
+};

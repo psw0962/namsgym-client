@@ -89,7 +89,23 @@ const Home = () => {
         <Font fontSize="1.3rem" fontWeight="500" margin="0 0 2rem 0">
           이메일 : namgh90@nate.com
         </Font>
-        <Font fontSize="1.3rem" fontWeight="500" lineHeight="1.5">
+
+        <CustomAtag
+          themeState={themeState}
+          href="https://rainy-reaper-d5b.notion.site/29ce947a1fed48f3a878f586f071ba6c"
+          target="_blank"
+          rel="noreferrer"
+          onClick={e => e.stopPropagation()}
+        >
+          {`인재채용 >`}
+        </CustomAtag>
+
+        <Font
+          fontSize="1.3rem"
+          fontWeight="500"
+          lineHeight="1.5"
+          margin="2rem 0 0 0"
+        >
           *본 페이지에 제공되는 모든 이미지는 남스짐의 고유한 재산 입니다.
           <br />
           무단으로 도용시 법적 처벌을 요구할 수 있습니다.
@@ -131,4 +147,15 @@ const CustomSlick = styled(Slick)`
   .slick-slider {
     touch-action: 'auto';
   }
+`;
+
+const CustomAtag = styled.a`
+  font-size: 1.4rem;
+  padding: 1rem;
+  border: ${props =>
+    props.themeState === 'dark' ? '1px solid #fff' : '1px solid #000'};
+  border-radius: 8px;
+  width: fit-content;
+  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 `;
