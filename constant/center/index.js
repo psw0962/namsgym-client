@@ -13,7 +13,7 @@ import center10 from '@/constant/center/center10';
 export const centerCardData = [
   {
     id: 1,
-    thumbNail: center1.centerImages,
+    thumbNail: center1.images,
     centerName: center1.centerName,
     phone: center1.phone,
     kakaoTalkUrl: center1.kakaoTalkUrl,
@@ -21,7 +21,7 @@ export const centerCardData = [
   },
   {
     id: 2,
-    thumbNail: center2.centerImages,
+    thumbNail: center2.images,
     centerName: center2.centerName,
     address: center2.address,
     phone: center2.phone,
@@ -29,7 +29,7 @@ export const centerCardData = [
   },
   {
     id: 3,
-    thumbNail: center3.centerImages,
+    thumbNail: center3.images,
     centerName: center3.centerName,
     address: center3.address,
     phone: center3.phone,
@@ -37,7 +37,7 @@ export const centerCardData = [
   },
   {
     id: 4,
-    thumbNail: center4.centerImages,
+    thumbNail: center4.images,
     centerName: center4.centerName,
     address: center4.address,
     phone: center4.phone,
@@ -45,7 +45,7 @@ export const centerCardData = [
   },
   {
     id: 5,
-    thumbNail: center5.centerImages,
+    thumbNail: center5.images,
     centerName: center5.centerName,
     address: center5.address,
     phone: center5.phone,
@@ -53,7 +53,7 @@ export const centerCardData = [
   },
   {
     id: 6,
-    thumbNail: center6.centerImages,
+    thumbNail: center6.images,
     centerName: center6.centerName,
     address: center6.address,
     phone: center6.phone,
@@ -61,7 +61,7 @@ export const centerCardData = [
   },
   {
     id: 7,
-    thumbNail: center7.centerImages,
+    thumbNail: center7.images,
     centerName: center7.centerName,
     address: center7.address,
     phone: center7.phone,
@@ -69,7 +69,7 @@ export const centerCardData = [
   },
   {
     id: 8,
-    thumbNail: center8.centerImages,
+    thumbNail: center8.images,
     centerName: center8.centerName,
     address: center8.address,
     phone: center8.phone,
@@ -77,7 +77,7 @@ export const centerCardData = [
   },
   {
     id: 9,
-    thumbNail: center9.centerImages,
+    thumbNail: center9.images,
     centerName: center9.centerName,
     address: center9.address,
     phone: center9.phone,
@@ -85,7 +85,7 @@ export const centerCardData = [
   },
   {
     id: 10,
-    thumbNail: center10.centerImages,
+    thumbNail: center10.images,
     centerName: center10.centerName,
     address: center10.address,
     phone: center10.phone,

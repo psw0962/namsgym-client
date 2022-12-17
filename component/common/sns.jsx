@@ -34,6 +34,19 @@ const Sns = () => {
       )}
 
       <SnsFrame isOpenSnsFrameState={isOpenSnsFrameState}>
+        <SnsWrapper isOpenSnsFrameState={isOpenSnsFrameState}>
+          {snsLogoImages.map(item => {
+            return (
+              <SnsButton
+                key={item.id}
+                src={item.src}
+                url={item.url}
+                alt={item.alt}
+              />
+            );
+          })}
+        </SnsWrapper>
+
         {isOpenSnsFrameState === true && (
           <CloseSnsFrame
             width={3}
@@ -51,19 +64,6 @@ const Sns = () => {
             />
           </CloseSnsFrame>
         )}
-
-        <SnsWrapper isOpenSnsFrameState={isOpenSnsFrameState}>
-          {snsLogoImages.map(item => {
-            return (
-              <SnsButton
-                key={item.id}
-                src={item.src}
-                url={item.url}
-                alt={item.alt}
-              />
-            );
-          })}
-        </SnsWrapper>
       </SnsFrame>
     </React.Fragment>
   );

@@ -12,5 +12,5 @@ export const reviewSearchKeyWordStateAtom = atom({
 
 export const isOpenSnsFrameStateAtom = atom({
   key: 'isOpenSnsFrameState',
-  default: true,
+  default: false,
 });

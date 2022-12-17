@@ -16,7 +16,7 @@ const center1 = {
   centerName: '7호점 안산 고잔점',
   address: '안산시 단원구 원고잔로 17',
   phone: '010-0000-0000',
-  centerImages: [center1_1, center1_2, center1_3, center1_4],
+  images: [center1_1, center1_2, center1_3, center1_4],
   operatingTime: '06:00 ~ 24:00',
   trainers: [
     {

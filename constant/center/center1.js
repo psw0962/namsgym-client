@@ -16,7 +16,7 @@ const center1 = {
   centerName: '1호점 안산 신길점',
   address: '안산 신길동710-2',
   phone: '0507-1388-3413',
-  centerImages: [center1_1, center1_2, center1_3, center1_4],
+  images: [center1_1, center1_2, center1_3, center1_4],
   operatingTime: `
 평일 : 09:00 ~ 23:30
 주말 및 공휴일 : 10:00 ~ 18:00

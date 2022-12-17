@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "target": "esnext",
     "baseUrl": ".",
     "paths": {
       "@/api/*": ["api/*"],
@@ -10,7 +11,7 @@
       "@/hooks/*": ["hooks/*"],
       "@/pages/*": ["pages/*"],
       "@/public/*": ["public/*"],
-      "@/styles/*": ["styles/*"],
+      "@/styles/*": ["styles/*"]
     }
   }
 }

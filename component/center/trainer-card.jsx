@@ -223,7 +223,6 @@ const CarouselFrame = styled.div`
   width: 18rem;
   margin-top: 1rem;
   overflow-x: auto;
-  overflow-x: hidden;
   overflow-y: hidden;
 
   ::-webkit-scrollbar {
