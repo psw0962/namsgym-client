@@ -37,7 +37,11 @@ const TrainerDetail = () => {
         </Unregistered>
       )}
 
-      {/* <Carousel data={trainerData?.images} width={35} height={40} /> */}
+      <Font fontSize="2rem" margin="0 0 4rem 0">
+        {trainerData?.name} 이력 사항
+      </Font>
+
+      <Carousel data={trainerData} width={35} height={40} />
     </div>
   );
 };

@@ -12,7 +12,11 @@ const Carousel = ({ data, width, height }) => {
   });
 
   return (
-    <Frame ref={scrollRef} {...scrollWrapperEvents}>
+    <Frame
+      ref={scrollRef}
+      {...scrollWrapperEvents}
+      isCenter={data?.images?.length === 1}
+    >
       <div className="carousel-wrapper">
         {data?.images?.map((item, index) => {
           return (
@@ -36,6 +40,8 @@ const Carousel = ({ data, width, height }) => {
 export default Carousel;
 
 const Frame = styled.div`
+  justify-content: ${props => (props.isCenter ? 'center' : '')};
+
   display: flex;
   width: 100%;
   overflow-x: auto;

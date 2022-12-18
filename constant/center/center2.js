@@ -1,8 +1,8 @@
 import {
-  center1_1,
-  center1_2,
-  center1_3,
-  center1_4,
+  center2_1,
+  center2_2,
+  center2_3,
+  center2_4,
   trainer1_1_1,
   trainer1_2_1,
   trainer1_3_1,
@@ -10,14 +10,17 @@ import {
   trainer1_5_1,
   trainer1_6_1,
   trainer1_7_1,
-} from '@/public/png/center/center1/index';
+} from '@/public/png/center/center2/index';
 
-const center1 = {
+const center2 = {
   centerName: '2호점 부천 범안점',
   address: '부천 범박동 155-2',
   phone: '010-0000-0000',
-  images: [center1_1, center1_2, center1_3, center1_4],
-  operatingTime: '06:00 ~ 24:00',
+  images: [center2_1, center2_2, center2_3, center2_4],
+  operatingTime: `
+평일 : 09:00 ~ 23:30
+주말 및 공휴일 : 10:00 ~ 18:00
+정기휴무 : 매주 일요일`,
   trainers: [
     {
       id: 1,
@@ -127,4 +130,4 @@ const center1 = {
   blogUrl: 'https://blog.naver.com/namsgym',
 };
 
-export default center1;
+export default center2;

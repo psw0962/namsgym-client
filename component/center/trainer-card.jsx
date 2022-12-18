@@ -72,7 +72,7 @@ const TrainerCard = ({ data, centerName }) => {
             return (
               <ImageWrapper key={`trainerCard${index}`} width={18} height={20}>
                 <Image
-                  src={image.src}
+                  src={image?.src}
                   alt={`slick${index}`}
                   priority={true}
                   quality={80}
