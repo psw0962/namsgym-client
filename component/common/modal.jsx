@@ -5,7 +5,7 @@ import Image from 'next/image';
 import ImageWrapper from '@/component/common/image-wrapper';
 import { close } from '@/public/svg/index';
 
-const Modal = ({ state, setState, children }) => {
+const Modal = ({ state, setState, isOverflow, isCenter = true, children }) => {
   const moodalOpenInRef = useRef();
   const modalOpenExceptRef = useRef();
   useOnClickOutside({
@@ -29,22 +29,26 @@ const Modal = ({ state, setState, children }) => {
       <DialogFrame
         ref={moodalOpenInRef}
         className={state ? 'slideUp' : 'slideDown'}
+        isOverflow={isOverflow}
+        isCenter={isCenter}
       >
-        <CloseSnsFrame
-          width={3}
-          height={3}
-          pointer={true}
-          onClick={() => setState(false)}
-        >
-          <Image
-            src={close}
-            alt="close"
-            priority={true}
-            quality={100}
-            placeholder="blur"
-            blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
-          />
-        </CloseSnsFrame>
+        <div className="close-wrapper">
+          <CloseSnsFrame
+            width={3}
+            height={3}
+            pointer={true}
+            onClick={() => setState(false)}
+          >
+            <Image
+              src={close}
+              alt="close"
+              priority={true}
+              quality={100}
+              placeholder="blur"
+              blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+            />
+          </CloseSnsFrame>
+        </div>
 
         <div>{children}</div>
       </DialogFrame>
@@ -81,8 +85,7 @@ const Frame = styled.div`
 const DialogFrame = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
+  align-items: ${props => (props.isCenter ? 'center' : '')};
 
   visibility: hidden;
   position: absolute;
@@ -97,6 +100,14 @@ const DialogFrame = styled.div`
   transition: all 0.2s ease-in-out;
   box-sizing: border-box;
   z-index: 103;
+  overflow-x: ${props => (props.isOverflow ? 'auto' : '')};
+
+  .close-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 0 3rem 0;
+  }
 
   &.slideUp {
     visibility: visible;
@@ -115,9 +126,5 @@ const DialogFrame = styled.div`
 `;
 
 const CloseSnsFrame = styled(ImageWrapper)`
-  position: absolute;
-  right: 15px;
-  top: 15px;
-  background-color: #fff;
   border-radius: 100%;
 `;

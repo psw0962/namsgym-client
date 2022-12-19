@@ -24,7 +24,7 @@ const center1 = {
   trainers: [
     {
       id: 1,
-      name: '김현정 트레이너',
+      name: '김현중 트레이너',
       tags: [
         '생활체육지도자 2급(보디빌딩)',
         'BLACK ROLL 자격증',

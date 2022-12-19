@@ -4,11 +4,11 @@ import Image from 'next/image';
 import ImageWrapper from '@/component/common/image-wrapper';
 import Font from '@/component/common/font';
 
-const ReviewCard = ({ data }) => {
+const ReviewCard = ({ data, onClick }) => {
   const { themeState } = useThemeState();
 
   return (
-    <Frame themeState={themeState}>
+    <Frame themeState={themeState} onClick={onClick}>
       <ImageWrapper width={18} height={20}>
         <Image src={data.images[0]} alt="review-image" />
       </ImageWrapper>
