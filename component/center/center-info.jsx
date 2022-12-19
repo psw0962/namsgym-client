@@ -49,13 +49,18 @@ const CenterInfo = ({ centerData }) => {
             </Button>
           </SearchWrapper>
 
-          <KaKaoMap
-            locationData={[
-              { content: centerData?.centerName, latlng: centerData?.address },
-            ]}
-            refreshData={startPoint}
-            margin="0"
-          />
+          {centerData && (
+            <KaKaoMap
+              locationData={[
+                {
+                  content: centerData?.centerName,
+                  latlng: centerData?.address,
+                },
+              ]}
+              refreshData={startPoint}
+              margin="0"
+            />
+          )}
         </React.Fragment>
       )}
     </React.Fragment>

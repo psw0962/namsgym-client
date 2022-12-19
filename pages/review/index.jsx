@@ -22,21 +22,19 @@ const Carousel = dynamic(() => import('@/component/common/carousel'), {
 
 const Review = () => {
   const router = useRouter();
+  const { themeState } = useThemeState();
   const [tabState, setTabState] = useState('전체');
   const [reviewSearchKeyWordState, setReviewSearchKeyWordState] =
     useRecoilState(reviewSearchKeyWordStateAtom);
   const [reviews, setReviews] = useState(reviewData || []);
-  const debouncedSearch = useDebounce(reviewSearchKeyWordState, 500);
-  const { themeState } = useThemeState();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [reviewDetail, setReviewDetail] = useState({});
+  const debouncedSearch = useDebounce(reviewSearchKeyWordState, 500);
 
   const onClickReviewCard = data => {
     setReviewDetail(data);
     setIsMenuOpen(true);
   };
-
-  console.log(reviewDetail);
 
   useEffect(() => {
     // 검색어X, 탭X
@@ -161,6 +159,7 @@ const Review = () => {
         <CustomButton
           onClick={() => {
             router.push(`/center/${reviewDetail?.center?.slice(0, 1)}`);
+            setIsMenuOpen(false);
           }}
         >
           {`${reviewDetail?.center} 시설 및 상담 안내 >`}
@@ -182,6 +181,7 @@ const Review = () => {
                 reviewDetail?.trainer?.split(' ')[0]
               }`,
             );
+            setIsMenuOpen(false);
           }}
         >{`${reviewDetail?.trainer} 이력 보기 >`}</CustomButton>
 
