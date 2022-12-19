@@ -2,12 +2,11 @@ import React, { useState, useCallback } from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
 import Slider from 'react-slick';
-
 import ImageWrapper from './image-wrapper';
 import Font from '@/component/common/font';
 // import { useRouter } from 'next/router';
 
-const Slick = ({ data, height }) => {
+const Slick = ({ data, width, height }) => {
   // const router = useRouter();
   const [activeSlide, setActiveSlide] = useState(0);
   const [activeSlide2, setActiveSlide2] = useState(0);
@@ -47,6 +46,7 @@ const Slick = ({ data, height }) => {
           return (
             <CustomImageWrapper
               key={item.id ? item.id : index}
+              width={width}
               height={height}
               onClick={e => {
                 if (dragging) {
@@ -74,10 +74,10 @@ const Slick = ({ data, height }) => {
               </Font>
 
               <Image
-                src={item.src}
+                src={item?.src}
                 alt={`slick${index}`}
                 priority={true}
-                quality={100}
+                quality={80}
                 placeholder="blur"
                 blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
               />

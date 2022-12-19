@@ -12,14 +12,29 @@ import Image from 'next/image';
 import useDebounce from '@/hooks/useDebounce';
 import Button from '@/component/common/button';
 import useThemeState from '@/hooks/useThemeState';
+import Modal from '@/component/common/modal';
+import dynamic from 'next/dynamic';
+import Line from '@/component/common/line';
+import { useRouter } from 'next/router';
+const Carousel = dynamic(() => import('@/component/common/carousel'), {
+  suspense: true,
+});
 
 const Review = () => {
+  const router = useRouter();
+  const { themeState } = useThemeState();
   const [tabState, setTabState] = useState('전체');
   const [reviewSearchKeyWordState, setReviewSearchKeyWordState] =
     useRecoilState(reviewSearchKeyWordStateAtom);
   const [reviews, setReviews] = useState(reviewData || []);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [reviewDetail, setReviewDetail] = useState({});
   const debouncedSearch = useDebounce(reviewSearchKeyWordState, 500);
-  const { themeState } = useThemeState();
+
+  const onClickReviewCard = data => {
+    setReviewDetail(data);
+    setIsMenuOpen(true);
+  };
 
   useEffect(() => {
     // 검색어X, 탭X
@@ -78,7 +93,7 @@ const Review = () => {
         target="_blank"
         rel="noreferrer"
       >
-        {`많은 고객님들이 인증한 리얼한 네이버 리뷰 확인하기 >`}
+        {`많은 고객님들이 인증한 네이버 리뷰 확인하기 >`}
       </CustomAtag>
 
       <SearchWrapper>
@@ -109,10 +124,91 @@ const Review = () => {
 
         <CardFrame>
           {reviews?.map(item => {
-            return <ReviewCard key={item.id} data={item} />;
+            return (
+              <ReviewCard
+                key={item.id}
+                data={item}
+                onClick={() => onClickReviewCard(item)}
+              />
+            );
           })}
         </CardFrame>
       </FadeIn>
+
+      <Modal
+        state={isMenuOpen}
+        setState={setIsMenuOpen}
+        isOverflow={true}
+        isCenter={false}
+      >
+        <TitleWrapper>
+          <Font fontSize="2rem" color="#000">
+            {reviewDetail?.title}
+          </Font>
+
+          <Tag>{reviewDetail?.tag}</Tag>
+        </TitleWrapper>
+
+        <Carousel
+          data={reviewDetail}
+          width={25}
+          height={25}
+          padding="1rem 0.1rem"
+        />
+
+        <CustomButton
+          onClick={() => {
+            router.push(`/center/${reviewDetail?.center?.slice(0, 1)}`);
+            setIsMenuOpen(false);
+          }}
+        >
+          {`${reviewDetail?.center} 시설 및 상담 안내 >`}
+        </CustomButton>
+
+        <CustomAtag
+          themeState={themeState}
+          href="https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EC%95%88%EC%82%B0%20%EC%8B%A0%EA%B8%B8%EC%A0%90/place/921880323?c=14112231.1392257,4486165.2212545,15,0,0,0,dh&isCorrectAnswer=true"
+          target="_blank"
+          rel="noreferrer"
+        >
+          {`무료 PT체험권 신청하기 >`}
+        </CustomAtag>
+
+        <CustomButton
+          onClick={() => {
+            router.push(
+              `/center/${reviewDetail?.center?.slice(0, 1)}/${
+                reviewDetail?.trainer?.split(' ')[0]
+              }`,
+            );
+            setIsMenuOpen(false);
+          }}
+        >{`${reviewDetail?.trainer} 이력 보기 >`}</CustomButton>
+
+        <Line />
+
+        {reviewDetail?.clientReview !== '' && (
+          <Font
+            fontSize="2rem"
+            margin="2rem 0 0 0"
+            lineHeight="24px"
+            color="#000"
+          >
+            *{reviewDetail?.title} 리뷰 : {reviewDetail?.clientReview}
+          </Font>
+        )}
+
+        {reviewDetail?.trainerReview !== '' && (
+          <Font
+            fontSize="2rem"
+            margin="2rem 0 0 0"
+            lineHeight="24px"
+            color="#000"
+          >
+            *{reviewDetail?.trainer} 리뷰 : {reviewDetail?.trainerReview}
+          </Font>
+        )}
+      </Modal>
     </Frame>
   );
 };
@@ -171,4 +267,34 @@ const CustomAtag = styled.a`
   width: fit-content;
   text-decoration: none;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+`;
+
+const Tag = styled.div`
+  width: fit-content;
+  background-color: #b49445;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 500;
+  padding: 1rem;
+  white-space: nowrap;
+  border-radius: 5px;
+`;
+
+const TitleWrapper = styled.div`
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+`;
+
+const CustomButton = styled.div`
+  font-weight: 500;
+  font-size: 1.6rem;
+  color: #000;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid #000;
+  cursor: pointer;
+  width: fit-content;
+  margin: 2rem 0;
 `;

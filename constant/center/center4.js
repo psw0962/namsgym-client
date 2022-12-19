@@ -16,7 +16,7 @@ const center1 = {
   centerName: '4호점 구로 천왕점',
   address: '구로 천왕로 36',
   phone: '010-0000-0000',
-  centerImages: [center1_1, center1_2, center1_3, center1_4],
+  images: [center1_1, center1_2, center1_3, center1_4],
   operatingTime: '06:00 ~ 24:00',
   trainers: [
     {

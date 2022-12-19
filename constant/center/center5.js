@@ -16,7 +16,7 @@ const center1 = {
   centerName: '5호점 시흥 능곡점',
   address: '시흥시 능곡동 747',
   phone: '010-0000-0000',
-  centerImages: [center1_1, center1_2, center1_3, center1_4],
+  images: [center1_1, center1_2, center1_3, center1_4],
   operatingTime: '06:00 ~ 24:00',
   trainers: [
     {

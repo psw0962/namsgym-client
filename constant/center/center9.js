@@ -16,7 +16,7 @@ const center1 = {
   centerName: '9호점 시흥 은행점',
   address: '경기도 시흥시 대은로 80',
   phone: '010-0000-0000',
-  centerImages: [center1_1, center1_2, center1_3, center1_4],
+  images: [center1_1, center1_2, center1_3, center1_4],
   operatingTime: '06:00 ~ 24:00',
   trainers: [
     {

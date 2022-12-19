@@ -1,19 +1,14 @@
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
-import Image from 'next/image';
-import ImageWrapper from '@/component/common/image-wrapper';
-import { useDraggable } from 'react-use-draggable-scroll';
 import KaKaoMap from '@/component/common/kakao-map';
 import Font from '@/component/common/font';
 import Button from '@/component/common/button';
+import dynamic from 'next/dynamic';
+const Carousel = dynamic(() => import('@/component/common/carousel'), {
+  suspense: true,
+});
 
 const CenterInfo = ({ centerData }) => {
-  const scrollRef = useRef();
-  const { events: scrollWrapperEvents } = useDraggable(scrollRef, {
-    isMounted: true,
-    safeDisplacement: 11,
-  });
-
   const inputRef = useRef('');
   const [startPoint, setStartPoint] = useState('');
 
@@ -24,29 +19,12 @@ const CenterInfo = ({ centerData }) => {
   return (
     <React.Fragment>
       <Font fontSize="2rem" margin="1rem 0 1rem 0">
-        시설 안내{' '}
+        시설 안내
       </Font>
 
       <CustomPre>{`*운영시간 ${centerData?.operatingTime}`}</CustomPre>
 
-      <Frame ref={scrollRef} {...scrollWrapperEvents}>
-        <div className="carousel-wrapper">
-          {centerData?.centerImages?.map((item, index) => {
-            return (
-              <CustomImageWrapper key={index} width={35} height={40}>
-                <Image
-                  src={item}
-                  alt={`center1_${index + 1}`}
-                  priority={true}
-                  quality={80}
-                  placeholder="blur"
-                  blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
-                />
-              </CustomImageWrapper>
-            );
-          })}
-        </div>
-      </Frame>
+      <Carousel data={centerData} width={35} height={40} />
 
       {Object.keys(centerData).length > 0 && (
         <React.Fragment>
@@ -71,13 +49,18 @@ const CenterInfo = ({ centerData }) => {
             </Button>
           </SearchWrapper>
 
-          <KaKaoMap
-            locationData={[
-              { content: centerData?.centerName, latlng: centerData?.address },
-            ]}
-            refreshData={startPoint}
-            margin="0"
-          />
+          {centerData && (
+            <KaKaoMap
+              locationData={[
+                {
+                  content: centerData?.centerName,
+                  latlng: centerData?.address,
+                },
+              ]}
+              refreshData={startPoint}
+              margin="0"
+            />
+          )}
         </React.Fragment>
       )}
     </React.Fragment>
@@ -85,22 +68,6 @@ const CenterInfo = ({ centerData }) => {
 };
 
 export default CenterInfo;
-
-const Frame = styled.div`
-  display: flex;
-  width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-
-  ::-webkit-scrollbar {
-    display: none;
-  }
-
-  .carousel-wrapper {
-    display: flex;
-    gap: 2rem;
-  }
-`;
 
 const SearchWrapper = styled.div`
   display: flex;
@@ -118,12 +85,6 @@ const SearchWrapper = styled.div`
 const CustomSpan = styled.span`
   font-size: 1.2rem;
   margin-top: 1rem;
-`;
-
-const CustomImageWrapper = styled(ImageWrapper)`
-  img {
-    border-radius: 5px;
-  }
 `;
 
 const CustomPre = styled.pre`

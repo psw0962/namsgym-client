@@ -16,7 +16,7 @@ const center1 = {
   centerName: '1호점 안산 신길점',
   address: '안산 신길동710-2',
   phone: '0507-1388-3413',
-  centerImages: [center1_1, center1_2, center1_3, center1_4],
+  images: [center1_1, center1_2, center1_3, center1_4],
   operatingTime: `
 평일 : 09:00 ~ 23:30
 주말 및 공휴일 : 10:00 ~ 18:00
@@ -24,7 +24,7 @@ const center1 = {
   trainers: [
     {
       id: 1,
-      name: '김현정 트레이너',
+      name: '김현중 트레이너',
       tags: [
         '생활체육지도자 2급(보디빌딩)',
         'BLACK ROLL 자격증',

@@ -17,7 +17,7 @@ const CenterDetail = () => {
 
   useEffect(() => {
     makeCenterData(pathName, setCenterData);
-  }, [pathName, centerData]);
+  }, [pathName]);
 
   return (
     <Frame>

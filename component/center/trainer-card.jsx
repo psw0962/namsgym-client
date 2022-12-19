@@ -72,7 +72,7 @@ const TrainerCard = ({ data, centerName }) => {
             return (
               <ImageWrapper key={`trainerCard${index}`} width={18} height={20}>
                 <Image
-                  src={image.src}
+                  src={image?.src}
                   alt={`slick${index}`}
                   priority={true}
                   quality={80}
@@ -94,12 +94,7 @@ const TrainerCard = ({ data, centerName }) => {
           alignItems: 'flex-end',
         }}
       >
-        <Font
-          themeState={themeState}
-          fontSize="12px"
-          fontWeight={500}
-          margin="2rem 0 0 0"
-        >
+        <Font fontSize="12px" fontWeight={500} margin="2rem 0 0 0">
           자격사항
         </Font>
 
@@ -132,7 +127,6 @@ const TrainerCard = ({ data, centerName }) => {
       <CustomLine themeState={themeState} />
 
       <Font
-        themeState={themeState}
         fontSize="1.4rem"
         fontWeight={500}
         margin="0 0 0 0"
@@ -143,7 +137,6 @@ const TrainerCard = ({ data, centerName }) => {
       </Font>
 
       <Font
-        themeState={themeState}
         fontSize="1.4rem"
         fontWeight={500}
         margin="2rem 0 0 0"
@@ -223,7 +216,6 @@ const CarouselFrame = styled.div`
   width: 18rem;
   margin-top: 1rem;
   overflow-x: auto;
-  overflow-x: hidden;
   overflow-y: hidden;
 
   ::-webkit-scrollbar {
