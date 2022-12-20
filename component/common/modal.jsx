@@ -92,7 +92,7 @@ const DialogFrame = styled.div`
   bottom: -300px;
   width: 100%;
   max-width: 450px;
-  max-height: 85rem;
+  max-height: 70rem;
   min-height: 10rem;
   padding: 2rem 2rem;
   border-radius: 18px 18px 0px 0px;
