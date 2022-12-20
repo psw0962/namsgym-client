@@ -14,13 +14,15 @@ import {
 
 const center1 = {
   centerName: '1호점 안산 신길점',
-  address: '안산 신길동710-2',
+  address: '경기 안산시 단원구 새뿔길 48 월산빌딩 지하 1층, 3층',
   phone: '0507-1388-3413',
   images: [center1_1, center1_2, center1_3, center1_4],
   operatingTime: `
 평일 : 09:00 ~ 23:30
 주말 및 공휴일 : 10:00 ~ 18:00
-정기휴무 : 매주 일요일`,
+정기휴무 : 매주 일요일
+공휴일 휴무 : 별도 공지
+`,
   trainers: [
     {
       id: 1,

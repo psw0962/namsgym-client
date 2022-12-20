@@ -25,7 +25,8 @@ export const centerCardData = [
     centerName: center2.centerName,
     address: center2.address,
     phone: center2.phone,
-    operatingTime: center2.operatingTime,
+    kakaoTalkUrl: center2.kakaoTalkUrl,
+    naverPlaceUrl: center2.naverPlaceUrl,
   },
   {
     id: 3,
@@ -33,7 +34,8 @@ export const centerCardData = [
     centerName: center3.centerName,
     address: center3.address,
     phone: center3.phone,
-    operatingTime: center3.operatingTime,
+    kakaoTalkUrl: center3.kakaoTalkUrl,
+    naverPlaceUrl: center3.naverPlaceUrl,
   },
   {
     id: 4,
@@ -41,7 +43,8 @@ export const centerCardData = [
     centerName: center4.centerName,
     address: center4.address,
     phone: center4.phone,
-    operatingTime: center4.operatingTime,
+    kakaoTalkUrl: center4.kakaoTalkUrl,
+    naverPlaceUrl: center4.naverPlaceUrl,
   },
   {
     id: 5,
@@ -49,7 +52,8 @@ export const centerCardData = [
     centerName: center5.centerName,
     address: center5.address,
     phone: center5.phone,
-    operatingTime: center5.operatingTime,
+    kakaoTalkUrl: center5.kakaoTalkUrl,
+    naverPlaceUrl: center5.naverPlaceUrl,
   },
   {
     id: 6,
@@ -57,7 +61,8 @@ export const centerCardData = [
     centerName: center6.centerName,
     address: center6.address,
     phone: center6.phone,
-    operatingTime: center6.operatingTime,
+    kakaoTalkUrl: center6.kakaoTalkUrl,
+    naverPlaceUrl: center6.naverPlaceUrl,
   },
   {
     id: 7,
@@ -65,7 +70,8 @@ export const centerCardData = [
     centerName: center7.centerName,
     address: center7.address,
     phone: center7.phone,
-    operatingTime: center7.operatingTime,
+    kakaoTalkUrl: center7.kakaoTalkUrl,
+    naverPlaceUrl: center7.naverPlaceUrl,
   },
   {
     id: 8,
@@ -73,7 +79,8 @@ export const centerCardData = [
     centerName: center8.centerName,
     address: center8.address,
     phone: center8.phone,
-    operatingTime: center8.operatingTime,
+    kakaoTalkUrl: center8.kakaoTalkUrl,
+    naverPlaceUrl: center8.naverPlaceUrl,
   },
   {
     id: 9,
@@ -81,7 +88,8 @@ export const centerCardData = [
     centerName: center9.centerName,
     address: center9.address,
     phone: center9.phone,
-    operatingTime: center9.operatingTime,
+    kakaoTalkUrl: center9.kakaoTalkUrl,
+    naverPlaceUrl: center9.naverPlaceUrl,
   },
   {
     id: 10,
@@ -89,6 +97,7 @@ export const centerCardData = [
     centerName: center10.centerName,
     address: center10.address,
     phone: center10.phone,
-    operatingTime: center10.operatingTime,
+    kakaoTalkUrl: center10.kakaoTalkUrl,
+    naverPlaceUrl: center10.naverPlaceUrl,
   },
 ];
