@@ -25,7 +25,7 @@ const Splash = ({ setIsSplash }) => {
           transition={{ duration: 0.5 }}
         >
           <Frame>
-            <LogoFont color="#b49445" fontSize="5rem" fontWeight="500">
+            <LogoFont color="#000" fontSize="5rem" fontWeight="500">
               {`NAM'S`} <br /> GYM
             </LogoFont>
           </Frame>

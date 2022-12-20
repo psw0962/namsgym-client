@@ -3,24 +3,26 @@ import {
   center2_2,
   center2_3,
   center2_4,
-  trainer1_1_1,
-  trainer1_2_1,
-  trainer1_3_1,
-  trainer1_4_1,
-  trainer1_5_1,
-  trainer1_6_1,
-  trainer1_7_1,
+  trainer1_1,
+  trainer2_1,
+  trainer3_1,
+  trainer4_1,
+  trainer5_1,
+  trainer6_1,
+  trainer7_1,
 } from '@/public/png/center/center2/index';
 
 const center2 = {
-  centerName: '2호점 부천 범안점',
-  address: '부천 범박동 155-2',
-  phone: '010-0000-0000',
+  centerName: '2호점 부천 범박점',
+  address: '경기 부천시 범안로 117 2층',
+  phone: '0507-1392-3375',
   images: [center2_1, center2_2, center2_3, center2_4],
   operatingTime: `
 평일 : 09:00 ~ 23:30
 주말 및 공휴일 : 10:00 ~ 18:00
-정기휴무 : 매주 일요일`,
+정기휴무 : 매주 일요일
+공휴일 휴무 : 별도 공지
+`,
   trainers: [
     {
       id: 1,
@@ -33,7 +35,7 @@ const center2 = {
         'FISAF KOREA 자격증',
         'Functional Taping 자격증',
       ],
-      images: [trainer1_1_1],
+      images: [trainer1_1],
     },
     {
       id: 2,
@@ -45,7 +47,7 @@ const center2 = {
         'FISAF KOREA 자격증',
         'Functional Taping 자격증',
       ],
-      images: [trainer1_2_1],
+      images: [trainer2_1],
     },
     {
       id: 3,
@@ -63,7 +65,7 @@ const center2 = {
         '스포츠 마사지 교육 이수',
         '소도구 트레이닝 교육 이수',
       ],
-      images: [trainer1_3_1],
+      images: [trainer3_1],
     },
     {
       id: 4,
@@ -79,7 +81,7 @@ const center2 = {
         'WNGP 주최 대회 스포츠모델 TOP 6',
         '글라스톤 교육 이수',
       ],
-      images: [trainer1_4_1],
+      images: [trainer4_1],
     },
     {
       id: 5,
@@ -96,7 +98,7 @@ const center2 = {
         '스포츠 마사지 교육 이수',
         '소도구 트레이닝 교육 이수',
       ],
-      images: [trainer1_5_1],
+      images: [trainer5_1],
     },
     {
       id: 6,
@@ -110,7 +112,7 @@ const center2 = {
         '스포츠 마사지 교육 이수',
         '소도구 트레이닝 교육 이수',
       ],
-      images: [trainer1_6_1],
+      images: [trainer6_1],
     },
     {
       id: 7,
@@ -123,11 +125,12 @@ const center2 = {
         '스포츠 마사지 교육 이수',
         '소도구 트레이닝 교육 이수',
       ],
-      images: [trainer1_7_1],
+      images: [trainer7_1],
     },
   ],
-  kakaoTalkUrl: 'https://pf.kakao.com/_FxgHWd',
-  blogUrl: 'https://blog.naver.com/namsgym',
+  kakaoTalkUrl: 'https://pf.kakao.com/_MIqhj',
+  naverPlaceUrl:
+    'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EB%B2%94%EB%B0%95%EC%A0%90/place/1876092791?c=14116952.5021869,4504480.5158603,15,0,0,0,dh&isCorrectAnswer=true',
 };
 
 export default center2;

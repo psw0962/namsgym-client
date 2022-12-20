@@ -63,7 +63,7 @@ const TrainerDetail = () => {
             {`${trainerData?.name} 이력 사항 (${centerData?.centerName})`}
           </Font>
 
-          <Carousel data={trainerData} width={35} height={40} />
+          <Carousel data={trainerData} width={35} height={35} />
 
           <TagWrapper>
             {trainerData?.tags?.map((tag, index) => {

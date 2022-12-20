@@ -3,25 +3,29 @@ import {
   center1_2,
   center1_3,
   center1_4,
-  trainer1_1_1,
-  trainer1_2_1,
-  trainer1_3_1,
-  trainer1_4_1,
-  trainer1_5_1,
-  trainer1_6_1,
-  trainer1_7_1,
+  trainer1_1,
+  trainer2_1,
+  trainer3_1,
+  trainer4_1,
+  trainer5_1,
+  trainer6_1,
+  trainer7_1,
 } from '@/public/png/center/center1/index';
 
-const center1 = {
+const center8 = {
   centerName: '8호점 군포 산본점',
-  address: '군포시 산본동 고산로691 도율빌딩',
-  phone: '010-0000-0000',
+  address: '경기 군포시 고산로 691 도율빌딩 5층',
+  phone: '0507-1390-3375',
   images: [center1_1, center1_2, center1_3, center1_4],
-  operatingTime: '06:00 ~ 24:00',
+  operatingTime: `
+평일 : 06:00 ~ 24:00
+주말 및 공휴일 : 10:00 ~ 18:00
+공휴일 휴무 : 별도 공지
+`,
   trainers: [
     {
       id: 1,
-      name: '김현정 트레이너',
+      name: '김현중 트레이너',
       tags: [
         '생활체육지도자 2급(보디빌딩)',
         'BLACK ROLL 자격증',
@@ -30,7 +34,7 @@ const center1 = {
         'FISAF KOREA 자격증',
         'Functional Taping 자격증',
       ],
-      images: [trainer1_1_1],
+      images: [trainer1_1],
     },
     {
       id: 2,
@@ -42,7 +46,7 @@ const center1 = {
         'FISAF KOREA 자격증',
         'Functional Taping 자격증',
       ],
-      images: [trainer1_2_1],
+      images: [trainer2_1],
     },
     {
       id: 3,
@@ -60,7 +64,7 @@ const center1 = {
         '스포츠 마사지 교육 이수',
         '소도구 트레이닝 교육 이수',
       ],
-      images: [trainer1_3_1],
+      images: [trainer3_1],
     },
     {
       id: 4,
@@ -76,7 +80,7 @@ const center1 = {
         'WNGP 주최 대회 스포츠모델 TOP 6',
         '글라스톤 교육 이수',
       ],
-      images: [trainer1_4_1],
+      images: [trainer4_1],
     },
     {
       id: 5,
@@ -93,7 +97,7 @@ const center1 = {
         '스포츠 마사지 교육 이수',
         '소도구 트레이닝 교육 이수',
       ],
-      images: [trainer1_5_1],
+      images: [trainer5_1],
     },
     {
       id: 6,
@@ -107,7 +111,7 @@ const center1 = {
         '스포츠 마사지 교육 이수',
         '소도구 트레이닝 교육 이수',
       ],
-      images: [trainer1_6_1],
+      images: [trainer6_1],
     },
     {
       id: 7,
@@ -120,11 +124,12 @@ const center1 = {
         '스포츠 마사지 교육 이수',
         '소도구 트레이닝 교육 이수',
       ],
-      images: [trainer1_7_1],
+      images: [trainer7_1],
     },
   ],
-  kakaoTalkUrl: 'https://pf.kakao.com/_FxgHWd',
-  blogUrl: 'https://blog.naver.com/namsgym',
+  kakaoTalkUrl: 'https://pf.kakao.com/_STxcrb',
+  naverPlaceUrl:
+    'https://map.naver.com/v5/entry/place/1136567577?c=14129897.3264950,4491016.1690441,15.96,0,0,0,dh&isCorrectAnswer=true',
 };
 
-export default center1;
+export default center8;
