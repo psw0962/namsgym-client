@@ -3,9 +3,27 @@ import styled from 'styled-components';
 import useThemeState from '@/hooks/useThemeState';
 import ImageWrapper from '@/component/common/image-wrapper';
 import Font from '@/component/common/font';
+import { useRecoilState } from 'recoil';
+import { reviewFilterStateAtom } from 'atoms';
+import { useRouter } from 'next/router';
 
 const EventCard = ({ data }) => {
+  const router = useRouter();
   const { themeState } = useThemeState();
+  const [reviewFilterState, setReviewFilterState] = useRecoilState(
+    reviewFilterStateAtom,
+  );
+
+  const onClickEventCard = data => {
+    setReviewFilterState(prev => {
+      return {
+        ...prev,
+        tabState: data.tag,
+      };
+    });
+
+    router.push('/review');
+  };
 
   return (
     <Frame themeState={themeState}>
@@ -20,9 +38,15 @@ const EventCard = ({ data }) => {
         />
       </ImageWrapper>
 
-      <Font fontSize="2.4rem" fontWeight={500}>
-        {data?.title}
-      </Font>
+      <TagWrapper>
+        <Font fontSize="2.4rem" fontWeight={500}>
+          {data?.title}
+        </Font>
+
+        <StatusTag active={data?.status ? true : false}>
+          {data?.status ? '진행중' : '종료'}
+        </StatusTag>
+      </TagWrapper>
 
       <Font fontSize="1.6rem" fontWeight={500} color="#acacac">
         {data?.subTitle}
@@ -33,16 +57,35 @@ const EventCard = ({ data }) => {
           시작일 : {data?.createdAt}
         </Font>
 
-        <div>
-          <Font fontSize="1.6rem" fontWeight={500} color="#acacac">
-            종료일 : {data?.endDate}
-          </Font>
-
-          <StatusTag active={data?.status ? true : false}>
-            {data?.status ? '진행중' : '종료'}
-          </StatusTag>
-        </div>
+        <Font fontSize="1.6rem" fontWeight={500} color="#acacac">
+          종료일 : {data?.endDate}
+        </Font>
       </Wrapper>
+
+      <Font
+        fontSize="2rem"
+        fontWeight={500}
+        textDecoration="underline"
+        margin="2rem 0 0 0"
+        onClick={e => {
+          e.stopPropagation();
+          onClickEventCard(data);
+        }}
+      >
+        {`상담 신청 >`}
+      </Font>
+
+      <Font
+        fontSize="2rem"
+        fontWeight={500}
+        textDecoration="underline"
+        onClick={e => {
+          e.stopPropagation();
+          onClickEventCard(data);
+        }}
+      >
+        {`${data?.tag} 리뷰 보러가기 >`}
+      </Font>
     </Frame>
   );
 };
@@ -71,12 +114,11 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 2.5rem;
+`;
 
-  div {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-  }
+const TagWrapper = styled.div`
+  display: flex;
+  gap: 1rem;
 `;
 
 const StatusTag = styled.div`

@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import Button from '@/component/common/button';
 import Font from '@/component/common/font';
 import { useRecoilState } from 'recoil';
-import { reviewSearchKeyWordStateAtom } from 'atoms';
+import { reviewFilterStateAtom, centerTabStateAtom } from 'atoms';
 import dynamic from 'next/dynamic';
 const Carousel = dynamic(() => import('@/component/common/carousel'), {
   suspense: true,
@@ -18,8 +18,11 @@ const TrainerDetail = () => {
   const trainerNumber = router.query.trainerDetail;
   const [centerData, setCenterData] = useState({});
   const [trainerData, setTrainerData] = useState({});
-  const [reviewSearchKeyWordState, setReviewSearchKeyWordState] =
-    useRecoilState(reviewSearchKeyWordStateAtom);
+  const [reviewFilterState, setReviewFilterState] = useRecoilState(
+    reviewFilterStateAtom,
+  );
+  const [centerTabState, setCenterTabState] =
+    useRecoilState(centerTabStateAtom);
 
   useEffect(() => {
     makeTrainerData(centerNumber, trainerNumber, setTrainerData);
@@ -27,7 +30,12 @@ const TrainerDetail = () => {
   }, [centerNumber, trainerNumber]);
 
   const goToReview = name => {
-    setReviewSearchKeyWordState(name);
+    setReviewFilterState(prev => {
+      return {
+        ...prev,
+        keyWord: name,
+      };
+    });
     router.push('/review');
   };
 
@@ -92,6 +100,7 @@ const TrainerDetail = () => {
             textDecoration="underline"
             onClick={() => {
               router.push(`/center/${centerData?.centerName?.slice(0, 1)}`);
+              setCenterTabState('지점 안내');
             }}
           >
             {centerData?.centerName} {`지점 및 상담안내 >`}

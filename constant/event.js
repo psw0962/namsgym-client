@@ -9,7 +9,8 @@ export const eventData = [
     endDate: '별도 안내 시까지',
     status: true,
     imageUrl: event_1,
-    router: '/event',
+    tag: '바디챌린지',
+    detailUrl: '/',
   },
   {
     id: 2,
@@ -19,6 +20,7 @@ export const eventData = [
     endDate: '2022-03-01',
     status: false,
     imageUrl: event_1,
-    router: '',
+    tag: '바디프로필',
+    detailUrl: '/',
   },
 ];

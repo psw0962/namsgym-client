@@ -14,7 +14,14 @@ const ReviewTab = ({ tabState, setTabState }) => {
           themeState={themeState}
           fontSize="1.6rem"
           pointer={true}
-          onClick={e => setTabState(e.target.textContent)}
+          onClick={e => {
+            setTabState(prev => {
+              return {
+                ...prev,
+                tabState: e.target.textContent,
+              };
+            });
+          }}
         >
           전체
         </CustomFont>
@@ -24,7 +31,14 @@ const ReviewTab = ({ tabState, setTabState }) => {
           themeState={themeState}
           fontSize="1.6rem"
           pointer={true}
-          onClick={e => setTabState(e.target.textContent)}
+          onClick={e => {
+            setTabState(prev => {
+              return {
+                ...prev,
+                tabState: e.target.textContent,
+              };
+            });
+          }}
         >
           PT리뷰
         </CustomFont>
@@ -34,7 +48,14 @@ const ReviewTab = ({ tabState, setTabState }) => {
           themeState={themeState}
           fontSize="1.6rem"
           pointer={true}
-          onClick={e => setTabState(e.target.textContent)}
+          onClick={e => {
+            setTabState(prev => {
+              return {
+                ...prev,
+                tabState: e.target.textContent,
+              };
+            });
+          }}
         >
           Before&After
         </CustomFont>
@@ -44,7 +65,14 @@ const ReviewTab = ({ tabState, setTabState }) => {
           themeState={themeState}
           fontSize="1.6rem"
           pointer={true}
-          onClick={e => setTabState(e.target.textContent)}
+          onClick={e => {
+            setTabState(prev => {
+              return {
+                ...prev,
+                tabState: e.target.textContent,
+              };
+            });
+          }}
         >
           바디프로필
         </CustomFont>
@@ -54,7 +82,14 @@ const ReviewTab = ({ tabState, setTabState }) => {
           themeState={themeState}
           fontSize="1.6rem"
           pointer={true}
-          onClick={e => setTabState(e.target.textContent)}
+          onClick={e => {
+            setTabState(prev => {
+              return {
+                ...prev,
+                tabState: e.target.textContent,
+              };
+            });
+          }}
         >
           바디챌린지
         </CustomFont>
