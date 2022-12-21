@@ -14,19 +14,14 @@ const EventCard = ({ data }) => {
     reviewFilterStateAtom,
   );
 
-  const onClickEventCard = data => {
-    setReviewFilterState(prev => {
-      return {
-        ...prev,
-        tabState: data.tag,
-      };
-    });
-
-    router.push('/review');
-  };
-
   return (
-    <Frame themeState={themeState}>
+    <Frame
+      themeState={themeState}
+      onClick={e => {
+        e.stopPropagation();
+        window.open(`${data?.detailUrl}`);
+      }}
+    >
       <ImageWrapper height={30}>
         <Image
           src={data?.imageUrl}
@@ -43,9 +38,9 @@ const EventCard = ({ data }) => {
           {data?.title}
         </Font>
 
-        <StatusTag active={data?.status ? true : false}>
-          {data?.status ? '진행중' : '종료'}
-        </StatusTag>
+        <ActiveTag active={data?.active ? true : false}>
+          {data?.active ? '진행중' : '종료'}
+        </ActiveTag>
       </TagWrapper>
 
       <Font fontSize="1.6rem" fontWeight={500} color="#acacac">
@@ -62,18 +57,22 @@ const EventCard = ({ data }) => {
         </Font>
       </Wrapper>
 
-      <Font
-        fontSize="2rem"
-        fontWeight={500}
-        textDecoration="underline"
-        margin="2rem 0 0 0"
-        onClick={e => {
-          e.stopPropagation();
-          onClickEventCard(data);
-        }}
-      >
-        {`상담 신청 >`}
-      </Font>
+      {data?.active && (
+        <ContactWrapper>
+          <CustomAtag
+            themeState={themeState}
+            href={data?.kakaoTalkUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {`카카오톡 문의 >`}
+          </CustomAtag>
+
+          <Font fontSize="1.4rem" fontWeight={500}>
+            <a href={`tel:${data?.phone}`}>*전화 문의 ({data?.phone})</a>
+          </Font>
+        </ContactWrapper>
+      )}
 
       <Font
         fontSize="2rem"
@@ -81,7 +80,14 @@ const EventCard = ({ data }) => {
         textDecoration="underline"
         onClick={e => {
           e.stopPropagation();
-          onClickEventCard(data);
+          setReviewFilterState(prev => {
+            return {
+              ...prev,
+              tabState: data.tag,
+            };
+          });
+
+          router.push('/review');
         }}
       >
         {`${data?.tag} 리뷰 보러가기 >`}
@@ -121,11 +127,29 @@ const TagWrapper = styled.div`
   gap: 1rem;
 `;
 
-const StatusTag = styled.div`
+const ActiveTag = styled.div`
   padding: 0.5rem 1rem;
   border-radius: 5px;
   font-size: 1.4rem;
   font-weight: 500;
   color: #fff;
   background-color: ${props => (props.active ? '#b49445' : '#acacac')};
+`;
+
+const CustomAtag = styled.a`
+  font-size: 1.4rem;
+  padding: 1rem;
+  border: ${props =>
+    props.themeState === 'dark' ? '1px solid #fff' : '1px solid #000'};
+  border-radius: 8px;
+  width: fit-content;
+  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+`;
+
+const ContactWrapper = styled.div`
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  margin: 2rem 0 1rem 0;
 `;
