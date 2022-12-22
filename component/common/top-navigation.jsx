@@ -242,7 +242,5 @@ const EventButton = styled.div`
 `;
 
 const Logo = styled.div`
-  transform: translateX(
-    ${props => (props.innerWidth > 1200 ? '-5px' : '-10px')}
-  );
+  transform: translateX(-4px);
 `;
