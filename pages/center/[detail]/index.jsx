@@ -7,12 +7,15 @@ import CenterTab from '@/component/center/center-tab';
 import CenterInfo from '@/component/center/center-info';
 import CenterTrainers from '@/component/center/center-trainers';
 import useThemeState from '@/hooks/useThemeState';
+import { useRecoilState } from 'recoil';
+import { centerTabStateAtom } from 'atoms';
 
 const CenterDetail = () => {
   const router = useRouter();
   const pathName = router.query.detail;
   const [centerData, setCenterData] = useState({});
-  const [tabState, setTabState] = useState('지점 안내');
+  const [centerTabState, setCenterTabState] =
+    useRecoilState(centerTabStateAtom);
   const { themeState } = useThemeState();
 
   useEffect(() => {
@@ -50,10 +53,12 @@ const CenterDetail = () => {
         </CustomAtag>
       </Wrapper>
 
-      <CenterTab tabState={tabState} setTabState={setTabState} />
+      <CenterTab tabState={centerTabState} setTabState={setCenterTabState} />
 
-      {tabState === '지점 안내' && <CenterInfo centerData={centerData} />}
-      {tabState === '트레이너' && <CenterTrainers centerData={centerData} />}
+      {centerTabState === '지점 안내' && <CenterInfo centerData={centerData} />}
+      {centerTabState === '트레이너' && (
+        <CenterTrainers centerData={centerData} />
+      )}
     </Frame>
   );
 };

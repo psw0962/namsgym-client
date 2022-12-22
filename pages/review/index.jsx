@@ -6,7 +6,7 @@ import FadeIn from 'react-fade-in';
 import ReviewCard from '@/component/review/review-card';
 import { reviewData } from '@/constant/review';
 import { useRecoilState } from 'recoil';
-import { reviewSearchKeyWordStateAtom } from 'atoms';
+import { reviewFilterStateAtom, centerTabStateAtom } from 'atoms';
 import { search } from '@/public/svg';
 import Image from 'next/image';
 import useDebounce from '@/hooks/useDebounce';
@@ -23,13 +23,15 @@ const Carousel = dynamic(() => import('@/component/common/carousel'), {
 const Review = () => {
   const router = useRouter();
   const { themeState } = useThemeState();
-  const [tabState, setTabState] = useState('전체');
-  const [reviewSearchKeyWordState, setReviewSearchKeyWordState] =
-    useRecoilState(reviewSearchKeyWordStateAtom);
+  const [reviewFilterState, setReviewFilterState] = useRecoilState(
+    reviewFilterStateAtom,
+  );
+  const [centerTabState, setCenterTabState] =
+    useRecoilState(centerTabStateAtom);
   const [reviews, setReviews] = useState(reviewData || []);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [reviewDetail, setReviewDetail] = useState({});
-  const debouncedSearch = useDebounce(reviewSearchKeyWordState, 500);
+  const debouncedSearch = useDebounce(reviewFilterState?.keyWord, 500);
 
   const onClickReviewCard = data => {
     setReviewDetail(data);
@@ -38,16 +40,16 @@ const Review = () => {
 
   useEffect(() => {
     // 검색어X, 탭X
-    if (debouncedSearch === '' && tabState === '전체') {
+    if (debouncedSearch === '' && reviewFilterState?.tabState === '전체') {
       setReviews(reviewData);
       return;
     }
 
     // 검색어O, 탭O
-    if (debouncedSearch !== '' && tabState !== '전체') {
+    if (debouncedSearch !== '' && reviewFilterState?.tabState !== '전체') {
       const replaceSearchKeyWord = debouncedSearch.replace(/ /gi, '');
       const result = reviewData
-        ?.filter(x => x.tag === tabState)
+        ?.filter(x => x.tag === reviewFilterState?.tabState)
         ?.filter(k => k.searchKey.includes(replaceSearchKeyWord));
 
       setReviews(result);
@@ -55,15 +57,17 @@ const Review = () => {
     }
 
     // 검색어X, 탭O
-    if (debouncedSearch === '' && tabState !== '전체') {
-      const result = reviewData?.filter(x => x.tag === tabState);
+    if (debouncedSearch === '' && reviewFilterState?.tabState !== '전체') {
+      const result = reviewData?.filter(
+        x => x.tag === reviewFilterState?.tabState,
+      );
 
       setReviews(result);
       return;
     }
 
     // 검색어O, 탭X
-    if (debouncedSearch !== '' && tabState === '전체') {
+    if (debouncedSearch !== '' && reviewFilterState?.tabState === '전체') {
       const replaceSearchKeyWord = debouncedSearch.replace(/ /gi, '');
       const result = reviewData?.filter(y =>
         y.searchKey.includes(replaceSearchKeyWord),
@@ -72,12 +76,15 @@ const Review = () => {
       setReviews(result);
       return;
     }
-  }, [debouncedSearch, tabState]);
+  }, [debouncedSearch, reviewFilterState?.tabState]);
 
   // 검색어 초기화
   useEffect(() => {
     return () => {
-      return setReviewSearchKeyWordState('');
+      return setReviewFilterState({
+        tabState: '전체',
+        keyWord: '',
+      });
     };
   }, []);
 
@@ -100,8 +107,15 @@ const Review = () => {
         <input
           type="text"
           placeholder="트레이너 이름 또는 지점명으로 검색"
-          value={reviewSearchKeyWordState}
-          onChange={e => setReviewSearchKeyWordState(e.target.value)}
+          value={reviewFilterState?.keyWord}
+          onChange={e =>
+            setReviewFilterState(prev => {
+              return {
+                ...prev,
+                keyWord: e.target.value,
+              };
+            })
+          }
         />
 
         <Image src={search} alt="search" />
@@ -109,15 +123,20 @@ const Review = () => {
         <Button
           color="yellow"
           onClick={() => {
-            setTabState('전체');
-            setReviewSearchKeyWordState('');
+            setReviewFilterState({
+              tabState: '전체',
+              keyWord: '',
+            });
           }}
         >
           초기화
         </Button>
       </SearchWrapper>
 
-      <ReviewTab tabState={tabState} setTabState={setTabState} />
+      <ReviewTab
+        tabState={reviewFilterState?.tabState}
+        setTabState={setReviewFilterState}
+      />
 
       <FadeIn>
         {reviews?.length === 0 && <NoContent>검색결과가 없습니다.</NoContent>}
@@ -160,6 +179,7 @@ const Review = () => {
           onClick={() => {
             router.push(`/center/${reviewDetail?.center?.slice(0, 1)}`);
             setIsMenuOpen(false);
+            setCenterTabState('지점 안내');
           }}
         >
           {`${reviewDetail?.center} 시설 및 상담 안내 >`}

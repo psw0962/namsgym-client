@@ -44,14 +44,16 @@ const BottomNavigation = () => {
   return (
     <Frame themeState={themeState} scrollEventState={scrollEventState}>
       <Modal state={isMenuOpen} setState={setIsMenuOpen}>
-        <CustomAtag
-          href="https://rainy-reaper-d5b.notion.site/29ce947a1fed48f3a878f586f071ba6c"
-          target="_blank"
-          rel="noreferrer"
-          onClick={e => e.stopPropagation()}
-        >
-          {`인재채용 >`}
-        </CustomAtag>
+        <ModalMenuWrapper>
+          <CustomAtag
+            href="https://rainy-reaper-d5b.notion.site/29ce947a1fed48f3a878f586f071ba6c"
+            target="_blank"
+            rel="noreferrer"
+            onClick={e => e.stopPropagation()}
+          >
+            {`인재채용 >`}
+          </CustomAtag>
+        </ModalMenuWrapper>
       </Modal>
 
       {bottomNavigationData.map(item => {
@@ -187,4 +189,12 @@ const CustomAtag = styled.a`
   font-size: 1.6rem;
   color: #000;
   text-decoration: none;
+`;
+
+const ModalMenuWrapper = styled.div`
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2rem;
 `;

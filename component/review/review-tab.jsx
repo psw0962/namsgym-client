@@ -1,63 +1,51 @@
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 import Font from '@/component/common/font';
 import useThemeState from '@/hooks/useThemeState';
 import Line from '@/component/common/line';
+import { useDraggable } from 'react-use-draggable-scroll';
+
+const reviewTabs = [
+  { id: 1, tabName: '전체' },
+  { id: 2, tabName: '바디프로필' },
+  { id: 3, tabName: '바디챌린지' },
+  { id: 4, tabName: '환급 이벤트' },
+  { id: 5, tabName: 'Before&After' },
+  { id: 6, tabName: 'PT리뷰' },
+];
 
 const ReviewTab = ({ tabState, setTabState }) => {
   const { themeState } = useThemeState();
+  const scrollRef = useRef();
+  const { events: scrollWrapperEvents } = useDraggable(scrollRef, {
+    isMounted: true,
+    safeDisplacement: 11,
+  });
 
   return (
     <Frame>
-      <div className="menu-wrapper">
-        <CustomFont
-          active={tabState === '전체'}
-          themeState={themeState}
-          fontSize="1.6rem"
-          pointer={true}
-          onClick={e => setTabState(e.target.textContent)}
-        >
-          전체
-        </CustomFont>
-
-        <CustomFont
-          active={tabState === 'PT리뷰'}
-          themeState={themeState}
-          fontSize="1.6rem"
-          pointer={true}
-          onClick={e => setTabState(e.target.textContent)}
-        >
-          PT리뷰
-        </CustomFont>
-
-        <CustomFont
-          active={tabState === 'Before&After'}
-          themeState={themeState}
-          fontSize="1.6rem"
-          pointer={true}
-          onClick={e => setTabState(e.target.textContent)}
-        >
-          Before&After
-        </CustomFont>
-
-        <CustomFont
-          active={tabState === '바디프로필'}
-          themeState={themeState}
-          fontSize="1.6rem"
-          pointer={true}
-          onClick={e => setTabState(e.target.textContent)}
-        >
-          바디프로필
-        </CustomFont>
-
-        <CustomFont
-          active={tabState === '바디챌린지'}
-          themeState={themeState}
-          fontSize="1.6rem"
-          pointer={true}
-          onClick={e => setTabState(e.target.textContent)}
-        >
-          바디챌린지
-        </CustomFont>
+      <div className="menu-wrapper" ref={scrollRef} {...scrollWrapperEvents}>
+        {reviewTabs.map(tab => {
+          return (
+            <CustomFont
+              key={tab.id}
+              active={tabState === `${tab.tabName}`}
+              themeState={themeState}
+              fontSize="1.6rem"
+              pointer={true}
+              onClick={e => {
+                setTabState(prev => {
+                  return {
+                    ...prev,
+                    tabState: e.target.textContent,
+                  };
+                });
+              }}
+            >
+              {tab.tabName}
+            </CustomFont>
+          );
+        })}
       </div>
 
       <CustomLine themeState={themeState} />
@@ -73,7 +61,14 @@ const Frame = styled.div`
 
   .menu-wrapper {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
   }
 `;
 

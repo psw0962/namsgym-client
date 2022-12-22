@@ -7,7 +7,7 @@ import Font from '@/component/common/font';
 import Slick from 'react-slick';
 import Line from '@/component/common/line';
 import { useRecoilState } from 'recoil';
-import { reviewSearchKeyWordStateAtom } from 'atoms';
+import { reviewFilterStateAtom } from 'atoms';
 import { useRouter } from 'next/router';
 
 const TrainerCard = ({ data, centerName }) => {
@@ -15,8 +15,9 @@ const TrainerCard = ({ data, centerName }) => {
   const pathName = router?.query?.detail;
   const { themeState } = useThemeState();
   const [playScroll, setPlayScroll] = useState('play');
-  const [reviewSearchKeyWordState, setReviewSearchKeyWordState] =
-    useRecoilState(reviewSearchKeyWordStateAtom);
+  const [reviewFilterState, setReviewFilterState] = useRecoilState(
+    reviewFilterStateAtom,
+  );
 
   const settings = {
     dots: false,
@@ -35,7 +36,12 @@ const TrainerCard = ({ data, centerName }) => {
   };
 
   const goToReview = name => {
-    setReviewSearchKeyWordState(name);
+    setReviewFilterState(prev => {
+      return {
+        ...prev,
+        keyWord: name,
+      };
+    });
     router.push('/review');
   };
 

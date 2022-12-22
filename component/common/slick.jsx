@@ -4,10 +4,8 @@ import styled from 'styled-components';
 import Slider from 'react-slick';
 import ImageWrapper from './image-wrapper';
 import Font from '@/component/common/font';
-// import { useRouter } from 'next/router';
 
-const Slick = ({ data, width, height }) => {
-  // const router = useRouter();
+const Slick = ({ data, width, height, autoPlay = true }) => {
   const [activeSlide, setActiveSlide] = useState(0);
   const [activeSlide2, setActiveSlide2] = useState(0);
   const [dragging, setDragging] = useState(false);
@@ -27,7 +25,7 @@ const Slick = ({ data, width, height }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     speed: 100,
-    autoplay: true,
+    autoplay: autoPlay,
     draggable: true,
     beforeChange: (current, next) => {
       handleBeforeChange();
@@ -53,7 +51,8 @@ const Slick = ({ data, width, height }) => {
                   e.stopPropagation();
                   return;
                 }
-                // router.push(`/`);
+
+                window.open(`${item.url}`);
               }}
               onMouseMove={() => {
                 setDragging(true);
@@ -97,12 +96,13 @@ const Frame = styled.div`
 
 const CustomImageWrapper = styled(ImageWrapper)`
   position: relative;
+  cursor: pointer;
 
   p {
-    color: #404040;
+    color: #000;
     position: absolute;
     top: 15px;
-    right: 20px;
+    right: 15px;
   }
 
   img {

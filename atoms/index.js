@@ -5,12 +5,20 @@ export const themeStateAtom = atom({
   default: '',
 });
 
-export const reviewSearchKeyWordStateAtom = atom({
-  key: 'reviewSearchKeyWordState',
-  default: '',
+export const reviewFilterStateAtom = atom({
+  key: 'reviewFilterState',
+  default: {
+    tabState: '전체',
+    keyWord: '',
+  },
 });
 
 export const isOpenSnsFrameStateAtom = atom({
   key: 'isOpenSnsFrameState',
   default: false,
+});
+
+export const centerTabStateAtom = atom({
+  key: 'centerTabState',
+  default: '지점 안내',
 });
