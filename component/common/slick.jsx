@@ -52,7 +52,9 @@ const Slick = ({ data, width, height, autoPlay = true }) => {
                   return;
                 }
 
-                window.open(`${item.url}`);
+                if (item.url) {
+                  window.open(`${item.url}`);
+                }
               }}
               onMouseMove={() => {
                 setDragging(true);
@@ -67,10 +69,12 @@ const Slick = ({ data, width, height, autoPlay = true }) => {
                 setDragging(false);
               }}
             >
-              <Font fontSize="12px" fontWeight={500}>
-                {!activeSlide2 ? 1 : activeSlide2.activeSlide2 + 1} /{' '}
-                {data?.length}
-              </Font>
+              <div className="slickPage">
+                <Font fontSize="12px" fontWeight={500}>
+                  {!activeSlide2 ? 1 : activeSlide2.activeSlide2 + 1} /{' '}
+                  {data?.length}
+                </Font>
+              </div>
 
               <Image
                 src={item?.src}
@@ -98,7 +102,10 @@ const CustomImageWrapper = styled(ImageWrapper)`
   position: relative;
   cursor: pointer;
 
-  p {
+  .slickPage {
+    background-color: #fff;
+    padding: 0.5rem;
+    border-radius: 5px;
     color: #000;
     position: absolute;
     top: 15px;

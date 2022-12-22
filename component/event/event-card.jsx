@@ -64,11 +64,16 @@ const EventCard = ({ data }) => {
             href={data?.kakaoTalkUrl}
             target="_blank"
             rel="noreferrer"
+            onClick={e => e.stopPropagation()}
           >
             {`카카오톡 문의 >`}
           </CustomAtag>
 
-          <Font fontSize="1.4rem" fontWeight={500}>
+          <Font
+            fontSize="1.4rem"
+            fontWeight={500}
+            onClick={e => e.stopPropagation()}
+          >
             <a href={`tel:${data?.phone}`}>*전화 문의 ({data?.phone})</a>
           </Font>
         </ContactWrapper>
