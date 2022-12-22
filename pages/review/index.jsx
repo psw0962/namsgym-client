@@ -185,14 +185,24 @@ const Review = () => {
           {`${reviewDetail?.center} 시설 및 상담 안내 >`}
         </CustomButton>
 
-        <CustomAtag
+        {/* <CustomAtag
           themeState={themeState}
           href="https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EC%95%88%EC%82%B0%20%EC%8B%A0%EA%B8%B8%EC%A0%90/place/921880323?c=14112231.1392257,4486165.2212545,15,0,0,0,dh&isCorrectAnswer=true"
           target="_blank"
           rel="noreferrer"
         >
           {`무료 PT체험권 신청하기 >`}
-        </CustomAtag>
+        </CustomAtag> */}
+
+        <CustomButton
+          onClick={() => {
+            window.open(
+              'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EC%95%88%EC%82%B0%20%EC%8B%A0%EA%B8%B8%EC%A0%90/place/921880323?c=14112231.1392257,4486165.2212545,15,0,0,0,dh&isCorrectAnswer=true',
+            );
+          }}
+        >
+          {`무료 PT체험권 신청하기 >`}
+        </CustomButton>
 
         <CustomButton
           onClick={() => {
@@ -316,5 +326,5 @@ const CustomButton = styled.div`
   border: 1px solid #000;
   cursor: pointer;
   width: fit-content;
-  margin: 2rem 0;
+  margin: 1rem 0;
 `;
