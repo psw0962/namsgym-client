@@ -163,19 +163,39 @@ const Home = () => {
 
           <CustomSlick data={modalImages} height={40} autoPlay={false} />
 
-          <Font
-            fontSize="2rem"
-            fontWeight="500"
-            margin="3rem 0 0 0"
-            color="#000"
-            pointer={true}
-            onClick={() => {
-              StopWatchingToday();
-              setIsMenuOpen(false);
-            }}
-          >
-            {`오늘 하루 그만보기 >`}
-          </Font>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Font
+              fontSize="2rem"
+              fontWeight="500"
+              margin="3rem 0 0 0"
+              color="#000"
+              pointer={true}
+              textDecoration="underline"
+              onClick={() => {
+                StopWatchingToday();
+                setIsMenuOpen(false);
+              }}
+            >
+              {`오늘 하루 그만보기 >`}
+            </Font>
+
+            <Font
+              fontSize="2rem"
+              fontWeight="500"
+              margin="3rem 0 0 0"
+              color="#000"
+              pointer={true}
+              textDecoration="underline"
+              onClick={() => {
+                setIsMenuOpen(false);
+                window.open(
+                  'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90?c=14129853.9385700,4491054.2124971,15,0,0,0,dh',
+                );
+              }}
+            >
+              {`무료 PT체험권 신청하기 >`}
+            </Font>
+          </div>
         </Modal>
       )}
     </Frame>
