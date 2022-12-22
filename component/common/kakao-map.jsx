@@ -14,15 +14,14 @@ import styled from 'styled-components';
  *  */
 
 const KaKaoMap = ({ locationData, refreshData, height, margin }) => {
-  const KAKAO_CLIENT_ID = process.env.REACT_APP_KAKAO_JAVASCRIPT_KEY;
+  const KAKAO_APP_KEY = process.env.NEXT_PUBLIC_KAKAO_APP_KEY;
 
   function getMap() {
     // 맵이 담긴 하나의 div가 생성될 수 있게 엘리먼트를 생성합니다.
     const script = document.createElement('script');
     script.async = true;
     script.type = 'text/javascript';
-    script.src =
-      'https://dapi.kakao.com/v2/maps/sdk.js?appkey=efea0da960f75722be14fa644f4b4312&libraries=services&autoload=false';
+    script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${KAKAO_APP_KEY}&libraries=services&autoload=false`;
     document.head.appendChild(script);
 
     script.onload = () => {

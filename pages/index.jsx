@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import ImageWrapper from '@/component/common/image-wrapper';
 import styled from 'styled-components';
@@ -6,15 +7,46 @@ import FadeIn from 'react-fade-in';
 import Font from '@/component/common/font';
 import { motion } from 'framer-motion';
 import useThemeState from '@/hooks/useThemeState';
+import Modal from '@/component/common/modal';
 import {
   eventSlickImages,
   mainImages,
   mainStepImages,
   cardVariants,
+  modalImages,
 } from '@/constant/home';
 
 const Home = () => {
   const { themeState } = useThemeState();
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
+
+  const StopWatchingToday = () => {
+    const obj = {
+      value: true,
+      expire: Date.now() + 86400000,
+    };
+
+    const objString = JSON.stringify(obj);
+
+    window.localStorage.setItem('mainDialog', objString);
+  };
+
+  const removeStopWatching = () => {
+    const isShow = JSON.parse(window.localStorage.getItem('mainDialog'));
+
+    if (!isShow) {
+      return;
+    }
+
+    if (Date.now() > isShow.expire) {
+      window.localStorage.removeItem('mainDialog');
+      return;
+    }
+  };
+
+  useEffect(() => {
+    removeStopWatching();
+  }, []);
 
   return (
     <Frame>
@@ -111,6 +143,41 @@ const Home = () => {
           무단으로 도용시 법적 처벌을 요구할 수 있습니다.
         </Font>
       </FooterFrame>
+
+      {JSON.parse(window.localStorage.getItem('mainDialog'))?.value !==
+        true && (
+        <Modal
+          state={isMenuOpen}
+          setState={setIsMenuOpen}
+          isOverflow={true}
+          isCenter={false}
+        >
+          <Font
+            fontSize="2rem"
+            fontWeight="500"
+            margin="0 0 3rem 0"
+            color="#000"
+          >
+            무료 PT체험권 신청하는 방법
+          </Font>
+
+          <CustomSlick data={modalImages} height={40} autoPlay={false} />
+
+          <Font
+            fontSize="2rem"
+            fontWeight="500"
+            margin="3rem 0 0 0"
+            color="#000"
+            pointer={true}
+            onClick={() => {
+              StopWatchingToday();
+              setIsMenuOpen(false);
+            }}
+          >
+            {`오늘 하루 그만보기 >`}
+          </Font>
+        </Modal>
+      )}
     </Frame>
   );
 };

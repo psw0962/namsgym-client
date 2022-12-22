@@ -59,7 +59,6 @@ const TopNavigation = () => {
         {/* theme */}
         {themeState === 'light' && (
           <ImageWrapper
-            className="theme"
             width={3.5}
             height={3.5}
             pointer={true}
@@ -78,7 +77,6 @@ const TopNavigation = () => {
 
         {themeState === 'dark' && (
           <ImageWrapper
-            className="theme"
             width={3.5}
             height={3.5}
             pointer={true}
@@ -96,38 +94,51 @@ const TopNavigation = () => {
         )}
 
         {/* logo */}
-        {themeState === 'light' && (
-          <LogoFont
-            color="#000"
-            fontSize="2rem"
-            fontWeight="500"
-            margin="0 0 2rem 0"
+        <Logo themeState={themeState} innerWidth={innerWidth}>
+          {themeState === 'light' && (
+            <LogoFont
+              color="#000"
+              fontSize="2rem"
+              fontWeight="500"
+              margin="0 0 2rem 0"
+            >
+              {`NAM'S`} <br /> GYM
+            </LogoFont>
+          )}
+
+          {themeState === 'dark' && innerWidth > 1200 && (
+            <LogoFont
+              color="#fff"
+              fontSize="2rem"
+              fontWeight="500"
+              margin="0 0 2rem 0"
+            >
+              {`NAM'S`} <br /> GYM
+            </LogoFont>
+          )}
+
+          {themeState === 'dark' && innerWidth < 1200 && (
+            <NeonFont fontSize="2rem" fontWeight="500">
+              <span className="first">NAMS</span>
+              <br />
+              <span className="second">GYM</span>
+            </NeonFont>
+          )}
+        </Logo>
+
+        {/* event button */}
+        <EventButton>
+          <CustomAtag
+            themeState={themeState}
+            href="https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90?c=14117419.4846567,4504480.5158603,15,0,0,0,dh"
+            target="_blank"
+            rel="noreferrer"
+            onClick={e => e.stopPropagation()}
           >
-            {`NAM'S`} <br /> GYM
-          </LogoFont>
-        )}
-
-        {themeState === 'dark' && innerWidth > 1200 && (
-          <LogoFont
-            color="#fff"
-            fontSize="2rem"
-            fontWeight="500"
-            margin="0 0 2rem 0"
-          >
-            {`NAM'S`} <br /> GYM
-          </LogoFont>
-        )}
-
-        {themeState === 'dark' && innerWidth < 1200 && (
-          <NeonFont fontSize="2rem" fontWeight="500">
-            <span className="first">NAMS</span>
-            <br />
-            <span className="second">GYM</span>
-          </NeonFont>
-        )}
-
-        {/* blank */}
-        <div style={{ width: '100%' }}></div>
+            무료 <br />
+            PT체험권
+          </CustomAtag>
+        </EventButton>
       </NavigationWrapper>
     </Frame>
   );
@@ -151,13 +162,11 @@ const Frame = styled.nav`
 `;
 
 const NavigationWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
   height: 100%;
 
-  .theme {
-    transform: translateY(7px);
-  }
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 `;
 
 const NeonFont = styled(Font)`
@@ -211,4 +220,29 @@ const NeonFont = styled(Font)`
 const LogoFont = styled(Font)`
   font-family: 'Alfa Slab One', cursive;
   text-align: center;
+`;
+
+const CustomAtag = styled.a`
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 1.4rem;
+  padding: 1rem;
+  border: ${props =>
+    props.themeState === 'dark' ? '1px solid #fff' : '1px solid #000'};
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+`;
+
+const EventButton = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  height: 4rem;
+`;
+
+const Logo = styled.div`
+  transform: translateX(
+    ${props => (props.innerWidth > 1200 ? '-5px' : '-10px')}
+  );
 `;

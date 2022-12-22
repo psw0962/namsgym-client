@@ -94,7 +94,7 @@ const DialogFrame = styled.div`
   max-width: 450px;
   max-height: 70rem;
   min-height: 10rem;
-  padding: 2rem 2rem;
+  padding: 2rem;
   border-radius: 18px 18px 0px 0px;
   background-color: #fff;
   transition: all 0.2s ease-in-out;
@@ -106,7 +106,6 @@ const DialogFrame = styled.div`
     width: 100%;
     display: flex;
     justify-content: flex-end;
-    margin: 0 0 3rem 0;
   }
 
   &.slideUp {

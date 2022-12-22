@@ -1,4 +1,4 @@
-import event_1 from 'public/png/event/event_1.jpeg';
+import { event_1, event_2 } from 'public/png/event';
 import kakaotalk from 'public/png/kakaotalk.png';
 import naverblog from 'public/png/naverblog.png';
 import youtube from 'public/png/youtube.png';
@@ -14,8 +14,16 @@ import {
 
 // 메인 슬릭 이미지
 export const eventSlickImages = [
-  { id: 1, src: event_1, url: '/' },
-  { id: 2, src: event_1, url: '/' },
+  {
+    id: 1,
+    src: event_2,
+    url: 'https://rainy-reaper-d5b.notion.site/5fb57a41b8e44458ad6e2021659e2f68',
+  },
+  {
+    id: 2,
+    src: event_1,
+    url: 'https://rainy-reaper-d5b.notion.site/1-7291ebf60ec740b1a7a057c5b6692ccb',
+  },
 ];
 
 // 메인 소개 이미지
@@ -69,5 +77,19 @@ export const snsLogoImages = [
     src: instagram,
     url: 'https://www.instagram.com/namsgym_official_/',
     alt: 'youtube',
+  },
+];
+
+// 무료 PT체험권 신청안내 모달
+export const modalImages = [
+  {
+    id: 1,
+    src: event_2,
+    url: 'https://rainy-reaper-d5b.notion.site/5fb57a41b8e44458ad6e2021659e2f68',
+  },
+  {
+    id: 2,
+    src: event_1,
+    url: 'https://rainy-reaper-d5b.notion.site/1-7291ebf60ec740b1a7a057c5b6692ccb',
   },
 ];
