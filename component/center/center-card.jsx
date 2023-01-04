@@ -7,6 +7,44 @@ import useThemeState from '@/hooks/useThemeState';
 import Slick from 'react-slick';
 import ImageWrapper from '@/component/common/image-wrapper';
 
+const CustomNextArrow = props => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        position: 'absolute',
+        right: '2px',
+        zIndex: '10',
+      }}
+      onClick={e => {
+        e.stopPropagation();
+        onClick();
+      }}
+    />
+  );
+};
+
+const CustomPrevArrow = props => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        position: 'absolute',
+        left: '2px',
+        zIndex: '10',
+      }}
+      onClick={e => {
+        e.stopPropagation();
+        onClick();
+      }}
+    />
+  );
+};
+
 const CenterCard = ({ data }) => {
   const router = useRouter();
   const { themeState } = useThemeState();
@@ -22,13 +60,16 @@ const CenterCard = ({ data }) => {
 
   const settings = {
     dots: false,
-    arrows: false,
+    arrows: true,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     speed: 100,
     autoplay: true,
     draggable: true,
+
+    nextArrow: <CustomNextArrow />,
+    prevArrow: <CustomPrevArrow />,
 
     beforeChange: () => {
       handleBeforeChange();

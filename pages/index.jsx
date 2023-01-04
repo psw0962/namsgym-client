@@ -161,7 +161,12 @@ const Home = () => {
             무료 PT체험권 신청하는 방법
           </Font>
 
-          <CustomSlick data={modalImages} height={40} autoPlay={false} />
+          <CustomSlick
+            data={modalImages}
+            height={40}
+            autoPlay={false}
+            useArrow={true}
+          />
 
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <Font
