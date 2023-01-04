@@ -10,6 +10,44 @@ import { useRecoilState } from 'recoil';
 import { reviewFilterStateAtom } from 'atoms';
 import { useRouter } from 'next/router';
 
+const CustomNextArrow = props => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        position: 'absolute',
+        right: '2px',
+        zIndex: '10',
+      }}
+      onClick={e => {
+        e.stopPropagation();
+        onClick();
+      }}
+    />
+  );
+};
+
+const CustomPrevArrow = props => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        position: 'absolute',
+        left: '2px',
+        zIndex: '10',
+      }}
+      onClick={e => {
+        e.stopPropagation();
+        onClick();
+      }}
+    />
+  );
+};
+
 const TrainerCard = ({ data, centerName }) => {
   const router = useRouter();
   const pathName = router?.query?.detail;
@@ -21,13 +59,16 @@ const TrainerCard = ({ data, centerName }) => {
 
   const settings = {
     dots: false,
-    arrows: false,
+    arrows: true,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     speed: 100,
     autoplay: true,
     draggable: true,
+
+    nextArrow: <CustomNextArrow />,
+    prevArrow: <CustomPrevArrow />,
   };
 
   const goToDetail = name => {

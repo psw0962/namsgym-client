@@ -8,6 +8,7 @@ import Font from '@/component/common/font';
 import { useRecoilState } from 'recoil';
 import { reviewFilterStateAtom, centerTabStateAtom } from 'atoms';
 import dynamic from 'next/dynamic';
+import Line from '@/component/common/line';
 const Carousel = dynamic(() => import('@/component/common/carousel'), {
   suspense: true,
 });
@@ -71,7 +72,27 @@ const TrainerDetail = () => {
             {`${trainerData?.name} 이력 사항 (${centerData?.centerName})`}
           </Font>
 
-          <Carousel data={trainerData} width={35} height={35} />
+          <Carousel data={trainerData} width={35} height={40} />
+
+          <Font fontSize="2rem" margin="2rem 0 0 0">
+            이력 사항
+          </Font>
+
+          <CareerWrapper>
+            {trainerData?.career?.map((item, index) => {
+              return (
+                <Font key={index} fontSize="1.2rem">
+                  {item}
+                </Font>
+              );
+            })}
+          </CareerWrapper>
+
+          <Line />
+
+          <Font fontSize="2rem" margin="2rem 0 0 0">
+            자격 사항
+          </Font>
 
           <TagWrapper>
             {trainerData?.tags?.map((tag, index) => {
@@ -79,10 +100,12 @@ const TrainerDetail = () => {
             })}
           </TagWrapper>
 
+          <Line />
+
           <Font
             fontSize="1.8rem"
             fontWeight={500}
-            margin="4rem 0 0 0"
+            margin="2rem 0 0 0"
             pointer={true}
             textDecoration="underline"
             onClick={() => {
@@ -121,11 +144,19 @@ const Unregistered = styled.div`
   gap: 1rem;
 `;
 
+const CareerWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+`;
+
 const TagWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
 `;
 
 const Tag = styled.div`

@@ -5,7 +5,51 @@ import Slider from 'react-slick';
 import ImageWrapper from './image-wrapper';
 import Font from '@/component/common/font';
 
-const Slick = ({ data, width, height, autoPlay = true }) => {
+const CustomNextArrow = props => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        position: 'absolute',
+        right: '2px',
+        zIndex: '10',
+        background: 'black',
+        paddingTop: '1.3px',
+        borderRadius: '100%',
+      }}
+      onClick={e => {
+        e.stopPropagation();
+        onClick();
+      }}
+    />
+  );
+};
+
+const CustomPrevArrow = props => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        position: 'absolute',
+        left: '2px',
+        zIndex: '10',
+        background: 'black',
+        paddingTop: '1.3px',
+        borderRadius: '100%',
+      }}
+      onClick={e => {
+        e.stopPropagation();
+        onClick();
+      }}
+    />
+  );
+};
+
+const Slick = ({ data, width, height, autoPlay = true, useArrow = false }) => {
   const [activeSlide, setActiveSlide] = useState(0);
   const [activeSlide2, setActiveSlide2] = useState(0);
   const [dragging, setDragging] = useState(false);
@@ -20,7 +64,7 @@ const Slick = ({ data, width, height, autoPlay = true }) => {
 
   const settings = {
     dots: false,
-    arrows: false,
+    arrows: useArrow,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -35,6 +79,8 @@ const Slick = ({ data, width, height, autoPlay = true }) => {
       handleAfterChange();
       setActiveSlide2({ activeSlide2: current });
     },
+    nextArrow: <CustomNextArrow />,
+    prevArrow: <CustomPrevArrow />,
   };
 
   return (
@@ -80,7 +126,7 @@ const Slick = ({ data, width, height, autoPlay = true }) => {
                 src={item?.src}
                 alt={`slick${index}`}
                 priority={true}
-                quality={80}
+                quality={100}
                 placeholder="blur"
                 blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
               />

@@ -1,8 +1,9 @@
 import {
-  center1_1,
-  center1_2,
-  center1_3,
-  center1_4,
+  center7_1,
+  center7_2,
+  center7_3,
+  center7_4,
+  center7_5,
   trainer1_1,
   trainer2_1,
   trainer3_1,
@@ -10,13 +11,13 @@ import {
   trainer5_1,
   trainer6_1,
   trainer7_1,
-} from '@/public/png/center/center1/index';
+} from '@/public/png/center/center7/index';
 
 const center7 = {
   centerName: '7호점 안산 고잔점',
   address: '안산시 단원구 원고잔로 17 지하 1층',
   phone: '0507-1378-3385',
-  images: [center1_1, center1_2, center1_3, center1_4],
+  images: [center7_1, center7_2, center7_3, center7_4, center7_5],
   operatingTime: `
 평일 : 06:00 ~ 23:30
 주말 및 공휴일 : 09:00 ~ 18:00
@@ -27,7 +28,7 @@ const center7 = {
       id: 1,
       name: '김현중 트레이너',
       tags: [
-        '생활체육지도자 2급(보디빌딩)',
+        '생활스포츠지도사 2급(보디빌딩)',
         'BLACK ROLL 자격증',
         'TFT 자격증',
         '소도구 트레이닝 교육 이수',
@@ -40,7 +41,7 @@ const center7 = {
       id: 2,
       name: '손석환 트레이너',
       tags: [
-        '생활체육지도자 2급(보디빌딩)',
+        '생활스포츠지도사 2급(보디빌딩)',
         '스포츠 마사지 교육 이수',
         '소도구 트레이닝 교육 이수',
         'FISAF KOREA 자격증',
@@ -52,7 +53,7 @@ const center7 = {
       id: 3,
       name: '김지훈 트레이너',
       tags: [
-        '생활체육지도자 2급(보디빌딩)',
+        '생활스포츠지도사 2급(보디빌딩)',
         'FISAF KOREA PERSONAL TRAINING',
         'FISAF KOREA MEDICAL TRAINING',
         'CES KOREA 대한교정운동전문가',
@@ -70,7 +71,7 @@ const center7 = {
       id: 4,
       name: '황재민 트레이너',
       tags: [
-        '생활체육지도자 2급(보디빌딩)',
+        '생활스포츠지도사 2급(보디빌딩)',
         '명지대학교 체육학부 졸업',
         'FISAF KOREA PERSONAL TRAINING',
         'FISAF KOREA MEDICAL TRAINING',
@@ -86,7 +87,7 @@ const center7 = {
       id: 5,
       name: '박지희 트레이너',
       tags: [
-        '생활체육지도자 2급(보디빌딩)',
+        '생활스포츠지도사 2급(보디빌딩)',
         '관동대학교 사회체육학과 졸업',
         'CES PERSONAL TRAINING',
         'NASM CPT',
@@ -103,7 +104,7 @@ const center7 = {
       id: 6,
       name: '황태현 트레이너',
       tags: [
-        '생활체육지도자 2급(보디빌딩)',
+        '생활스포츠지도사 2급(보디빌딩)',
         'CES PERSONAL TRAINING',
         'Functional Taping 자격증',
         'NASM CPT',
@@ -117,7 +118,7 @@ const center7 = {
       id: 7,
       name: '이재정 트레이너',
       tags: [
-        '생활체육지도자 2급(보디빌딩)',
+        '생활스포츠지도사 2급(보디빌딩)',
         'Functional Taping 자격증',
         '케틀벨&TRX 교육 이수',
         '글라스톤 교육 이수',
