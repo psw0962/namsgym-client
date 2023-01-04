@@ -1,4 +1,11 @@
-import { event_1, event_2 } from 'public/png/event';
+import {
+  event_1,
+  event_2,
+  modal_1,
+  modal_2,
+  modal_3,
+  modal_4,
+} from 'public/png/event';
 import kakaotalk from 'public/png/kakaotalk.png';
 import naverblog from 'public/png/naverblog.png';
 import youtube from 'public/png/youtube.png';
@@ -84,10 +91,18 @@ export const snsLogoImages = [
 export const modalImages = [
   {
     id: 1,
-    src: event_2,
+    src: modal_1,
   },
   {
     id: 2,
-    src: event_1,
+    src: modal_2,
+  },
+  {
+    id: 3,
+    src: modal_3,
+  },
+  {
+    id: 4,
+    src: modal_4,
   },
 ];

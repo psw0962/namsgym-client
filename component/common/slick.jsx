@@ -15,6 +15,9 @@ const CustomNextArrow = props => {
         position: 'absolute',
         right: '2px',
         zIndex: '10',
+        background: 'black',
+        paddingTop: '1.3px',
+        borderRadius: '100%',
       }}
       onClick={e => {
         e.stopPropagation();
@@ -34,6 +37,9 @@ const CustomPrevArrow = props => {
         position: 'absolute',
         left: '2px',
         zIndex: '10',
+        background: 'black',
+        paddingTop: '1.3px',
+        borderRadius: '100%',
       }}
       onClick={e => {
         e.stopPropagation();
@@ -120,7 +126,7 @@ const Slick = ({ data, width, height, autoPlay = true, useArrow = false }) => {
                 src={item?.src}
                 alt={`slick${index}`}
                 priority={true}
-                quality={80}
+                quality={100}
                 placeholder="blur"
                 blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
               />

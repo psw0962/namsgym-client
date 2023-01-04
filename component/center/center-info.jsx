@@ -24,7 +24,7 @@ const CenterInfo = ({ centerData }) => {
 
       <CustomPre>{`*운영시간 ${centerData?.operatingTime}`}</CustomPre>
 
-      <Carousel data={centerData} width={35} height={35} />
+      <Carousel data={centerData} width={35} height={40} />
 
       {Object.keys(centerData).length > 0 && (
         <React.Fragment>
