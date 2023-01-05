@@ -165,10 +165,16 @@ const Home = () => {
             data={modalImages}
             height={40}
             autoPlay={false}
-            useArrow={true}
+            useDot={true}
           />
 
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              marginTop: '2rem',
+            }}
+          >
             <Font
               fontSize="2rem"
               fontWeight="500"

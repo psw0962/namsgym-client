@@ -3,4 +3,34 @@ import center9_2 from './center9_2.jpg';
 import center9_3 from './center9_3.jpg';
 import center9_4 from './center9_4.jpg';
 
-export { center9_1, center9_2, center9_3, center9_4 };
+import trainer1_1 from '@/public/png/center/center9/trainers/trainer1/trainer1_1.jpg';
+import trainer1_2 from '@/public/png/center/center9/trainers/trainer1/trainer1_2.jpg';
+
+import trainer2_1 from '@/public/png/center/center9/trainers/trainer2/trainer2_1.jpg';
+import trainer2_2 from '@/public/png/center/center9/trainers/trainer2/trainer2_2.jpg';
+
+import trainer3_1 from '@/public/png/center/center9/trainers/trainer3/trainer3_1.jpg';
+import trainer3_2 from '@/public/png/center/center9/trainers/trainer3/trainer3_2.jpg';
+
+import trainer4_1 from '@/public/png/center/center9/trainers/trainer4/trainer4_1.jpg';
+import trainer4_2 from '@/public/png/center/center9/trainers/trainer4/trainer4_2.jpg';
+
+import trainer5_1 from '@/public/png/center/center9/trainers/trainer5/trainer5_1.jpg';
+import trainer5_2 from '@/public/png/center/center9/trainers/trainer5/trainer5_2.jpg';
+
+export {
+  center9_1,
+  center9_2,
+  center9_3,
+  center9_4,
+  trainer1_1,
+  trainer1_2,
+  trainer2_1,
+  trainer2_2,
+  trainer3_1,
+  trainer3_2,
+  trainer4_1,
+  trainer4_2,
+  trainer5_1,
+  trainer5_2,
+};

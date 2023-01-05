@@ -160,12 +160,16 @@ const TagWrapper = styled.div`
 `;
 
 const Tag = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+
+  white-space: pre-wrap;
   width: fit-content;
+  max-width: 35rem;
   background-color: #b49445;
   color: #fff;
   font-size: 1.4rem;
   font-weight: 500;
   padding: 1rem;
-  white-space: nowrap;
   border-radius: 5px;
 `;
