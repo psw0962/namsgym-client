@@ -15,9 +15,6 @@ const CustomNextArrow = props => {
         position: 'absolute',
         right: '2px',
         zIndex: '10',
-        background: 'black',
-        paddingTop: '1.3px',
-        borderRadius: '100%',
       }}
       onClick={e => {
         e.stopPropagation();
@@ -37,9 +34,6 @@ const CustomPrevArrow = props => {
         position: 'absolute',
         left: '2px',
         zIndex: '10',
-        background: 'black',
-        paddingTop: '1.3px',
-        borderRadius: '100%',
       }}
       onClick={e => {
         e.stopPropagation();
@@ -49,7 +43,14 @@ const CustomPrevArrow = props => {
   );
 };
 
-const Slick = ({ data, width, height, autoPlay = true, useArrow = false }) => {
+const Slick = ({
+  data,
+  width,
+  height,
+  autoPlay = true,
+  useArrow = false,
+  useDot = false,
+}) => {
   const [activeSlide, setActiveSlide] = useState(0);
   const [activeSlide2, setActiveSlide2] = useState(0);
   const [dragging, setDragging] = useState(false);
@@ -63,7 +64,7 @@ const Slick = ({ data, width, height, autoPlay = true, useArrow = false }) => {
   }, [setDragging]);
 
   const settings = {
-    dots: false,
+    dots: useDot,
     arrows: useArrow,
     infinite: true,
     slidesToShow: 1,
