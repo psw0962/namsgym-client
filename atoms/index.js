@@ -15,7 +15,7 @@ export const reviewFilterStateAtom = atom({
 
 export const isOpenSnsFrameStateAtom = atom({
   key: 'isOpenSnsFrameState',
-  default: false,
+  default: true,
 });
 
 export const centerTabStateAtom = atom({

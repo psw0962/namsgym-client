@@ -50,6 +50,7 @@ const Slick = ({
   autoPlay = true,
   useArrow = false,
   useDot = false,
+  margin,
 }) => {
   const [activeSlide, setActiveSlide] = useState(0);
   const [activeSlide2, setActiveSlide2] = useState(0);
@@ -85,7 +86,7 @@ const Slick = ({
   };
 
   return (
-    <Frame>
+    <Frame margin={margin}>
       <Slider {...settings}>
         {data?.map((item, index) => {
           return (
@@ -124,6 +125,8 @@ const Slick = ({
               </div>
 
               <Image
+                width={`${width}0`}
+                height={`${height}0`}
                 src={item?.src}
                 alt={`slick${index}`}
                 priority={true}
@@ -143,6 +146,7 @@ export default Slick;
 
 const Frame = styled.div`
   border-radius: 5px;
+  margin: ${props => (props.margin ? props.margin : '')};
 `;
 
 const CustomImageWrapper = styled(ImageWrapper)`

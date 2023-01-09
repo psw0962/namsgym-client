@@ -44,11 +44,20 @@ const Frame = styled.div`
 
   .menu-wrapper {
     display: flex;
-    gap: 2rem;
   }
 `;
 
 const CustomFont = styled(Font)`
+  border-radius: 5px;
+  padding: 1rem;
+
+  border: ${props =>
+    props.active && props.themeState === 'dark'
+      ? '1px solid #fff'
+      : props.active && props.themeState === 'light'
+      ? '1px solid #000'
+      : 'none'};
+
   color: ${props =>
     props.active && props.themeState === 'dark'
       ? '#fff'

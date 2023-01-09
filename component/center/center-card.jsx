@@ -127,6 +127,10 @@ const CenterCard = ({ data }) => {
           {data?.centerName}
         </Font>
 
+        <Line themeState={themeState} />
+
+        <GotoDetail>{`지점 및 트레이너 안내 >`}</GotoDetail>
+
         <PhoneAtag
           href={`tel:${data?.phone}`}
           onClick={e => e.stopPropagation()}
@@ -219,4 +223,14 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+`;
+
+const GotoDetail = styled.div`
+  font-size: 1.4rem;
+  text-decoration: underline;
+`;
+
+const Line = styled.div`
+  border: ${props =>
+    props.themeState === 'dark' ? '1px solid #fff' : '1px solid #000'};
 `;
