@@ -1,5 +1,7 @@
 import { test } from '@/public/png/review/before-after/index';
 
+export const reviewMainData = [test, test, test, test, test, test];
+
 export const reviewData = [
   {
     id: 1,

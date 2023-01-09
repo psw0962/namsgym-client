@@ -50,6 +50,18 @@ const Home = () => {
 
   return (
     <Frame>
+      <IframeWrapper>
+        <iframe
+          // width="400"
+          // height="400"
+          src="https://www.youtube.com/embed/QQqDaQ7pqy0"
+          title="PT로 사람이 달라지다니!찐 후기"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </IframeWrapper>
+
       <CustomSlick data={eventSlickImages} height={40}></CustomSlick>
 
       <FadeIn>
@@ -256,4 +268,20 @@ const CustomAtag = styled.a`
   width: fit-content;
   text-decoration: none;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+`;
+
+const IframeWrapper = styled.div`
+  position: relative;
+  padding-top: 56%;
+  width: 100%;
+  height: 0;
+  margin-bottom: 3rem;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 `;

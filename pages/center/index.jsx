@@ -8,11 +8,11 @@ import Font from '@/component/common/font';
 import FadeIn from 'react-fade-in';
 
 const Center = () => {
-  const [centerDataLength, setCenterDataLength] = useState(5);
+  // const [centerDataLength, setCenterDataLength] = useState(5);
 
-  const onClickMoreButton = () => {
-    setCenterDataLength(prev => prev + 5);
-  };
+  // const onClickMoreButton = () => {
+  //   setCenterDataLength(prev => prev + 5);
+  // };
 
   return (
     <React.Fragment>
@@ -21,20 +21,26 @@ const Center = () => {
       </Font>
 
       <FadeIn>
-        <CenterCardFrame>
+        {/* <CenterCardFrame>
           {centerCardData.slice(0, centerDataLength).map(item => {
+            return <CenterCard key={item.id} data={item} />;
+          })}
+        </CenterCardFrame> */}
+
+        <CenterCardFrame>
+          {centerCardData.map(item => {
             return <CenterCard key={item.id} data={item} />;
           })}
         </CenterCardFrame>
       </FadeIn>
 
-      {centerCardData.length > centerDataLength && (
+      {/* {centerCardData.length > centerDataLength && (
         <ButtonWrapper onClick={() => onClickMoreButton()}>
           <Button size="large" color="yellow">
             더보기
           </Button>
         </ButtonWrapper>
-      )}
+      )} */}
 
       <Font fontSize="2rem" margin="10rem 0 2rem 0">
         남스짐 전체 지점 현황{' '}
