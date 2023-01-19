@@ -52,8 +52,6 @@ const Home = () => {
     <Frame>
       <IframeWrapper>
         <iframe
-          // width="400"
-          // height="400"
           src="https://www.youtube.com/embed/QQqDaQ7pqy0"
           title="PT로 사람이 달라지다니!찐 후기"
           frameborder="0"
@@ -184,7 +182,6 @@ const Home = () => {
             style={{
               display: 'flex',
               justifyContent: 'space-between',
-              marginTop: '2rem',
             }}
           >
             <Font

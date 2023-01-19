@@ -81,6 +81,26 @@ const Slick = ({
       handleAfterChange();
       setActiveSlide2({ activeSlide2: current });
     },
+    appendDots: dots => (
+      <div
+        style={{
+          width: '100%',
+          display: 'flex',
+          justifyContent: 'center',
+          marginTop: '2rem',
+        }}
+      >
+        <ul
+          style={{
+            display: 'flex',
+            gap: '1rem',
+          }}
+        >
+          {dots}
+        </ul>
+      </div>
+    ),
+    dotsClass: 'custom_dots',
     nextArrow: <CustomNextArrow />,
     prevArrow: <CustomPrevArrow />,
   };
@@ -147,6 +167,21 @@ export default Slick;
 const Frame = styled.div`
   border-radius: 5px;
   margin: ${props => (props.margin ? props.margin : '')};
+
+  .custom_dots li button {
+    height: 8px;
+    width: 8px;
+    background: #d1d1d1;
+    color: transparent;
+    cursor: pointer;
+    border: none;
+    border-radius: 100%;
+    padding: 0;
+  }
+
+  .custom_dots li.slick-active button {
+    background-color: #b49445;
+  }
 `;
 
 const CustomImageWrapper = styled(ImageWrapper)`
