@@ -99,14 +99,14 @@ const Review = () => {
         width={40}
         height={40}
         useDot={true}
-        margin="0 0 4rem 0"
+        margin="0 0 1rem 0"
       />
 
       <div
         style={{
           display: 'flex',
           justifyContent: 'flex-end',
-          marginBottom: '3rem',
+          marginBottom: '2rem',
         }}
       >
         <CustomAtag
