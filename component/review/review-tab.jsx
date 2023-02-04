@@ -8,9 +8,9 @@ import { useDraggable } from 'react-use-draggable-scroll';
 const reviewTabs = [
   { id: 1, tabName: '전체' },
   { id: 2, tabName: '바디프로필' },
-  { id: 3, tabName: '바디챌린지' },
-  { id: 4, tabName: '환급 이벤트' },
-  { id: 5, tabName: 'Before&After' },
+  { id: 3, tabName: 'Before&After' },
+  { id: 4, tabName: '바디챌린지' },
+  { id: 5, tabName: '환급 이벤트' },
   { id: 6, tabName: 'PT리뷰' },
 ];
 

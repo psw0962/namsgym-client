@@ -20,6 +20,8 @@ import trainer5_2 from '@/public/png/center/center5/trainers/trainer5/trainer5_2
 import trainer6_1 from '@/public/png/center/center5/trainers/trainer6/trainer6_1.jpg';
 import trainer6_2 from '@/public/png/center/center5/trainers/trainer6/trainer6_2.jpg';
 
+import trainer7_1 from '@/public/png/center/center5/trainers/trainer7/trainer7_1.jpeg';
+
 export {
   center5_1,
   center5_2,
@@ -36,4 +38,5 @@ export {
   trainer5_2,
   trainer6_1,
   trainer6_2,
+  trainer7_1,
 };

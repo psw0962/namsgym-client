@@ -14,6 +14,7 @@ import {
   trainer5_2,
   trainer6_1,
   trainer6_2,
+  trainer7_1,
 } from '@/public/png/center/center5/index';
 
 const center5 = {
@@ -117,6 +118,25 @@ const center5 = {
         '블랙롤 근막이완 이수',
       ],
       images: [trainer6_1, trainer6_2],
+    },
+    {
+      id: 7,
+      name: '김준형 트레이너',
+      career: [
+        '남스짐 5호점 트레이너',
+        '전) 삼성디스플레이 탕정 트레이너',
+        '전) 아베뉴짐 트레이너',
+      ],
+      tags: [
+        '생활스포츠지도사 2급(보디빌딩)',
+        '노인체육지도자 1급',
+        '스포츠마사지 1급',
+        '레크리에이션지도사 1급',
+        '풋살심판 4급',
+        '피사프자격 수료',
+        '자가근막이완 자격 수료',
+      ],
+      images: [trainer7_1],
     },
   ],
   kakaoTalkUrl: 'https://pf.kakao.com/_HueSK',

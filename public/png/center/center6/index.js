@@ -18,6 +18,7 @@ import trainer5_1 from '@/public/png/center/center6/trainers/trainer5/trainer5_1
 import trainer5_2 from '@/public/png/center/center6/trainers/trainer5/trainer5_2.jpg';
 
 import trainer6_1 from '@/public/png/center/center6/trainers/trainer6/trainer6_1.jpeg';
+import trainer6_2 from '@/public/png/center/center6/trainers/trainer6/trainer6_2.jpeg';
 
 export {
   center6_1,
@@ -34,4 +35,5 @@ export {
   trainer5_1,
   trainer5_2,
   trainer6_1,
+  trainer6_2,
 };
