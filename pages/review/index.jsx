@@ -90,8 +90,8 @@ const Review = () => {
 
   return (
     <Frame>
-      <Font fontSize="2rem" margin="0 0 5rem 0">
-        리뷰
+      <Font fontSize="2rem" margin="0 0 2rem 0">
+        이 달의 회원님👏
       </Font>
 
       <CustomSlick
@@ -204,9 +204,7 @@ const Review = () => {
 
         <CustomButton
           onClick={() => {
-            window.open(
-              'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EC%95%88%EC%82%B0%20%EC%8B%A0%EA%B8%B8%EC%A0%90/place/921880323?c=14112231.1392257,4486165.2212545,15,0,0,0,dh&isCorrectAnswer=true',
-            );
+            window.open(`${reviewDetail?.naverPlaceUrl}`);
           }}
         >
           {`무료 PT체험권 신청하기 >`}
@@ -226,25 +224,47 @@ const Review = () => {
         <Line />
 
         {reviewDetail?.clientReview !== '' && (
-          <Font
-            fontSize="2rem"
-            margin="2rem 0 0 0"
-            lineHeight="24px"
-            color="#000"
-          >
-            *{reviewDetail?.title} 리뷰 : {reviewDetail?.clientReview}
-          </Font>
+          <>
+            <Font
+              fontSize="1.8rem"
+              margin="2rem 0 0 0"
+              lineHeight="24px"
+              color="#000"
+            >
+              - {reviewDetail?.title} 리뷰 :
+            </Font>
+
+            <Font
+              fontSize="1.6rem"
+              margin="0 0 0 0"
+              lineHeight="24px"
+              color="#000"
+            >
+              {reviewDetail?.clientReview}
+            </Font>
+          </>
         )}
 
         {reviewDetail?.trainerReview !== '' && (
-          <Font
-            fontSize="2rem"
-            margin="2rem 0 0 0"
-            lineHeight="24px"
-            color="#000"
-          >
-            *{reviewDetail?.trainer} 리뷰 : {reviewDetail?.trainerReview}
-          </Font>
+          <>
+            <Font
+              fontSize="1.8rem"
+              margin="4rem 0 0 0"
+              lineHeight="24px"
+              color="#000"
+            >
+              - {reviewDetail?.trainer} 리뷰 :
+            </Font>
+
+            <Font
+              fontSize="1.6rem"
+              margin="0 0 0 0"
+              lineHeight="24px"
+              color="#000"
+            >
+              {reviewDetail?.trainerReview}
+            </Font>
+          </>
         )}
       </Modal>
     </Frame>

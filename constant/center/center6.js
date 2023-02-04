@@ -13,6 +13,7 @@ import {
   trainer5_1,
   trainer5_2,
   trainer6_1,
+  trainer6_2,
 } from '@/public/png/center/center6/index';
 
 const center6 = {
@@ -113,16 +114,16 @@ const center6 = {
     },
     {
       id: 6,
-      name: '박성민 트레이너',
-      career: ['남스짐 6호점 트레이너', '전) 남스짐 2호점 트레이너'],
+      name: '안영준 트레이너',
+      career: ['남스짐 6호점 트레이너', '전) 팀원짐 트레이너'],
       tags: [
         '생활스포츠지도사 2급(보디빌딩)',
         '남스짐 아카데미 교육 수료',
-        '청춘웨이트 교육 수료',
-        '소도구 트레이닝 교육 수료',
-        '자가근막이완 교육 수료',
+        '기초, 기능해부학 과정 수료',
+        'TFT교육과정 수료',
+        '블랙롤 근막이완 자격증',
       ],
-      images: [trainer6_1],
+      images: [trainer6_1, trainer6_2],
     },
   ],
   kakaoTalkUrl: 'https://pf.kakao.com/_xoSxjxoK',

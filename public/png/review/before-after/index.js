@@ -1,3 +1,3 @@
-import test from './test.jpeg';
+import before_after_1 from './before_after_1.png';
 
-export { test };
+export { before_after_1 };
