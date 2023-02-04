@@ -186,7 +186,7 @@ export const reviewData = [
     trainerReview: '',
   },
   {
-    id: 11,
+    id: 12,
     searchKey: '김복근트레이너7호점안산고잔점',
     images: [body_profile_8],
     title: '** 회원님',
@@ -200,7 +200,7 @@ export const reviewData = [
     trainerReview: '',
   },
   {
-    id: 12,
+    id: 13,
     searchKey: '김복근트레이너7호점안산고잔점',
     images: [body_profile_9],
     title: '** 회원님',
@@ -214,7 +214,7 @@ export const reviewData = [
     trainerReview: '',
   },
   {
-    id: 13,
+    id: 14,
     searchKey: '김복근트레이너7호점안산고잔점',
     images: [body_profile_10],
     title: '** 회원님',
@@ -228,7 +228,7 @@ export const reviewData = [
     trainerReview: '',
   },
   {
-    id: 14,
+    id: 15,
     searchKey: '이충길트레이너7호점안산고잔점',
     images: [body_profile_11],
     title: '** 회원님',
