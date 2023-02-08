@@ -19,6 +19,7 @@ import {
   pt_4,
   pt_5,
   pt_6,
+  pt_7,
 } from '@/public/png/review/pt/index';
 
 export const reviewMainData = [
@@ -27,9 +28,25 @@ export const reviewMainData = [
   before_after_1,
   body_profile_4,
   body_profile_6,
+  body_profile_9,
 ];
 
 export const reviewData = [
+  {
+    id: 19,
+    searchKey: '최주영트레이너5호점시흥능곡점',
+    images: [pt_7],
+    title: '*실 회원님',
+    tag: 'PT리뷰',
+    center: '5호점 시흥 능곡점',
+    naverPlaceUrl:
+      'https://map.naver.com/v5/entry/place/1643426658?c=15,0,0,0,dh',
+    trainer: '최주영 트레이너',
+    clientReview:
+      '시설 깔끔하고 트레이너선생님들 다들 친절하세요! 이벤트도 자주 있는 것 같아서 pt생각하시면 합리적인 가격에 받으실 수 있을 것 같습니다. 한해가 끝나가고 있는 지금, 새해 목표가 운동이라면 남스짐 강추합니다👍🏻',
+    trainerReview:
+      '안녕하세요 연실님 주영트레이너입니다:)소중한 후기 감사합니다! 제가 드린 단백질쉐이크도 잘 챙겨드시고 우리 함께 올 한해도 지방은 없애고 득근해서 원하는 목표까지 이루어가보아요! 저를 믿고 올 한해도 달려봅시다!!',
+  },
   {
     id: 18,
     searchKey: '김혜민트레이너9호점시흥은행점',
