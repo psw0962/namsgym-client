@@ -213,7 +213,7 @@ const Review = () => {
         <CustomButton
           onClick={() => {
             router.push(
-              `/center/${reviewDetail?.center?.slice(0, 1)}/${
+              `/center/${reviewDetail?.centerKey}/${
                 reviewDetail?.trainer?.split(' ')[0]
               }`,
             );

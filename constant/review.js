@@ -1,4 +1,7 @@
-import { before_after_1 } from '@/public/png/review/before-after/index';
+import {
+  before_after_1,
+  before_after_2,
+} from '@/public/png/review/before-after/index';
 import {
   body_profile_1,
   body_profile_2,
@@ -33,12 +36,29 @@ export const reviewMainData = [
 
 export const reviewData = [
   {
+    id: 20,
+    searchKey: '이다정트레이너10호점시흥월곶점',
+    images: [before_after_2],
+    title: '** 회원님',
+    tag: 'Before&After',
+    center: '10호점 시흥 월곶점',
+    centerKey: '10',
+    naverPlaceUrl:
+      'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EC%9B%94%EA%B3%B6%EC%A0%90/place/1566486851?c=15,0,0,0,dh&isCorrectAnswer=true',
+    trainer: '이다정 트레이너',
+    clientReview:
+      '2달동안 열심히 PT 20회를 받았습니당 체지방 많이빠지고 몸무게 앞자리가 바꼈고 가장 만족스러운건 바로 어깨가!! 완전 달라졌어요!!ㅜㅜ 운동전에는 어깨가 완전 둥글 축 쳐져서 숄더백 매면 가방 맨날 흘러내렸는데ㅜㅜ 이제 어깨가 직각 비슷하게 됐어요😍😍 어깨랑 등 많이 고민이었는데 넘 만족! 트레이너쌤 꼼꼼하게 봐주시고 다양한 운동루틴 준비해주셔서 넘 좋았어요! 다정쌤 완전 감사합니당👍👍 그리고 여긴 기구가 다양하고 깨끗해서 운동하기 넘 좋음🤩 토,일에도 문열어서 진짜 만족..!!',
+    trainerReview:
+      '안녕하세요 남스짐 월곶점입니다! 소중한 리뷰 남겨주셔서 감사합니다 :) 저를 믿고 올 한해도 달려봅시다!!',
+  },
+  {
     id: 19,
     searchKey: '최주영트레이너5호점시흥능곡점',
     images: [pt_7],
     title: '*실 회원님',
     tag: 'PT리뷰',
     center: '5호점 시흥 능곡점',
+    centerKey: '5',
     naverPlaceUrl:
       'https://map.naver.com/v5/entry/place/1643426658?c=15,0,0,0,dh',
     trainer: '최주영 트레이너',
@@ -54,6 +74,7 @@ export const reviewData = [
     title: '김*진 회원님',
     tag: 'PT리뷰',
     center: '9호점 시흥 은행점',
+    centerKey: '9',
     naverPlaceUrl:
       'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EC%9D%80%ED%96%89%EC%A0%90/place/1890409909?c=15,0,0,0,dh&isCorrectAnswer=true',
     trainer: '김혜민 트레이너',
@@ -69,6 +90,7 @@ export const reviewData = [
     title: '성*영 회원님',
     tag: 'PT리뷰',
     center: '9호점 시흥 은행점',
+    centerKey: '9',
     naverPlaceUrl:
       'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EC%9D%80%ED%96%89%EC%A0%90/place/1890409909?c=15,0,0,0,dh&isCorrectAnswer=true',
     trainer: '구경준 트레이너',
@@ -84,6 +106,7 @@ export const reviewData = [
     title: '이*랑 회원님',
     tag: 'PT리뷰',
     center: '9호점 시흥 은행점',
+    centerKey: '9',
     naverPlaceUrl:
       'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EC%9D%80%ED%96%89%EC%A0%90/place/1890409909?c=15,0,0,0,dh&isCorrectAnswer=true',
     trainer: '김현미 트레이너',
@@ -99,6 +122,7 @@ export const reviewData = [
     title: '** 회원님',
     tag: '바디프로필',
     center: '7호점 안산 고잔점',
+    centerKey: '7',
     naverPlaceUrl:
       'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EA%B3%A0%EC%9E%94%EC%A0%90/place/1359244093?c=15,0,0,0,dh&isCorrectAnswer=true',
     trainer: '이충길 트레이너',
@@ -113,6 +137,7 @@ export const reviewData = [
     title: '** 회원님',
     tag: '바디프로필',
     center: '7호점 안산 고잔점',
+    centerKey: '7',
     naverPlaceUrl:
       'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EA%B3%A0%EC%9E%94%EC%A0%90/place/1359244093?c=15,0,0,0,dh&isCorrectAnswer=true',
     trainer: '김복근 트레이너',
@@ -127,6 +152,7 @@ export const reviewData = [
     title: '** 회원님',
     tag: '바디프로필',
     center: '7호점 안산 고잔점',
+    centerKey: '7',
     naverPlaceUrl:
       'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EA%B3%A0%EC%9E%94%EC%A0%90/place/1359244093?c=15,0,0,0,dh&isCorrectAnswer=true',
     trainer: '김복근 트레이너',
@@ -141,6 +167,7 @@ export const reviewData = [
     title: '** 회원님',
     tag: '바디프로필',
     center: '7호점 안산 고잔점',
+    centerKey: '7',
     naverPlaceUrl:
       'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EA%B3%A0%EC%9E%94%EC%A0%90/place/1359244093?c=15,0,0,0,dh&isCorrectAnswer=true',
     trainer: '김복근 트레이너',
@@ -155,6 +182,7 @@ export const reviewData = [
     title: '** 회원님',
     tag: '바디프로필',
     center: '7호점 안산 고잔점',
+    centerKey: '7',
     naverPlaceUrl:
       'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EA%B3%A0%EC%9E%94%EC%A0%90/place/1359244093?c=15,0,0,0,dh&isCorrectAnswer=true',
     trainer: '박지수 트레이너',
@@ -169,6 +197,7 @@ export const reviewData = [
     title: '** 회원님',
     tag: '바디프로필',
     center: '7호점 안산 고잔점',
+    centerKey: '7',
     naverPlaceUrl:
       'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EA%B3%A0%EC%9E%94%EC%A0%90/place/1359244093?c=15,0,0,0,dh&isCorrectAnswer=true',
     trainer: '박지수 트레이너',
@@ -184,6 +213,7 @@ export const reviewData = [
     title: '** 회원님',
     tag: '바디프로필',
     center: '7호점 안산 고잔점',
+    centerKey: '7',
     naverPlaceUrl:
       'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EA%B3%A0%EC%9E%94%EC%A0%90/place/1359244093?c=15,0,0,0,dh&isCorrectAnswer=true',
     trainer: '홍태성 트레이너',
@@ -198,6 +228,7 @@ export const reviewData = [
     title: '** 회원님',
     tag: '바디프로필',
     center: '7호점 안산 고잔점',
+    centerKey: '7',
     naverPlaceUrl:
       'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EA%B3%A0%EC%9E%94%EC%A0%90/place/1359244093?c=15,0,0,0,dh&isCorrectAnswer=true',
     trainer: '홍태성 트레이너',
@@ -212,6 +243,7 @@ export const reviewData = [
     title: '** 회원님',
     tag: 'PT리뷰',
     center: '3호점 구로 오류점',
+    centerKey: '3',
     naverPlaceUrl:
       'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EC%98%A4%EB%A5%98%EC%A0%90/place/1200580002?c=15,0,0,0,dh&isCorrectAnswer=true',
     trainer: '신수빈 트레이너',
@@ -227,6 +259,7 @@ export const reviewData = [
     title: '** 회원님',
     tag: 'PT리뷰',
     center: '3호점 구로 오류점',
+    centerKey: '3',
     naverPlaceUrl:
       'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EC%98%A4%EB%A5%98%EC%A0%90/place/1200580002?c=15,0,0,0,dh&isCorrectAnswer=true',
     trainer: '김도연 트레이너',
@@ -242,6 +275,7 @@ export const reviewData = [
     title: '** 회원님',
     tag: 'PT리뷰',
     center: '3호점 구로 오류점',
+    centerKey: '3',
     naverPlaceUrl:
       'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EC%98%A4%EB%A5%98%EC%A0%90/place/1200580002?c=15,0,0,0,dh&isCorrectAnswer=true',
     trainer: '신수빈 트레이너',
@@ -257,6 +291,7 @@ export const reviewData = [
     title: '** 회원님',
     tag: '바디프로필',
     center: '8호점 군포 산본점',
+    centerKey: '8',
     naverPlaceUrl:
       'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EC%82%B0%EB%B3%B8%EC%A0%90/place/1136567577?c=15,0,0,0,dh&isCorrectAnswer=true',
     trainer: '유민우 트레이너',
@@ -272,6 +307,7 @@ export const reviewData = [
     title: '** 회원님',
     tag: '바디프로필',
     center: '8호점 군포 산본점',
+    centerKey: '8',
     naverPlaceUrl:
       'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EC%82%B0%EB%B3%B8%EC%A0%90/place/1136567577?c=15,0,0,0,dh&isCorrectAnswer=true',
     trainer: '유민우 트레이너',
@@ -287,6 +323,7 @@ export const reviewData = [
     title: '** 회원님',
     tag: '바디프로필',
     center: '9호점 시흥 은행점',
+    centerKey: '9',
     naverPlaceUrl:
       'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EC%9D%80%ED%96%89%EC%A0%90/place/1890409909?c=15,0,0,0,dh&isCorrectAnswer=true',
     trainer: '김철기 트레이너',
@@ -302,6 +339,7 @@ export const reviewData = [
     title: '** 회원님',
     tag: 'Before&After',
     center: '6호점 부천 옥길점',
+    centerKey: '6',
     naverPlaceUrl:
       'https://map.naver.com/v5/entry/place/1762867363?placePath=%2Fhome%3Fentry=plt&c=15,0,0,0,dh',
     trainer: '정재호 트레이너',
