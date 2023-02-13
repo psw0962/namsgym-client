@@ -151,7 +151,8 @@ const CenterCard = ({ data }) => {
 
           <CustomAtag
             themeState={themeState}
-            href={data?.naverPlaceUrl}
+            // href={data?.naverPlaceUrl}
+            href="https://naver.me/GLACdhWu"
             target="_blank"
             rel="noreferrer"
             onClick={e => e.stopPropagation()}
