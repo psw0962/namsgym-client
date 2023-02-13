@@ -168,7 +168,7 @@ const Home = () => {
             margin="0 0 3rem 0"
             color="#000"
           >
-            무료 PT체험권 신청하는 방법
+            현재 진행중인 이벤트🎉
           </Font>
 
           <CustomSlick
@@ -208,9 +208,7 @@ const Home = () => {
               textDecoration="underline"
               onClick={() => {
                 setIsMenuOpen(false);
-                window.open(
-                  'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90?c=14129853.9385700,4491054.2124971,15,0,0,0,dh',
-                );
+                window.open('https://naver.me/GLACdhWu');
               }}
             >
               {`무료 PT체험권 신청하기 >`}

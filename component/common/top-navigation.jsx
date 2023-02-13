@@ -130,7 +130,7 @@ const TopNavigation = () => {
         <EventButton>
           <CustomAtag
             themeState={themeState}
-            href="https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90?c=14117419.4846567,4504480.5158603,15,0,0,0,dh"
+            href="https://naver.me/GLACdhWu"
             target="_blank"
             rel="noreferrer"
             onClick={e => e.stopPropagation()}

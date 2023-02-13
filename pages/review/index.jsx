@@ -204,7 +204,7 @@ const Review = () => {
 
         <CustomButton
           onClick={() => {
-            window.open(`${reviewDetail?.naverPlaceUrl}`);
+            window.open(`https://naver.me/GLACdhWu`);
           }}
         >
           {`무료 PT체험권 신청하기 >`}

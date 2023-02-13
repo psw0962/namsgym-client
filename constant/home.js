@@ -1,11 +1,4 @@
-import {
-  event_1,
-  event_2,
-  modal_1,
-  modal_2,
-  modal_3,
-  modal_4,
-} from 'public/png/event';
+import { event_1, event_2 } from 'public/png/event';
 import kakaotalk from 'public/png/kakaotalk.png';
 import naverblog from 'public/png/naverblog.png';
 import youtube from 'public/png/youtube.png';
@@ -25,11 +18,6 @@ export const eventSlickImages = [
     id: 1,
     src: event_2,
     url: 'https://rainy-reaper-d5b.notion.site/5fb57a41b8e44458ad6e2021659e2f68',
-  },
-  {
-    id: 2,
-    src: event_1,
-    url: 'https://rainy-reaper-d5b.notion.site/1-7291ebf60ec740b1a7a057c5b6692ccb',
   },
 ];
 
@@ -87,22 +75,11 @@ export const snsLogoImages = [
   },
 ];
 
-// 무료 PT체험권 신청안내 모달
+// 홈 메인 모달 슬릭 데이터
 export const modalImages = [
   {
     id: 1,
-    src: modal_1,
-  },
-  {
-    id: 2,
-    src: modal_2,
-  },
-  {
-    id: 3,
-    src: modal_3,
-  },
-  {
-    id: 4,
-    src: modal_4,
+    src: event_2,
+    url: 'https://rainy-reaper-d5b.notion.site/5fb57a41b8e44458ad6e2021659e2f68',
   },
 ];

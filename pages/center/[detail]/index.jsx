@@ -45,7 +45,8 @@ const CenterDetail = () => {
 
         <CustomAtag
           themeState={themeState}
-          href={centerData?.naverPlaceUrl}
+          // href={centerData?.naverPlaceUrl}
+          href="https://naver.me/GLACdhWu"
           target="_blank"
           rel="noreferrer"
         >
