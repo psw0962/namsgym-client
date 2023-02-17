@@ -9,6 +9,7 @@ import body_profile_8 from './body_profile_8.jpeg';
 import body_profile_9 from './body_profile_9.jpeg';
 import body_profile_10 from './body_profile_10.jpeg';
 import body_profile_11 from './body_profile_11.jpeg';
+import body_profile_12 from './body_profile_12.png';
 
 export {
   body_profile_1,
@@ -22,4 +23,5 @@ export {
   body_profile_9,
   body_profile_10,
   body_profile_11,
+  body_profile_12,
 };

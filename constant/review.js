@@ -1,6 +1,8 @@
 import {
   before_after_1,
   before_after_2,
+  before_after_3,
+  before_after_4,
 } from '@/public/png/review/before-after/index';
 import {
   body_profile_1,
@@ -14,6 +16,7 @@ import {
   body_profile_9,
   body_profile_10,
   body_profile_11,
+  body_profile_12,
 } from '@/public/png/review/body-profile/index';
 import {
   pt_1,
@@ -23,6 +26,8 @@ import {
   pt_5,
   pt_6,
   pt_7,
+  pt_8,
+  pt_9,
 } from '@/public/png/review/pt/index';
 
 export const reviewMainData = [
@@ -35,6 +40,81 @@ export const reviewMainData = [
 ];
 
 export const reviewData = [
+  {
+    id: 25,
+    searchKey: '박진희트레이너1호점안산신길점',
+    images: [before_after_4],
+    title: '** 회원님',
+    tag: 'Before&After',
+    center: '1호점 안산 신길점',
+    centerKey: '1',
+    naverPlaceUrl:
+      'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EC%8B%A0%EA%B8%B8%EC%A0%90/place/921880323?c=15,0,0,0,dh&isCorrectAnswer=true',
+    trainer: '박진희 트레이너',
+    clientReview:
+      '진희쌤과 같이 PT를 시작한지 2년째! 초반에는 다이어트를 목적으로 PT와 운동을 시작했고 운동이 몸에 익을 즈음엔 체력향상도 덤으로 같이 PT를 해서 살이 빠진 것은 물론 체력과 건강도 같이 좋아진 것 같아 기분이 좋습니다! 그리고 이번엔 근력증진을 목표로 두고 무게를 달아서 이번엔 좀 더 빡세게 하고 있습니다! 헬스장 안 뿐만 아니라 밖에서도 케어를 도와주시는데요, 식단관리도 해주시고 운동스케쥴도 챙겨주시니 점차 운동이 재밌네요 ㅋ.ㅋ 진희쌤의 수업 내용이 쏙쏙 들어오는 것도 한몫 하구요 ㅎㅎ 점차 몸의 체형변화가 눈으로 보여서 쌤이 비포 애프터 사진을 찍어 주셨습니다! 이 운동의 즐거움 계속 유지한 채로 앞으로 더 열심히 해 볼 생각입니다!',
+    trainerReview: '',
+  },
+  {
+    id: 24,
+    searchKey: '임예본트레이너1호점안산신길점',
+    images: [pt_9],
+    title: '** 회원님',
+    tag: 'PT리뷰',
+    center: '1호점 안산 신길점',
+    centerKey: '1',
+    naverPlaceUrl:
+      'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EC%8B%A0%EA%B8%B8%EC%A0%90/place/921880323?c=15,0,0,0,dh&isCorrectAnswer=true',
+    trainer: '임예본 트레이너',
+    clientReview:
+      '결혼전 스튜디오 촬영을 하고 원본을 받는 순간, 작고 퉁퉁한 제 모습에 큰 충격을 받아 운동을 시작했습니다. 남스점 예본쌤과 상담 후 운동을 병행한 식단을 진행했고 다이어트에 성공해서 본식 사진은 보정하지 않아도 보정한 것 같은 결과를 얻었습니다! 그 후에도 운동에 흥미가 생겨 꾸준히 하고 있습니다. 예본쌤은 운동 시작 전 타깃 근육에 대한 설명을 상세히 해주시고 안되는 운동은 무리하지 않는 선에서 기초 동작을 반복해서 원래 목표했던 운동이 가능하게 꼼꼼히 봐주십니다. 그리고 매일 어떤 운동을 어떻게 했는지 밴드로 기록해주셔서 나만의 운동 지표가 돼서 개인운동시에 참고할 수 있습니다. 또한 예본쌤은 운동의 동기부여가 되는 분으로써, 더 열심히 운동하고 싶고 한 동작이라도 제대로 하게 돼요! 예본쌤 채고!',
+    trainerReview: '',
+  },
+  {
+    id: 23,
+    searchKey: '박상은트레이너10호점시흥월곶점',
+    images: [pt_8],
+    title: '** 회원님',
+    tag: 'PT리뷰',
+    center: '10호점 시흥 월곶점',
+    centerKey: '10',
+    naverPlaceUrl:
+      'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EC%9B%94%EA%B3%B6%EC%A0%90/place/1566486851?c=15,0,0,0,dh&isCorrectAnswer=true',
+    trainer: '박상은 트레이너',
+    clientReview:
+      'PT가 처음이라 걱정 많이 했었는데 좋은 선생님을 만나서 수업이 전혀 지루하지 않고 즐겁게 듣고 있습니다! 빨리 다음 수업받고 싶네요!! 효과적인 근 성장을 위해 식단도 짜주시고 영상도 찍어 혼자서도 운동할 수 있도록 피드백도 해주시고 기구 사용할 때 어디에 자극이 와야 하는지 자세히 알려주셔서 좋습니다! 아마 혼자서 운동했으면 등 운동을 하면서 팔만 운동했을 것 같아요 운동한지 얼마 안 됐지만 주변에서 몸 좋아졌다고 하네요! ㅎ 피티 받으신다면 박상은썜 강추합니다! 시설도 좋고 기구도 다양하고 선생님들도 좋은 남스짐으로 오세요!',
+    trainerReview: '',
+  },
+  {
+    id: 22,
+    searchKey: '노원준트레이너6호점부천옥길점',
+    images: [body_profile_12],
+    title: '** 회원님',
+    tag: 'Before&After',
+    center: '6호점 부천 옥길점',
+    centerKey: '6',
+    naverPlaceUrl:
+      'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EC%98%A5%EA%B8%B8%EC%A0%90/place/1762867363?c=15,0,0,0,dh&isCorrectAnswer=true',
+    trainer: '노원준 트레이너',
+    clientReview:
+      '남스짐 옥길점에서 1년6개월째 원준샘과 함께 운동하고 있습니다. 처음 운동 시작할때 필라테스 3개월, 집에서 혼자하는 홈트로 다이어트 열심히 해서 살은 빠졌지만 균형없는 식단과 근육운동의 부족으로 인해 머리도 아프고 힘들었습니다. 이런 부족한 부분들과,꾸준한 운동으로 유지를 위해 시작하게 되었습니다. 일단 헬스가 나에게 잘맞는것 같았고 원준샘이 잘 이끌어 주셔서 바디프로필까지 찍을수 있었던것 같습니다. 더 나이먹기전에 바디프로필을 찍을수 있어서 나 자신에게 칭찬해 주고싶고, 원준샘의 꾸준한 응원과 지도가 있었기에 이룰수 있었다고 생각합니다. 남스짐옥길점 원준샘 감사합니다. 계속 같이 운동 열심히할께요~~^^',
+    trainerReview: '',
+  },
+  {
+    id: 21,
+    searchKey: '오연수트레이너2호점부천범박점',
+    images: [before_after_3],
+    title: '** 회원님',
+    tag: 'Before&After',
+    center: '2호점 부천 범박점',
+    centerKey: '2',
+    naverPlaceUrl:
+      'https://map.naver.com/v5/search/%EB%82%A8%EC%8A%A4%EC%A7%90%20%EB%B2%94%EB%B0%95%EC%A0%90/place/1876092791?c=15,0,0,0,dh&isCorrectAnswer=true',
+    trainer: '오연수 트레이너',
+    clientReview:
+      '연수쌤과 바프 준비를 마치고 계속 열운중인 헬린이입니다! 3개월 동안 매일을 컨디션, 운동 체크해주시던 연수쌤 덕분에 책임감을 가지고 준비했습니다🔥 막바지에는 지쳐서 운동이 너무 하기 싫기도 했는데 막상 끝나고 나서 변화된 제 몸을 보니 운동을 놓고 싶지 않게 되었어요! 연수쌤의 동기부여 덕분에 2022년의 마무리가 알차고 보람찼어요🥺 만약 바프준비를 안했다면 지금처럼 많이 배우지도 못하고 몸도 바뀌지 못했을 거라고 생각합니다...(그리고 바프를 준비하면 불면증 알콜중독 나쁜식습관 무기력증이 싹 고쳐집니다..ㅎㅎ) 헬린이 분들에게 저는 정말 강추합니다! 이왕이면 연수쌤과 함께 준비하시길 추천합니당 🥰 회원님들께 더 더 잘해드려서 제일 기억에 남는 트레이너가 되고 싶다고 하신 연수쌤 🥺 감사해요🤍',
+    trainerReview: '',
+  },
   {
     id: 20,
     searchKey: '이다정트레이너10호점시흥월곶점',
