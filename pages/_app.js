@@ -16,15 +16,20 @@ import { Analytics } from '@vercel/analytics/react';
 import Sns from '@/component/common/sns';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { useRouter } from 'node_modules/next/router';
+import FitnessHome from '@/component/fitness/index';
 
 const Splash = dynamic(() => import('@/component/common/splash'), {
   ssr: false,
 });
 
 const MyApp = ({ Component, pageProps }) => {
+  const router = useRouter();
   const loading = usePageLoading();
   const [queryClient] = useState(() => new QueryClient());
   const [isSplash, setIsSplash] = useState(true);
+
+  console.log(router?.pathname);
 
   return (
     <>
@@ -47,25 +52,31 @@ const MyApp = ({ Component, pageProps }) => {
                 <Splash setIsSplash={setIsSplash} />
               ) : (
                 <Frame>
-                  <BusinessInfo />
+                  {router?.pathname === '/fitness' ? (
+                    <FitnessHome />
+                  ) : (
+                    <>
+                      <BusinessInfo />
 
-                  <AppFrame>
-                    <AppWrapper isLoading={loading}>
-                      <TopNavigation />
+                      <AppFrame>
+                        <AppWrapper isLoading={loading}>
+                          <TopNavigation />
 
-                      {loading ? (
-                        <GlobalSpinner color="#B49445" />
-                      ) : (
-                        <ComponentPaddingWrapper>
-                          <Component {...pageProps} />
-                          <Analytics />
-                          <Sns />
-                        </ComponentPaddingWrapper>
-                      )}
+                          {loading ? (
+                            <GlobalSpinner color="#B49445" />
+                          ) : (
+                            <ComponentPaddingWrapper>
+                              <Component {...pageProps} />
+                              <Analytics />
+                              <Sns />
+                            </ComponentPaddingWrapper>
+                          )}
 
-                      <BottomNavigation />
-                    </AppWrapper>
-                  </AppFrame>
+                          <BottomNavigation />
+                        </AppWrapper>
+                      </AppFrame>
+                    </>
+                  )}
                 </Frame>
               )}
             </React.Fragment>
