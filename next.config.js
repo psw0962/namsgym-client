@@ -12,9 +12,18 @@ const nextConfig = {
     runtimeCaching,
     buildExcludes: [/middleware-manifest.json$/],
   },
-  // images: {
-  //   domains: [],
-  // },
+  images: {
+    domains: [],
+  },
+  rules: [
+    {
+      test: /\.(mp3|ogg)$/,
+      loader: 'file-loader',
+      options: {
+        name: 'public/sounds/[name].[ext]?[hash]',
+      },
+    },
+  ],
 };
 
 const bulidConfig = () => {
