@@ -17,7 +17,8 @@ import Sns from '@/component/common/sns';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useRouter } from 'node_modules/next/router';
-import FitnessHome from '@/component/fitness/index';
+// import TogetherHome from '@/component/together/index';
+import Together from '@/pages/together/index';
 
 const Splash = dynamic(() => import('@/component/common/splash'), {
   ssr: false,
@@ -52,8 +53,8 @@ const MyApp = ({ Component, pageProps }) => {
                 <Splash setIsSplash={setIsSplash} />
               ) : (
                 <Frame>
-                  {router?.pathname === '/fitness' ? (
-                    <FitnessHome />
+                  {router?.pathname === '/together' ? (
+                    <Together />
                   ) : (
                     <>
                       <BusinessInfo />

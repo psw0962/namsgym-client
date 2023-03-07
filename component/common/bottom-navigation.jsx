@@ -53,6 +53,18 @@ const BottomNavigation = () => {
           >
             {`인재채용 >`}
           </CustomAtag>
+
+          <Font
+            fontSize="1.6rem"
+            pointer={true}
+            onClick={e => {
+              e.stopPropagation();
+              router.push('/notice');
+              setIsMenuOpen(false);
+            }}
+          >
+            {`공지사항 >`}
+          </Font>
         </ModalMenuWrapper>
       </Modal>
 
@@ -196,5 +208,5 @@ const ModalMenuWrapper = styled.div`
   gap: 1.5rem;
   justify-content: center;
   flex-direction: column;
-  padding: 2rem;
+  padding: 1rem;
 `;
