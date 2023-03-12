@@ -30,8 +30,6 @@ const MyApp = ({ Component, pageProps }) => {
   const [queryClient] = useState(() => new QueryClient());
   const [isSplash, setIsSplash] = useState(true);
 
-  console.log(router?.pathname);
-
   return (
     <>
       <Head>

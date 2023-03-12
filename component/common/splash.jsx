@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import Font from '@/component/common/font';
+import mainLogo from '@/public/png/mainlogo.png';
+import ImageWrapper from '@/component/common/image-wrapper';
+import Image from 'next/image';
 
 const Splash = ({ setIsSplash }) => {
   useEffect(() => {
@@ -25,9 +28,18 @@ const Splash = ({ setIsSplash }) => {
           transition={{ duration: 0.5 }}
         >
           <Frame>
-            <LogoFont color="#000" fontSize="5rem" fontWeight="500">
-              {`NAM'S`} <br /> GYM
-            </LogoFont>
+            <ImageWrapper width={18} height={20}>
+              <Image
+                src={mainLogo}
+                alt={`logo`}
+                priority={true}
+                quality={80}
+                placeholder="blur"
+                blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+                width={180}
+                height={200}
+              />
+            </ImageWrapper>
           </Frame>
         </motion.div>
       )}

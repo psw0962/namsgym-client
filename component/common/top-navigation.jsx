@@ -8,6 +8,7 @@ import Font from '@/component/common/font';
 import light from 'public/svg/light.svg';
 import dark from 'public/svg/dark.svg';
 import { useState, useEffect } from 'react';
+import logo from '@/public/png/iconlogo.png';
 
 const TopNavigation = () => {
   const { scrollEventState } = useScrollEvent();
@@ -63,6 +64,7 @@ const TopNavigation = () => {
             height={3.5}
             pointer={true}
             onClick={onClickTheme}
+            className="day"
           >
             <Image
               src={light}
@@ -81,6 +83,7 @@ const TopNavigation = () => {
             height={3.5}
             pointer={true}
             onClick={onClickTheme}
+            className="night"
           >
             <Image
               src={dark}
@@ -96,14 +99,27 @@ const TopNavigation = () => {
         {/* logo */}
         <Logo themeState={themeState} innerWidth={innerWidth}>
           {themeState === 'light' && (
-            <LogoFont
-              color="#000"
-              fontSize="2rem"
-              fontWeight="500"
-              margin="0 0 2rem 0"
-            >
-              {`NAM'S`} <br /> GYM
-            </LogoFont>
+            <div>
+              <ImageWrapper width={4} height={4} pointer={true}>
+                <Image
+                  src={logo}
+                  alt="logo"
+                  priority={true}
+                  quality={100}
+                  placeholder="blur"
+                  blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+                />
+              </ImageWrapper>
+            </div>
+
+            // <LogoFont
+            //   color="#000"
+            //   fontSize="2rem"
+            //   fontWeight="500"
+            //   margin="0 0 2rem 0"
+            // >
+            //   {`NAM'S`} <br /> GYM
+            // </LogoFont>
           )}
 
           {themeState === 'dark' && innerWidth > 1200 && (
@@ -165,8 +181,17 @@ const NavigationWrapper = styled.div`
   width: 100%;
   height: 100%;
 
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+
+  .day {
+    transform: translateY(8px);
+  }
+
+  .night {
+    transform: translateY(2px);
+  }
 `;
 
 const NeonFont = styled(Font)`
@@ -235,12 +260,11 @@ const CustomAtag = styled.a`
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 `;
 
-const EventButton = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  height: 4rem;
-`;
+const EventButton = styled.div``;
 
 const Logo = styled.div`
-  transform: translateX(-4px);
+  /* transform: ${props =>
+    props.themeState === 'dark' ? 'translateX(0px)' : 'translateX(16px)'}; */
+
+  transform: translateX(16px);
 `;
