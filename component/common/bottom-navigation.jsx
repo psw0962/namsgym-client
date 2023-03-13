@@ -56,6 +56,7 @@ const BottomNavigation = () => {
 
           <Font
             fontSize="1.6rem"
+            color="#000"
             pointer={true}
             onClick={e => {
               e.stopPropagation();

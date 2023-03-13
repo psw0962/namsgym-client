@@ -1,22 +1,68 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-const useTimer = (minutes, setMinutes, seconds, setSeconds) => {
+const useTimer = (
+  seconds,
+  setSeconds,
+  restTime,
+  setRestTime,
+  flag,
+  setFlag,
+  activeNumber,
+  restNumber,
+) => {
   useEffect(() => {
-    const countdown = setInterval(() => {
+    if (flag === 0) {
+      return;
+    }
+
+    const countDown = setInterval(() => {
+      // 운동 시간
+      if (parseInt(seconds) === 0) {
+        setRestTime(restNumber);
+
+        return;
+      }
+
+      // 휴식 시간
+      if (parseInt(restTime) === 0) {
+        setSeconds(activeNumber);
+        setFlag(flag - 1);
+
+        return;
+      }
+
       if (parseInt(seconds) > 0) {
         setSeconds(parseInt(seconds) - 1);
       }
-      if (parseInt(seconds) === 0) {
-        if (parseInt(minutes) === 0) {
-          clearInterval(countdown);
-        } else {
-          setMinutes(parseInt(minutes) - 1);
-          setSeconds(59);
-        }
+
+      console.log('check', seconds);
+      if (seconds === 0 && parseInt(restTime) > 0) {
+        setRestTime(parseInt(restTime) - 1);
       }
     }, 1000);
-    return () => clearInterval(countdown);
-  }, [minutes, seconds]);
+
+    return () => clearInterval(countDown);
+  }, [seconds, restTime]);
+
+  // 휴식 시간
+  // useEffect(() => {
+  //   const restTimeCountDown = setInterval(() => {
+  //     console.log('check', seconds);
+
+  //     if (parseInt(restTime) === 0) {
+  //       setSeconds(activeNumber);
+  //       setFlag(flag - 1);
+
+  //       return;
+  //     }
+
+  //     if (seconds === 0 && parseInt(restTime) > 0) {
+  //       setRestTime(parseInt(restTime) - 1);
+  //     }
+  //   }, 1000);
+
+  //   return () => clearInterval(restTimeCountDown);
+  // }, [restTime]);
 
   return;
 };
