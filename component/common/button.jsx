@@ -8,6 +8,8 @@ const CommonButton = styled.button`
   cursor: pointer;
   border: none;
   border-radius: ${props => (props.size === 'xsmall' ? '50px' : '3px')};
+  margin: ${props => (props.margin ? props.margin : '')};
+  font-size: ${props => (props.fontSize ? props.fontSize : '')};
 
   &:disabled {
     cursor: default;
