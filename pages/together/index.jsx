@@ -10,11 +10,7 @@ const Together = () => {
   const [restTime, setRestTime] = useState(3);
   const [flag, setFlag] = useState(2);
 
-  if (flag === 0) {
-    return;
-  } else {
-    useTimer(seconds, setSeconds, restTime, setRestTime, flag, setFlag, 5, 3);
-  }
+  // useTimer(seconds, setSeconds, restTime, setRestTime, flag, setFlag, 5, 3);
 
   // useEffect(() => {
   //   console.log('seconds', seconds);
