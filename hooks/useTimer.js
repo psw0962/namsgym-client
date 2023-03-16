@@ -1,68 +1,52 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
-const useTimer = (
-  seconds,
-  setSeconds,
-  restTime,
-  setRestTime,
-  flag,
-  setFlag,
-  activeNumber,
-  restNumber,
-) => {
+const useTimer = (timer, setTimer, flag, setFlag) => {
+  console.log('hereflag', flag);
   useEffect(() => {
-    if (flag === 0) {
-      return;
-    }
-
-    const countDown = setInterval(() => {
-      // 운동 시간
-      if (parseInt(seconds) === 0) {
-        setRestTime(restNumber);
-
+    const countdown = setInterval(() => {
+      if (flag === 0) {
+        setTimer(0);
         return;
+      }
+
+      // timer 10에서 시작 -> 준비!
+      if (parseInt(timer) > 0) {
+        setTimer(parseInt(timer) - 1);
+      }
+
+      if (parseInt(timer) === 0) {
+        setFlag(flag - 1);
+
+        // 첫 번째 세트 타이머
+        setTimer(40);
+      }
+
+      // 운동 시간
+      if (flag === 2) {
+        if (parseInt(timer) > 0) {
+          setTimer(parseInt(timer) - 1);
+        }
+
+        if (parseInt(timer) === 0) {
+          setFlag(flag - 1);
+          setTimer(20); // 첫 번째 휴식 시간 세트 타이머
+        }
       }
 
       // 휴식 시간
-      if (parseInt(restTime) === 0) {
-        setSeconds(activeNumber);
-        setFlag(flag - 1);
+      if (flag === 1) {
+        if (parseInt(timer) > 0) {
+          setTimer(parseInt(timer) - 1);
+        }
 
-        return;
-      }
-
-      if (parseInt(seconds) > 0) {
-        setSeconds(parseInt(seconds) - 1);
-      }
-
-      console.log('check', seconds);
-      if (seconds === 0 && parseInt(restTime) > 0) {
-        setRestTime(parseInt(restTime) - 1);
+        if (parseInt(timer) === 0) {
+          setFlag(flag - 1);
+        }
       }
     }, 1000);
 
-    return () => clearInterval(countDown);
-  }, [seconds, restTime]);
-
-  // 휴식 시간
-  // useEffect(() => {
-  //   const restTimeCountDown = setInterval(() => {
-  //     console.log('check', seconds);
-
-  //     if (parseInt(restTime) === 0) {
-  //       setSeconds(activeNumber);
-  //       setFlag(flag - 1);
-
-  //       return;
-  //     }
-
-  //     if (seconds === 0 && parseInt(restTime) > 0) {
-  //       setRestTime(parseInt(restTime) - 1);
-  //     }
-  //   }, 1000);
-
-  //   return () => clearInterval(restTimeCountDown);
-  // }, [restTime]);
+    return () => clearInterval(countdown);
+  }, [timer, flag]);
 
   return;
 };
