@@ -3,7 +3,6 @@ import Image from 'next/image';
 import ImageWrapper from '@/component/common/image-wrapper';
 import underkickback from '@/public/gif/underkickback.gif';
 import styled from 'styled-components';
-import 'react-circular-progressbar/dist/styles.css';
 
 const TogetherTest = () => {
   const [item, setItem] = useState();
