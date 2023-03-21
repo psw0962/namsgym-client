@@ -22,3 +22,8 @@ export const centerTabStateAtom = atom({
   key: 'centerTabState',
   default: '지점 안내',
 });
+
+export const timerMethodStateAtom = atom({
+  key: 'timerMethodState',
+  default: 'Basic',
+});

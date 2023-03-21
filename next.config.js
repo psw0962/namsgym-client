@@ -15,15 +15,16 @@ const nextConfig = {
   images: {
     domains: [],
   },
-  rules: [
-    {
-      test: /\.(mp3|ogg)$/,
-      loader: 'file-loader',
-      options: {
-        name: 'public/sounds/[name].[ext]?[hash]',
+  module: {
+    rules: [
+      {
+        test: /\.mp3$/,
+        use: {
+          loader: 'file-loader',
+        },
       },
-    },
-  ],
+    ],
+  },
 };
 
 const bulidConfig = () => {
