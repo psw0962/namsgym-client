@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 
 const useTimer = (timer, setTimer, flag, setFlag) => {
   console.log('hereflag', flag);
+
   useEffect(() => {
     const countdown = setInterval(() => {
       if (flag === 0) {
