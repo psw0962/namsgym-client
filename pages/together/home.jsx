@@ -226,7 +226,6 @@ const TogetherHome = () => {
 export default TogetherHome;
 
 const Container = styled.div`
-  width: 1400px;
   padding: 3rem;
 
   input {
