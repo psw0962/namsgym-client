@@ -12,7 +12,6 @@ const BasicTogether = ({
   setFlagName,
 }) => {
   const router = useRouter();
-  console.log(flag);
 
   useEffect(() => {
     const countdown = setInterval(() => {

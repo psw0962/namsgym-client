@@ -51,7 +51,9 @@ const MyApp = ({ Component, pageProps }) => {
               ) : (
                 <Frame>
                   {router?.pathname?.includes('/together') ? (
-                    <Together />
+                    <div style={{ width: '100%' }}>
+                      <Together />
+                    </div>
                   ) : (
                     <>
                       <BusinessInfo />
