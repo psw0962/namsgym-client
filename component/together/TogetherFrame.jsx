@@ -5,7 +5,8 @@ import ImageWrapper from '@/component/common/image-wrapper';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import Font from '../common/font';
-import togetherlogo from '@/public/png/togetherlogo.png';
+import togetherlogo from '@/public/png/togetherlogo.svg';
+import BasicProgram from './basic/BasicProgram';
 
 const TogetherFrame = ({ flag, setFlag, timer, setTimer, item, flagName }) => {
   return (
@@ -18,11 +19,10 @@ const TogetherFrame = ({ flag, setFlag, timer, setTimer, item, flagName }) => {
 
       <Frame>
         <TitleWrapper>
-          <ImageWrapper width={30} height={30}>
+          <CustomImageWrapper width={50} height={50}>
             <Image
               src={togetherlogo}
-              alt=""
-              logo
+              alt="logo"
               priority={true}
               quality={80}
               placeholder="blur"
@@ -30,12 +30,12 @@ const TogetherFrame = ({ flag, setFlag, timer, setTimer, item, flagName }) => {
               width={180}
               height={200}
             />
-          </ImageWrapper>
+          </CustomImageWrapper>
 
           <TimerWrapper>
-            <Font fontSize="4rem">{flagName}</Font>
+            <Font fontSize="10rem">{flagName}</Font>
 
-            <ProgressBar timer={timer} style={{ width: 200, height: 200 }}>
+            <ProgressBar timer={timer} style={{ width: 300, height: 300 }}>
               <CircularProgressbar
                 value={timer}
                 text={`${timer}`}
@@ -47,27 +47,7 @@ const TogetherFrame = ({ flag, setFlag, timer, setTimer, item, flagName }) => {
         </TitleWrapper>
 
         <ProgramWrapper>
-          {item?.map((x, index) => {
-            return (
-              <React.Fragment key={x?.id}>
-                <CustomImageWrapper width={90} height={90}>
-                  <CustomFont>{index + 1}</CustomFont>
-
-                  <Image
-                    className="program"
-                    src={x?.image}
-                    alt={x?.name}
-                    priority={true}
-                    quality={80}
-                    placeholder="blur"
-                    blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
-                    width={180}
-                    height={200}
-                  />
-                </CustomImageWrapper>
-              </React.Fragment>
-            );
-          })}
+          <BasicProgram item={item} flag={flag} />
         </ProgramWrapper>
       </Frame>
     </>
@@ -78,17 +58,15 @@ export default TogetherFrame;
 
 const Frame = styled.div`
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 `;
 
 const ProgramWrapper = styled.div`
-  /* width: 2500px; */
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-
-  border: 1px solid #000;
-  border-radius: 10px;
-  padding: 10rem;
+  justify-content: space-around;
 `;
 
 const TitleWrapper = styled.div`
@@ -99,8 +77,24 @@ const TimerWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  margin-right: 10rem;
+  margin-top: 6.5rem;
+  margin-right: 6rem;
+`;
+
+const VideoWrapper = styled.div`
+  position: relative;
+  border-radius: 20px;
+
+  .program {
+    border-radius: 20px;
+  }
+`;
+
+const CustomFont = styled(Font)`
+  position: absolute;
+  left: 3rem;
+  top: 1rem;
+  font-size: 10rem;
 `;
 
 const ProgressBar = styled.div`
@@ -119,17 +113,5 @@ const ProgressBar = styled.div`
 `;
 
 const CustomImageWrapper = styled(ImageWrapper)`
-  position: relative;
-  border-radius: 20px;
-
-  .program {
-    border-radius: 20px;
-  }
-`;
-
-const CustomFont = styled(Font)`
-  position: absolute;
-  left: 3rem;
-  top: 2.5rem;
-  font-size: 10rem;
+  transform: translateY(80px);
 `;

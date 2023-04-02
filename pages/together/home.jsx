@@ -10,9 +10,10 @@ import { useRouter } from 'node_modules/next/router';
 import programData from '@/constant/program';
 import { useRecoilState } from 'recoil';
 import { timerMethodStateAtom } from 'atoms/index';
+import ReactPaginate from 'react-paginate';
 
-const basicTimer = `40초 운동 / 20초 휴식 / 3세트 후 1분 휴식: 1ROUND
-총 4ROUND / 36set / 40분 타이머
+const basicTimer = `40초 운동 / 20초 휴식 X 12set = 1Round
+총 3ROUND / 36set / 대휴식 2분 / 40분 타이머
 `;
 
 const TogetherHome = () => {
@@ -32,6 +33,7 @@ const TogetherHome = () => {
     const result = programData?.filter(x => x?.name?.includes(searchKeyWord));
 
     setPrograms(result);
+    setPage(0);
   }, [searchKeyWord]);
 
   useEffect(() => {
@@ -45,6 +47,10 @@ const TogetherHome = () => {
 
     if (checkDuplication !== undefined) {
       return alert('같은 운동 종목은 선택할 수 없습니다.');
+    }
+
+    if (selectedItem.length > 8) {
+      return alert('운동 종목은 최대 9개까지 선택할 수 있습니다.');
     }
 
     window.sessionStorage.setItem(
@@ -73,6 +79,20 @@ const TogetherHome = () => {
     setselectedItem(JSON.parse(window.sessionStorage.getItem('program')));
   };
 
+  // pagination
+  const [itemOffset, setItemOffset] = useState(0);
+  const [page, setPage] = useState(0);
+
+  const endOffset = itemOffset + 8;
+  const currentItems = programs?.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(programs?.length / 8);
+
+  const handlePageClick = event => {
+    const newOffset = (event?.selected * 8) % programs?.length;
+    setItemOffset(newOffset);
+    setPage(event.selected);
+  };
+
   return (
     <>
       <Container>
@@ -87,6 +107,7 @@ const TogetherHome = () => {
               display: 'flex',
               gap: '1rem',
               alignItems: 'center',
+              justifyContent: 'center',
               marginBottom: ' 4rem',
             }}
           >
@@ -96,27 +117,30 @@ const TogetherHome = () => {
 
             <input
               type="text"
-              onChange={e => setSearchKeyWord(e.target.value)}
+              onChange={e => {
+                setSearchKeyWord(e.target.value);
+                setItemOffset(0);
+              }}
             />
           </div>
 
+          {currentItems?.length === 0 && (
+            <Font fontSize="1.6rem">검색 결과가 없습니다</Font>
+          )}
+
           <ProgramContainer>
-            {programs?.map(x => {
+            {currentItems?.map(x => {
               return (
                 <CardWrapper key={x?.id}>
-                  <ImageWrapper width={20} height={20}>
-                    <Image
-                      className="program"
-                      src={x?.image}
-                      alt={x?.name}
-                      priority={true}
-                      quality={80}
-                      placeholder="blur"
-                      blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
-                      width={180}
-                      height={200}
-                    />
-                  </ImageWrapper>
+                  <video
+                    src={x?.image}
+                    poster="/png/logo.png"
+                    width="200"
+                    height="200"
+                    loop={true}
+                    autoPlay={true}
+                    muted={true}
+                  ></video>
 
                   <Font fontSize="2.5rem" fontWeight="500" margin="20px 0">
                     {x.name}
@@ -137,6 +161,21 @@ const TogetherHome = () => {
             })}
           </ProgramContainer>
 
+          <ReactPaginate
+            containerClassName={'pagination-ul'}
+            pageClassName={'pagination-li'}
+            activeClassName={'currentPage'}
+            previousClassName={'pageLabel-btn'}
+            nextClassName={'pageLabel-btn'}
+            nextLabel={null}
+            previousLabel={null}
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={5}
+            pageCount={pageCount}
+            renderOnZeroPageCount={null}
+            forcePage={page}
+          />
+
           {selectedItem?.length > 0 && (
             <>
               <Line margin="40px 0" width="80%" />
@@ -146,38 +185,41 @@ const TogetherHome = () => {
               </Font>
 
               <SelectedBox>
-                {selectedItem?.map(x => {
+                {selectedItem?.map((x, index) => {
                   return (
-                    <CardWrapper key={x?.id}>
-                      <ImageWrapper width={20} height={20}>
-                        <Image
-                          className="program"
+                    <div key={x?.id}>
+                      <Font fontSize="4rem">{index + 1}</Font>
+                      <CardWrapper>
+                        <video
                           src={x?.image}
-                          alt={x?.name}
-                          priority={true}
-                          quality={80}
-                          placeholder="blur"
-                          blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
-                          width={180}
-                          height={200}
-                        />
-                      </ImageWrapper>
+                          poster="/png/logo.png"
+                          width="200"
+                          height="200"
+                          loop={true}
+                          autoPlay={true}
+                          muted={true}
+                        ></video>
 
-                      <Font fontSize="2.5rem" fontWeight="500" margin="20px 0">
-                        {x.name}
-                      </Font>
+                        <Font
+                          fontSize="2.5rem"
+                          fontWeight="500"
+                          margin="20px 0"
+                        >
+                          {x.name}
+                        </Font>
 
-                      <Button
-                        size="small"
-                        color="black"
-                        type="button"
-                        onClick={() => {
-                          onClickDeleteProgram(x);
-                        }}
-                      >
-                        삭제하기
-                      </Button>
-                    </CardWrapper>
+                        <Button
+                          size="small"
+                          color="black"
+                          type="button"
+                          onClick={() => {
+                            onClickDeleteProgram(x);
+                          }}
+                        >
+                          삭제하기
+                        </Button>
+                      </CardWrapper>
+                    </div>
                   );
                 })}
               </SelectedBox>
@@ -238,6 +280,29 @@ const Container = styled.div`
 
   .program {
     border-radius: 20px !important;
+  }
+
+  // pagination
+  .pagination-ul {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .pagination-li {
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  .currentPage {
+    padding: 1rem;
+    border: 1px solid #000;
+    border-radius: 10px;
+  }
+
+  .pageLabel-btn {
+    font-size: 2rem;
+    cursor: pointer;
   }
 `;
 
