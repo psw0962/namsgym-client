@@ -16,7 +16,7 @@ const Program = () => {
 
   // 최초 셋팅 이펙트
   useEffect(() => {
-    // 최초 시간 셋팅 -> 준비!
+    // 최초 시간 셋팅 -> 준비
     setFlagName('준비!');
     setTimer(10);
 
