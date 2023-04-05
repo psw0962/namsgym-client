@@ -66,6 +66,15 @@ const BottomNavigation = () => {
           >
             {`공지사항 >`}
           </Font>
+
+          <CustomAtag
+            href="https://naver.me/FgvGUUTs"
+            target="_blank"
+            rel="noreferrer"
+            onClick={e => e.stopPropagation()}
+          >
+            {`고객 만족 설문 조사 >`}
+          </CustomAtag>
         </ModalMenuWrapper>
       </Modal>
 
@@ -208,6 +217,7 @@ const ModalMenuWrapper = styled.div`
   display: flex;
   gap: 1.5rem;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
   padding: 1rem;
 `;

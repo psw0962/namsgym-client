@@ -16,6 +16,11 @@ import {
 export const eventSlickImages = [
   {
     id: 1,
+    src: event_1,
+    url: 'https://naver.me/GLACdhWu',
+  },
+  {
+    id: 2,
     src: event_2,
     url: 'https://rainy-reaper-d5b.notion.site/5fb57a41b8e44458ad6e2021659e2f68',
   },
@@ -79,7 +84,7 @@ export const snsLogoImages = [
 export const modalImages = [
   {
     id: 1,
-    src: event_2,
-    url: 'https://rainy-reaper-d5b.notion.site/5fb57a41b8e44458ad6e2021659e2f68',
+    src: event_1,
+    url: 'https://naver.me/GLACdhWu',
   },
 ];
