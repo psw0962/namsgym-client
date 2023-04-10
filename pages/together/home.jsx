@@ -36,6 +36,7 @@ const TogetherHome = () => {
   const audio = new Audio('/sounds/beep.mp3');
   const debouncedSearchKeyWord = useDebounce(searchKeyWord, 1000);
 
+  // 프로그램 검색
   useEffect(() => {
     if (debouncedSearchKeyWord === '') {
       return setPrograms(customProgramData());
@@ -60,6 +61,7 @@ const TogetherHome = () => {
     }
   }, [debouncedSearchKeyWord]);
 
+  // 새로고침 및 최초진입 시 프로그램 셋팅
   useEffect(() => {
     const arr = window.sessionStorage.getItem('program');
 
@@ -141,7 +143,10 @@ const TogetherHome = () => {
                 name="search"
                 value="number"
                 checked={searchFlag === 'number'}
-                onChange={e => setSearchFlag(e.target.value)}
+                onChange={e => {
+                  setSearchFlag(e.target.value);
+                  setSearchKeyWord('');
+                }}
               />
               <SearchFlagLabel htmlFor="number">숫자로 찾기</SearchFlagLabel>
             </SearchFlagWrapper>
@@ -153,7 +158,10 @@ const TogetherHome = () => {
                 name="search"
                 value="name"
                 checked={searchFlag === 'name'}
-                onChange={e => setSearchFlag(e.target.value)}
+                onChange={e => {
+                  setSearchFlag(e.target.value);
+                  setSearchKeyWord('');
+                }}
               />
               <SearchFlagLabel htmlFor="name">이름으로 찾기</SearchFlagLabel>
             </SearchFlagWrapper>
@@ -168,6 +176,7 @@ const TogetherHome = () => {
 
             <input
               type="text"
+              value={searchKeyWord}
               onChange={e => {
                 setSearchKeyWord(e.target.value);
                 setItemOffset(0);
