@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import ImageWrapper from '@/component/common/image-wrapper';
 import styled from 'styled-components';
 import 'react-circular-progressbar/dist/styles.css';
 import Font from '@/component/common/font';
@@ -11,33 +9,67 @@ import programData from '@/constant/program';
 import { useRecoilState } from 'recoil';
 import { timerMethodStateAtom } from 'atoms/index';
 import ReactPaginate from 'react-paginate';
+import useDebounce from '@/hooks/useDebounce';
 
 const basicTimer = `40초 운동 / 20초 휴식 X 12set = 1Round
 총 3ROUND / 36set / 대휴식 2분 / 40분 타이머
 `;
+
+const customProgramData = () => {
+  const result = [];
+
+  programData?.forEach(x => {
+    result.push({ id: x.id, name: `[${x.id}]${x.name}`, image: x.image });
+  });
+
+  return result;
+};
 
 const TogetherHome = () => {
   const router = useRouter();
   const [programs, setPrograms] = useState(programData || []);
   const [selectedItem, setselectedItem] = useState([]);
   const [searchKeyWord, setSearchKeyWord] = useState('');
+  const [searchFlag, setSearchFlag] = useState('number');
   const [timerMethod, setTimerMethod] = useRecoilState(timerMethodStateAtom);
 
   const audio = new Audio('/sounds/beep.mp3');
+  const debouncedSearchKeyWord = useDebounce(searchKeyWord, 1000);
 
   useEffect(() => {
-    if (searchKeyWord === '') {
-      return setPrograms(programData);
+    if (debouncedSearchKeyWord === '') {
+      return setPrograms(customProgramData());
     }
 
-    const result = programData?.filter(x => x?.name?.includes(searchKeyWord));
+    const nameResult = customProgramData()?.filter(x => {
+      return x?.name?.includes(debouncedSearchKeyWord);
+    });
 
-    setPrograms(result);
+    const numberResult = customProgramData()?.filter(x => {
+      return x.id.toString() === debouncedSearchKeyWord;
+    });
+
     setPage(0);
-  }, [searchKeyWord]);
+
+    if (searchFlag === 'number') {
+      return setPrograms(numberResult);
+    }
+
+    if (searchFlag === 'name') {
+      return setPrograms(nameResult);
+    }
+  }, [debouncedSearchKeyWord]);
 
   useEffect(() => {
-    window.sessionStorage.setItem('program', JSON.stringify([]));
+    const arr = window.sessionStorage.getItem('program');
+
+    if (arr?.length > 0) {
+      return setselectedItem(
+        JSON.parse(window.sessionStorage.getItem('program')),
+      );
+    } else {
+      return window.sessionStorage.setItem('program', JSON.stringify([]));
+    }
   }, []);
 
   const onClickAddProgram = x => {
@@ -97,23 +129,42 @@ const TogetherHome = () => {
     <>
       <Container>
         <ContainerWrapper>
-          <Font fontSize="4.5rem" fontWeight={500} margin="0 0 2rem 0">
+          <Font fontSize="4.5rem" fontWeight={500}>
             프로그램 선택하기
           </Font>
 
-          <div
-            style={{
-              width: '50%',
-              display: 'flex',
-              gap: '1rem',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginBottom: ' 4rem',
-            }}
-          >
-            <Font fontSize="2rem" fontWeight="500">
-              검색
-            </Font>
+          <SearchFlagContainer>
+            <SearchFlagWrapper>
+              <input
+                type="radio"
+                id="number"
+                name="search"
+                value="number"
+                checked={searchFlag === 'number'}
+                onChange={e => setSearchFlag(e.target.value)}
+              />
+              <SearchFlagLabel htmlFor="number">숫자로 찾기</SearchFlagLabel>
+            </SearchFlagWrapper>
+
+            <SearchFlagWrapper>
+              <input
+                type="radio"
+                id="name"
+                name="search"
+                value="name"
+                checked={searchFlag === 'name'}
+                onChange={e => setSearchFlag(e.target.value)}
+              />
+              <SearchFlagLabel htmlFor="name">이름으로 찾기</SearchFlagLabel>
+            </SearchFlagWrapper>
+          </SearchFlagContainer>
+
+          <SearchInputWrapper>
+            <div style={{ whiteSpace: 'nowrap' }}>
+              <Font fontSize="2rem" fontWeight="500">
+                검색
+              </Font>
+            </div>
 
             <input
               type="text"
@@ -122,7 +173,7 @@ const TogetherHome = () => {
                 setItemOffset(0);
               }}
             />
-          </div>
+          </SearchInputWrapper>
 
           {currentItems?.length === 0 && (
             <Font fontSize="1.6rem">검색 결과가 없습니다</Font>
@@ -178,7 +229,7 @@ const TogetherHome = () => {
 
           {selectedItem?.length > 0 && (
             <>
-              <Line margin="40px 0" width="80%" />
+              <Line margin="40px 0" width="100%" />
 
               <Font fontSize="4.5rem" fontWeight={500} margin="0 0 2rem 0">
                 선택한 프로그램
@@ -224,7 +275,7 @@ const TogetherHome = () => {
                 })}
               </SelectedBox>
 
-              <Line margin="40px 0" width="80%" />
+              <Line margin="40px 0" width="100%" />
 
               <Font fontSize="4.5rem" fontWeight={500} margin="0 0 2rem 0">
                 타이머 방식 선택하기
@@ -240,7 +291,7 @@ const TogetherHome = () => {
                 </TimerMethodBox>
               </div>
 
-              <Line margin="40px 0" width="80%" />
+              <Line margin="40px 0" width="100%" />
 
               <ButtonWrapper>
                 <Button
@@ -268,10 +319,11 @@ const TogetherHome = () => {
 export default TogetherHome;
 
 const Container = styled.div`
+  width: 100%;
   padding: 3rem;
 
   input {
-    width: 80%;
+    width: 100%;
     padding: 0.5rem;
     border: 1px solid #acacac;
     border-radius: 5px;
@@ -307,12 +359,15 @@ const Container = styled.div`
 `;
 
 const ContainerWrapper = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
 const ProgramContainer = styled.div`
+  width: 80%;
+  min-height: 70rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
@@ -354,4 +409,31 @@ const TimerMethodBox = styled.div`
   padding: 1.5rem;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+`;
+
+const SearchInputWrapper = styled.div`
+  width: 30%;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4rem;
+`;
+
+const SearchFlagContainer = styled.div`
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin: 6rem 0 2rem 0;
+`;
+
+const SearchFlagWrapper = styled.div`
+  display: flex;
+  gap: 1rem;
+  white-space: nowrap;
+`;
+
+const SearchFlagLabel = styled.label`
+  font-size: 2rem;
 `;
