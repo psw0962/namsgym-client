@@ -10,6 +10,7 @@ import user from './user.svg';
 import search from './search.svg';
 import up from './up.svg';
 import close from './close.svg';
+import check from './check.svg';
 
 export {
   center,
@@ -24,4 +25,5 @@ export {
   search,
   up,
   close,
+  check,
 };
