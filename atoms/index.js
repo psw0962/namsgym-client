@@ -25,5 +25,5 @@ export const centerTabStateAtom = atom({
 
 export const timerMethodStateAtom = atom({
   key: 'timerMethodState',
-  default: 'Basic',
+  default: 'basic',
 });

@@ -13,6 +13,22 @@ import ReactPaginate from 'react-paginate';
 import useDebounce from '@/hooks/useDebounce';
 import { check } from '@/public/svg';
 
+const searchKeyWordExample = [
+  '웜업/스트레칭',
+  '맨몸운동',
+  '덤벨',
+  '스텝박스',
+  '스텝박스&덤벨',
+  '슬램볼',
+  '케틀벨',
+  '밴드',
+  '바벨',
+  '배틀로프',
+  '보수볼',
+  '플레이트',
+  '사다리',
+];
+
 const basicTimer = `40초 운동 / 20초 휴식 X 12set = 1Round
 총 3ROUND / 36set / 대휴식 2분 / 40분 타이머
 `;
@@ -119,15 +135,17 @@ const TogetherHome = () => {
   const [itemOffset, setItemOffset] = useState(0);
   const [page, setPage] = useState(0);
 
-  const endOffset = itemOffset + 8;
+  const endOffset = itemOffset + 4;
   const currentItems = programs?.slice(itemOffset, endOffset);
-  const pageCount = Math.ceil(programs?.length / 8);
+  const pageCount = Math.ceil(programs?.length / 4);
 
   const handlePageClick = event => {
-    const newOffset = (event?.selected * 8) % programs?.length;
+    const newOffset = (event?.selected * 4) % programs?.length;
     setItemOffset(newOffset);
     setPage(event.selected);
   };
+
+  console.log(page, itemOffset);
 
   return (
     <>
@@ -184,7 +202,47 @@ const TogetherHome = () => {
                 setItemOffset(0);
               }}
             />
+
+            <div style={{ width: '8rem' }}>
+              <Button
+                size="small"
+                color="yellow"
+                type="button"
+                onClick={() => {
+                  setSearchFlag('number');
+                  setSearchKeyWord('');
+                  setPage(0);
+                  setItemOffset(0);
+                }}
+              >
+                초기화
+              </Button>
+            </div>
           </SearchInputWrapper>
+
+          <SearchKeyWordExampleWrapper>
+            <Font fontSize="1.4rem">검색 키워드 :</Font>
+
+            {searchKeyWordExample.map((x, index) => {
+              return (
+                <React.Fragment key={index}>
+                  <Font
+                    fontSize="1.4rem"
+                    pointer={true}
+                    textDecoration="underline"
+                    onClick={() => {
+                      setSearchKeyWord(x);
+                      setSearchFlag('name');
+                      setPage(0);
+                      setItemOffset(0);
+                    }}
+                  >
+                    {x}
+                  </Font>
+                </React.Fragment>
+              );
+            })}
+          </SearchKeyWordExampleWrapper>
 
           {currentItems?.length === 0 && (
             <Font fontSize="1.6rem">검색 결과가 없습니다</Font>
@@ -388,7 +446,7 @@ const ContainerWrapper = styled.div`
 
 const ProgramContainer = styled.div`
   width: 80%;
-  min-height: 70rem;
+  min-height: 40rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
@@ -398,6 +456,7 @@ const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin-bottom: 20px;
   position: relative;
 `;
@@ -413,11 +472,18 @@ const SelectedBox = styled.div`
   border-radius: 20px;
 `;
 
+const SearchKeyWordExampleWrapper = styled.div`
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0 4rem 0;
+`;
+
 const SelectedCheck = styled.div`
   width: 100%;
   display: ${props => (props.active ? 'flex' : 'none')};
   justify-content: flex-end;
   position: absolute;
+  top: 0;
 `;
 
 const ButtonWrapper = styled.div`
@@ -446,7 +512,7 @@ const SearchInputWrapper = styled.div`
   gap: 1rem;
   align-items: center;
   justify-content: center;
-  margin-bottom: 4rem;
+  white-space: nowrap;
 `;
 
 const SearchFlagContainer = styled.div`

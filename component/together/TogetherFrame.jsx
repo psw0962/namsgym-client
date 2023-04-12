@@ -8,7 +8,7 @@ import Font from '../common/font';
 import togetherlogo from '@/public/png/togetherlogo.png';
 import BasicProgram from './basic/BasicProgram';
 
-const TogetherFrame = ({ flag, setFlag, timer, setTimer, item, flagName }) => {
+const TogetherFrame = ({ item, flag }) => {
   return (
     <>
       <audio
@@ -33,24 +33,24 @@ const TogetherFrame = ({ flag, setFlag, timer, setTimer, item, flagName }) => {
                   height={200}
                 />
               </ImageWrapper>
-
-              <div>
-                <Font></Font>
-              </div>
             </TitleWrapper>
 
-            <TimerWrapper>
-              <Font fontSize="10rem">{flagName}</Font>
+            <ProgressWrapper>
+              <Font fontSize="6rem">남은 세트 ➡️ {flag.remaining}</Font>
+              <Font color="blue" fontSize="8rem">
+                진행중 👉 {flag.current}
+              </Font>
+              <Font fontSize="6rem">다음 세트 ➡️ {flag.next}</Font>
+            </ProgressWrapper>
 
-              <ProgressBar timer={timer} style={{ width: 300, height: 300 }}>
-                <CircularProgressbar
-                  value={timer}
-                  text={`${timer}`}
-                  maxValue={60}
-                  strokeWidth={15}
-                />
-              </ProgressBar>
-            </TimerWrapper>
+            <ProgressBar timer={flag.timer} style={{ width: 300, height: 300 }}>
+              <CircularProgressbar
+                value={flag.timer}
+                text={`${flag.timer}`}
+                maxValue={60}
+                strokeWidth={15}
+              />
+            </ProgressBar>
           </TitleContainer>
 
           <ProgramWrapper>
@@ -93,12 +93,6 @@ const TitleWrapper = styled.div`
   align-items: flex-end;
 `;
 
-const TimerWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
 const ProgressBar = styled.div`
   .CircularProgressbar-path {
     stroke: ${props => (props.timer <= 3 ? 'red' : 'blue')};
@@ -112,4 +106,12 @@ const ProgressBar = styled.div`
   .CircularProgressbar-background {
     fill: green;
   }
+`;
+
+const ProgressWrapper = styled.div`
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 `;
