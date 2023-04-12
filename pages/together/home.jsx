@@ -51,6 +51,8 @@ const TogetherHome = () => {
   const [searchFlag, setSearchFlag] = useState('number');
   const [timerMethod, setTimerMethod] = useRecoilState(timerMethodStateAtom);
 
+  console.log(router);
+
   const audio = new Audio('/sounds/beep.mp3');
   const debouncedSearchKeyWord = useDebounce(searchKeyWord);
 
