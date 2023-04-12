@@ -5,7 +5,7 @@ import Font from '@/component/common/font';
 const BasicProgram = ({ item, flag }) => {
   return (
     <>
-      {flag > 48 && (
+      {flag.flagNumber > 48 && (
         <>
           {item?.slice(0, 3).map((x, index) => {
             return (
@@ -29,7 +29,7 @@ const BasicProgram = ({ item, flag }) => {
         </>
       )}
 
-      {flag <= 48 && flag >= 25 && (
+      {flag.flagNumber <= 48 && flag.flagNumber >= 25 && (
         <>
           {item?.slice(3, 6).map((x, index) => {
             return (
@@ -53,7 +53,7 @@ const BasicProgram = ({ item, flag }) => {
         </>
       )}
 
-      {flag <= 24 && (
+      {flag.flagNumber <= 24 && (
         <>
           {item?.slice(6, 9).map((x, index) => {
             return (

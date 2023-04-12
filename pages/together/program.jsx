@@ -3,22 +3,27 @@ import React, { useEffect, useState } from 'react';
 import useLocalStorage from 'node_modules/use-local-storage/dist/index';
 import { useRecoilState } from 'recoil';
 import { timerMethodStateAtom } from 'atoms/index';
-import BasicTogether from '@/component/together/basic/BasicTogether';
+import BasicTogether from '@/component/together/basic/BasicTimer';
 
 const Program = () => {
   const audio = new Audio('/sounds/beep.mp3');
 
   const [item, setItem] = useState([]);
-  const [flag, setFlag] = useState(72);
-  const [flagName, setFlagName] = useLocalStorage('준비!');
-  const [timer, setTimer] = useLocalStorage('timer', '');
   const [timerMethod, setTimerMethod] = useRecoilState(timerMethodStateAtom);
+  const [flag, setFlag] = useLocalStorage('flag', {});
 
   // 최초 셋팅 이펙트
   useEffect(() => {
-    // 최초 시간 셋팅 -> 준비
-    setFlagName('준비!');
-    setTimer(10);
+    // 타이머에 따라 첫 셋팅 분기
+    if (timerMethod === 'basic') {
+      setFlag({
+        flagNumber: 72,
+        timer: 10,
+        remaining: '36set',
+        current: '준비!',
+        next: '1set',
+      });
+    }
 
     // 프로그램 셋팅
     setItem(JSON.parse(window.sessionStorage.getItem('program')));
@@ -26,23 +31,15 @@ const Program = () => {
 
   // 오디오 이펙트
   useEffect(() => {
-    if (timer <= 3) {
+    if (flag.timer <= 3) {
       audio.play();
     }
-  }, [timer]);
+  }, [flag.timer]);
 
   return (
     <Frame>
-      {timerMethod === 'Basic' && (
-        <BasicTogether
-          flag={flag}
-          setFlag={setFlag}
-          timer={timer}
-          setTimer={setTimer}
-          item={item}
-          flagName={flagName}
-          setFlagName={setFlagName}
-        />
+      {timerMethod === 'basic' && (
+        <BasicTogether item={item} flag={flag} setFlag={setFlag} />
       )}
     </Frame>
   );
