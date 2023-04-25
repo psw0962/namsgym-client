@@ -5,19 +5,14 @@ import {
   center7_4,
   center7_5,
   trainer1_1,
-  trainer2_1,
   trainer3_1,
   trainer3_2,
   trainer4_1,
   trainer4_2,
   trainer5_1,
   trainer5_2,
-  trainer6_1,
-  trainer6_2,
   trainer7_1,
   trainer7_2,
-  trainer8_1,
-  trainer8_2,
   trainer9_1,
   trainer9_2,
 } from '@/public/png/center/center7/index';
@@ -59,21 +54,6 @@ const center7 = {
     },
     {
       id: 2,
-      name: '김민지 트레이너',
-      career: ['남스짐 7호점 트레이너', '전) 운동에반하다 트레이너'],
-      tags: [
-        '남스짐 아카데미 2기 수료',
-        'FISAF KOREA 국제 트레이닝 자격증',
-        'TFT 교육 수료',
-        '블랙롤 근막이완 교육 이수',
-        'KT TAPE 자격증',
-        '소도구 트레이닝 교육 이수',
-        '기능해부학 교육 이수',
-      ],
-      images: [trainer2_1],
-    },
-    {
-      id: 3,
       name: '김복근 트레이너',
       career: [
         '남스짐 7호점 팀장',
@@ -96,7 +76,7 @@ const center7 = {
       images: [trainer3_1, trainer3_2],
     },
     {
-      id: 4,
+      id: 3,
       name: '김인수 트레이너',
       career: ['남스짐 7호점 트레이너', '전) 스포애니 트레이너'],
       tags: [
@@ -112,37 +92,14 @@ const center7 = {
       images: [trainer4_1, trainer4_2],
     },
     {
-      id: 5,
+      id: 4,
       name: '박지수 트레이너',
       career: ['남스짐 7호점 트레이너'],
       tags: ['생활스포츠지도사 2급(보디빌딩)'],
       images: [trainer5_1, trainer5_2],
     },
     {
-      id: 6,
-      name: '배정하 트레이너',
-      career: [
-        '남스짐 7호점 트레이너',
-        '전) 보라카이짐 트레이너',
-        '전) 마리오짐 트레이너',
-        '전) 티칭짐 트레이너',
-        '전) 비박스 트레이너',
-        '전) AMG휘트니스 트레이너',
-        '전) 휘트니스픽스 트레이너',
-        '전) 피트니스스타짐 팀장',
-      ],
-      tags: [
-        '강남대학교 사회체육학과 졸업',
-        '생활스포츠지도사 2급(보디빌딩)',
-        '생활스포츠지도사 2급(배드민턴)',
-        'FNS 체형분석 교육 수료',
-        '식이지도자(한국능력개발원) 자격증',
-        '코치아카데미 교육 수료',
-      ],
-      images: [trainer6_1, trainer6_2],
-    },
-    {
-      id: 7,
+      id: 5,
       name: '이충길 트레이너',
       career: [
         '남스짐 7호점 트레이너',
@@ -159,26 +116,7 @@ const center7 = {
       images: [trainer7_1, trainer7_2],
     },
     {
-      id: 8,
-      name: '조성현 트레이너',
-      career: [
-        '남스짐 7호점 트레이너',
-        '전) 자메이카 휘트니스 트레이너',
-        '전) 운동에반하다 트레이너',
-        '전) 새마을 휘트니스 트레이너',
-      ],
-      tags: [
-        '생활스포츠지도사 2급(보디빌딩)',
-        'FISAF 국제 퍼스널 트레이너 2급',
-        '스포츠마사지 3급',
-        '머슬아카데미 교육 수료',
-        '폼롤러, 블랙롤 케어 트레이닝 교육 수료',
-        '국제 코어트레이닝 자격 이수',
-      ],
-      images: [trainer8_1, trainer8_2],
-    },
-    {
-      id: 9,
+      id: 6,
       name: '홍태성 트레이너',
       career: [
         '남스짐 7호점 트레이너',
