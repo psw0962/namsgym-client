@@ -36,11 +36,15 @@ const TogetherFrame = ({ item, flag }) => {
             </TitleWrapper>
 
             <ProgressWrapper>
-              <Font fontSize="6rem">남은 세트 ➡️ {flag.remaining}</Font>
-              <Font color="blue" fontSize="8rem">
+              <Font fontSize="5rem">남은 세트 ➡️ {flag.remaining}</Font>
+              {/* <Font color="blue" fontSize="8rem">
                 진행중 👉 {flag.current}
+              </Font> */}
+
+              <Font color="blue" fontSize="12rem">
+                {flag.current}
               </Font>
-              <Font fontSize="6rem">다음 세트 ➡️ {flag.next}</Font>
+              <Font fontSize="5rem">다음 세트 ➡️ {flag.next}</Font>
             </ProgressWrapper>
 
             <ProgressBar timer={flag.timer} style={{ width: 300, height: 300 }}>

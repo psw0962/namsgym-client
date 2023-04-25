@@ -1,19 +1,12 @@
 import styled from 'styled-components';
 import CenterCard from '@/component/center/center-card';
 import { centerCardData } from '@/constant/center/index';
-import Button from '@/component/common/button';
-import React, { useState } from 'react';
+import React from 'react';
 import KaKaoMap from '@/component/common/kakao-map';
 import Font from '@/component/common/font';
 import FadeIn from 'react-fade-in';
 
 const Center = () => {
-  // const [centerDataLength, setCenterDataLength] = useState(5);
-
-  // const onClickMoreButton = () => {
-  //   setCenterDataLength(prev => prev + 5);
-  // };
-
   return (
     <React.Fragment>
       <Font fontSize="2rem" margin="0 0 6rem 0">
@@ -21,26 +14,12 @@ const Center = () => {
       </Font>
 
       <FadeIn>
-        {/* <CenterCardFrame>
-          {centerCardData.slice(0, centerDataLength).map(item => {
-            return <CenterCard key={item.id} data={item} />;
-          })}
-        </CenterCardFrame> */}
-
         <CenterCardFrame>
           {centerCardData.map(item => {
             return <CenterCard key={item.id} data={item} />;
           })}
         </CenterCardFrame>
       </FadeIn>
-
-      {/* {centerCardData.length > centerDataLength && (
-        <ButtonWrapper onClick={() => onClickMoreButton()}>
-          <Button size="large" color="yellow">
-            더보기
-          </Button>
-        </ButtonWrapper>
-      )} */}
 
       <Font fontSize="2rem" margin="10rem 0 2rem 0">
         남스짐 전체 지점 현황{' '}
@@ -107,11 +86,6 @@ const CenterCardFrame = styled.main`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
-`;
-
-const ButtonWrapper = styled.div`
-  width: 100%;
-  margin: 2rem 0;
 `;
 
 const CustomSpan = styled.span`

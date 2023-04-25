@@ -532,7 +532,7 @@ const BasicTimer = ({ item, flag, setFlag }) => {
               timer: 40,
               remaining: '24set',
               current: '12set',
-              next: 'HYDRATE!💧',
+              next: '수분 충전!🚰💧',
             };
           });
         }
@@ -554,7 +554,7 @@ const BasicTimer = ({ item, flag, setFlag }) => {
               flagNumber: flag.flagNumber - 1,
               timer: 120,
               remaining: '24set',
-              current: 'HYDRATE!💧',
+              current: '수분 충전!🚰💧',
               next: '13set',
             };
           });
@@ -1084,7 +1084,7 @@ const BasicTimer = ({ item, flag, setFlag }) => {
               timer: 40,
               remaining: '12set',
               current: '24set',
-              next: 'HYDRATE!💧',
+              next: '수분 충전!🚰💧',
             };
           });
         }
@@ -1106,7 +1106,7 @@ const BasicTimer = ({ item, flag, setFlag }) => {
               flagNumber: flag.flagNumber - 1,
               timer: 120,
               remaining: '12set',
-              current: 'HYDRATE!💧',
+              current: '수분 충전!🚰💧',
               next: '25set',
             };
           });
