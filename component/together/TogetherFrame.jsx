@@ -37,13 +37,11 @@ const TogetherFrame = ({ item, flag }) => {
 
             <ProgressWrapper>
               <Font fontSize="5rem">남은 세트 ➡️ {flag.remaining}</Font>
-              {/* <Font color="blue" fontSize="8rem">
-                진행중 👉 {flag.current}
-              </Font> */}
 
               <Font color="blue" fontSize="12rem">
                 {flag.current}
               </Font>
+
               <Font fontSize="5rem">다음 세트 ➡️ {flag.next}</Font>
             </ProgressWrapper>
 
@@ -57,9 +55,7 @@ const TogetherFrame = ({ item, flag }) => {
             </ProgressBar>
           </TitleContainer>
 
-          <ProgramWrapper>
-            <BasicProgram item={item} flag={flag} />
-          </ProgramWrapper>
+          <BasicProgram item={item} flag={flag} />
         </Container>
       </Frame>
     </>
@@ -75,7 +71,7 @@ const Frame = styled.div`
 `;
 
 const Container = styled.div`
-  width: 70%;
+  width: 100%;
   display: flex;
   flex-direction: column;
 `;
@@ -84,12 +80,6 @@ const TitleContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 3rem;
-`;
-
-const ProgramWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
 `;
 
 const TitleWrapper = styled.div`

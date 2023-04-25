@@ -18,7 +18,6 @@ const searchKeyWordExample = [
   '맨몸운동',
   '덤벨',
   '스텝박스',
-  '스텝박스&덤벨',
   '슬램볼',
   '케틀벨',
   '밴드',
@@ -27,6 +26,7 @@ const searchKeyWordExample = [
   '보수볼',
   '플레이트',
   '사다리',
+  '파트너',
 ];
 
 const basicTimer = `40초 운동 / 20초 휴식 X 12set = 1Round
@@ -37,7 +37,12 @@ const customProgramData = () => {
   const result = [];
 
   programData?.forEach(x => {
-    result.push({ id: x.id, name: `[${x.id}]${x.name}`, image: x.image });
+    result.push({
+      id: x.id,
+      name: `[${x.id}]${x.name}`,
+      image: x.image,
+      isRow: x.isRow,
+    });
   });
 
   return result;
@@ -51,8 +56,6 @@ const TogetherHome = () => {
   const [searchFlag, setSearchFlag] = useState('number');
   const [timerMethod, setTimerMethod] = useRecoilState(timerMethodStateAtom);
 
-  console.log(router);
-
   const audio = new Audio('/sounds/beep.mp3');
   const debouncedSearchKeyWord = useDebounce(searchKeyWord);
 
@@ -63,7 +66,7 @@ const TogetherHome = () => {
     }
 
     const nameResult = customProgramData()?.filter(x => {
-      return x?.name?.includes(debouncedSearchKeyWord);
+      return x.name.includes(debouncedSearchKeyWord);
     });
 
     const numberResult = customProgramData()?.filter(x => {
@@ -115,6 +118,7 @@ const TogetherHome = () => {
           id: x.id,
           name: x.name,
           image: x.image,
+          isRow: x.isRow,
         },
       ]),
     );
