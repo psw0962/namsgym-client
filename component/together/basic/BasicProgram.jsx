@@ -7,7 +7,6 @@ const BasicProgram = ({ item, flag }) => {
       {flag.flagNumber > 48 && (
         <>
           {item?.slice(0, 3).map((x, index) => {
-            console.log(x);
             return (
               <React.Fragment key={x?.id}>
                 {x.isRow ? (
@@ -42,15 +41,27 @@ const BasicProgram = ({ item, flag }) => {
           {item?.slice(3, 6).map((x, index) => {
             return (
               <React.Fragment key={x?.id}>
-                <video
-                  src={x?.image}
-                  poster="/png/logo.png"
-                  width={450}
-                  height={750}
-                  loop={true}
-                  autoPlay={true}
-                  muted={true}
-                ></video>
+                {x.isRow ? (
+                  <video
+                    src={x?.image}
+                    poster="/png/logo.png"
+                    width={650}
+                    height={750}
+                    loop={true}
+                    autoPlay={true}
+                    muted={true}
+                  ></video>
+                ) : (
+                  <video
+                    src={x?.image}
+                    poster="/png/logo.png"
+                    width={450}
+                    height={750}
+                    loop={true}
+                    autoPlay={true}
+                    muted={true}
+                  ></video>
+                )}
               </React.Fragment>
             );
           })}
@@ -62,15 +73,27 @@ const BasicProgram = ({ item, flag }) => {
           {item?.slice(6, 9).map((x, index) => {
             return (
               <React.Fragment key={x?.id}>
-                <video
-                  src={x?.image}
-                  poster="/png/logo.png"
-                  width={450}
-                  height={750}
-                  loop={true}
-                  autoPlay={true}
-                  muted={true}
-                ></video>
+                {x.isRow ? (
+                  <video
+                    src={x?.image}
+                    poster="/png/logo.png"
+                    width={650}
+                    height={750}
+                    loop={true}
+                    autoPlay={true}
+                    muted={true}
+                  ></video>
+                ) : (
+                  <video
+                    src={x?.image}
+                    poster="/png/logo.png"
+                    width={450}
+                    height={750}
+                    loop={true}
+                    autoPlay={true}
+                    muted={true}
+                  ></video>
+                )}
               </React.Fragment>
             );
           })}
@@ -85,9 +108,4 @@ export default BasicProgram;
 const Frame = styled.div`
   display: flex;
   justify-content: space-between;
-`;
-
-const CustomVideo = styled.video`
-  width: 60rem;
-  height: 60rem;
 `;
