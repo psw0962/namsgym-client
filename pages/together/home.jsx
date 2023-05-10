@@ -8,7 +8,10 @@ import Button from '@/component/common/button';
 import { useRouter } from 'node_modules/next/router';
 import programData from '@/constant/program';
 import { useRecoilState } from 'recoil';
-import { timerMethodStateAtom } from 'atoms/index';
+import {
+  timerMethodStateAtom,
+  confirmMonitorCountStateAtom,
+} from 'atoms/index';
 import ReactPaginate from 'react-paginate';
 import useDebounce from '@/hooks/useDebounce';
 import { check } from '@/public/svg';
@@ -55,6 +58,9 @@ const TogetherHome = () => {
   const [searchKeyWord, setSearchKeyWord] = useState('');
   const [searchFlag, setSearchFlag] = useState('number');
   const [timerMethod, setTimerMethod] = useRecoilState(timerMethodStateAtom);
+  const [confirmMonitorCount, setConfirmMonitorCount] = useRecoilState(
+    confirmMonitorCountStateAtom,
+  );
 
   const audio = new Audio('/sounds/beep.mp3');
   const debouncedSearchKeyWord = useDebounce(searchKeyWord);
@@ -150,8 +156,6 @@ const TogetherHome = () => {
     setItemOffset(newOffset);
     setPage(event.selected);
   };
-
-  console.log(page, itemOffset);
 
   return (
     <>
@@ -309,14 +313,14 @@ const TogetherHome = () => {
             forcePage={page}
           />
 
-          {selectedItems?.length > 0 && (
-            <>
-              <Line margin="40px 0" width="100%" />
+          <>
+            <Line margin="40px 0" width="100%" />
 
-              <Font fontSize="4.5rem" fontWeight={500} margin="0 0 2rem 0">
-                선택한 프로그램
-              </Font>
+            <Font fontSize="4.5rem" fontWeight={500} margin="0 0 2rem 0">
+              선택한 프로그램
+            </Font>
 
+            {selectedItems?.length > 0 ? (
               <SelectedBox>
                 {selectedItems?.map((x, index) => {
                   return (
@@ -357,42 +361,82 @@ const TogetherHome = () => {
                   );
                 })}
               </SelectedBox>
+            ) : (
+              <NoContents>
+                <Font fontSize="4rem">선택한 프로그램이 없습니다</Font>
+              </NoContents>
+            )}
 
-              <Line margin="40px 0" width="100%" />
+            <Line margin="40px 0" width="100%" />
 
-              <Font fontSize="4.5rem" fontWeight={500} margin="0 0 2rem 0">
-                타이머 방식 선택하기
-              </Font>
+            <Font fontSize="4.5rem" fontWeight={500} margin="0 0 2rem 0">
+              타이머 방식 선택하기
+            </Font>
 
-              <div>
-                <TimerMethodBox>
-                  <Font fontSize="2.5rem" fontWeight="500">
-                    {timerMethod}
-                  </Font>
+            <div>
+              <TimerMethodBox>
+                <Font fontSize="2.5rem" fontWeight="500">
+                  {timerMethod}
+                </Font>
 
-                  <pre>{basicTimer}</pre>
-                </TimerMethodBox>
-              </div>
+                <pre>{basicTimer}</pre>
+              </TimerMethodBox>
+            </div>
 
-              <Line margin="40px 0" width="100%" />
+            <Line margin="40px 0" width="100%" />
 
-              <ButtonWrapper>
-                <Button
-                  margin="10rem"
-                  fontSize="2.5rem"
-                  size="large"
-                  color="black"
-                  type="button"
-                  onClick={() => {
-                    router.push('/together/program');
-                    audio.play();
+            <Font fontSize="4.5rem" fontWeight={500} margin="0 0 2rem 0">
+              TV 개수 선택하기
+            </Font>
+
+            <SearchFlagContainer>
+              <SearchFlagWrapper>
+                <input
+                  type="radio"
+                  id="single"
+                  name="count"
+                  value="single"
+                  checked={confirmMonitorCount === 'single'}
+                  onChange={e => {
+                    setConfirmMonitorCount(e.target.value);
                   }}
-                >
-                  프로그램 시작
-                </Button>
-              </ButtonWrapper>
-            </>
-          )}
+                />
+                <SearchFlagLabel htmlFor="single">1개</SearchFlagLabel>
+              </SearchFlagWrapper>
+
+              <SearchFlagWrapper>
+                <input
+                  type="radio"
+                  id="multi"
+                  name="count"
+                  value="multi"
+                  checked={confirmMonitorCount === 'multi'}
+                  onChange={e => {
+                    setConfirmMonitorCount(e.target.value);
+                  }}
+                />
+                <SearchFlagLabel htmlFor="multi">1개 이상</SearchFlagLabel>
+              </SearchFlagWrapper>
+            </SearchFlagContainer>
+
+            <Line margin="40px 0" width="100%" />
+
+            <ButtonWrapper>
+              <Button
+                margin="10rem"
+                fontSize="2.5rem"
+                size="large"
+                color="black"
+                type="button"
+                onClick={() => {
+                  router.push('/together/program');
+                  audio.play();
+                }}
+              >
+                프로그램 시작
+              </Button>
+            </ButtonWrapper>
+          </>
         </ContainerWrapper>
       </Container>
     </>
@@ -537,4 +581,15 @@ const SearchFlagWrapper = styled.div`
 
 const SearchFlagLabel = styled.label`
   font-size: 2rem;
+`;
+
+const NoContents = styled.div`
+  width: 80%;
+  min-height: 30rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  border: 1px solid #000;
+  border-radius: 20px;
 `;

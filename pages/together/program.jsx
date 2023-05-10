@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import useLocalStorage from 'node_modules/use-local-storage/dist/index';
 import { useRecoilState } from 'recoil';
 import { timerMethodStateAtom } from 'atoms/index';
-import BasicTogether from '@/component/together/basic/BasicTimer';
+import BasicTimer from '@/component/together/basic/BasicTimer';
 
 const Program = () => {
   const audio = new Audio('/sounds/beep.mp3');
@@ -19,7 +19,7 @@ const Program = () => {
       setFlag({
         flagNumber: 72,
         timer: 10,
-        remaining: '36set',
+        round: '1ROUND',
         current: '준비!',
         next: '1set',
       });
@@ -39,7 +39,7 @@ const Program = () => {
   return (
     <Frame>
       {timerMethod === 'basic' && (
-        <BasicTogether item={item} flag={flag} setFlag={setFlag} />
+        <BasicTimer item={item} flag={flag} setFlag={setFlag} />
       )}
     </Frame>
   );
