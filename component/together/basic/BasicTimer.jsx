@@ -4,7 +4,6 @@ import TogetherFrame from '../TogetherFrame';
 
 const BasicTimer = ({ item, flag, setFlag }) => {
   const router = useRouter();
-  console.log(flag);
 
   useEffect(() => {
     const countdown = setInterval(() => {
@@ -24,7 +23,7 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '35set',
+              round: '1ROUND',
               current: '1set',
               next: '1set 휴식',
             };
@@ -47,7 +46,7 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '35set',
+              round: '1ROUND',
               current: '1set 휴식',
               next: '2set',
             };
@@ -70,7 +69,7 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '34set',
+              round: '1ROUND',
               current: '2set',
               next: '2set 휴식',
             };
@@ -93,7 +92,7 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '34set',
+              round: '1ROUND',
               current: '2set 휴식',
               next: '3set',
             };
@@ -116,7 +115,7 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '33set',
+              round: '1ROUND',
               current: '3set',
               next: '3set 휴식',
             };
@@ -139,7 +138,7 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '33set',
+              round: '1ROUND',
               current: '3set 휴식',
               next: '4set',
             };
@@ -162,9 +161,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '32set',
+              round: '1ROUND',
               current: '4set',
-              next: '4set 휴식',
+              next: '이동하세요!',
             };
           });
         }
@@ -185,8 +184,8 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '32set',
-              current: '4set 휴식',
+              round: '1ROUND',
+              current: '이동하세요!',
               next: '5set',
             };
           });
@@ -208,7 +207,7 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '31set',
+              round: '1ROUND',
               current: '5set',
               next: '5set 휴식',
             };
@@ -231,7 +230,7 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '31set',
+              round: '1ROUND',
               current: '5set 휴식',
               next: '6set',
             };
@@ -254,7 +253,7 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '30set',
+              round: '1ROUND',
               current: '6set',
               next: '6set 휴식',
             };
@@ -277,7 +276,7 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '30set',
+              round: '1ROUND',
               current: '6set 휴식',
               next: '7set',
             };
@@ -300,7 +299,7 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '29set',
+              round: '1ROUND',
               current: '7set',
               next: '7set 휴식',
             };
@@ -323,7 +322,7 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '29set',
+              round: '1ROUND',
               current: '7set 휴식',
               next: '8set',
             };
@@ -346,9 +345,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '28set',
+              round: '1ROUND',
               current: '8set',
-              next: '8set 휴식',
+              next: '이동하세요!',
             };
           });
         }
@@ -369,8 +368,8 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '28set',
-              current: '8set 휴식',
+              round: '1ROUND',
+              current: '이동하세요!',
               next: '9set',
             };
           });
@@ -392,7 +391,7 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '27set',
+              round: '1ROUND',
               current: '9set',
               next: '9set 휴식',
             };
@@ -415,7 +414,7 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '27set',
+              round: '1ROUND',
               current: '9set 휴식',
               next: '10set',
             };
@@ -438,7 +437,7 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '26set',
+              round: '1ROUND',
               current: '10set',
               next: '10set 휴식',
             };
@@ -461,7 +460,7 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '26set',
+              round: '1ROUND',
               current: '10set 휴식',
               next: '11set',
             };
@@ -484,7 +483,7 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '25set',
+              round: '1ROUND',
               current: '11set',
               next: '11set 휴식',
             };
@@ -507,7 +506,7 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '25set',
+              round: '1ROUND',
               current: '11set 휴식',
               next: '12set',
             };
@@ -530,7 +529,7 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '24set',
+              round: '1ROUND',
               current: '12set',
               next: '수분 충전!🚰💧',
             };
@@ -553,9 +552,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 120,
-              remaining: '24set',
+              round: '1ROUND',
               current: '수분 충전!🚰💧',
-              next: '13set',
+              next: '2ROUND',
             };
           });
         }
@@ -576,9 +575,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '23set',
-              current: '13set',
-              next: '13set 휴식',
+              round: '2ROUND',
+              current: '1set',
+              next: '1set 휴식',
             };
           });
         }
@@ -599,9 +598,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '23set',
-              current: '13set 휴식',
-              next: '14set',
+              round: '2ROUND',
+              current: '1set 휴식',
+              next: '2set',
             };
           });
         }
@@ -622,9 +621,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '22set',
-              current: '14set',
-              next: '14set 휴식',
+              round: '2ROUND',
+              current: '2set',
+              next: '2set 휴식',
             };
           });
         }
@@ -645,9 +644,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '22set',
-              current: '14set 휴식',
-              next: '15set',
+              round: '2ROUND',
+              current: '2set 휴식',
+              next: '3set',
             };
           });
         }
@@ -668,9 +667,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '21set',
-              current: '15set',
-              next: '15set 휴식',
+              round: '2ROUND',
+              current: '3set',
+              next: '3set 휴식',
             };
           });
         }
@@ -691,9 +690,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '21set',
-              current: '15set 휴식',
-              next: '16set',
+              round: '2ROUND',
+              current: '3set 휴식',
+              next: '4set',
             };
           });
         }
@@ -714,9 +713,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '20set',
-              current: '16set',
-              next: '16set 휴식',
+              round: '2ROUND',
+              current: '4set',
+              next: '이동하세요!',
             };
           });
         }
@@ -737,9 +736,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '20set',
-              current: '16set 휴식',
-              next: '17set',
+              round: '2ROUND',
+              current: '이동하세요!',
+              next: '5set',
             };
           });
         }
@@ -760,9 +759,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '19set',
-              current: '17set',
-              next: '17set 휴식',
+              round: '2ROUND',
+              current: '5set',
+              next: '5set 휴식',
             };
           });
         }
@@ -783,9 +782,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '19set',
-              current: '17set 휴식',
-              next: '18set',
+              round: '2ROUND',
+              current: '5set 휴식',
+              next: '6set',
             };
           });
         }
@@ -806,9 +805,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '18set',
-              current: '18set',
-              next: '18set 휴식',
+              round: '2ROUND',
+              current: '6set',
+              next: '6set 휴식',
             };
           });
         }
@@ -829,9 +828,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '18set',
-              current: '18set 휴식',
-              next: '19set',
+              round: '2ROUND',
+              current: '6set 휴식',
+              next: '7set',
             };
           });
         }
@@ -852,9 +851,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '17set',
-              current: '19set',
-              next: '19set 휴식',
+              round: '2ROUND',
+              current: '7set',
+              next: '7set 휴식',
             };
           });
         }
@@ -875,9 +874,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '17set',
-              current: '19set 휴식',
-              next: '20set',
+              round: '2ROUND',
+              current: '7set 휴식',
+              next: '8set',
             };
           });
         }
@@ -898,9 +897,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '16set',
-              current: '20set',
-              next: '20set 휴식',
+              round: '2ROUND',
+              current: '8set',
+              next: '이동하세요!',
             };
           });
         }
@@ -921,9 +920,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '16set',
-              current: '20set 휴식',
-              next: '21set',
+              round: '2ROUND',
+              current: '이동하세요!',
+              next: '9set',
             };
           });
         }
@@ -944,9 +943,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '15set',
-              current: '21set',
-              next: '21set 휴식',
+              round: '2ROUND',
+              current: '9set',
+              next: '9set 휴식',
             };
           });
         }
@@ -967,9 +966,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '15set',
-              current: '21set 휴식',
-              next: '22set',
+              round: '2ROUND',
+              current: '9set 휴식',
+              next: '10set',
             };
           });
         }
@@ -990,9 +989,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '14set',
-              current: '22set',
-              next: '22set 휴식',
+              round: '2ROUND',
+              current: '10set',
+              next: '10set 휴식',
             };
           });
         }
@@ -1013,9 +1012,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '14set',
-              current: '22set 휴식',
-              next: '23set',
+              round: '2ROUND',
+              current: '10set 휴식',
+              next: '11set',
             };
           });
         }
@@ -1036,9 +1035,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '13set',
-              current: '23set',
-              next: '23set 휴식',
+              round: '2ROUND',
+              current: '11set',
+              next: '11set 휴식',
             };
           });
         }
@@ -1059,9 +1058,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '13set',
-              current: '23set 휴식',
-              next: '24set',
+              round: '2ROUND',
+              current: '11set 휴식',
+              next: '12set',
             };
           });
         }
@@ -1082,8 +1081,8 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '12set',
-              current: '24set',
+              round: '2ROUND',
+              current: '12set',
               next: '수분 충전!🚰💧',
             };
           });
@@ -1105,9 +1104,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 120,
-              remaining: '12set',
+              round: '2ROUND',
               current: '수분 충전!🚰💧',
-              next: '25set',
+              next: '3ROUND',
             };
           });
         }
@@ -1128,9 +1127,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '11set',
-              current: '25set',
-              next: '25set 휴식',
+              round: '3ROUND',
+              current: '1set',
+              next: '1set 휴식',
             };
           });
         }
@@ -1151,9 +1150,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '11set',
-              current: '25set 휴식',
-              next: '26set',
+              round: '3ROUND',
+              current: '1set 휴식',
+              next: '2set',
             };
           });
         }
@@ -1174,9 +1173,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '10set',
-              current: '26set',
-              next: '26set 휴식',
+              round: '3ROUND',
+              current: '2set',
+              next: '2set 휴식',
             };
           });
         }
@@ -1197,9 +1196,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '10set',
-              current: '26set 휴식',
-              next: '27set',
+              round: '3ROUND',
+              current: '2set 휴식',
+              next: '3set',
             };
           });
         }
@@ -1220,9 +1219,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '9set',
-              current: '27set',
-              next: '27set 휴식',
+              round: '3ROUND',
+              current: '3set',
+              next: '3set 휴식',
             };
           });
         }
@@ -1243,9 +1242,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '9set',
-              current: '27set 휴식',
-              next: '28set',
+              round: '3ROUND',
+              current: '3set 휴식',
+              next: '4set',
             };
           });
         }
@@ -1266,9 +1265,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '8set',
-              current: '28set',
-              next: '28set 휴식',
+              round: '3ROUND',
+              current: '4set',
+              next: '이동하세요!',
             };
           });
         }
@@ -1289,9 +1288,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '8set',
-              current: '28set 휴식',
-              next: '29set',
+              round: '3ROUND',
+              current: '이동하세요!',
+              next: '5set',
             };
           });
         }
@@ -1312,9 +1311,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '7set',
-              current: '29set',
-              next: '29set 휴식',
+              round: '3ROUND',
+              current: '5set',
+              next: '5set 휴식',
             };
           });
         }
@@ -1335,9 +1334,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '7set',
-              current: '29set 휴식',
-              next: '30set',
+              round: '3ROUND',
+              current: '5set 휴식',
+              next: '6set',
             };
           });
         }
@@ -1358,9 +1357,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '6set',
-              current: '30set',
-              next: '30set 휴식',
+              round: '3ROUND',
+              current: '6set',
+              next: '6set 휴식',
             };
           });
         }
@@ -1381,9 +1380,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '6set',
-              current: '30set 휴식',
-              next: '31set',
+              round: '3ROUND',
+              current: '6set 휴식',
+              next: '7set',
             };
           });
         }
@@ -1404,9 +1403,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '5set',
-              current: '31set',
-              next: '31set 휴식',
+              round: '3ROUND',
+              current: '7set',
+              next: '7set 휴식',
             };
           });
         }
@@ -1427,9 +1426,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '5set',
-              current: '31set 휴식',
-              next: '32set',
+              round: '3ROUND',
+              current: '7set 휴식',
+              next: '8set',
             };
           });
         }
@@ -1450,9 +1449,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '4set',
-              current: '32set',
-              next: '32set 휴식',
+              round: '3ROUND',
+              current: '8set',
+              next: '이동하세요!',
             };
           });
         }
@@ -1473,9 +1472,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '4set',
-              current: '32set 휴식',
-              next: '33set',
+              round: '3ROUND',
+              current: '이동하세요!',
+              next: '9set',
             };
           });
         }
@@ -1496,9 +1495,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '3set',
-              current: '33set',
-              next: '33set 휴식',
+              round: '3ROUND',
+              current: '9set',
+              next: '9set 휴식',
             };
           });
         }
@@ -1519,9 +1518,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '3set',
-              current: '33set 휴식',
-              next: '34set',
+              round: '3ROUND',
+              current: '9set 휴식',
+              next: '10set',
             };
           });
         }
@@ -1542,9 +1541,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '2set',
-              current: '34set',
-              next: '34set 휴식',
+              round: '3ROUND',
+              current: '10set',
+              next: '10set 휴식',
             };
           });
         }
@@ -1565,9 +1564,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '2set',
-              current: '34set 휴식',
-              next: '35set',
+              round: '3ROUND',
+              current: '10set 휴식',
+              next: '11set',
             };
           });
         }
@@ -1588,9 +1587,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '1set',
-              current: '35set',
-              next: '35set 휴식',
+              round: '3ROUND',
+              current: '11set',
+              next: '11set 휴식',
             };
           });
         }
@@ -1611,9 +1610,9 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 20,
-              remaining: '1set',
-              current: '35set 휴식',
-              next: '36set',
+              round: '3ROUND',
+              current: '11set 휴식',
+              next: '12set',
             };
           });
         }
@@ -1634,8 +1633,8 @@ const BasicTimer = ({ item, flag, setFlag }) => {
             return {
               flagNumber: flag.flagNumber - 1,
               timer: 40,
-              remaining: '0set',
-              current: '36set',
+              round: '3ROUND',
+              current: '12set',
               next: 'DONE!',
             };
           });

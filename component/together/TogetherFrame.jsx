@@ -6,9 +6,20 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import Font from '../common/font';
 import togetherlogo from '@/public/png/togetherlogo.png';
-import BasicProgram from './basic/BasicProgram';
+import BasicProgramSingle from './basic/BasicProgramSingle';
+import BasicProgramMulti from './basic/BasicProgramMulti';
+import { useRecoilState } from 'recoil';
+import {
+  confirmMonitorCountStateAtom,
+  timerMethodStateAtom,
+} from 'atoms/index';
 
 const TogetherFrame = ({ item, flag }) => {
+  const [timerMethod, setTimerMethod] = useRecoilState(timerMethodStateAtom);
+  const [confirmMonitorCount, setConfirmMonitorCount] = useRecoilState(
+    confirmMonitorCountStateAtom,
+  );
+
   return (
     <>
       <audio
@@ -36,13 +47,13 @@ const TogetherFrame = ({ item, flag }) => {
             </TitleWrapper>
 
             <ProgressWrapper>
-              <Font fontSize="5rem">남은 세트 ➡️ {flag.remaining}</Font>
+              <Font fontSize="8rem">{flag.round}</Font>
 
               <Font color="blue" fontSize="12rem">
                 {flag.current}
               </Font>
 
-              <Font fontSize="5rem">다음 세트 ➡️ {flag.next}</Font>
+              <Font fontSize="5rem">NEXT ➡️ {flag.next}</Font>
             </ProgressWrapper>
 
             <ProgressBar timer={flag.timer} style={{ width: 300, height: 300 }}>
@@ -55,7 +66,14 @@ const TogetherFrame = ({ item, flag }) => {
             </ProgressBar>
           </TitleContainer>
 
-          <BasicProgram item={item} flag={flag} />
+          {/* 한 대일 경우 여러대 일 경우 분기 */}
+          {confirmMonitorCount === 'single' && timerMethod === 'basic' && (
+            <BasicProgramSingle item={item} flag={flag} />
+          )}
+
+          {confirmMonitorCount === 'multi' && timerMethod === 'basic' && (
+            <BasicProgramMulti item={item} flag={flag} />
+          )}
         </Container>
       </Frame>
     </>
