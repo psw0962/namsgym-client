@@ -6,7 +6,7 @@ const BasicProgramSingle = ({ item, flag }) => {
     <Frame>
       {flag.flagNumber > 48 && (
         <>
-          {item?.slice(0, 4).map((x, index) => {
+          {item?.slice(0, 3).map((x, index) => {
             return (
               <React.Fragment key={x?.id}>
                 {x.isRow ? (
