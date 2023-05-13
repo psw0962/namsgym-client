@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const BasicProgramSingle = ({ item, flag }) => {
+const BasicProgram = ({ item, flag }) => {
   return (
     <Frame>
       {flag.flagNumber > 48 && (
@@ -103,7 +103,7 @@ const BasicProgramSingle = ({ item, flag }) => {
   );
 };
 
-export default BasicProgramSingle;
+export default BasicProgram;
 
 const Frame = styled.div`
   position: relative;

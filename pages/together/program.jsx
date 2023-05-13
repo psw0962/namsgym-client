@@ -4,6 +4,7 @@ import useLocalStorage from 'node_modules/use-local-storage/dist/index';
 import { useRecoilState } from 'recoil';
 import { timerMethodStateAtom } from 'atoms/index';
 import BasicTimer from '@/component/together/basic/BasicTimer';
+import EightTimer from '@/component/together/eight/EightTimer';
 
 const Program = () => {
   const audio = new Audio('/sounds/beep.mp3');
@@ -14,6 +15,9 @@ const Program = () => {
 
   // 최초 셋팅 이펙트
   useEffect(() => {
+    // 프로그램 셋팅
+    setItem(JSON.parse(window.sessionStorage.getItem('program')));
+
     // 타이머에 따라 첫 셋팅 분기
     if (timerMethod === 'basic') {
       setFlag({
@@ -23,10 +27,21 @@ const Program = () => {
         current: '준비!',
         next: '1set',
       });
+
+      return;
     }
 
-    // 프로그램 셋팅
-    setItem(JSON.parse(window.sessionStorage.getItem('program')));
+    if (timerMethod === '8') {
+      setFlag({
+        flagNumber: 65,
+        timer: 10,
+        round: '1ROUND',
+        current: '준비!',
+        next: '1set',
+      });
+
+      return;
+    }
   }, []);
 
   // 오디오 이펙트
@@ -40,6 +55,10 @@ const Program = () => {
     <Frame>
       {timerMethod === 'basic' && (
         <BasicTimer item={item} flag={flag} setFlag={setFlag} />
+      )}
+
+      {timerMethod === '8' && (
+        <EightTimer item={item} flag={flag} setFlag={setFlag} />
       )}
     </Frame>
   );

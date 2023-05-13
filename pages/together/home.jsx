@@ -8,15 +8,12 @@ import Button from '@/component/common/button';
 import { useRouter } from 'node_modules/next/router';
 import programData from '@/constant/program';
 import { useRecoilState } from 'recoil';
-import {
-  timerMethodStateAtom,
-  confirmMonitorCountStateAtom,
-} from 'atoms/index';
+import { timerMethodStateAtom } from 'atoms/index';
 import ReactPaginate from 'react-paginate';
 import useDebounce from '@/hooks/useDebounce';
 import { check } from '@/public/svg';
 
-const searchKeyWordExample = [
+const SEARCHKEYWORDEXAMPLE = [
   '웜업/스트레칭',
   '맨몸운동',
   '덤벨',
@@ -32,25 +29,6 @@ const searchKeyWordExample = [
   '파트너',
 ];
 
-const basicTimer = `40초 운동 / 20초 휴식 X 12set = 1Round
-총 3ROUND / 36set / 대휴식 2분 / 40분 타이머
-`;
-
-const customProgramData = () => {
-  const result = [];
-
-  programData?.forEach(x => {
-    result.push({
-      id: x.id,
-      name: `[${x.id}]${x.name}`,
-      image: x.image,
-      isRow: x.isRow,
-    });
-  });
-
-  return result;
-};
-
 const TogetherHome = () => {
   const router = useRouter();
   const [programs, setPrograms] = useState(programData || []);
@@ -58,12 +36,24 @@ const TogetherHome = () => {
   const [searchKeyWord, setSearchKeyWord] = useState('');
   const [searchFlag, setSearchFlag] = useState('number');
   const [timerMethod, setTimerMethod] = useRecoilState(timerMethodStateAtom);
-  const [confirmMonitorCount, setConfirmMonitorCount] = useRecoilState(
-    confirmMonitorCountStateAtom,
-  );
 
   const audio = new Audio('/sounds/beep.mp3');
   const debouncedSearchKeyWord = useDebounce(searchKeyWord);
+
+  const customProgramData = () => {
+    const result = [];
+
+    programData?.forEach(x => {
+      result.push({
+        id: x.id,
+        name: `[${x.id}]${x.name}`,
+        image: x.image,
+        isRow: x.isRow,
+      });
+    });
+
+    return result;
+  };
 
   // 프로그램 검색
   useEffect(() => {
@@ -233,7 +223,7 @@ const TogetherHome = () => {
           <SearchKeyWordExampleWrapper>
             <Font fontSize="1.4rem">검색 키워드 :</Font>
 
-            {searchKeyWordExample.map((x, index) => {
+            {SEARCHKEYWORDEXAMPLE.map((x, index) => {
               return (
                 <React.Fragment key={index}>
                   <Font
@@ -373,49 +363,50 @@ const TogetherHome = () => {
               타이머 방식 선택하기
             </Font>
 
-            <div>
-              <TimerMethodBox>
-                <Font fontSize="2.5rem" fontWeight="500">
-                  {timerMethod}
-                </Font>
-
-                <pre>{basicTimer}</pre>
-              </TimerMethodBox>
-            </div>
-
-            <Line margin="40px 0" width="100%" />
-
-            <Font fontSize="4.5rem" fontWeight={500} margin="0 0 2rem 0">
-              TV 개수 선택하기
-            </Font>
-
             <SearchFlagContainer>
               <SearchFlagWrapper>
                 <input
                   type="radio"
-                  id="single"
-                  name="count"
-                  value="single"
-                  checked={confirmMonitorCount === 'single'}
+                  id="basic"
+                  name="timer"
+                  value="basic"
+                  checked={timerMethod === 'basic'}
                   onChange={e => {
-                    setConfirmMonitorCount(e.target.value);
+                    setTimerMethod(e.target.value);
                   }}
                 />
-                <SearchFlagLabel htmlFor="single">1개</SearchFlagLabel>
+
+                <SearchFlagLabel htmlFor="basic">{`[능곡/옥길]기본`}</SearchFlagLabel>
               </SearchFlagWrapper>
 
               <SearchFlagWrapper>
                 <input
                   type="radio"
-                  id="multi"
-                  name="count"
-                  value="multi"
-                  checked={confirmMonitorCount === 'multi'}
+                  id="8"
+                  name="timer"
+                  value="8"
+                  checked={timerMethod === '8'}
                   onChange={e => {
-                    setConfirmMonitorCount(e.target.value);
+                    setTimerMethod(e.target.value);
                   }}
                 />
-                <SearchFlagLabel htmlFor="multi">1개 이상</SearchFlagLabel>
+
+                <SearchFlagLabel htmlFor="8">{`[고잔점]8개 운동 종목`}</SearchFlagLabel>
+              </SearchFlagWrapper>
+
+              <SearchFlagWrapper>
+                <input
+                  type="radio"
+                  id="12"
+                  name="timer"
+                  value="12"
+                  checked={timerMethod === '12'}
+                  onChange={e => {
+                    setTimerMethod(e.target.value);
+                  }}
+                />
+
+                <SearchFlagLabel htmlFor="12">{`[고잔점]12개 운동 종목`}</SearchFlagLabel>
               </SearchFlagWrapper>
             </SearchFlagContainer>
 
@@ -469,6 +460,7 @@ const Container = styled.div`
 
     li {
       cursor: pointer;
+      font-size: 2rem;
     }
   }
 

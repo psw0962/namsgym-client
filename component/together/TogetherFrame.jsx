@@ -6,19 +6,13 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import Font from '../common/font';
 import togetherlogo from '@/public/png/togetherlogo.png';
-import BasicProgramSingle from './basic/BasicProgramSingle';
-import BasicProgramMulti from './basic/BasicProgramMulti';
+import BasicProgram from './basic/BasicProgram';
 import { useRecoilState } from 'recoil';
-import {
-  confirmMonitorCountStateAtom,
-  timerMethodStateAtom,
-} from 'atoms/index';
+import { timerMethodStateAtom } from 'atoms/index';
+import EightProgram from './eight/EightProgram';
 
 const TogetherFrame = ({ item, flag }) => {
   const [timerMethod, setTimerMethod] = useRecoilState(timerMethodStateAtom);
-  const [confirmMonitorCount, setConfirmMonitorCount] = useRecoilState(
-    confirmMonitorCountStateAtom,
-  );
 
   return (
     <>
@@ -66,14 +60,9 @@ const TogetherFrame = ({ item, flag }) => {
             </ProgressBar>
           </TitleContainer>
 
-          {/* 한 대일 경우 여러대 일 경우 분기 */}
-          {confirmMonitorCount === 'single' && timerMethod === 'basic' && (
-            <BasicProgramSingle item={item} flag={flag} />
-          )}
-
-          {confirmMonitorCount === 'multi' && timerMethod === 'basic' && (
-            <BasicProgramMulti item={item} flag={flag} />
-          )}
+          {/* 타이머 메소드 분기 */}
+          {timerMethod === 'basic' && <BasicProgram item={item} flag={flag} />}
+          {timerMethod === '8' && <EightProgram item={item} flag={flag} />}
         </Container>
       </Frame>
     </>
