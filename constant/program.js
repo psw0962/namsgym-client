@@ -265,6 +265,10 @@ const programData = [
   { id: 261, name: '파트너', image: '/video/IMG_7625.MOV', isRow: true },
   { id: 262, name: '파트너', image: '/video/IMG_7626.MOV', isRow: true },
   { id: 263, name: '파트너', image: '/video/IMG_7627.MOV', isRow: true },
+  { id: 264, name: '로잉/스키', image: '/video/IMG_7628.MOV' },
+  { id: 265, name: '로잉/스키', image: '/video/IMG_7629.MOV' },
+  { id: 266, name: '로잉/스키', image: '/video/IMG_7630.MOV' },
+  { id: 267, name: '로잉/스키', image: '/video/IMG_7631.MOV' },
 ];
 
 export default programData;
