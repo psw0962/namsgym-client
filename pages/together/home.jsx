@@ -27,6 +27,7 @@ const SEARCHKEYWORDEXAMPLE = [
   '플레이트',
   '사다리',
   '파트너',
+  '로잉/스키',
 ];
 
 const TogetherHome = () => {
