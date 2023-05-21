@@ -1,12 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useRecoilState } from 'recoil';
+import { currentProgramStateAtom } from 'atoms/index';
 
-const BasicProgram = ({ item, flag }) => {
+const BasicProgram = ({ flag }) => {
+  const [currentProgramState, setCurrentProgramState] = useRecoilState(
+    currentProgramStateAtom,
+  );
+
   return (
     <Frame>
       {flag.flagNumber > 48 && (
         <>
-          {item?.slice(0, 3).map((x, index) => {
+          {currentProgramState?.slice(0, 3).map((x, index) => {
             return (
               <React.Fragment key={x?.id}>
                 {x.isRow ? (
@@ -38,7 +44,7 @@ const BasicProgram = ({ item, flag }) => {
 
       {flag.flagNumber <= 48 && flag.flagNumber >= 25 && (
         <>
-          {item?.slice(3, 6).map((x, index) => {
+          {currentProgramState?.slice(3, 6).map((x, index) => {
             return (
               <React.Fragment key={x?.id}>
                 {x.isRow ? (
@@ -70,7 +76,7 @@ const BasicProgram = ({ item, flag }) => {
 
       {flag.flagNumber <= 24 && (
         <>
-          {item?.slice(6, 9).map((x, index) => {
+          {currentProgramState?.slice(6, 9).map((x, index) => {
             return (
               <React.Fragment key={x?.id}>
                 {x.isRow ? (

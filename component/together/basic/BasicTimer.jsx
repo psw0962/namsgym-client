@@ -2,7 +2,7 @@ import { useRouter } from 'node_modules/next/router';
 import React, { useEffect } from 'react';
 import TogetherFrame from '../TogetherFrame';
 
-const BasicTimer = ({ item, flag, setFlag }) => {
+const BasicTimer = ({ flag, setFlag }) => {
   const router = useRouter();
 
   useEffect(() => {
@@ -1660,7 +1660,7 @@ const BasicTimer = ({ item, flag, setFlag }) => {
     return () => clearInterval(countdown);
   }, [flag.flagNumber, flag.timer]);
 
-  return <TogetherFrame item={item} flag={flag} setFlag={setFlag} />;
+  return <TogetherFrame flag={flag} setFlag={setFlag} />;
 };
 
 export default BasicTimer;
