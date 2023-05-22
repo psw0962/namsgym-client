@@ -8,9 +8,11 @@ import { useRouter } from 'node_modules/next/router';
 import { useRecoilState } from 'recoil';
 import { timerMethodStateAtom, currentProgramStateAtom } from 'atoms/index';
 import { db } from 'utils/firebase';
+import useLocalStorage from 'node_modules/use-local-storage/dist/index';
 
 const TogetherHome = () => {
   const router = useRouter();
+  const [play, setPlay] = useLocalStorage('play', false);
   const [timerMethod, setTimerMethod] = useRecoilState(timerMethodStateAtom);
   const [currentProgramState, setCurrentProgramState] = useRecoilState(
     currentProgramStateAtom,
@@ -28,6 +30,16 @@ const TogetherHome = () => {
 
     getPrograms();
   }, []);
+
+  useEffect(() => {
+    if (play) {
+      router.push('/together/program');
+    }
+
+    return () => {
+      return setPlay(false);
+    };
+  }, [play]);
 
   return (
     <>
@@ -138,6 +150,7 @@ const TogetherHome = () => {
                 type="button"
                 onClick={() => {
                   router.push('/together/program');
+                  setPlay(true);
                   audio.play();
                 }}
               >
