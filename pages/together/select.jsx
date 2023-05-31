@@ -57,6 +57,14 @@ const Select = () => {
     return result;
   };
 
+  // firestore get 요청
+  const getPrograms = async () => {
+    const snapshot = await db?.collection('selected').get();
+    const documents = snapshot?.docs[0].data().data;
+
+    setSelectedProgramState(documents);
+  };
+
   // 프로그램 검색
   useEffect(() => {
     if (debouncedSearchKeyWord === '') {
@@ -84,15 +92,8 @@ const Select = () => {
 
   // 새로고침 및 최초 진입 시 프로그램 셋팅
   useEffect(() => {
-    const getPrograms = async () => {
-      const snapshot = await db?.collection('selected').get();
-      const documents = snapshot?.docs[0].data().data;
-
-      setSelectedProgramState(documents);
-    };
-
     getPrograms();
-  }, [selectedProgramState]);
+  }, []);
 
   const onClickAddProgram = x => {
     const checkDuplication = selectedProgramState?.find(y => y.id === x.id);
@@ -118,6 +119,7 @@ const Select = () => {
     };
 
     setNewObject();
+    getPrograms();
   };
 
   const onClickDeleteProgram = async x => {
@@ -132,6 +134,7 @@ const Select = () => {
     };
 
     deleteProgram();
+    getPrograms();
   };
 
   const savePrograms = async () => {
