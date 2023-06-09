@@ -14,7 +14,6 @@ import { check } from '@/public/svg';
 import { db } from 'utils/firebase';
 
 const SEARCHKEYWORDEXAMPLE = [
-  '웜업/스트레칭',
   '맨몸운동',
   '덤벨',
   '스텝박스',
