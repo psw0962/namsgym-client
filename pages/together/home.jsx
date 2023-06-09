@@ -86,9 +86,9 @@ const TogetherHome = () => {
               </NoContents>
             )}
 
-            <Line margin="40px 0" width="100%" />
+            {/* <Line margin="40px 0" width="100%" /> */}
 
-            <Font fontSize="4.5rem" fontWeight={500} margin="0 0 2rem 0">
+            {/* <Font fontSize="4.5rem" fontWeight={500} margin="0 0 2rem 0">
               타이머 방식 선택하기
             </Font>
 
@@ -107,39 +107,9 @@ const TogetherHome = () => {
 
                 <SearchFlagLabel htmlFor="basic">{`[능곡/옥길] 기본`}</SearchFlagLabel>
               </SearchFlagWrapper>
+            </SearchFlagContainer> */}
 
-              <SearchFlagWrapper>
-                <input
-                  type="radio"
-                  id="8"
-                  name="timer"
-                  value="8"
-                  checked={timerMethod === '8'}
-                  onChange={e => {
-                    setTimerMethod(e.target.value);
-                  }}
-                />
-
-                <SearchFlagLabel htmlFor="8">{`[고잔점]8개 운동 종목`}</SearchFlagLabel>
-              </SearchFlagWrapper>
-
-              <SearchFlagWrapper>
-                <input
-                  type="radio"
-                  id="custom"
-                  name="timer"
-                  value="custom"
-                  checked={timerMethod === 'custom'}
-                  onChange={e => {
-                    setTimerMethod(e.target.value);
-                  }}
-                />
-
-                <SearchFlagLabel htmlFor="custom">{`[고잔점] 1분 운동/40초 휴식`}</SearchFlagLabel>
-              </SearchFlagWrapper>
-            </SearchFlagContainer>
-
-            <Line margin="40px 0" width="100%" />
+            {/* <Line margin="40px 0" width="100%" /> */}
 
             <ButtonWrapper>
               <Button
@@ -235,6 +205,7 @@ const SelectedBox = styled.div`
   padding: 2rem;
   border: 1px solid #000;
   border-radius: 20px;
+  margin-top: 10rem;
 `;
 
 const ButtonWrapper = styled.div`
