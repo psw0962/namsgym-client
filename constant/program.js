@@ -308,10 +308,10 @@ const programData = [
   { id: 307, name: '로잉/스키', image: '/video/IMG_0992.MOV', isRow: false },
   { id: 308, name: '로잉/스키', image: '/video/IMG_0993.MOV', isRow: false },
 
-  { id: 308, name: '슬레드', image: '/video/IMG_0996.MOV', isRow: false },
-  { id: 309, name: '슬레드', image: '/video/IMG_0999.MOV', isRow: false },
-  { id: 310, name: '슬레드', image: '/video/IMG_1004.MOV', isRow: false },
-  { id: 311, name: '슬레드', image: '/video/IMG_1005.MOV', isRow: false },
+  { id: 309, name: '슬레드', image: '/video/IMG_0996.MOV', isRow: false },
+  { id: 310, name: '슬레드', image: '/video/IMG_0999.MOV', isRow: false },
+  { id: 311, name: '슬레드', image: '/video/IMG_1004.mov', isRow: false },
+  { id: 312, name: '슬레드', image: '/video/IMG_1005.MOV', isRow: false },
 ];
 
 export default programData;
