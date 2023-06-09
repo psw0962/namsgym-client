@@ -19,7 +19,7 @@ const TogetherHome = () => {
   );
   const audio = new Audio('/sounds/beep.mp3');
 
-  // 새로고침 및 최초진입 시 프로그램 셋팅
+  // 새로고침 및 최초진입 시 프로그램 셋팅!
   useEffect(() => {
     const getPrograms = async () => {
       const snapshot = await db?.collection('current').get();
