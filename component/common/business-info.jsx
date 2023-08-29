@@ -71,7 +71,7 @@ const BusinessInfo = () => {
 
         <CustomAtag
           themeState={themeState}
-          href="https://rainy-reaper-d5b.notion.site/29ce947a1fed48f3a878f586f071ba6c"
+          href="https://shining-utensil-297.notion.site/ea98f2539a4b42288240faf7f1e307ff?pvs=4"
           target="_blank"
           rel="noreferrer"
           onClick={e => e.stopPropagation()}

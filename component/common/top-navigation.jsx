@@ -146,7 +146,7 @@ const TopNavigation = () => {
         <EventButton>
           <CustomAtag
             themeState={themeState}
-            href="https://naver.me/GLACdhWu"
+            href="https://naver.me/xQ8scMMs"
             target="_blank"
             rel="noreferrer"
             onClick={e => e.stopPropagation()}

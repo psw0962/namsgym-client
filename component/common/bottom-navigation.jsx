@@ -25,13 +25,13 @@ const bottomNavigationData = [
     routerPush: '/review',
     pathName: 'review',
   },
-  {
-    id: 4,
-    menu: '이벤트',
-    iconUrl: event,
-    routerPush: '/event',
-    pathName: 'event',
-  },
+  // {
+  //   id: 4,
+  //   menu: '이벤트',
+  //   iconUrl: event,
+  //   routerPush: '/event',
+  //   pathName: 'event',
+  // },
 ];
 
 const BottomNavigation = () => {
@@ -46,7 +46,7 @@ const BottomNavigation = () => {
       <Modal state={isMenuOpen} setState={setIsMenuOpen}>
         <ModalMenuWrapper>
           <CustomAtag
-            href="https://rainy-reaper-d5b.notion.site/29ce947a1fed48f3a878f586f071ba6c"
+            href="https://shining-utensil-297.notion.site/ea98f2539a4b42288240faf7f1e307ff?pvs=4"
             target="_blank"
             rel="noreferrer"
             onClick={e => e.stopPropagation()}
@@ -54,7 +54,7 @@ const BottomNavigation = () => {
             {`인재채용 >`}
           </CustomAtag>
 
-          <Font
+          {/* <Font
             fontSize="1.6rem"
             color="#000"
             pointer={true}
@@ -74,7 +74,7 @@ const BottomNavigation = () => {
             onClick={e => e.stopPropagation()}
           >
             {`고객 만족 설문 조사 >`}
-          </CustomAtag>
+          </CustomAtag> */}
         </ModalMenuWrapper>
       </Modal>
 
