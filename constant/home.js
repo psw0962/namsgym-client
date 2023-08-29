@@ -17,7 +17,7 @@ export const eventSlickImages = [
   {
     id: 1,
     src: event_1,
-    url: 'https://naver.me/GLACdhWu',
+    url: 'https://naver.me/xQ8scMMs',
   },
   {
     id: 2,
@@ -85,6 +85,6 @@ export const modalImages = [
   {
     id: 1,
     src: event_1,
-    url: 'https://naver.me/GLACdhWu',
+    url: 'https://naver.me/xQ8scMMs',
   },
 ];
