@@ -18,7 +18,7 @@ import {
 } from '@/public/png/center/center5/index';
 
 const center5 = {
-  centerName: '5호점 시흥 능곡점',
+  centerName: '남스짐 PT전문&투게더짐 그룹PT전문',
   address: '경기 시흥시 승지로60번길 12 광장프라자 3층',
   phone: '0507-1428-7377',
   images: [center5_1, center5_2, center5_3, center5_4],
