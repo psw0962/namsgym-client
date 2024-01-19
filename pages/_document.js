@@ -156,6 +156,12 @@ export default class CustomDocument extends Document {
           />
           <meta name="twitter:image" content="" />
 
+          {/* 구글 애드센스 */}
+          <meta
+            name="google-adsense-account"
+            content="ca-pub-2830847395912425"
+          ></meta>
+
           <script
             dangerouslySetInnerHTML={{
               __html: `
