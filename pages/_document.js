@@ -156,6 +156,12 @@ export default class CustomDocument extends Document {
           />
           <meta name="twitter:image" content="" />
 
+          {/* 네이버 검색엔진 */}
+          <meta
+            name="naver-site-verification"
+            content="ba25ba00b30c985846a42b4d115ba32ae505c4ff"
+          />
+
           {/* 구글 애드센스 */}
           <meta
             name="google-adsense-account"

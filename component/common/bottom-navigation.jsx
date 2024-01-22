@@ -78,56 +78,58 @@ const BottomNavigation = () => {
         </ModalMenuWrapper>
       </Modal>
 
-      {bottomNavigationData.map(item => {
-        return (
-          <MenuWrapper
-            key={item.id}
-            active={pathName === item.pathName}
-            themeState={themeState}
-            onClick={() => router.push(item.routerPush)}
-          >
-            <ImageWrapper width={3} height={3}>
-              <Image
-                src={item.iconUrl}
-                alt={item.menu}
-                priority={true}
-                quality={100}
-                placeholder="blur"
-                blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
-              />
-            </ImageWrapper>
-
-            <NavigationFont
+      <MenuList>
+        {bottomNavigationData.map(item => {
+          return (
+            <MenuWrapper
+              key={item.id}
               active={pathName === item.pathName}
               themeState={themeState}
-              fontSize="1.2rem"
-              fontWeight="500"
+              onClick={() => router.push(item.routerPush)}
             >
-              {item.menu}
-            </NavigationFont>
-          </MenuWrapper>
-        );
-      })}
+              <ImageWrapper width={3} height={3}>
+                <Image
+                  src={item.iconUrl}
+                  alt={item.menu}
+                  priority={true}
+                  quality={100}
+                  placeholder="blur"
+                  blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+                />
+              </ImageWrapper>
 
-      <EtcMenuWrapper
-        themeState={themeState}
-        onClick={() => setIsMenuOpen(true)}
-      >
-        <ImageWrapper width={3} height={3}>
-          <Image
-            src={menu}
-            alt="menu"
-            priority={true}
-            quality={100}
-            placeholder="blur"
-            blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
-          />
-        </ImageWrapper>
+              <NavigationFont
+                active={pathName === item.pathName}
+                themeState={themeState}
+                fontSize="1.2rem"
+                fontWeight="500"
+              >
+                {item.menu}
+              </NavigationFont>
+            </MenuWrapper>
+          );
+        })}
 
-        <Font fontSize="1.2rem" fontWeight="500">
-          메뉴
-        </Font>
-      </EtcMenuWrapper>
+        <EtcMenuWrapper
+          themeState={themeState}
+          onClick={() => setIsMenuOpen(true)}
+        >
+          <ImageWrapper width={3} height={3}>
+            <Image
+              src={menu}
+              alt="menu"
+              priority={true}
+              quality={100}
+              placeholder="blur"
+              blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+            />
+          </ImageWrapper>
+
+          <Font fontSize="1.2rem" fontWeight="500">
+            메뉴
+          </Font>
+        </EtcMenuWrapper>
+      </MenuList>
     </Frame>
   );
 };
@@ -154,8 +156,14 @@ const Frame = styled.nav`
   transition: all 0.2s;
 `;
 
-const MenuWrapper = styled.div`
-  width: 7rem;
+const MenuList = styled.ul`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const MenuWrapper = styled.li`
+  width: 6rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -184,12 +192,12 @@ const NavigationFont = styled(Font)`
 `;
 
 const EtcMenuWrapper = styled.div`
+  width: 6rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 5px;
-  padding: 0.5rem;
   border-radius: 5px;
   cursor: pointer;
 
