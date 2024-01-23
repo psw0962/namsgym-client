@@ -10,19 +10,25 @@ import Modal from './modal';
 import { useState } from 'react';
 
 const bottomNavigationData = [
-  { id: 1, menu: '홈', iconUrl: home, routerPush: '/', pathName: '' },
+  {
+    id: 1,
+    menu: '홈',
+    iconUrl: home,
+    routerPush: 'https://www.namsgym.com',
+    pathName: '',
+  },
   {
     id: 2,
     menu: '지점 안내',
     iconUrl: center,
-    routerPush: '/center',
+    routerPush: 'https://www.namsgym.com/center',
     pathName: 'center',
   },
   {
     id: 3,
     menu: '리뷰',
     iconUrl: review,
-    routerPush: '/review',
+    routerPush: 'https://www.namsgym.com/review',
     pathName: 'review',
   },
   // {
@@ -85,27 +91,29 @@ const BottomNavigation = () => {
               key={item.id}
               active={pathName === item.pathName}
               themeState={themeState}
-              onClick={() => router.push(item.routerPush)}
+              // onClick={() => router.push(item.routerPush)}
             >
-              <ImageWrapper width={3} height={3}>
-                <Image
-                  src={item.iconUrl}
-                  alt={item.menu}
-                  priority={true}
-                  quality={100}
-                  placeholder="blur"
-                  blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
-                />
-              </ImageWrapper>
+              <LinkAtag href={item.routerPush} target="_self" rel="noreferrer">
+                <ImageWrapper width={3} height={3}>
+                  <Image
+                    src={item.iconUrl}
+                    alt={item.menu}
+                    priority={true}
+                    quality={100}
+                    placeholder="blur"
+                    blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+                  />
+                </ImageWrapper>
 
-              <NavigationFont
-                active={pathName === item.pathName}
-                themeState={themeState}
-                fontSize="1.2rem"
-                fontWeight="500"
-              >
-                {item.menu}
-              </NavigationFont>
+                <NavigationFont
+                  active={pathName === item.pathName}
+                  themeState={themeState}
+                  fontSize="1.2rem"
+                  fontWeight="500"
+                >
+                  {item.menu}
+                </NavigationFont>
+              </LinkAtag>
             </MenuWrapper>
           );
         })}
@@ -228,4 +236,12 @@ const ModalMenuWrapper = styled.div`
   align-items: center;
   flex-direction: column;
   padding: 1rem;
+`;
+
+const LinkAtag = styled.a`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
 `;
