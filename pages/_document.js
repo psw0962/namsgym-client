@@ -162,28 +162,12 @@ export default class CustomDocument extends Document {
             content="ba25ba00b30c985846a42b4d115ba32ae505c4ff"
           />
 
-          {/* 구글 애드센스 */}
-          <meta
-            name="google-adsense-account"
-            content="ca-pub-2830847395912425"
-          ></meta>
-
           <script
             dangerouslySetInnerHTML={{
               __html: `
               const theme = localStorage.getItem("theme");
               if(!theme) document.documentElement.setAttribute("data-theme", "light");
               if(theme) document.documentElement.setAttribute("data-theme", theme);
-            `,
-            }}
-          ></script>
-
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-              if('serviceWorker in navigator') {
-                navigator.serviceWorker.register('sw.js');
-              }
             `,
             }}
           ></script>

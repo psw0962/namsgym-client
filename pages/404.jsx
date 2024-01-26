@@ -38,15 +38,6 @@ const Custom404 = () => {
         >
           이전 화면으로 이동
         </Button>
-
-        {/* <Button
-          size="large"
-          color="black"
-          type="button"
-          onClick={() => router.back()}
-        >
-          이전 화면으로 이동
-        </Button> */}
       </ButtonWrapper>
     </Frame>
   );
