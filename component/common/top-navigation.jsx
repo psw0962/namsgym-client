@@ -162,7 +162,7 @@ const TopNavigation = () => {
 
 export default TopNavigation;
 
-const Frame = styled.nav`
+const Frame = styled.div`
   visibility: ${props => (props.scrollEventState ? 'visible' : 'hidden')};
   opacity: ${props => (props.scrollEventState ? '1' : '0')};
   transition: all 0.2s;
