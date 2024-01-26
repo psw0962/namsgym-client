@@ -84,67 +84,73 @@ const BottomNavigation = () => {
         </ModalMenuWrapper>
       </Modal>
 
-      <MenuList>
-        {bottomNavigationData.map(item => {
-          return (
-            <MenuWrapper
-              key={item.id}
-              active={pathName === item.pathName}
-              themeState={themeState}
-              // onClick={() => router.push(item.routerPush)}
-            >
-              <LinkAtag href={item.routerPush} target="_self" rel="noreferrer">
-                <ImageWrapper width={3} height={3}>
-                  <Image
-                    src={item.iconUrl}
-                    alt={item.menu}
-                    priority={true}
-                    quality={100}
-                    placeholder="blur"
-                    blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
-                  />
-                </ImageWrapper>
-
-                <NavigationFont
-                  active={pathName === item.pathName}
-                  themeState={themeState}
-                  fontSize="1.2rem"
-                  fontWeight="500"
+      <NavContainer>
+        <MenuList>
+          {bottomNavigationData.map(item => {
+            return (
+              <MenuWrapper
+                key={item.id}
+                active={pathName === item.pathName}
+                themeState={themeState}
+                // onClick={() => router.push(item.routerPush)}
+              >
+                <LinkAtag
+                  href={item.routerPush}
+                  target="_self"
+                  rel="noreferrer"
                 >
-                  {item.menu}
-                </NavigationFont>
-              </LinkAtag>
-            </MenuWrapper>
-          );
-        })}
+                  <ImageWrapper width={3} height={3}>
+                    <Image
+                      src={item.iconUrl}
+                      alt={item.menu}
+                      priority={true}
+                      quality={100}
+                      placeholder="blur"
+                      blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+                    />
+                  </ImageWrapper>
 
-        <EtcMenuWrapper
-          themeState={themeState}
-          onClick={() => setIsMenuOpen(true)}
-        >
-          <ImageWrapper width={3} height={3}>
-            <Image
-              src={menu}
-              alt="menu"
-              priority={true}
-              quality={100}
-              placeholder="blur"
-              blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
-            />
-          </ImageWrapper>
+                  <NavigationFont
+                    active={pathName === item.pathName}
+                    themeState={themeState}
+                    fontSize="1.2rem"
+                    fontWeight="500"
+                  >
+                    {item.menu}
+                  </NavigationFont>
+                </LinkAtag>
+              </MenuWrapper>
+            );
+          })}
 
-          <Font fontSize="1.2rem" fontWeight="500">
-            메뉴
-          </Font>
-        </EtcMenuWrapper>
-      </MenuList>
+          <EtcMenuWrapper
+            themeState={themeState}
+            onClick={() => setIsMenuOpen(true)}
+          >
+            <ImageWrapper width={3} height={3}>
+              <Image
+                src={menu}
+                alt="menu"
+                priority={true}
+                quality={100}
+                placeholder="blur"
+                blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+              />
+            </ImageWrapper>
+
+            <Font fontSize="1.2rem" fontWeight="500">
+              메뉴
+            </Font>
+          </EtcMenuWrapper>
+        </MenuList>
+      </NavContainer>
     </Frame>
   );
 };
 
 export default BottomNavigation;
 
-const Frame = styled.nav`
+const Frame = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -162,6 +168,12 @@ const Frame = styled.nav`
   background-color: ${props => (props.themeState === 'dark' ? '#000' : '#fff')};
   z-index: 50;
   transition: all 0.2s;
+`;
+
+const NavContainer = styled.nav`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const MenuList = styled.ul`
