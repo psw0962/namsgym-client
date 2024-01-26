@@ -1,41 +1,34 @@
 /** @type {import('next').NextConfig} */
 const withInterceptStdout = require('next-intercept-stdout');
-const withPWA = require('next-pwa');
-const runtimeCaching = require('next-pwa/cache');
 
 const nextConfig = {
   reactStrictMode: true,
-  pwa: {
-    dest: 'public',
-    register: true,
-    skipWaiting: true,
-    runtimeCaching,
-    buildExcludes: [/middleware-manifest.json$/],
-  },
+  siteUrl: 'https://www.namsgym.com',
   images: {
     domains: [],
   },
-  module: {
-    rules: [
-      {
+};
+
+module.exports = withInterceptStdout(nextConfig, text =>
+  text.includes('Duplicate atom key') ? '' : text,
+);
+
+// 웹팩 설정 추가
+module.exports = withInterceptStdout(
+  {
+    reactStrictMode: true,
+    images: {
+      domains: [],
+    },
+    webpack(config, options) {
+      config.module.rules.push({
         test: /\.mp3$/,
         use: {
           loader: 'file-loader',
         },
-      },
-    ],
+      });
+      return config;
+    },
   },
-};
-
-const bulidConfig = () => {
-  const plugins = [withPWA];
-  const config = plugins.reduce((acc, plugin) => plugin(acc), {
-    ...nextConfig,
-  });
-
-  return config;
-};
-
-module.exports = withInterceptStdout(bulidConfig, text =>
-  text.includes('Duplicate atom key') ? '' : text,
+  text => (text.includes('Duplicate atom key') ? '' : text),
 );
