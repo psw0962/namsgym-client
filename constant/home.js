@@ -17,12 +17,7 @@ export const eventSlickImages = [
   {
     id: 1,
     src: event_1,
-    url: 'https://naver.me/xQ8scMMs',
-  },
-  {
-    id: 2,
-    src: event_2,
-    url: 'https://rainy-reaper-d5b.notion.site/5fb57a41b8e44458ad6e2021659e2f68',
+    url: 'https://map.naver.com/p/search/%EB%82%A8%EC%8A%A4%EC%A7%90?c=15.00,0,0,0,dh',
   },
 ];
 
@@ -85,6 +80,6 @@ export const modalImages = [
   {
     id: 1,
     src: event_1,
-    url: 'https://naver.me/xQ8scMMs',
+    url: 'https://map.naver.com/p/search/%EB%82%A8%EC%8A%A4%EC%A7%90?c=15.00,0,0,0,dh',
   },
 ];

@@ -152,7 +152,7 @@ const CenterCard = ({ data }) => {
           <CustomAtag
             themeState={themeState}
             // href={data?.naverPlaceUrl}
-            href="https://naver.me/xQ8scMMs"
+            href="https://map.naver.com/p/search/%EB%82%A8%EC%8A%A4%EC%A7%90?c=15.00,0,0,0,dh"
             target="_blank"
             rel="noreferrer"
             onClick={e => e.stopPropagation()}
