@@ -150,7 +150,7 @@ const BottomNavigation = () => {
 
 export default BottomNavigation;
 
-const Frame = styled.div`
+const Frame = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -160,7 +160,9 @@ const Frame = styled.div`
   width: 100%;
   max-width: 450px;
   height: 80px;
-  padding: 2rem;
+  width: calc(100% + 21 * 2);
+  margin: 21px 0 0px -21px;
+
   box-shadow: ${props =>
     props.themeState === 'dark'
       ? 'rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px'
@@ -180,6 +182,7 @@ const MenuList = styled.ul`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  padding: 0 1rem;
 `;
 
 const MenuWrapper = styled.li`

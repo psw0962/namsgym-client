@@ -53,25 +53,25 @@ export const snsLogoImages = [
     id: 1,
     src: kakaotalk,
     url: 'https://linktr.ee/namsgym',
-    alt: 'kakaotalk',
+    alt: '카카오톡 가기',
   },
   {
     id: 2,
     src: naverblog,
     url: 'https://search.naver.com/search.naver?where=view&sm=tab_jum&query=%EB%82%A8%EC%8A%A4%EC%A7%90',
-    alt: 'naverblog',
+    alt: '네이버 블로그 가기',
   },
   {
     id: 3,
     src: youtube,
     url: 'https://www.youtube.com/@pt7066',
-    alt: 'youtube',
+    alt: '유튜브 가기',
   },
   {
     id: 4,
     src: instagram,
     url: 'https://www.instagram.com/namsgym_official_/',
-    alt: 'youtube',
+    alt: '인스타그램 가기',
   },
 ];
 

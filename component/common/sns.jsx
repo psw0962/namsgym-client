@@ -37,12 +37,9 @@ const Sns = () => {
         <SnsWrapper isOpenSnsFrameState={isOpenSnsFrameState}>
           {snsLogoImages.map(item => {
             return (
-              <SnsButton
-                key={item.id}
-                src={item.src}
-                url={item.url}
-                alt={item.alt}
-              />
+              <li key={item.id}>
+                <SnsButton src={item.src} url={item.url} alt={item.alt} />
+              </li>
             );
           })}
         </SnsWrapper>
@@ -90,7 +87,7 @@ const SnsFrame = styled.div`
   }
 `;
 
-const SnsWrapper = styled.div`
+const SnsWrapper = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 1rem;
