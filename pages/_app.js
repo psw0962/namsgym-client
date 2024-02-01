@@ -59,12 +59,13 @@ const MyApp = ({ Component, pageProps }) => {
                         ) : (
                           <ComponentPaddingWrapper>
                             <Component {...pageProps} />
+                            <BottomNavigation />
+
                             <Analytics />
+
                             <Sns />
                           </ComponentPaddingWrapper>
                         )}
-
-                        <BottomNavigation />
                       </AppWrapper>
                     </AppFrame>
                   </>
