@@ -14,21 +14,21 @@ const bottomNavigationData = [
     id: 1,
     menu: '홈',
     iconUrl: home,
-    routerPush: 'https://www.namsgym.com',
+    routerPush: '/',
     pathName: '',
   },
   {
     id: 2,
     menu: '지점 안내',
     iconUrl: center,
-    routerPush: 'https://www.namsgym.com/center',
+    routerPush: '/center',
     pathName: 'center',
   },
   {
     id: 3,
     menu: '리뷰',
     iconUrl: review,
-    routerPush: 'https://www.namsgym.com/review',
+    routerPush: '/review',
     pathName: 'review',
   },
   // {
@@ -92,13 +92,9 @@ const BottomNavigation = () => {
                 key={item.id}
                 active={pathName === item.pathName}
                 themeState={themeState}
-                // onClick={() => router.push(item.routerPush)}
+                onClick={() => router.push(item.routerPush)}
               >
-                <LinkAtag
-                  href={item.routerPush}
-                  target="_self"
-                  rel="noreferrer"
-                >
+                <MenuSpan>
                   <ImageWrapper width={3} height={3}>
                     <Image
                       src={item.iconUrl}
@@ -118,7 +114,7 @@ const BottomNavigation = () => {
                   >
                     {item.menu}
                   </NavigationFont>
-                </LinkAtag>
+                </MenuSpan>
               </MenuWrapper>
             );
           })}
@@ -253,7 +249,7 @@ const ModalMenuWrapper = styled.div`
   padding: 1rem;
 `;
 
-const LinkAtag = styled.a`
+const MenuSpan = styled.span`
   display: flex;
   flex-direction: column;
   align-items: center;
