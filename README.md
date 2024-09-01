@@ -1,10 +1,4 @@
-## Nams Gym
-
-https://www.namsgym.com/
-
-![namsgym-client-main](https://user-images.githubusercontent.com/65061325/210709048-664a5f86-2b1c-4a10-917b-0a1c2f571b23.gif)
-
-## 사용기술 및 아키텍쳐
+## 사용기술
 
 javascript, react, nextjs, recoil, styled-components
 
