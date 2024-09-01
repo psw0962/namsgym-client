@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import Font from '@/component/common/font';
 import EventCard from '@/component/event/event-card';
 import { eventData } from '@/constant/event';
-import FadeIn from 'react-fade-in';
 
 const Event = () => {
   return (
@@ -11,13 +10,11 @@ const Event = () => {
         이벤트
       </Font>
 
-      <FadeIn>
-        <CardWrapper>
-          {eventData.map(item => {
-            return <EventCard key={item?.id} data={item} />;
-          })}
-        </CardWrapper>
-      </FadeIn>
+      <CardWrapper>
+        {eventData.map(item => {
+          return <EventCard key={item?.id} data={item} />;
+        })}
+      </CardWrapper>
     </Frame>
   );
 };

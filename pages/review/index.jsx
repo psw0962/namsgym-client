@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Font from '@/component/common/font';
 import ReviewTab from '@/component/review/review-tab';
-import FadeIn from 'react-fade-in';
 import ReviewCard from '@/component/review/review-card';
 import { reviewData } from '@/constant/review';
 import { useRecoilState } from 'recoil';
@@ -155,21 +154,19 @@ const Review = () => {
         setTabState={setReviewFilterState}
       />
 
-      <FadeIn>
-        {reviews?.length === 0 && <NoContent>검색결과가 없습니다.</NoContent>}
+      {reviews?.length === 0 && <NoContent>검색결과가 없습니다.</NoContent>}
 
-        <CardFrame>
-          {reviews?.map(item => {
-            return (
-              <ReviewCard
-                key={item.id}
-                data={item}
-                onClick={() => onClickReviewCard(item)}
-              />
-            );
-          })}
-        </CardFrame>
-      </FadeIn>
+      <CardFrame>
+        {reviews?.map(item => {
+          return (
+            <ReviewCard
+              key={item.id}
+              data={item}
+              onClick={() => onClickReviewCard(item)}
+            />
+          );
+        })}
+      </CardFrame>
 
       <Modal
         state={isMenuOpen}

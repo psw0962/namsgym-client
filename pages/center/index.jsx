@@ -4,7 +4,6 @@ import { centerCardData } from '@/constant/center/index';
 import React from 'react';
 import KaKaoMap from '@/component/common/kakao-map';
 import Font from '@/component/common/font';
-import FadeIn from 'react-fade-in';
 
 const Center = () => {
   return (
@@ -13,19 +12,17 @@ const Center = () => {
         지점 안내
       </Font>
 
-      <FadeIn>
-        <CenterCardFrame>
-          {centerCardData.map(item => {
-            return <CenterCard key={item.id} data={item} />;
-          })}
-        </CenterCardFrame>
-      </FadeIn>
+      <CenterCardFrame>
+        {centerCardData.map(item => {
+          return <CenterCard key={item.id} data={item} />;
+        })}
+      </CenterCardFrame>
 
       <Font fontSize="2rem" margin="10rem 0 2rem 0">
-        남스짐 전체 지점 현황{' '}
+        남스짐 전체 지점 현황
         <CustomSpan>
-          *2022 12월 기준 총{' '}
-          <span style={{ color: '#B49445' }}>{centerCardData?.length}호점</span>{' '}
+          *2022 12월 기준 총
+          <span style={{ color: '#B49445' }}>{centerCardData?.length}호점</span>
           운영중
         </CustomSpan>
       </Font>

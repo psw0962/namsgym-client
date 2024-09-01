@@ -8,11 +8,11 @@ const useThemeState = () => {
   useEffect(() => {
     const theme = window.localStorage.getItem('theme');
 
-    if(theme) setThemeState(theme);
-    if(!theme) setThemeState('light');
-  }, [themeState])
+    if (theme) setThemeState(theme);
+    if (!theme) setThemeState('light');
+  }, [themeState]);
 
   return { themeState };
-}
+};
 
 export default useThemeState;

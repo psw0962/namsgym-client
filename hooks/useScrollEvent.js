@@ -11,7 +11,9 @@ const useScrollEvent = () => {
       return;
     }
 
-    window.addEventListener('scroll', () => setGetUserHeight(window.pageYOffset));
+    window.addEventListener('scroll', () =>
+      setGetUserHeight(window.pageYOffset),
+    );
 
     window.addEventListener('scroll', () => {
       const st = window.pageYOffset || document.documentElement.scrollTop;
