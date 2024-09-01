@@ -26,7 +26,6 @@
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "18.2.0",
-    "react-fade-in": "^2.0.1",
     "react-is": "^18.2.0",
     "react-paginate": "^8.1.5",
     "react-query": "^3.39.2",

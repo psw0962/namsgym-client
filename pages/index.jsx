@@ -3,7 +3,6 @@ import Image from 'next/image';
 import ImageWrapper from '@/component/common/image-wrapper';
 import styled from 'styled-components';
 import Slick from '@/component/common/slick';
-import FadeIn from 'react-fade-in';
 import Font from '@/component/common/font';
 import { motion } from 'framer-motion';
 import useThemeState from '@/hooks/useThemeState';
@@ -56,34 +55,31 @@ const Home = () => {
           title="PT로 사람이 달라지다니!찐 후기"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
-          // frameBorder="0"
         ></iframe>
       </IframeWrapper>
 
       <CustomSlick data={eventSlickImages} height={40}></CustomSlick>
 
-      <FadeIn>
-        <div>
-          <Font fontSize="2.5rem" margin="6rem 0 3rem 0">
-            <span style={{ color: '#B49445' }}>남스짐</span>의 차별화된 운영방식
-          </Font>
+      <div>
+        <Font fontSize="2.5rem" margin="6rem 0 3rem 0">
+          <span style={{ color: '#B49445' }}>남스짐</span>의 차별화된 운영방식
+        </Font>
 
-          {mainImages.map((item, index) => {
-            return (
-              <CustomImageWrapper key={item.id}>
-                <Image
-                  src={item.src}
-                  alt={`main${index}`}
-                  priority={true}
-                  quality={100}
-                  placeholder="blur"
-                  blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
-                />
-              </CustomImageWrapper>
-            );
-          })}
-        </div>
-      </FadeIn>
+        {mainImages.map((item, index) => {
+          return (
+            <CustomImageWrapper key={item.id}>
+              <Image
+                src={item.src}
+                alt={`main${index}`}
+                priority={true}
+                quality={100}
+                placeholder="blur"
+                blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+              />
+            </CustomImageWrapper>
+          );
+        })}
+      </div>
 
       <Font fontSize="2.5rem" margin="6rem 0 3rem 0">
         <span style={{ color: '#B49445' }}>남스짐</span>의 차별화된 트레이닝

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import Font from '@/component/common/font';
 import mainLogo from '@/public/png/mainlogo.png';
 import ImageWrapper from '@/component/common/image-wrapper';
 import Image from 'next/image';
@@ -58,9 +57,4 @@ const Frame = styled.div`
   position: fixed;
   z-index: 100;
   background-color: #fff;
-`;
-
-const LogoFont = styled(Font)`
-  font-family: 'Alfa Slab One', cursive;
-  text-align: center;
 `;
