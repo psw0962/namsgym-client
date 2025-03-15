@@ -1,6 +1,6 @@
 ## 사용기술
 
-javascript, react, nextjs, recoil, styled-components
+nextjs, recoil, styled-components
 
 ## 주요 기능
 
